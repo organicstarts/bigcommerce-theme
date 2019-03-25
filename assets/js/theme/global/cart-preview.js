@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import 'foundation-sites/js/foundation/foundation';
 import 'foundation-sites/js/foundation/foundation.dropdown';
 import utils from '@bigcommerce/stencil-utils';
@@ -8,7 +7,7 @@ export const CartPreviewEvents = {
     open: 'opened.fndtn.dropdown',
 };
 
-export default function (secureBaseUrl) {
+export default function (secureBaseUrl, cartId) {
     const loadingClass = 'is-loading';
     const $cart = $('[data-cart-preview]');
     const $cartDropdown = $('#cart-preview-dropdown');
@@ -20,6 +19,9 @@ export default function (secureBaseUrl) {
         $('.cart-quantity')
             .text(quantity)
             .toggleClass('countPill--positive', quantity > 0);
+        if (utils.tools.storage.localStorageAvailable()) {
+            localStorage.setItem('cart-quantity', quantity);
+        }
     });
 
     $cart.on('click', event => {
@@ -54,29 +56,31 @@ export default function (secureBaseUrl) {
 
     let quantity = 0;
 
-    // Get existing quantity from localStorage if found
-    if (utils.tools.storage.localStorageAvailable()) {
-        if (localStorage.getItem('cart-quantity')) {
-            quantity = Number(localStorage.getItem('cart-quantity'));
-            $body.trigger('cart-quantity-update', quantity);
-        }
-    }
-
-    // Get updated cart quantity from the Cart API
-    const cartQtyPromise = new Promise((resolve, reject) => {
-        utils.api.cart.getCartQuantity({ baseUrl: secureBaseUrl }, (err, qty) => {
-            if (err) {
-                reject(err);
-            }
-            resolve(qty);
-        });
-    });
-
-    // If the Cart API gives us a different quantity number, update it
-    cartQtyPromise.then(qty => {
-        $body.trigger('cart-quantity-update', qty);
+    if (cartId) {
+        // Get existing quantity from localStorage if found
         if (utils.tools.storage.localStorageAvailable()) {
-            localStorage.setItem('cart-quantity', qty);
+            if (localStorage.getItem('cart-quantity')) {
+                quantity = Number(localStorage.getItem('cart-quantity'));
+                $body.trigger('cart-quantity-update', quantity);
+            }
         }
-    });
+
+        // Get updated cart quantity from the Cart API
+        const cartQtyPromise = new Promise((resolve, reject) => {
+            utils.api.cart.getCartQuantity({ baseUrl: secureBaseUrl }, (err, qty) => {
+                if (err) {
+                    reject(err);
+                }
+                resolve(qty);
+            });
+        });
+
+        // If the Cart API gives us a different quantity number, update it
+        cartQtyPromise.then(qty => {
+            quantity = qty;
+            $body.trigger('cart-quantity-update', quantity);
+        });
+    } else {
+        $body.trigger('cart-quantity-update', quantity);
+    }
 }

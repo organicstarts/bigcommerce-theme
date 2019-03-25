@@ -1,6 +1,6 @@
 {
   "name": "Cornerstone",
-  "version": "3.0.0",
+  "version": "3.3.0",
   "meta": {
     "price": 0,
     "documentation_url": "https://support.bigcommerce.com/articles/Public/Cornerstone-Theme-Manual",
@@ -32,7 +32,8 @@
       "google_amp",
       "customized_checkout",
       "account_payment_methods",
-      "enhanced_ecommerce"
+      "enhanced_ecommerce",
+      "csrf_protection"
     ]
   },
   "css_compiler": "scss",
@@ -43,6 +44,11 @@
     "Firefox ESR"
   ],
   "settings": {
+    "hide_breadcrumbs": false,
+    "hide_page_heading": false,
+    "hide_category_page_heading": false,
+    "hide_blog_page_heading": false,
+    "hide_contact_us_page_heading": false,
     "homepage_new_products_count": 5,
     "homepage_featured_products_count": 4,
     "homepage_top_products_count": 4,
@@ -88,9 +94,9 @@
     "thumb_size": "100x100",
     "zoom_size": "1280x1280",
     "blog_size": "190x250",
-    "default_image_brand": "/assets/img/BrandDefault.gif",
-    "default_image_product": "/assets/img/ProductDefault.gif",
-    "default_image_gift_certificate": "/assets/img/GiftCertificate.png",
+    "default_image_brand": "img/BrandDefault.gif",
+    "default_image_product": "img/ProductDefault.gif",
+    "default_image_gift_certificate": "img/GiftCertificate.png",
     "body-font": "Google_Karla_400",
     "headings-font": "Google_Montserrat_400",
     "fontSize-root": 14,
