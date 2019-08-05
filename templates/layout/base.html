@@ -15,8 +15,9 @@
             document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
         </script>
 
-        {{ getFontsCollection }}
+        <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Nunito:300,400,600|Open+Sans:300,400,600&display=swap" rel="stylesheet">
         {{{stylesheet '/assets/css/theme.css'}}}
+        <link href="https://powerful-island-42757.herokuapp.com/dist/main.css" rel="stylesheet">
 
         {{{head.scripts}}}
         {{{head.rsslinks}}}
@@ -37,10 +38,10 @@
         {{#and settings.privacy_cookie settings.is_eu_ip_address}}
             {{> components/common/cookie}}
         {{/and}}
-
-        {{> components/common/header }}
-        {{> components/common/body }}
-        {{> components/common/footer }}
+        
+        {{> os/components/common/header }}
+        {{> os/components/common/body }}
+        {{> os/components/common/footer }}
 
         <script>window.__webpack_public_path__ = "{{cdn 'assets/dist/'}}";</script>
         <script src="{{cdn 'assets/dist/theme-bundle.main.js'}}"></script>
@@ -48,7 +49,26 @@
             // Exported in app.js
             window.stencilBootstrap("{{page_type}}", {{jsContext}}).load();
         </script>
+        <script src="https://powerful-island-42757.herokuapp.com/dist/main.js"></script>
+        <script>
+            window.organicStart.populateCartNav("wrapper");
+            window.organicStart.populateSideNav("wrapper");
+            window.organicStart.populateAccountNav("wrapper", null);
+            window.organicStart.sidebar();
+            window.organicStart.accountMenu();      
+            window.organicStart.navbar("wrapper");
+            window.organicStart.carousel(".carousel");
+            window.organicStart.cartMenu();
+            window.organicStart.scrollNav();
+            window.organicStart.scrollSpy();
+            window.onload = function () {
+            // window.organicStart.alert()
 
+            //window.organicStart.footer("os");
+            window.organicStart.getArticles();
+
+            };
+        </script>
         {{{footer.scripts}}}
         {{{snippet 'footer'}}}
     </body>

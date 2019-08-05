@@ -15,6 +15,7 @@ blog:
     {{#if carousel}}
         {{> components/carousel arrows=theme_settings.homepage_show_carousel_arrows}}
     {{/if}}
+    {{> os/components/hero}}
     {{{snippet 'home_content'}}}
 {{/partial}}
 
@@ -37,5 +38,6 @@ blog:
         {{> components/products/new products=products.new columns=theme_settings.homepage_new_products_column_count}}
     {{/if}}
 </div>
+{{> os/components/category/carousel}}
 {{/partial}}
 {{> layout/base}}
