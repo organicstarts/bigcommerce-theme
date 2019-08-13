@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html class="no-js" lang="{{ locale_name }}">
     <head>
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-KH7P2ZR');</script>
+        <!-- End Google Tag Manager -->
+
         <title>{{ head.title }}</title>
         {{{ resourceHints }}}
         {{{ head.meta_tags }}}
@@ -9,6 +17,7 @@
 
         <link href="{{ head.favicon }}" rel="shortcut icon">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="canonical" href="http://localhost:3000" />
 
         <script>
             // Change document class from no-js to js so we can detect this in css
@@ -17,7 +26,9 @@
 
         <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Nunito:300,400,600|Open+Sans:300,400,600&display=swap" rel="stylesheet">
         {{{stylesheet '/assets/css/theme.css'}}}
-        <link href="https://powerful-island-42757.herokuapp.com/dist/main.css" rel="stylesheet">
+
+        <!--<link href="https://powerful-island-42757.herokuapp.com/dist/main.css" rel="stylesheet">-->
+        <link href="http://localhost:8080/main.css" rel="stylesheet">
 
         {{{head.scripts}}}
         {{{head.rsslinks}}}
@@ -32,42 +43,58 @@
         {{{snippet 'htmlhead'}}}
     </head>
     <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KH7P2ZR"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+        
         {{{snippet 'header'}}}
         <svg data-src="{{cdn 'img/icon-sprite.svg'}}" class="icons-svg-sprite"></svg>
 
         {{#and settings.privacy_cookie settings.is_eu_ip_address}}
             {{> components/common/cookie}}
         {{/and}}
-        
-        {{> os/components/common/header }}
-        {{> os/components/common/body }}
-        {{> os/components/common/footer }}
+
+        <div id="wrapper" data-currency-code="{{currency_selector.active_currency_code}}">
+            <header>
+                {{> os/components/common/header }}
+                {{#block "header"}} {{/block}}
+            </header>
+            {{> os/components/common/body }}
+            {{> os/components/common/footer }}
+        </div>
+
+        <!--<script src="https://powerful-island-42757.herokuapp.com/dist/main.js"></script>-->
+        <script src="http://localhost:8080/main.js"></script>
+        <script>
+            //window.organicStart.navbar("wrapper");
+            window.organicStart.accountMenu(); 
+            window.organicStart.cartMenu();
+            window.organicStart.populateCartNav("wrapper");
+            window.organicStart.populateSideNav("wrapper");
+            window.organicStart.populateAccountNav("wrapper", null);
+            window.organicStart.sidebar();
+                
+            window.organicStart.carousel(".carousel");
+            window.organicStart.scrollNav();
+            window.organicStart.scrollSpy();
+            // window.onload = function () {
+            // // window.organicStart.alert()
+
+            // //window.organicStart.footer("os");
+            // window.organicStart.getArticles();
+
+            // };
+
+            window.onload = function () {
+            };
+        </script>
 
         <script>window.__webpack_public_path__ = "{{cdn 'assets/dist/'}}";</script>
         <script src="{{cdn 'assets/dist/theme-bundle.main.js'}}"></script>
         <script>
             // Exported in app.js
             window.stencilBootstrap("{{page_type}}", {{jsContext}}).load();
-        </script>
-        <script src="https://powerful-island-42757.herokuapp.com/dist/main.js"></script>
-        <script>
-            window.organicStart.populateCartNav("wrapper");
-            window.organicStart.populateSideNav("wrapper");
-            window.organicStart.populateAccountNav("wrapper", null);
-            window.organicStart.sidebar();
-            window.organicStart.accountMenu();      
-            window.organicStart.navbar("wrapper");
-            window.organicStart.carousel(".carousel");
-            window.organicStart.cartMenu();
-            window.organicStart.scrollNav();
-            window.organicStart.scrollSpy();
-            window.onload = function () {
-            // window.organicStart.alert()
-
-            //window.organicStart.footer("os");
-            window.organicStart.getArticles();
-
-            };
         </script>
         {{{footer.scripts}}}
         {{{snippet 'footer'}}}

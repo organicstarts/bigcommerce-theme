@@ -5,6 +5,7 @@ category:
         limit: {{theme_settings.categorypage_products_per_page}}
 ---
 {{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
+
 {{#partial "head"}}
     {{#if pagination.category.previous}}
         <link rel="prev" href="{{pagination.category.previous}}">
@@ -14,42 +15,42 @@ category:
     {{/if}}
 {{/partial}}
 
+{{#partial "header"}} 
+    {{> os/components/common/title title=category.name}}
+    {{> os/components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+{{/partial}}
+
 {{#partial "page"}}
 
-{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-{{#if category.image}}
-    <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage category.image 'zoom_size'}}">
-{{/if}}
-{{#unless theme_settings.hide_category_page_heading }}
-    <h1 class="page-heading">{{category.name}}</h1>
-{{/unless}}
-{{{category.description}}}
-{{{snippet 'categories'}}}
-<div class="page">
-    {{#if category.faceted_search_enabled}}
-        <aside class="page-sidebar" id="faceted-search-container">
-            {{> components/category/sidebar}}
-        </aside>
-    {{else if category.subcategories}}
-        <aside class="page-sidebar" id="faceted-search-container">
-            {{> components/category/sidebar}}
-        </aside>
-    {{else if category.shop_by_price}}
-        {{#if theme_settings.shop_by_price_visibility}}
-             <aside class="page-sidebar" id="faceted-search-container">
-                {{> components/category/sidebar}}
-            </aside>
-        {{/if}}
+    {{#if category.image}}
+        <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage category.image 'zoom_size'}}">
     {{/if}}
 
-    <main class="page-content" id="product-listing-container">
-        {{#if category.products}}
-            {{> components/category/product-listing}}
-        {{else}}
-            <p>{{lang 'categories.no_products'}}</p>
-        {{/if}}
-    </main>
-</div>
+    {{{category.description}}}
 
+    {{{snippet 'categories'}}}
+    
+    <div class="container mt-4">
+        <div class="row">
+            <aside class="col-12 col-lg-3 d-none d-lg-block" id="faceted-search-container">
+                {{#if category.faceted_search_enabled}}
+                    {{> os/components/category/sidebar}}
+                {{else if category.subcategories}}
+                    {{> os/components/category/sidebar}}
+                {{else if category.shop_by_price}}
+                    {{#if theme_settings.shop_by_price_visibility}}
+                        {{> os/components/category/sidebar}}
+                    {{/if}}
+                {{/if}}
+            </aside>
+            <main class="col-12 col-lg-9 page-content" id="product-listing-container">
+                {{#if category.products}}
+                    {{> os/components/category/product-listing}}
+                {{else}}
+                    <p>{{lang 'categories.no_products'}}</p>
+                {{/if}}
+            </main>
+        </div>
+    </div>
 {{/partial}}
 {{> layout/base}}

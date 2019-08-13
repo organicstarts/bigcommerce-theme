@@ -11,33 +11,177 @@ blog:
     recent_posts:
         limit: {{theme_settings.homepage_blog_posts_count}}
 ---
-{{#partial "hero"}}
-    {{#if carousel}}
-        {{> components/carousel arrows=theme_settings.homepage_show_carousel_arrows}}
-    {{/if}}
-    {{> os/components/hero}}
-    {{{snippet 'home_content'}}}
-{{/partial}}
 
 {{#partial "page"}}
 
-    {{#each shipping_messages}}
-        {{> components/common/alert-info message}}
-    {{/each}}
+    <div class="home jumbotron overflow-hidden rounded-0 m-0">
+        <div class="row justify-content-center align-items-start justify-content-lg-end align-items-lg-center text-center text-lg-left h-100">
+            <div class="col-12 col-lg-5 offset-lg-7 pt-10 pt-lg-0">
+                <h1 class="display-3 animated fadeInDown slow">Home to<span class="d-inline">&nbsp;</span><br class="d-none d-lg-block">the world's best<span class="d-inline">&nbsp;</span><br class="d-none d-lg-block">organic baby<span class="d-inline">&nbsp;</span><br class="d-none d-lg-block">products.</h1>
+            </div>
+        </div>
+    </div>
 
-<div class="main full">
+    <section class="py-4 py-lg-5 bg-headline bg-white text-center" id="tagline" data-spy="scroll" data-delayed="1200">
+        <div class="py-lg-5">
+            <h2 class="text-moss-600" data-spy="item" data-animation="fadeIn" data-staggered="true" data-timeout="500">Lorem ipsum dolor sit amet</h2>
+            <h2 data-spy="item" data-animation="fadeIn" data-staggered="true" data-timeout="300"><small class="text-moss-300">Ut semper metus eget tristique dapibus. Nullam vitae metus vel.</small></h2>
+        </div>
+    </section>
+
+    <section class="bg-bundles bg-gray-50" id="bundles" data-spy="scroll">
+        <div class="container-fluid p-0">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-12 col-lg-6 m-0 bundles-img">
+                    
+                </div>
+                <div class="col-12 col-lg-6 px-lg-4 px-xl-5 py-5 py-xl-10 text-center text-lg-left">
+                    <h3 class="text-gray-900 mb-3 h2-xl">
+                        <span data-spy="item" data-animation="fadeInRight" data-staggered="true"
+                            data-timeout="300">Bundles for Every Occassion</span><br>
+                        <small  class="text-gray-800" data-spy="item" data-animation="fadeInRight" data-staggered="true"
+                            data-timeout="300">
+                            We've paired the best products<span class="d-none d-sm-inline">&nbsp;</span><br class="d-inline d-sm-none">with the best prices.
+                        </small>
+                    </h3>
+                    <a href="#" class="ui large bg-mustard-300 text-dark button rounded-pill" data-spy="item"
+                    data-animation="fadeInUp" data-staggered="true" data-timeout="250">
+                    Shop Bundles
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     {{#if products.featured}}
-        {{> components/products/featured products=products.featured columns=theme_settings.homepage_featured_products_column_count}}
+        <section class="py-5 py-lg-10 bg-featured bg-moss-50" id="featured" data-spy="scroll">
+            <h2 class="display-4 text-center my-5 pb-5 text-gray-100" data-spy="item" data-animation="fadeInUp">{{lang 'products.featured' }}</h2>
+            <div class="pb-5 mb-5">{{> os/components/products/carousel products=products.featured type="featured" name=(lang 'products.featured')}}</div>
+        </section>
     {{/if}}
 
+    <div class="position-relative">
+        <div class="shape shape-bottom shape-fluid-x svg-shim text-light">
+            <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="#fff"></path>
+            </svg>
+        </div>
+    </div>
+
+    <section class="py-10 py-xl-15 bg-white" id="points" data-spy="scroll">
+        <div class="container">
+            <div class="row align-items-center justify-content-center text-center">
+                <div class="col-10 col-md-6 order-2 order-lg-1 col-lg-4 px-lg-5 px-xl-0 col-xl-3 mb-10 mb-lg-0">
+                    <div class="max-w-350 mx-auto">
+                        <img class="ui medium image img-fluid mx-auto mb-7" src="https://triad.imgix.net/os/i/home/stork.svg?s=733bc5059f5f3fa14bac41d63c8a37bf" data-spy="item" data-animation="bounceIn slow">
+                        <h5 class="text-uppercase font-weight-bold text-gray-800 mb-3" data-spy="item" data-animation="fadeInUp slow">
+                            Mommy Care
+                        </h5>
+                        <p class="lead text-gray-600" data-spy="item" data-animation="fadeInUp slower">
+                            Introducing all-new prenatal, post-partum and breast-feeding products.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-10 order-1 order-lg-2 col-lg-4 px-lg-5 px-xl-0 col-xl-3 offset-xl-1 mb-10 mb-md-0 mb-lg-0">
+                    <div class="max-w-350 mx-auto">
+                        <img class="ui medium image img-fluid mx-auto mb-6" src="https://triad.imgix.net/os/i/home/leaves.svg?s=4e21ea0ea3a84bd9bfd2014f8291209c" data-spy="item" data-animation="bounceIn">
+                        <h5 class="text-uppercase font-weight-bold text-gray-800 mb-3" data-spy="item" data-animation="fadeInUp slow">
+                            Certified Organic
+                        </h5>
+                        <p class="lead text-gray-600" data-spy="item" data-animation="fadeInUp slower">
+                            Shop hundreds of vetted, tested &amp; approved certified organic products.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-10 col-md-6 order-3 col-lg-4 px-lg-5 px-xl-0 col-xl-3 offset-xl-1">
+                    <div class="max-w-350 mx-auto">
+                        <img class="ui medium image img-fluid mx-auto mb-7" src="https://triad.imgix.net/os/i/home/truck.svg?s=3b8e0167475c76887f50c10f8802c832&v=2" data-spy="item" data-animation="bounceIn slow">
+                        <h5 class="text-uppercase font-weight-bold text-gray-800 mb-3" data-spy="item" data-animation="fadeInUp slow">
+                            Fast &amp; Free Shipping
+                        </h5>
+                        <p class="lead text-gray-600" data-spy="item" data-animation="fadeInUp slower">
+                            We ship daily and orders arrive in only 1 to 3 days. No membership or fees.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="position-relative">
+        <div class="shape shape-bottom shape-fluid-x svg-shim text-light">
+            <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="#fcfcfc"></path>
+            </svg>
+        </div>
+    </div>
+
     {{#if products.top_sellers}}
-        {{> components/products/top products=products.top_sellers columns=theme_settings.homepage_top_products_column_count}}
+        <section class="py-10 py-lg-12 py-xl-15 bg-popular" id="topSellers" data-spy="scroll">
+            <h2 class="display-4 text-center mb-5 text-gray-800">{{lang 'products.top' }}</h2>
+            {{> os/components/products/carousel products=products.top_sellers type="top_sellers" name=(lang 'products.top')}}
+        </section>
     {{/if}}
 
     {{#if products.new}}
-        {{> components/products/new products=products.new columns=theme_settings.homepage_new_products_column_count}}
+        <section class="py-10 py-lg-12 py-xl-15 bg-autumn" id="newProducts" data-spy="scroll">
+            <h2 class="display-4 text-center mb-5 text-gray-800">{{lang 'products.new' }}</h2>
+            {{> os/components/products/carousel products=products.new name=(lang 'products.new')}}
+        </section>
     {{/if}}
-</div>
-{{> os/components/category/carousel}}
+
+    <section class="py-10 py-lg-12 py-xl-15" id="categories" data-spy="scroll">
+        <div class="category carousel">
+            <div class="category-slide d-flex justify-content-center align-items-center m-auto">
+                <div class="category card first young_grass" data-spy="item" data-animation="fadeInRight"
+                    data-staggered="true" data-timeout="250">
+                    <p class="content text-white text-uppercase font-weight-bold pt-5 pl-1" data-spy="item"
+                        data-animation="fadeInRight" data-staggered="true" data-timeout="300">Baby
+                        Food</p>
+                </div>
+            </div>
+            <div class="category-slide d-flex justify-content-center align-items-center m-auto">
+                <div class="category card second sharp_blues" data-spy="item" data-animation="fadeInRight"
+                    data-staggered="true" data-timeout="250">
+                    <p class="content text-white text-uppercase font-weight-bold pt-5 pl-1" data-spy="item"
+                        data-animation="fadeInRight" data-staggered="true" data-timeout="300">Baby
+                        Care</p>
+                </div>
+            </div>
+            <div class="category-slide d-flex justify-content-center align-items-center m-auto">
+                <div class="category card second happy_memories" data-spy="item" data-animation="fadeInRight"
+                    data-staggered="true" data-timeout="250">
+                    <p class="content text-white text-uppercase font-weight-bold pt-5 pl-1" data-spy="item"
+                        data-animation="fadeInRight" data-staggered="true" data-timeout="300">Clothes
+                    </p>
+                </div>
+            </div>
+            <div class="category-slide d-flex justify-content-center align-items-center m-auto">
+                <div class="category card second eternal_constance" data-spy="item" data-animation="fadeInRight"
+                    data-staggered="true" data-timeout="250">
+                    <p class="content text-white text-uppercase font-weight-bold pt-5 pl-1" data-spy="item"
+                        data-animation="fadeInRight" data-staggered="true" data-timeout="300">Toys</p>
+                </div>
+            </div>
+            <div class="category-slide d-flex justify-content-center align-items-center m-auto">
+                <div class="category card second mars_party" data-spy="item" data-animation="fadeInRight"
+                    data-staggered="true" data-timeout="250">
+                    <p class="content text-white text-uppercase font-weight-bold pt-5 pl-1" data-spy="item"
+                        data-animation="fadeInRight" data-staggered="true" data-timeout="300">Diapers
+                    </p>
+                </div>
+            </div>
+            <div class="category-slide d-flex justify-content-center align-items-center m-auto">
+                <div class="category card second amour_amour" data-spy="item" data-animation="fadeInRight"
+                    data-staggered="true" data-timeout="250">
+                    <p class="content text-white text-uppercase font-weight-bold pt-5 pl-1" data-spy="item"
+                        data-animation="fadeInRight" data-staggered="true" data-timeout="300">Mommy
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
 {{/partial}}
+
 {{> layout/base}}

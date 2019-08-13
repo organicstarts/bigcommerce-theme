@@ -1,0 +1,40 @@
+<div class="pagination">
+    <ul class="list-group list-group-horizontal mt-4 mx-auto">
+        {{#if previous}}
+            <li class="page-item page-item--previous">
+                <a class="page-link py-1 px-2 py-lg-2 px-lg-4" href="{{previous}}" {{#unless reload}}data-faceted-search-facet{{/unless}}>
+                    <i class="icon" aria-hidden="true">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-chevron-left"></use>
+                        </svg>
+                    </i>
+                    {{lang 'common.previous'}}
+                </a>
+            </li>
+        {{/if}}
+        {{#each links}}
+            {{#if this.number '==' ../current}}
+                <li class="page-item active">
+                    <span class="page-link py-1 px-2 py-lg-2 px-lg-4" {{#unless reload}}data-faceted-search-facet{{/unless}}>{{this.number}}<span class="sr-only">(current)</span></span>
+                </li>
+            {{else}}
+                <li class="page-item">
+                    <a class="page-link py-1 px-2 py-lg-2 px-lg-4" href="{{this.url}}" {{#unless reload}}data-faceted-search-facet{{/unless}}>{{this.number}}</a>
+                </li>
+            {{/if}}
+        {{/each}}
+
+        {{#if next}}
+            <li class="page-item page-item--next">
+                <a class="page-link py-1 px-2 py-lg-2 px-lg-4" href="{{next}}" {{#unless reload}}data-faceted-search-facet{{/unless}}>
+                    {{lang 'common.next'}}
+                    <i class="icon" aria-hidden="true">
+                        <svg>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-chevron-right"></use>
+                        </svg>
+                    </i>
+                </a>
+            </li>
+        {{/if}}
+    </ul>
+    </div>
