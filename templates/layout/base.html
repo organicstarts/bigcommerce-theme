@@ -13,6 +13,8 @@
         {{{ resourceHints }}}
         {{{ head.meta_tags }}}
         {{{ head.config }}}
+
+        <!-- Template Specific Head Tags -->
         {{#block "head"}} {{/block}}
 
         <link href="{{ head.favicon }}" rel="shortcut icon">
@@ -20,7 +22,6 @@
         <link rel="canonical" href="http://localhost:3000" />
 
         <script>
-            // Change document class from no-js to js so we can detect this in css
             document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
         </script>
 
@@ -49,46 +50,30 @@
         <!-- End Google Tag Manager (noscript) -->
         
         {{{snippet 'header'}}}
-        <svg data-src="{{cdn 'img/icon-sprite.svg'}}" class="icons-svg-sprite"></svg>
+        <!--<svg data-src="{{cdn 'img/icon-sprite.svg'}}" class="icons-svg-sprite"></svg>-->
 
         {{#and settings.privacy_cookie settings.is_eu_ip_address}}
             {{> components/common/cookie}}
         {{/and}}
 
-        <div id="wrapper" data-currency-code="{{currency_selector.active_currency_code}}">
-            <header>
-                {{> os/components/common/header }}
+        {{> os/components/common/navigation-mobile}}
+        {{> os/components/cart/menu}}
+        {{> os/components/account/mobile}}
+        <div id="wrapper" class="mm-page mm-slideout" data-currency-code="{{currency_selector.active_currency_code}}">
+            {{> os/components/common/header }}
+            <main id="body">
                 {{#block "header"}} {{/block}}
-            </header>
-            {{> os/components/common/body }}
+                {{> os/components/common/body }}
+            </main>
             {{> os/components/common/footer }}
         </div>
 
         <!--<script src="https://powerful-island-42757.herokuapp.com/dist/main.js"></script>-->
         <script src="http://localhost:8080/main.js"></script>
         <script>
-            //window.organicStart.navbar("wrapper");
-            window.organicStart.accountMenu(); 
-            window.organicStart.cartMenu();
-            window.organicStart.populateCartNav("wrapper");
-            window.organicStart.populateSideNav("wrapper");
-            window.organicStart.populateAccountNav("wrapper", null);
-            window.organicStart.sidebar();
-                
-            window.organicStart.carousel(".carousel");
-            window.organicStart.scrollNav();
-            window.organicStart.scrollSpy();
-            // window.onload = function () {
-            // // window.organicStart.alert()
-
-            // //window.organicStart.footer("os");
-            // window.organicStart.getArticles();
-
-            // };
-
-            window.onload = function () {
-            };
+            oSx.Start();
         </script>
+        {{#block "scripts"}} {{/block}}
 
         <script>window.__webpack_public_path__ = "{{cdn 'assets/dist/'}}";</script>
         <script src="{{cdn 'assets/dist/theme-bundle.main.js'}}"></script>

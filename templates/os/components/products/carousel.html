@@ -1,7 +1,7 @@
-<ul class="product carousel"{{#if type}} data-product-type="{{type}}" {{/if}}{{#if settings.data_tag_enabled}}{{#if name}} data-list-name="{{name}}" {{/if}}{{/if}}>
+<div class="product-carousel {{#if type}} {{type}}-carousel{{else}}carousel{{/if}}" {{#if type}}data-product-type="{{type}}"{{/if}}{{#if settings.data_tag_enabled}}{{#if name}} data-list-name="{{name}}"{{/if}}{{/if}}{{#if wrap}} data-wrap="{{wrap}}"{{/if}}{{#if align}} data-align="{{align}}"{{/if}}>
     {{#each products}}
-        <li class="product-slide d-flex justify-content-center align-items-center m-auto">
+        <div class="product-slide d-flex justify-content-center align-items-center m-auto">
                 {{> os/components/products/card settings=../settings theme_settings=../theme_settings customer=../customer event="list" position=(add @index 1)}}
-        </li>
+        </div>
     {{/each}}
-</ul>
+</div>

@@ -13,29 +13,29 @@
 // -----------------------------------------------------------------------------
 
 
-.breadcrumbs {
-    display: none; // 1
-    font-size: 0; // 2
-    text-align: center;
+// .breadcrumbs {
+//     display: none; // 1
+//     font-size: 0; // 2
+//     text-align: center;
 
-    @include breakpoint("small") {
-        display: block; // 1
-    }
-}
+//     @include breakpoint("small") {
+//         display: block; // 1
+//     }
+// }
 
-.breadcrumb {
-    display: inline-block;
-    float: none;
+// .breadcrumb {
+//     display: inline-block;
+//     float: none;
 
-    &.is-active {
+//     &.is-active {
 
-        // scss-lint:disable NestingDepth
-        > .breadcrumb-label {
-            cursor: text;
-        }
-    }
-}
+//         // scss-lint:disable NestingDepth
+//         > .breadcrumb-label {
+//             cursor: text;
+//         }
+//     }
+// }
 
-.breadcrumb-label {
-    text-decoration: none;
-}
+// .breadcrumb-label {
+//     text-decoration: none;
+// }

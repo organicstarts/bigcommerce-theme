@@ -1,0 +1,6 @@
+<section class="my-5 my-lg-8 my-xl-10" id="SimilarProducts" data-spy="scroll">
+    <div class="container">
+        <h3 class="display-4 mb-5 text-center text-lg-left text-gray-800">{{lang 'products.similar_by_views'}}</h3>
+    </div>
+    {{> os/components/products/carousel products=product.similar_by_views columns=6 list="Customers Also Viewed" wrap="false" align="left"}}
+</section>

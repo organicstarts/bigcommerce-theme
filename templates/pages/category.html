@@ -16,8 +16,10 @@ category:
 {{/partial}}
 
 {{#partial "header"}} 
-    {{> os/components/common/title title=category.name}}
-    {{> os/components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+    <header>
+        {{> os/components/common/title title=category.name}}
+        {{> os/components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+    </header>
 {{/partial}}
 
 {{#partial "page"}}

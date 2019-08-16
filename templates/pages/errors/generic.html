@@ -1,13 +1,21 @@
+{{#partial "scripts"}}
+<script>
+    document.documentElement.classList.add('bg-500');
+</script>
+{{/partial}}
 {{#partial "page"}}
-
-<main class="page">
-    <section class="page-content page-content--centered">
-        <h1 class="page-heading">{{lang 'server_error.page_heading'}}</h1>
-        <p class="u-textAlignCenter">
-            {{lang 'server_error.message'}}
-        </p>
+    <section class="container flex-page pt-0">
+        <div class="row text-left text-sm-center justify-content-center align-items-center">
+            <div class="col">
+                <h1 class="display mb-4">
+                    {{lang 'server_error.page_heading'}}
+                    <br>
+                        <small>
+                            {{lang 'server_error.message'}}
+                        </small>
+                </h1>
+            </div>
+        </div>
     </section>
-</main>
-
 {{/partial}}
 {{> layout/base}}

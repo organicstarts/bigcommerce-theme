@@ -1,17 +1,25 @@
+
+{{#partial "scripts"}}
+<script>
+    document.documentElement.classList.add('bg-404');
+</script>
+{{/partial}}
 {{#partial "page"}}
-
-{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-
-<main class="page">
-    <section class="page-content page-content--centered">
-        <h1 class="page-heading">{{lang 'page_not_found.page_heading'}}</h1>
-        <p class="u-textAlignCenter">
-            {{lang 'page_not_found.message'}}
-        </p>
-
-        {{> components/common/search-box}}
+    <section class="container flex-page pt-0">
+        <div class="row text-left text-sm-center justify-content-center align-items-center">
+            <div class="col">
+                <h1 class="display mb-4">
+                    {{lang 'page_not_found.page_heading'}}
+                    <br>
+                        <small>
+                            {{lang 'page_not_found.message'}}
+                        </small>
+                </h1>
+                <div class="max-w-500 mx-auto">
+                    {{> components/common/search-box}}
+                </div>
+            </div>
+        </div>
     </section>
-</main>
-
 {{/partial}}
 {{> layout/base}}

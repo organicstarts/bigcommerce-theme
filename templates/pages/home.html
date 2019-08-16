@@ -12,15 +12,21 @@ blog:
         limit: {{theme_settings.homepage_blog_posts_count}}
 ---
 
+{{#partial "scripts"}}
+    <script>
+        oSx.Swipes.Categories(); 
+    </script>
+{{/partial}}
+
 {{#partial "page"}}
 
-    <div class="home jumbotron overflow-hidden rounded-0 m-0">
+    <section class="home jumbotron overflow-hidden rounded-0 m-0 pt-0">
         <div class="row justify-content-center align-items-start justify-content-lg-end align-items-lg-center text-center text-lg-left h-100">
             <div class="col-12 col-lg-5 offset-lg-7 pt-10 pt-lg-0">
-                <h1 class="display-3 animated fadeInDown slow">Home to<span class="d-inline">&nbsp;</span><br class="d-none d-lg-block">the world's best<span class="d-inline">&nbsp;</span><br class="d-none d-lg-block">organic baby<span class="d-inline">&nbsp;</span><br class="d-none d-lg-block">products.</h1>
+                <h1 class="display-3 animated fadeInUp slow">Home to<span class="d-inline">&nbsp;</span><br class="d-none d-lg-block">the world's best<span class="d-inline">&nbsp;</span><br class="d-none d-lg-block">organic baby<span class="d-inline">&nbsp;</span><br class="d-none d-lg-block">products.</h1>
             </div>
         </div>
-    </div>
+    </section>
 
     <section class="py-4 py-lg-5 bg-headline bg-white text-center" id="tagline" data-spy="scroll" data-delayed="1200">
         <div class="py-lg-5">
@@ -95,7 +101,7 @@ blog:
                 </div>
                 <div class="col-10 col-md-6 order-3 col-lg-4 px-lg-5 px-xl-0 col-xl-3 offset-xl-1">
                     <div class="max-w-350 mx-auto">
-                        <img class="ui medium image img-fluid mx-auto mb-7" src="https://triad.imgix.net/os/i/home/truck.svg?s=3b8e0167475c76887f50c10f8802c832&v=2" data-spy="item" data-animation="bounceIn slow">
+                        <img class="ui medium image img-fluid mx-auto mb-7" src="https://triad.imgix.net/os/i/home/truck-v2.svg?s=8bd836b06025d00d275dd1a315ee337a" data-spy="item" data-animation="bounceIn slow">
                         <h5 class="text-uppercase font-weight-bold text-gray-800 mb-3" data-spy="item" data-animation="fadeInUp slow">
                             Fast &amp; Free Shipping
                         </h5>
@@ -124,59 +130,72 @@ blog:
     {{/if}}
 
     {{#if products.new}}
-        <section class="py-10 py-lg-12 py-xl-15 bg-autumn" id="newProducts" data-spy="scroll">
+        <section class="py-10 py-lg-12 py-xl-15 bg-autumn" id="NewProducts" data-spy="scroll">
             <h2 class="display-4 text-center mb-5 text-gray-800">{{lang 'products.new' }}</h2>
             {{> os/components/products/carousel products=products.new name=(lang 'products.new')}}
         </section>
     {{/if}}
 
     <section class="py-10 py-lg-12 py-xl-15" id="categories" data-spy="scroll">
-        <div class="category carousel">
+        <div class="category-carousel">
             <div class="category-slide d-flex justify-content-center align-items-center m-auto">
-                <div class="category card first young_grass" data-spy="item" data-animation="fadeInRight"
-                    data-staggered="true" data-timeout="250">
-                    <p class="content text-white text-uppercase font-weight-bold pt-5 pl-1" data-spy="item"
-                        data-animation="fadeInRight" data-staggered="true" data-timeout="300">Baby
-                        Food</p>
-                </div>
-            </div>
-            <div class="category-slide d-flex justify-content-center align-items-center m-auto">
-                <div class="category card second sharp_blues" data-spy="item" data-animation="fadeInRight"
+                <div class="category-card baby-care sharp_blues" data-spy="item" data-animation="fadeInRight"
                     data-staggered="true" data-timeout="250">
                     <p class="content text-white text-uppercase font-weight-bold pt-5 pl-1" data-spy="item"
                         data-animation="fadeInRight" data-staggered="true" data-timeout="300">Baby
                         Care</p>
+                    <div class="suds" data-spy="item" data-animation="fadeIn slow" data-staggered="false"></div>
+                    <div class="bubbles-left" data-spy="item" data-animation="bounceIn" data-staggered="false"></div>
+                    <div class="bubbles-middle" data-spy="item" data-animation="bounceIn" data-staggered="false"></div>
+                    <div class="bubbles-right" data-spy="item" data-animation="bounceIn" data-staggered="false"></div>
                 </div>
             </div>
             <div class="category-slide d-flex justify-content-center align-items-center m-auto">
-                <div class="category card second happy_memories" data-spy="item" data-animation="fadeInRight"
+                <div class="category-card baby-food young_grass" data-spy="item" data-animation="fadeInRight"
+                    data-staggered="true" data-timeout="250">
+                    <p class="content text-white text-uppercase font-weight-bold pt-5 pl-1" data-spy="item"
+                        data-animation="fadeInRight" data-staggered="true" data-timeout="300">Baby
+                        Food</p>
+                    <div class="food" data-spy="item" data-animation="fadeIn slow" data-staggered="false"></div>
+                </div>
+            </div>
+            <div class="category-slide d-flex justify-content-center align-items-center m-auto">
+                <div class="category-card clothes happy_memories" data-spy="item" data-animation="fadeInRight"
                     data-staggered="true" data-timeout="250">
                     <p class="content text-white text-uppercase font-weight-bold pt-5 pl-1" data-spy="item"
                         data-animation="fadeInRight" data-staggered="true" data-timeout="300">Clothes
                     </p>
+                    <div class="cotton-left" data-spy="item" data-animation="fadeIn" data-staggered="true"></div>
+                    <div class="cotton-right" data-spy="item" data-animation="fadeIn" data-staggered="true"></div>
                 </div>
             </div>
             <div class="category-slide d-flex justify-content-center align-items-center m-auto">
-                <div class="category card second eternal_constance" data-spy="item" data-animation="fadeInRight"
+                <div class="category-card toys eternal_constance" data-spy="item" data-animation="fadeInRight"
                     data-staggered="true" data-timeout="250">
                     <p class="content text-white text-uppercase font-weight-bold pt-5 pl-1" data-spy="item"
                         data-animation="fadeInRight" data-staggered="true" data-timeout="300">Toys</p>
+                        <div class="toys-left" data-spy="item" data-animation="fadeIn" data-staggered="true"></div>
+                        <div class="toys-right" data-spy="item" data-animation="fadeIn" data-staggered="true"></div>
                 </div>
             </div>
             <div class="category-slide d-flex justify-content-center align-items-center m-auto">
-                <div class="category card second mars_party" data-spy="item" data-animation="fadeInRight"
+                <div class="category-card diapers mars_party" data-spy="item" data-animation="fadeInRight"
                     data-staggered="true" data-timeout="250">
                     <p class="content text-white text-uppercase font-weight-bold pt-5 pl-1" data-spy="item"
                         data-animation="fadeInRight" data-staggered="true" data-timeout="300">Diapers
                     </p>
+                    <div class="diapers-left" data-spy="item" data-animation="fadeIn" data-staggered="true"></div>
+                    <div class="diapers-right" data-spy="item" data-animation="fadeIn" data-staggered="true"></div>
                 </div>
             </div>
             <div class="category-slide d-flex justify-content-center align-items-center m-auto">
-                <div class="category card second amour_amour" data-spy="item" data-animation="fadeInRight"
+                <div class="category-card mommy amour_amour" data-spy="item" data-animation="fadeInRight"
                     data-staggered="true" data-timeout="250">
                     <p class="content text-white text-uppercase font-weight-bold pt-5 pl-1" data-spy="item"
                         data-animation="fadeInRight" data-staggered="true" data-timeout="300">Mommy
                     </p>
+                    <div class="mommy-left" data-spy="item" data-animation="fadeIn" data-staggered="true"></div>
+                    <div class="mommy-right" data-spy="item" data-animation="fadeIn" data-staggered="true"></div>
                 </div>
             </div>
         </div>

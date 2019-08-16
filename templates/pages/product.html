@@ -16,7 +16,7 @@ product:
         {{> components/common/alert-info message}}
     {{/each}}
 
-    <div itemscope itemtype="http://schema.org/Product">
+    <div class="container" itemscope itemtype="http://schema.org/Product">
         {{> components/products/product-view schema=true  }}
 
         {{#if product.videos.list.length}}
@@ -26,8 +26,12 @@ product:
         {{#all settings.show_product_reviews (if theme_settings.show_product_reviews_tabs '!==' true)}}
             {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
         {{/all}}
-
-        {{> components/products/tabs}}
     </div>
+    {{#if product.related_products}}
+        {{> os/components/products/related}}
+    {{/if}}
+    {{#if product.similar_by_views}}
+        {{> os/components/products/similar}}
+    {{/if}}
 {{/partial}}
 {{> layout/base}}
