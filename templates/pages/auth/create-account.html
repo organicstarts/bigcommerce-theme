@@ -6,13 +6,16 @@
             <div class="col">
                 <div class="row">
                     <div class="col">
-                        <h1 class="text-lg-center display h2 mb-2 mb-lg-4 mb-xl-6 animated fadeInUp">
+                        <h1 class="text-lg-center display mb-2 mb-lg-4 mb-xl-6 animated fadeInUp">
                             {{lang 'create_account.heading' }}</h1>
                     </div>
                 </div>
                 <div class="row justify-content-center align-items-center">
                     <div class="col-12 col-sm-10 col-md-8 col-xl-6">
                         <div class="ui segments">
+                            <div class="ui segment">
+                                <a class="ui basic tiny button borderless" href="/login.php"><i class="fas fa-arrow-left"></i> Return to sign in</a>
+                            </div>
                             <div class="ui segment">
                                 {{#if forms.create_account.error}}
                                     {{> components/common/alert-error forms.create_account.error}}
@@ -36,15 +39,16 @@
                                         </div>
                                         {{{ forms.create_account.recaptcha.markup}}}
                                         <div class="text-sm-center mt-2 mt-sm-0">
-                                            <input type="submit" class="ui rounded-pill green button"
-                                                value="{{lang 'forms.create_account.submit_value' }}" />
+                                            <button type="submit" class="ui rounded-pill green button">
+                                                <i class="fas fa-user-plus"></i> {{lang 'forms.create_account.submit_value' }}
+                                            </button>
                                         </div>
                                     </form>
                                 {{/if}}
                             </div>
-                            <div class="ui segment d-flex align-items-center justify-content-center">
+                            <div class="ui segment d-flex align-items-center justify-content-sm-end">
                                 <p class="m-0 mr-1 small"><strong>Have questions?</strong></p>
-                                <a class="ui basic tiny pink button borderless" href="https://support.organicstart.com" target="_blank">Support <i class="fas fa-external-link-alt"></i></a>
+                                <a class="ui basic mini pink button borderless" href="https://support.organicstart.com" target="_blank">Visit Support <i class="fas fa-external-link-alt"></i></a>
                             </div>
                         </div>
                     </div>

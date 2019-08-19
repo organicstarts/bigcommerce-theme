@@ -33,7 +33,7 @@
                                         autocomplete="off">
                                 </div>
                                 <div class="text-lg-center mt-4">
-                                    <button type="submit" class="ui fluid rounded-pill green button">{{lang 'login.submit_value' }} <i class="fas fa-sign-in-alt"></i></button>
+                                    <button type="submit" class="ui fluid rounded-pill green button"><i class="fas fa-sign-in-alt"></i> {{lang 'login.submit_value' }}</button>
                                 </div>
                             </form>
                         </div>
@@ -49,7 +49,7 @@
                             <li>{{lang 'login.new_customer.fact4' }}</li>
                             <li>{{lang 'login.new_customer.fact5' }}</li>
                         </ul>
-                        <div class="text-right">
+                        <div class="text-sm-right">
                             <a href="{{urls.auth.create_account}}" class="ui basic blue button borderless">{{lang 'login.new_customer.create_account' }} <i class="fas fa-user-plus"></i></a>
                         </div>
                         {{/if}}
