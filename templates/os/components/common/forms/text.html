@@ -1,0 +1,5 @@
+<div class="form-group" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+    <label for="{{id}}_input">{{label}}</label>
+    {{#if required}}<small class="form-text text-muted float-right text-uppercase">{{lang 'common.required' }}</small>{{/if}}
+    <input type="text" id="{{id}}_input" data-label="{{label}}" name="{{name}}" {{#if value}} value="{{value}}"{{/if}} {{#if placeholder}} placeholder="{{placeholder}}"{{/if}} class="form-control" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}}>
+</div>

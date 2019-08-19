@@ -1,0 +1,14 @@
+<div class="form-group" id="{{id}}" data-validation="{{validation}}" {{#if private_id}} data-type="{{private_id}}"
+    {{/if}}>
+    <label for="{{id}}_select">{{label}}</label>
+    {{#if required}}<small class="form-text text-muted float-right text-uppercase">{{lang 'common.required' }}</small>{{/if}}
+    <select class="{{class}} form-control" id="{{id}}_select" data-label="{{label}}" aria-required="{{required}}" name="{{name}}"
+        {{#if private_id}} data-field-type="{{private_id}}" {{/if}}>
+        {{#if options}}
+        <option value="">{{chooseprefix}}</option>
+        {{#each options}}
+        <option {{#if selected}} selected {{/if}} value="{{value}}">{{{label}}}</option>
+        {{/each}}
+        {{/if}}
+    </select>
+</div>

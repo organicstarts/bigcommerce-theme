@@ -244,24 +244,24 @@
     },
     "login": {
         "heading": "Sign in",
-        "field_email": "Email Address:",
-        "field_password": "Password:",
+        "field_email": "Email Address",
+        "field_password": "Password",
         "submit_value": "Sign in",
-        "forgot_password": "Forgot your password?",
+        "forgot_password": "Forgot password?",
         "new_customer": {
-            "heading": "New Customer?",
-            "intro": "Create an account with us and you'll be able to:",
-            "fact1": "Check out faster",
-            "fact2": "Save multiple shipping addresses",
-            "fact3": "Access your order history",
-            "fact4": "Track new orders",
-            "fact5": "Save items to your Wish List",
+            "heading": "New parent?",
+            "intro": "There are so many awesome reasons to create an account!",
+            "fact1": "Securely check out faster",
+            "fact2": "Refer friends and family for bonus credits",
+            "fact3": "Track orders and print reciepts",
+            "fact4": "Join The Baby Bank, earn points and other rewards",
+            "fact5": "And so much more!",
             "create_account": "Create Account"
         }
     },
     "reset_password": {
-        "heading": "Reset Password",
-        "intro": "Fill in your email below to request a new password. An email will be sent to the address below containing a link to verify your email address."
+        "heading": "Account Recovery",
+        "intro": "Request a recovery link to reset your password below. This link is time-sensitive and emailed to the account owner. Don't forget to double check your spam folder."
     },
     "account": {
         "breadcrumb": "Your Account",

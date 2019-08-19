@@ -1,18 +1,18 @@
-<div id="mainMenu" class="main-menu py-3 py-lg-5 px-3 px-xl-5 invisible position-absolute" role="banner">
+<div id="mainMenu" class="main-menu py-2 py-lg-4 px-2 px-xl-4 invisible position-absolute" role="banner">
     <div class="container-fluid">
         <div class="row justify-content-center align-items-center">
-            <div class="col-2 m-0">
-                <ul class="nav">
-                    <li class="nav-item-icon d-inline d-lg-none p-0">
-                        <a class="mburger mburger--collapse" href="#mainMobileMenu"><b></b><b></b><b></b></a>
-                    </li>
-                    <li class="nav-item d-none d-lg-inline m-0 p-0">
-                        <a href="/" title="Home">
-                            <picture>
-                                <img src="https://triad.imgix.net/os/i/logo.svg?s=83f3f5678face7e3f500c8aba1fd41e9" alt="Organic Start" title="Organic Start Logo" class="logo img-fluid my-0">
-                            </picture>
-                        </a>
-                    </li>
+            <div class="col-1 m-0 d-lg-none">
+                <a href="#mainMobileMenu">
+                    <i class="fas fa-bars"></i>
+                </a>
+            </div>
+            <div class="col-1 col-lg-2 col-xl-1 m-0">
+                <a href="/" title="Home">
+                    <img src="https://triad.imgix.net/os/i/logo.svg?s=83f3f5678face7e3f500c8aba1fd41e9"
+                        alt="Organic Start" title="Organic Start Logo" class="logo my-0 d-none d-lg-block">
+                    <img src="https://triad.imgix.net/os/i/icon-white.svg?s=96aba761ae07349b74aadd9e2fefa98b"
+                        alt="Organic Start" title="Organic Start Icon" class="icon my-0 d-lg-none">
+                </a>
             </div>
             {{> os/components/common/navigation}}
         </div>

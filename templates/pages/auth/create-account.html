@@ -1,32 +1,57 @@
 {{inject 'passwordRequirements' settings.password_requirements}}
 {{#partial "page"}}
-    {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-    <h1 class="page-heading">{{lang 'create_account.heading' }}</h1>
-
-    <div class="account account--fixed">
-        <div class="account-body">
-            {{#if forms.create_account.error}}
-                {{> components/common/alert-error forms.create_account.error}}
-            {{/if}}
-            {{#if settings.account_creation_enabled}}
-                <form action="{{urls.auth.save_new_account}}" data-create-account-form method="post" class="form">
-                    <div class="form-row form-row--half">
-                        {{#each forms.create_account.account_fields }}
-                            {{{dynamicComponent 'components/common/forms'}}}
-                        {{/each}}
-                        {{#each forms.create_account.address_fields }}
-                            {{{dynamicComponent 'components/common/forms'}}}
-                        {{/each}}
-                        {{inject 'required' (lang 'common.required')}}
-                        {{inject 'state_error' (lang 'errors.state_error')}}
+<section class="flex-page d-flex">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <h1 class="text-lg-center display h2 mb-2 mb-lg-4 mb-xl-6 animated fadeInUp">
+                            {{lang 'create_account.heading' }}</h1>
                     </div>
-                    {{{ forms.create_account.recaptcha.markup}}}
-                    <div class="form-actions">
-                        <input type="submit" class="button button--primary" value="{{lang 'forms.create_account.submit_value' }}" />
+                </div>
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-12 col-sm-10 col-md-8 col-xl-6">
+                        <div class="ui segments">
+                            <div class="ui segment">
+                                {{#if forms.create_account.error}}
+                                    {{> components/common/alert-error forms.create_account.error}}
+                                {{/if}}
+                                {{#if settings.account_creation_enabled}}
+                                    <form action="{{urls.auth.save_new_account}}" data-create-account-form method="post"
+                                        class="m-0">
+                                        <div class="row">
+                                            {{#each forms.create_account.account_fields }}
+                                                <div class="col-12 col-sm-6">
+                                                    {{{dynamicComponent 'os/components/common/forms'}}}
+                                                </div>
+                                            {{/each}}
+                                            {{#each forms.create_account.address_fields }}
+                                                <div class="col-12 col-sm-6">
+                                                    {{{dynamicComponent 'os/components/common/forms'}}}
+                                                </div>
+                                            {{/each}}
+                                            {{inject 'required' (lang 'common.required')}}
+                                            {{inject 'state_error' (lang 'errors.state_error')}}
+                                        </div>
+                                        {{{ forms.create_account.recaptcha.markup}}}
+                                        <div class="text-sm-center mt-2 mt-sm-0">
+                                            <input type="submit" class="ui rounded-pill green button"
+                                                value="{{lang 'forms.create_account.submit_value' }}" />
+                                        </div>
+                                    </form>
+                                {{/if}}
+                            </div>
+                            <div class="ui segment d-flex align-items-center justify-content-center">
+                                <p class="m-0 mr-1 small"><strong>Have questions?</strong></p>
+                                <a class="ui basic tiny pink button borderless" href="https://support.organicstart.com" target="_blank">Support <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
                     </div>
-                </form>
-            {{/if}}
+                </div>
+            </div>
         </div>
     </div>
+</section>
 {{/partial}}
 {{> layout/base}}

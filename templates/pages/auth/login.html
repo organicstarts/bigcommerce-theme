@@ -1,16 +1,16 @@
 {{#partial "page"}}
-<section class="flex-page pt-0">
-    <div class="container h-100">
-
+<section class="flex-page d-flex">
+    <div class="container">
         <div class="row justify-content-center align-items-center">
             <div class="col">
                 <div class="row">
-                    <div class="col">
-                        <h1 class="text-center display mb-4 mb-lg-6 mb-xl-8">{{lang 'login.heading' }}</h1>
+                    <div class="col-12 col-md-6 col-lg-12">
+                        <h1 class="text-sm-center text-md-left text-lg-center display mb-2 mb-lg-4 mb-xl-6 animated fadeInUp">{{lang 'login.heading' }}
+                        </h1>
                     </div>
                 </div>
                 <div class="row justify-content-center align-items-center">
-                    <div class="col-4 offset-4">
+                    <div class="col-12 col-sm-8 col-md-6 col-lg-4 offset-lg-4">
                         <div class="ui segment">
                             {{#if forms.login.error}}
                             {{> components/common/alert-error forms.login.error}}
@@ -18,40 +18,40 @@
                             {{#if forms.login.success}}
                             {{> components/common/alert-success forms.login.success}}
                             {{/if}}
-                            <form class="" action="{{urls.auth.check_login}}" method="post">
+                            <form class="m-2" action="{{urls.auth.check_login}}" method="post">
                                 {{inject 'useValidEmail' (lang 'forms.validate.common.email_address')}}
                                 {{inject 'enterPass' (lang 'forms.validate.common.password')}}
-                                <div class="form-field">
-                                    <label class="form-label" for="login_email">{{lang 'login.field_email'}}</label>
-                                    <input class="form-input" name="login_email" id="login_email" type="email">
+                                <div class="form-group">
+                                    <label for="login_email">{{lang 'login.field_email'}}</label>
+                                    <input class="form-control" name="login_email" id="login_email" type="email">
                                 </div>
-                                <div class="form-field">
-                                    <label class="form-label" for="login_pass">{{lang 'login.field_password'}}</label>
-                                    <input class="form-input" id="login_pass" type="password" name="login_pass"
+                                <div class="form-group">
+                                    <label for="login_pass">{{lang 'login.field_password'}}</label>
+                                    <small id="emailHelp" class="form-text text-muted float-right"><a
+                                            href="{{urls.auth.forgot_password}}">{{lang 'login.forgot_password' }}</a></small>
+                                    <input class="form-control" id="login_pass" type="password" name="login_pass"
                                         autocomplete="off">
                                 </div>
-                                <div class="form-actions">
-                                    <input type="submit" class="button button--primary"
-                                        value="{{lang 'login.submit_value' }}">
-                                    <a class="forgot-password"
-                                        href="{{urls.auth.forgot_password}}">{{lang 'login.forgot_password' }}</a>
+                                <div class="text-lg-center mt-4">
+                                    <button type="submit" class="ui fluid rounded-pill green button">{{lang 'login.submit_value' }} <i class="fas fa-sign-in-alt"></i></button>
                                 </div>
                             </form>
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-12 col-sm-8 col-md-6 col-lg-4 mt-2 mt-lg-0">
                         {{#if settings.account_creation_enabled}}
                         <p class="lead"><strong>{{lang 'login.new_customer.heading' }}</strong></p>
-                        <p class="new-customer-intro">{{lang 'login.new_customer.intro' }}</p>
-                        <ul class="new-customer-fact-list">
-                            <li class="new-customer-fact">{{lang 'login.new_customer.fact1' }}</li>
-                            <li class="new-customer-fact">{{lang 'login.new_customer.fact2' }}</li>
-                            <li class="new-customer-fact">{{lang 'login.new_customer.fact3' }}</li>
-                            <li class="new-customer-fact">{{lang 'login.new_customer.fact4' }}</li>
-                            <li class="new-customer-fact">{{lang 'login.new_customer.fact5' }}</li>
+                        <p>{{lang 'login.new_customer.intro' }}</p>
+                        <ul class="pl-0 pl-sm-1 pl-lg-2">
+                            <li>{{lang 'login.new_customer.fact1' }}</li>
+                            <li>{{lang 'login.new_customer.fact2' }}</li>
+                            <li>{{lang 'login.new_customer.fact3' }}</li>
+                            <li>{{lang 'login.new_customer.fact4' }}</li>
+                            <li>{{lang 'login.new_customer.fact5' }}</li>
                         </ul>
-                        <a href="{{urls.auth.create_account}}"><button
-                                class="ui button bg-moss-neg-8">{{lang 'login.new_customer.create_account' }}</button></a>
+                        <div class="text-right">
+                            <a href="{{urls.auth.create_account}}" class="ui basic blue button borderless">{{lang 'login.new_customer.create_account' }} <i class="fas fa-user-plus"></i></a>
+                        </div>
                         {{/if}}
                     </div>
                 </div>
