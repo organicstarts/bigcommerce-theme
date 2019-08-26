@@ -1,0 +1,16 @@
+<h1 class="{{#if class}}{{class}}{{else}}display-3{{/if}} animated fadeInUp slow text-gray-800">{{capitalizeAll title}}</h1>
+<h2 class="h5 mt-2 font-weight-bold animated fadeInUp slow delay-1s text-gray-700">
+    {{#if category.name '==' "Baby Care"}}
+        Paraben Free &middot; Cruelty Free &middot; Sensitive &amp; Hypoallergenic
+    {{else if category.name '==' "Baby Food"}}
+        No Artifical Flavors or Colors &middot; No Added Sweeteners  &middot; Wholesome &amp; Nutritious
+    {{else if category.name '==' "Clothes"}}
+        Woven with Handpicked Organic Cotton Fibers
+    {{else if category.name '==' "Diapers"}}
+        Comfort Starts at the Tushy
+    {{else if category.name '==' "Toys"}}
+        Handcrafted with Natural Dyes &amp Real Rubber <small class="text-gray-800">(From Trees - Not Tires)</small>
+    {{else if category.name '==' "Mommy"}}
+        Prenatal &amp; Post-Partum Care using Natural Oils and Herbs
+    {{/if}}
+</h2>

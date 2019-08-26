@@ -1,11 +1,16 @@
-<nav class="col-10 m-0" aria-label="Main" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+<nav class="col-10 m-0 text-right" aria-label="Main" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+    <div class="d-none d-lg-inline-block">
+        {{> os/components/common/navigation-menu}}
+    </div>
     <ul class="nav justify-content-end align-items-center float-right m-0">
-        <li class="nav-item animated fadeInDown delay-1s slow" id="AccountDrawer">
-            <a id="AccountLink" href="#accountMenu"><i class="far fa-user-circle fs-2"></i></a>
+        <li class="nav-item animated staggered-fade-up mx-2" id="AccountDrawer">
+            <a id="AccountLink" href="#accountMenu" class="link-unstyled"><i class="far fa-user-circle fs-2"></i></a>
         </li>
-        <li class="nav-item animated fadeInDown delay-1s slow" id="CartDrawer">
-            <a href="#cartMenu"><i class="fas fa-shopping-bag fs-2"></i></a>
+        <li class="nav-item animated staggered-fade-up mx-2" id="CartDrawer">
+            <a id="CartLink" href="#cartMenu" class="link-unstyled">
+                <i class="fas fa-shopping-bag fs-2"></i>
+                <span id="CartPill" class="floating ui red label ml-2"></span>
+            </a>
         </li>
     </ul>
-    {{> os/components/common/navigation-menu}}
 </nav>

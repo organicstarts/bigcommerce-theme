@@ -1,23 +1,30 @@
-<article class="ui product card {{#if alternate}}card--alternate{{/if}}" {{#if settings.data_tag_enabled}} data-event-type="{{event}}" data-entity-id="{{id}}" data-position="{{position}}" data-name="{{name}}" data-product-category="{{#each category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{brand.name}}" data-product-price="{{#if price.with_tax}}{{price.with_tax.value}}{{else}}{{price.without_tax.value}}{{/if}}"  {{/if}}>
-    <figure class="card-figure">
-        {{#or price.non_sale_price_with_tax price.non_sale_price_without_tax}}
-            {{#if theme_settings.product_sale_badges '===' 'sash'}}
-                <div class="sale-flag-sash">
-                    <span class="sale-text">On Sale!</span>
-                </div>
-            {{else if theme_settings.product_sale_badges '===' 'topleft'}}
-                <div class="sale-flag-side">
-                    <span class="sale-text">On Sale!</span>
-                </div>
-            {{else if theme_settings.product_sale_badges '===' 'burst'}}
-                <div class="starwrap">
-                    <div class="sale-text-burst">On Sale!</div>
-                    <div class="sale-flag-star"></div>
-                </div>
-            {{/if}}
-        {{/or}}
+<article class="ui product card position-relative p-0 {{#if alternate}}card--alternate{{/if}}" {{#if settings.data_tag_enabled}} data-event-type="{{event}}" data-entity-id="{{id}}" data-position="{{position}}" data-name="{{name}}" data-product-category="{{#each category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{brand.name}}" data-product-price="{{#if price.with_tax}}{{price.with_tax.value}}{{else}}{{price.without_tax.value}}{{/if}}"  {{/if}}>
+    <figure class="card-figure position-relative h-50">
+        {{#if out_of_stock_message}}
+            <a class="top left ribbon bg-gray-700">Sold Out</a>
+        {{else if pre_order}}
+            <a class="top left ribbon bg-success">Pre-Order</a>
+        {{else if theme_settings.product_sale_badges}}
+            {{#or price.non_sale_price_with_tax price.non_sale_price_without_tax}}
+                {{#if theme_settings.product_sale_badges '===' 'sash'}}
+                    <div class="sale-flag-sash">
+                        <span class="sale-text">On Sale!</span>
+                    </div>
+                {{else if theme_settings.product_sale_badges '===' 'topleft'}}
+                    <div class="sale-flag-side">
+                        <span class="sale-text">On Sale!</span>
+                    </div>
+                {{else if theme_settings.product_sale_badges '===' 'burst'}}
+                    <div class="starwrap">
+                        <div class="sale-text-burst">On Sale!</div>
+                        <div class="sale-flag-star"></div>
+                    </div>
+                {{/if}}
+            {{/or}}
+        {{/if}}
+
         {{#if demo}}
-            <div class="card-img-container">
+            <div class="card-img-container h-100">
                 <img class="card-image lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage image 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{image.alt}}" title="{{image.alt}}">
             </div>
         {{else}}
@@ -27,8 +34,10 @@
                 </div>
             </a>
         {{/if}}
-        <figcaption class="card-figcaption">
+        
+        <figcaption class="card-figcaption d-none"> <!-- Card image overlay buttons-->
             <div class="card-figcaption-body">
+
                 {{#unless hide_product_quick_view}}
                     {{#if theme_settings.show_product_quick_view}}
                         {{#unless demo}}
@@ -40,11 +49,13 @@
                         {{/unless}}
                     {{/if}}
                 {{/unless}}
+
                 {{#if show_compare}}
                     <label class="button button--small card-figcaption-button" for="compare-{{id}}">
                         {{lang 'products.compare'}} <input type="checkbox" name="products[]" value="{{id}}" id="compare-{{id}}" data-compare-id="{{id}}">
                     </label>
                 {{/if}}
+
                 {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
                     {{#if show_cart_action}}
                         {{#if has_options}}
@@ -61,35 +72,95 @@
                         {{/if}}
                     {{/if}}
                 {{/or}}
+
             </div>
         </figcaption>
     </figure>
-    <div class="card-body">
-        {{#and rating show_rating}}
-            <p class="card-text" data-test-info-type="productRating">
-                <span class="rating--small">
-                    {{> components/products/ratings rating=rating}}
-                </span>
-            </p>
-        {{/and}}
-        {{#if brand.name}}
-            <p class="card-text" data-test-info-type="brandName">{{brand.name}}</p>
-        {{/if}}
-        <h4 class="card-title">
-            {{#if demo}}
+    <div class="d-flex align-items-center flex-column h-50 p-2 pt-0 text-left">
+        <h6 class="text-gray-800">
+            {{#unless demo}}
+                <a class="link-unstyled" href="{{url}}" {{#if settings.data_tag_enabled}} data-event-type="product-click"{{/if}}>
+            {{/unless}}
+                {{#if brand.name}}
+                    <small class="lead text-gray-600" data-test-info-type="brandName">{{brand.name}}</small>
+                {{/if}}
+                <br>
                 {{name}}
-            {{else}}
-                <a href="{{url}}" {{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}>{{name}}</a>
-            {{/if}}
-        </h4>
-
-        <div class="card-text" data-test-info-type="price">
-            {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
-                {{> components/products/price price=price}}
-            {{else}}
-                {{> components/common/login-for-pricing}}
-            {{/or}}
+            {{#unless demo}}
+                </a>
+            {{/unless}}
+        </h6>
+        <div class="mt-auto w-100">
+            <div class="row justify-content-center">
+                <div class="col m-0 text-left">
+                    {{#and rating show_rating}}
+                        <p class="mb-2" data-test-info-type="productRating">
+                            <span class="rating--small">
+                                {{> components/products/ratings rating=rating}}
+                            </span>
+                        </p>
+                    {{/and}}
+                    <div class="m-0" data-test-info-type="price">
+                        {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                            <div class="h5 text-success">
+                                {{> os/components/products/price price=price}}
+                            </div>
+                        {{else}}
+                            <p class="m-0" translate><strong><a href="login.php">Sign in for pricing</a></strong></p>
+                        {{/or}}
+                    </div>
+                    {{> components/products/bulk-discount-rates}}
+                </div>
+                {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                    <div class="col m-0 text-right">
+                        {{#if show_cart_action}}
+                                {{#if has_options}}
+                                    <a href="{{url}}" class="ui green inverted circular icon cart button" data-product-id="{{id}}"><i class="material-icons">&#xE854;</i> {{lang 'products.choose_options'}}</a>
+                                {{/if}}
+                                {{#if pre_order}}
+                                    <a href="{{add_to_cart_url}}" class="ui orange icon vertical animated card-atc button rounded-pill" data-product-id="{{id}}">
+                                        <div class="hidden content">{{lang 'products.pre_order'}}</div>
+                                        <div class="visible content">
+                                            <i class="fas fa-plus"></i>
+                                        </div>
+                                    </a>
+                                {{/if}}
+                                {{#if add_to_cart_url}}
+                                    <a href="{{add_to_cart_url}}" class="ui green icon vertical animated card-atc button rounded-pill" data-product-id="{{id}}">
+                                        <div class="hidden content">{{lang 'products.add_to_cart'}}</div>
+                                        <div class="visible content">
+                                            <i class="fas fa-plus"></i>
+                                        </div>
+                                    </a>
+                                {{/if}}
+                                {{#if out_of_stock_message}}
+                                    <a class="ui bg-gray-100 text-gray-800 icon vertical animated card-atc button rounded-pill" data-product-id="{{id}}">
+                                        <div class="hidden content">{{out_of_stock_message}}</div>
+                                        <div class="visible content">
+                                            <i class="fas fa-times"></i>
+                                        </div>
+                                    </a>
+                                {{/if}}
+                        {{else}}
+                            <a href="#" class="ui disabled green icon vertical animated card-atc button rounded-pill" data-product-id="{{id}}" disabled="disabled">
+                                <div class="hidden content">{{lang 'products.add_to_cart'}}</div>
+                                <div class="visible content">
+                                    <i class="fas fa-plus"></i>
+                                </div>
+                            </a>
+                        {{/if}}
+                    </div>
+                {{else}}
+                    <div class="col m-0 text-right">
+                        <a href="#" class="ui disabled green icon vertical animated card-atc button rounded-pill" data-product-id="{{id}}" disabled="disabled">
+                            <div class="hidden content">{{lang 'products.add_to_cart'}}</div>
+                            <div class="visible content">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                        </a>
+                    </div>
+                {{/or}}
+            </div>
         </div>
-        {{> components/products/bulk-discount-rates}}
     </div>
 </article>

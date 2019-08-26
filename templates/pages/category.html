@@ -14,11 +14,21 @@ category:
         <link rel="next" href="{{pagination.category.next}}">
     {{/if}}
 {{/partial}}
-
 {{#partial "header"}} 
-    <header>
-        {{> os/components/common/title title=category.name}}
-        {{> os/components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+    <header class="border-bottom border-moss bg-{{#if category.name '==' "Baby Care"}}baby-care{{else if category.name '==' "Baby Food"}}baby-food{{else if category.name '==' "Clothes"}}clothes{{else if category.name '==' "Diapers"}}diapers{{else if category.name '==' "Toys"}}toys{{else if category.name '==' "Mommy"}}mommy{{/if}}">
+        {{#or (if category.name '==' "Clothes") (if category.name '==' "Diapers")}}<div class="floater pt-0"></div><div class="overlay"></div>{{/or}}
+        <div class="category-title bg-moss-neg-10 pb-5 d-flex justify-content-end align-items-end">
+            <div class="container mt-10">
+                {{#or (if category.name '==' "Baby Care") (if category.name '==' "Baby Food") (if category.name '==' "Clothes") (if category.name '==' "Diapers") (if category.name '==' "Toys") (if category.name '==' "Mommy")}}
+                    {{> os/components/category/title title=category.name class="display-1"}}
+                {{else}}
+                    {{> os/components/category/title title=category.name}}
+                {{/or}}
+            </div>
+        </div>
+        <div class="category-breadcrumbs bg-moss-neg-9 container-fluid">
+            {{> os/components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+        </div>
     </header>
 {{/partial}}
 
