@@ -1,0 +1,35 @@
+{{#if messages}} 
+<h4 class="mb-2">Recent {{lang 'account.messages.heading' }}</h4>
+{{/if}}
+{{#each messages}}
+    <div class="ui segment p-2 p-lg-4">
+        <div class="ui large feed">
+                <div class="event">
+                    <div class="label">
+                        {{#if is_reply}}
+                            <img src="https://triad.imgix.net/os/i/icon-circle-white.svg?s=f4f171b54aa73fed89e506fce214f0c1" class="rounded-circle">
+                        {{else}}
+                            <img src="https://triad.imgix.net/os/i/avatar.gif?s=2122fffb63ea6bb94d26a4c45f9f3c06" class="rounded-circle">
+                        {{/if}}
+                    </div>
+                    <div class="content">
+                        <div class="summary">
+                            {{#if is_reply}}
+                                {{lang 'account.messages.merchant_said' store_name=../../settings.store_name}}
+                            {{else}}
+                                {{lang 'account.messages.customer_said'}}
+                            {{/if}}
+                            <br>
+                            <div class="date m-0">{{date}}</div>
+                        </div>
+                        <div class="mt-2">
+                            <p>
+                                <strong>{{subject}}</strong><br>
+                                {{message}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+{{/each}}

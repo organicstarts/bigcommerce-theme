@@ -1,39 +1,56 @@
-<nav id="cartMenu" class="primary sidebar d-none" aria-hidden="true">
-        <div class="row d-flex align-items-start h-100">
-            <div class="col-12">
-                <div class="ui inverted vertical black segment">
-                    <strong>
-                        Here we can make announcements!
-                    </strong>
+<nav id="cartMenu" class="cart-sidebar offcanvas invisible" aria-hidden="true">
+    <div class="cart-wrapper d-flex flex-column">
+        <div class="cart-top border-bottom">
+            <div class="row justify-content-center align-items-center px-3 py-2">
+                <div class="col-11 m-0">
+                    <div class="h6 d-inline-block mb-0">
+                        Shopping Basket
+                    </div>
+                    <a class="link-unstyled fs-2 mx-1" href="/cart.php">
+                        <span><i class="fas fa-external-link-alt"></i></span>
+                    </a>
                 </div>
-                <div id="CartProducts"></div>
-                <div class="row">
-                    <div class="col-4">
-
-                    </div>
-                    <div class="col-6">
-                        
-                    </div>
-                    <div class="col-2">
-                        $32.00
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 align-self-end">
-                <div class="w-100 mt-auto">
-                    <div class="row px-2">
-                        <div class="col-4">
-                            <a href="#" class="ui fluid blue button">
-                                PayPal
-                            </a>
-                        </div>
-                        <div class="col-8">
-                            <a href="#" class="ui fluid green button">
-                                Checkout <i class="fas fa-angle-double-right"></i>
-                            </a>
-                        </div>
-                    </div>
+                <div class="col-1 m-0 text-right fs-4">
+                    <a href="#" class="text-gray-400 link-unstyled toggle-cart" onClick="return false;">&times;</a>
                 </div>
             </div>
         </div>
+        <div class="cart-contained flex-row p-0">
+            <div id="cartLoader" class="ui active inverted dimmer">
+                <div class="ui text loader">Updating</div>
+            </div>
+            <div class="flex-row mb-auto">
+                <div class="border-bottom p-2">
+                    {{#if customer}}
+                        <div class="d-flex flex-column">
+                            <div class="d-flex flex-row justify-content-between align-items-center">
+                                <div class="align-self-start">
+                                    Welcome back, {{customer.name}}.
+                                </div>
+                                <div class="align-self-end small d-none d-sm-flex">
+                                    <span id="cart-date"></span>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-row justify-content-between align-items-center small font-weight-bold">
+                                <div class="align-self-start">
+                                    {{#if customer.store_credit.value '>' 0}}{{customer.store_credit.formatted}} AVAILABLE{{/if}}
+                                </div>
+                                <div class="align-self-end">
+                                    <a href="{{urls.auth.logout}}" class="text-uppercase">{{lang 'common.logout'}} <i class="fas fa-sign-out-alt"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    {{else}}
+                        <a href="{{urls.auth.login}}">Sign in</a> or <a href="{{urls.auth.create_account}}">create an account</a>.
+                    {{/if}}
+                </div>
+                <div id="cartItems"></div>
+            </div>
+        </div>
+        <div class="cart-bottom flex-row border-top p-2 invisible">
+            <a href="/checkout" class="ui large inverted fluid green button rounded-pill text-right">
+                Checkout <i class="fas fa-angle-double-right"></i>
+            </a>
+        </div>
+    </div>
 </nav>

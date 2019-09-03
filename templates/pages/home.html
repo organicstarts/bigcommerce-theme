@@ -76,7 +76,7 @@ blog:
     </section>
 
     <section class="bg-bundles bg-white" id="bundles" data-spy="scroll">
-        <div class="container-fluid py-5 py-md-10">
+        <div class="container-fluid pt-5 pt-md-10 pb-0">
             <div class="row align-items-center">
                 <div class="col-8 offset-2 col-sm-6 offset-sm-3 col-md-4 offset-md-0 col-lg-5 col-xl-5 mb-0">
                     <div class="text-center text-lg-right">
@@ -103,8 +103,66 @@ blog:
         </div>
     </section>
 
+    <section class="bg-white py-10 py-lg-12 py-xl-15" id="categories" data-spy="scroll">
+        <div class="category-carousel">
+            <a class="category-slide d-flex justify-content-center align-items-center m-auto link-unstyled" href="/baby-care">
+                <div class="category-card baby-care sharp_blues">
+                    <p class="content text-white text-uppercase font-weight-bold pt-5 pl-1">Baby Care</p>
+                    <div class="suds" data-spy="item" data-animation="fadeIn slow"></div>
+                    <div class="bubbles-left"></div>
+                    <div class="bubbles-middle"></div>
+                    <div class="bubbles-right"></div>
+                </div>
+            </a>
+            <a class="category-slide d-flex justify-content-center align-items-center m-auto link-unstyled" href="/baby-food">
+                <div class="category-card baby-food young_grass">
+                    <p class="content text-white text-uppercase font-weight-bold pt-5 pl-1">Baby Food</p>
+                    <div class="food"></div>
+                </div>
+            </a>
+            <a class="category-slide d-flex justify-content-center align-items-center m-auto link-unstyled" href="/clothes">
+                <div class="category-card clothes happy_memories"">
+                    <p class="content text-white text-uppercase font-weight-bold pt-5 pl-1">Clothes
+                    </p>
+                    <div class="cotton-left"></div>
+                    <div class="cotton-right"></div>
+                </div>
+            </a>
+            <a class="category-slide d-flex justify-content-center align-items-center m-auto link-unstyled" href="/diapers">
+                <div class="category-card diapers mars_party">
+                    <p class="content text-white text-uppercase font-weight-bold pt-5 pl-1">Diapers
+                    </p>
+                    <div class="diapers-left"></div>
+                    <div class="diapers-right"></div>
+                </div>
+            </a>
+            <a class="category-slide d-flex justify-content-center align-items-center m-auto link-unstyled" href="/toys">
+                <div class="category-card toys eternal_constance">
+                    <p class="content text-white text-uppercase font-weight-bold pt-5 pl-1">Toys</p>
+                        <div class="toys-left"></div>
+                        <div class="toys-right"></div>
+                </div>
+            </a>
+            <a class="category-slide d-flex justify-content-center align-items-center m-auto link-unstyled" href="/mommy">
+                <div class="category-card mommy amour_amour">
+                    <p class="content text-white text-uppercase font-weight-bold pt-5 pl-1">Mommy
+                    </p>
+                    <div class="mommy-left"></div>
+                    <div class="mommy-right"></div>
+                </div>
+            </a>
+            <a class="category-slide d-flex justify-content-center align-items-center m-auto link-unstyled" href="/powder-nest">
+                <div class="category-card powder-nest loon_crest">
+                    <p class="content text-white text-uppercase font-weight-bold pt-5 pl-1">Powder Nest</p>
+                    <div class="pn-left"></div>
+                    <div class="pn-right"></div>
+                </div>
+            </a>
+        </div>
+    </section>
+
     {{#if products.featured}}
-        <section class="py-5 py-lg-10 plum_plate" id="featured" data-spy="scroll">
+        <section class="py-5 py-lg-10 dense_water" id="featured" data-spy="scroll">
             <div class="container-fluid text-white">
                 <h2 class="display-3 text-center my-5 pb-5 text-gray-50" data-spy="item" data-animation="fadeInUp">{{lang 'products.featured' }}</h2>
                 <div class="pb-5 mb-5">{{> os/components/products/carousel products=products.featured type="featured" name=(lang 'products.featured') wrap="true"}}</div>
@@ -122,28 +180,32 @@ blog:
 
     <section class="py-10 py-lg-12 py-xl-15 bg-pn" id="powderNest" data-spy="scroll">
         <div class="container-fluid">
-            <img src="https://triad.imgix.net/pn/i/logo.png?w=450&s=232036b8bd26d1ed460ab97e87368065" class="ui large image img-fluid mx-auto">
-            <p class="h5 my-4 text-gray-600 text-center"><strong>The Ultimate Storage Container</strong></p>
+            <div class="row justify-content-center align-items-center mb-4">
+                <div class="col-10 col-md-6 col-lg-12 text-center">
+                    <img src="https://triad.imgix.net/pn/i/logo-green.svg?s=9e85e4a9f6e4283d3cd15b1a1d40df6a" class="ui large image img-fluid mx-auto" alt="Powder Nest Logo" data-spy="item" data-animation="fadeIn" data-staggered="true">
+                </div>
+            </div>
+            <p class="h5 my-4 text-gray-600 text-center" data-spy="item" data-animation="fadeInUp" data-staggered="true"><strong>The Ultimate Storage Container</strong></p>
             <div class="my-4 text-center">
-                <svg height="40" width="40" class="star rating" data-rating="1">
-                <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill:#ffd055;fill-rule:nonzero;"/>
+                <svg height="40" width="40" class="star rating" data-rating="1" data-spy="item" data-animation="bounceIn" data-staggered="true">
+                    <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill:#ffd055;fill-rule:nonzero;"/>
                 </svg>
-                <svg height="40" width="40" class="star rating" data-rating="2">
-                <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill:#ffd055;fill-rule:nonzero;"/>
+                <svg height="40" width="40" class="star rating" data-rating="2" data-spy="item" data-animation="bounceIn" data-staggered="true">
+                    <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill:#ffd055;fill-rule:nonzero;"/>
                 </svg>
-                <svg height="40" width="40" class="star rating" data-rating="3">
-                <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill:#ffd055;fill-rule:nonzero;"/>
+                <svg height="40" width="40" class="star rating" data-rating="3" data-spy="item" data-animation="bounceIn" data-staggered="true">
+                    <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill:#ffd055;fill-rule:nonzero;"/>
                 </svg>
-                <svg height="40" width="40" class="star rating" data-rating="4">
-                <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill:#ffd055;fill-rule:nonzero;"/>
+                <svg height="40" width="40" class="star rating" data-rating="4" data-spy="item" data-animation="bounceIn" data-staggered="true">
+                    <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill:#ffd055;fill-rule:nonzero;"/>
                 </svg>
-                <svg height="40" width="40" class="star rating" data-rating="5">
-                <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill:#ffd055;fill-rule:nonzero;"/>
+                <svg height="40" width="40" class="star rating" data-rating="5" data-spy="item" data-animation="bounceIn" data-staggered="true">
+                    <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill:#ffd055;fill-rule:nonzero;"/>
                 </svg>
             </div>
             <div class="container">
                 <div class="row justify-content-center align-items-center">
-                    <div class="col-4 offset-2 overflow-visible">
+                    <div class="col-8 col-sm-10 col-md-6 col-lg-4 offset-lg-2 overflow-visible">
                         <div class="pn-container">
                             <div class="spoon"></div>
                             <div class="divider"></div>
@@ -151,14 +213,14 @@ blog:
                             <div class="body-bottom"></div>
                         </div>
                     </div>
-                    <div class="col-6">
-                        <p class="my-4 lead text-gray-700">Maximize the shelf life of powders in your pantry</p>
-                        <p class="my-4 lead text-gray-700">Recommended for all baby formula brands</p>
-                        <p class="my-4 lead text-gray-700">Air-tight, moisture-proof seal</p>
-                        <p class="my-4 lead text-gray-700">Removable leveler & scoop storage</p>
-                        <p class="my-4 lead text-gray-700">The most durable &amp; safe #5 PP FDA food-grade construction</p>
-                        <p class="my-4 lead text-gray-700">Unlike glass, heat (temperature) and UV resistant</p>
-                        <a href="#" class="ui rounded-pill large green button">Shop Now <i class="fas fa-angle-double-right"></i></a>
+                    <div class="col-12 col-md-6 text-center text-md-left">
+                        <p class="my-lg-4 lead text-gray-700" data-spy="item" data-animation="fadeInUp slow" data-staggered="true" data-timeout="300">Maximize the shelf life of powders in your pantry</p>
+                        <p class="my-lg-4 lead text-gray-700" data-spy="item" data-animation="fadeInUp slow" data-staggered="true" data-timeout="350">Recommended for all baby formula brands</p>
+                        <p class="my-lg-4 lead text-gray-700" data-spy="item" data-animation="fadeInUp slow" data-staggered="true" data-timeout="400">Air-tight, moisture-proof seal</p>
+                        <p class="my-lg-4 lead text-gray-700" data-spy="item" data-animation="fadeInUp slow" data-staggered="true" data-timeout="450">Removable leveler & scoop storage</p>
+                        <p class="my-lg-4 lead text-gray-700" data-spy="item" data-animation="fadeInUp slow" data-staggered="true" data-timeout="500">The most durable &amp; safe #5 PP FDA food-grade construction</p>
+                        <p class="my-lg-4 lead text-gray-700" data-spy="item" data-animation="fadeInUp slow" data-staggered="true" data-timeout="550">Unlike glass, heat (temperature) and UV resistant</p>
+                        <a href="#" class="ui rounded-pill large green button" data-spy="item" data-animation="fadeIn slower delay-1s" data-staggered="true" data-timeout="600">Shop Now <i class="fas fa-angle-double-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -169,29 +231,39 @@ blog:
     <div class="position-relative">
         <div class="shape shape-bottom shape-fluid-x svg-shim text-light">
             <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="#444"></path>
+                <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="#2c2c2c"></path>
             </svg>
         </div>
     </div>
 
-    <section class="py-10 py-lg-12 py-xl-15 bg-dark" id="topSellers" data-spy="scroll">
-        <div class="container-fluid text-white">
-            Second sale area... maybe dark?
-        </div>
-    </section>
-    
     {{#if products.top_sellers}}
-        <section class="py-10 py-lg-12 py-xl-15" id="topSellers" data-spy="scroll">
+        <section class="py-5 py-lg-10 slick_carbon" id="topSellers" data-spy="scroll">
             <div class="container-fluid text-white">
-                <h2 class="display-3 text-center mb-5 text-mustard-400">{{lang 'products.top' }}</h2>
+                <h2 class="display-3 text-center my-5 pb-5 text-white" data-spy="item" data-animation="fadeInUp">{{lang 'products.top' }}</h2>
                 {{> os/components/products/carousel products=products.top_sellers type="top_sellers" name=(lang 'products.top') wrap="true"}}
             </div>
         </section>
     {{/if}}
 
-    <section class="py-10 py-lg-12 py-xl-15 bg-gray-100" id="topSellers" data-spy="scroll">
-        <div class="container-fluid text-white">
-            Third sale area... maybe alternate gray?
+    <section class="py-10 py-lg-12 py-xl-15 bg-white" id="crinkleCloth" data-spy="scroll">
+        <div class="container-fluid">
+            <div class="row justify-content-center align-items-center mb-4">
+                <div class="col-10 col-md-6 col-lg-12 text-center">
+                    <img src="https://triad.imgix.net/cc/i/icon.svg?s=67579099504f372e31f3f973d7cfa9b8" class="ui small image img-fluid mx-auto mb-2" alt="Messy but Cute Icon" data-spy="item" data-animation="bounceIn slow" data-staggered="true">
+                    <img src="https://triad.imgix.net/cc/i/logo.svg?s=7db28f7ad4b0efeba34e2cc6557e0463" class="ui large image img-fluid mx-auto" alt="Messy but Cute Logo" data-spy="item" data-animation="bounceIn slow" data-staggered="true">
+                </div>
+            </div>
+            <div class="row justify-content-center align-items-center">
+                <div class="col-10 col-sm-8 col-md-6 col-xl-4 offset-xl-2">
+                    <img src="https://triad.imgix.net/cc/i/sounds.png?w=800&s=0515aa54af2af6936a0b4743d16b8435" class="ui huge image img-fluid mx-auto">
+                </div>
+                <div class="col-12 col-md-6 text-center text-md-left">
+                    <p class="lead most spread" data-spy="item" data-animation="fadeInUp slow" data-staggered="true" data-timeout="150">SOFT CRINKLE SOUNDS</p>
+                    <h2 class="h3" data-spy="item" data-animation="fadeInUp slow" data-staggered="true" data-timeout="300">Designed for Adolescent Entertainment</h2>
+                    <p class="spread" data-spy="item" data-animation="fadeInUp slow" data-staggered="true" data-timeout="450">The most simple yet effective toy for infants.</p>
+                    <a href="#" class="ui rounded-pill black disabled button bg-gray-50 text-gray-500" data-spy="item" data-animation="fadeIn slower delay-1s" data-staggered="true" data-timeout="600">Coming Soon <i class="far fa-clock"></i></a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -201,72 +273,6 @@ blog:
             {{> os/components/products/carousel products=products.new name=(lang 'products.new') wrap="true"}}
         </section>
     {{/if}}
-
-    <section class="py-10 py-lg-12 py-xl-15" id="categories" data-spy="scroll">
-        <h2 class="display-3 text-center mb-5">Shop by Category</h2>
-        <div class="category-carousel">
-            <div class="category-slide d-flex justify-content-center align-items-center m-auto">
-                <div class="category-card baby-care sharp_blues" data-spy="item" data-animation="fadeInRight"
-                    data-staggered="true" data-timeout="250">
-                    <p class="content text-white text-uppercase font-weight-bold pt-5 pl-1" data-spy="item"
-                        data-animation="fadeInRight" data-staggered="true" data-timeout="300">Baby
-                        Care</p>
-                    <div class="suds" data-spy="item" data-animation="fadeIn slow" data-staggered="false"></div>
-                    <div class="bubbles-left" data-spy="item" data-animation="bounceIn" data-staggered="false"></div>
-                    <div class="bubbles-middle" data-spy="item" data-animation="bounceIn" data-staggered="false"></div>
-                    <div class="bubbles-right" data-spy="item" data-animation="bounceIn" data-staggered="false"></div>
-                </div>
-            </div>
-            <div class="category-slide d-flex justify-content-center align-items-center m-auto">
-                <div class="category-card baby-food young_grass" data-spy="item" data-animation="fadeInRight"
-                    data-staggered="true" data-timeout="250">
-                    <p class="content text-white text-uppercase font-weight-bold pt-5 pl-1" data-spy="item"
-                        data-animation="fadeInRight" data-staggered="true" data-timeout="300">Baby
-                        Food</p>
-                    <div class="food" data-spy="item" data-animation="fadeIn slow" data-staggered="false"></div>
-                </div>
-            </div>
-            <div class="category-slide d-flex justify-content-center align-items-center m-auto">
-                <div class="category-card clothes happy_memories" data-spy="item" data-animation="fadeInRight"
-                    data-staggered="true" data-timeout="250">
-                    <p class="content text-white text-uppercase font-weight-bold pt-5 pl-1" data-spy="item"
-                        data-animation="fadeInRight" data-staggered="true" data-timeout="300">Clothes
-                    </p>
-                    <div class="cotton-left" data-spy="item" data-animation="fadeIn" data-staggered="true"></div>
-                    <div class="cotton-right" data-spy="item" data-animation="fadeIn" data-staggered="true"></div>
-                </div>
-            </div>
-            <div class="category-slide d-flex justify-content-center align-items-center m-auto">
-                <div class="category-card toys eternal_constance" data-spy="item" data-animation="fadeInRight"
-                    data-staggered="true" data-timeout="250">
-                    <p class="content text-white text-uppercase font-weight-bold pt-5 pl-1" data-spy="item"
-                        data-animation="fadeInRight" data-staggered="true" data-timeout="300">Toys</p>
-                        <div class="toys-left" data-spy="item" data-animation="fadeIn" data-staggered="true"></div>
-                        <div class="toys-right" data-spy="item" data-animation="fadeIn" data-staggered="true"></div>
-                </div>
-            </div>
-            <div class="category-slide d-flex justify-content-center align-items-center m-auto">
-                <div class="category-card diapers mars_party" data-spy="item" data-animation="fadeInRight"
-                    data-staggered="true" data-timeout="250">
-                    <p class="content text-white text-uppercase font-weight-bold pt-5 pl-1" data-spy="item"
-                        data-animation="fadeInRight" data-staggered="true" data-timeout="300">Diapers
-                    </p>
-                    <div class="diapers-left" data-spy="item" data-animation="fadeIn" data-staggered="true"></div>
-                    <div class="diapers-right" data-spy="item" data-animation="fadeIn" data-staggered="true"></div>
-                </div>
-            </div>
-            <div class="category-slide d-flex justify-content-center align-items-center m-auto">
-                <div class="category-card mommy amour_amour" data-spy="item" data-animation="fadeInRight"
-                    data-staggered="true" data-timeout="250">
-                    <p class="content text-white text-uppercase font-weight-bold pt-5 pl-1" data-spy="item"
-                        data-animation="fadeInRight" data-staggered="true" data-timeout="300">Mommy
-                    </p>
-                    <div class="mommy-left" data-spy="item" data-animation="fadeIn" data-staggered="true"></div>
-                    <div class="mommy-right" data-spy="item" data-animation="fadeIn" data-staggered="true"></div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <section>
         <div class="container">

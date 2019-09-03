@@ -1,0 +1,74 @@
+
+{{#each order.items}}
+    {{#if shipping_rows.length}}
+        {{#each shipping_rows}}
+            <div class="segment p-2 p-lg-4">
+                <h6 class="m-0">{{lang 'account.orders.details.ship_to_multi' street=address city=city state=state zip=zip country=country}}</h6>
+            </div>
+        {{/each}}
+    {{/if}}
+    <div class="segment px-2 px-lg-4 pt-2 pt-lg-4 pb-1 pb-lg-2">
+        <div class="row align-items-center mt-0">
+            <div class="col text-center" style="max-width:100px;">
+                {{#if type '===' 'giftcertificate'}}
+                    <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{cdn ../../theme_settings.default_image_gift_certificate}}" alt="Gift Certificate" title="Gift Certificate">
+                {{else}}
+                    <img class="account-product-image lazyload"
+                        data-sizes="auto"
+                        src="{{cdn 'img/loading.svg'}}"
+                        data-src="{{getImage image 'productthumb_size' (cdn ../../theme_settings.default_image_product)}}"
+                        alt="{{image.alt}}"
+                        title="{{image.alt}}">
+                {{/if}}
+                {{#unless refunded}}
+                    {{#if download_url}}
+                        <a href="{{download_url}}" class="account-product-download button button--primary">
+                            <span class="is-srOnly">{{lang 'account.orders.details.download_items'}}</span>
+                            <span class="icon">
+                                <svg>
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-arrow-down"></use>
+                                </svg>
+                            </span>
+                        </a>
+                    {{/if}}
+                {{/unless}}
+            </div>
+            <div class="col pl-2">
+                <h6 class="text-gray-800">
+                    {{#if brand}}
+                        <small class="lead text-gray-600" data-test-info-type="brandName">{{brand.name}}</small><br>
+                    {{/if}}
+                    {{name}}
+                </h6>
+                {{#if options}}
+                    {{#each options}}
+                        <strong>{{name}}:</strong> {{value}}<br>
+                    {{/each}}
+                {{/if}}
+                {{#if event_date}}
+                    <strong>{{event_date.name}}:</strong> {{event_date.date}}<br>
+                {{/if}}
+                {{#if gift_wrapping_name}}
+                    <i class="fas fa-gift"></i> <strong>{{lang 'account.orders.gift_wrapping'}}</strong> {{gift_wrapping_name}}<br>
+                {{/if}}
+                <p>{{quantity}} &#215; {{price.formatted}} <small class="account-product-refundQty">{{#if refunded}}{{lang 'account.orders.refunded_quantity' qty=refunded_qty}}{{else}}{{#if refunded_qty}}{{lang 'account.orders.refunded_quantity' qty=refunded_qty}}{{/if}}{{/if}}</small></p>
+            </div>
+        </div>
+
+        <div class="account-product account-product--alignMiddle d-none">
+            <div class="account-product-checkItem">
+            </div>
+            {{#if show_reorder}}
+                <input class="form-checkbox" type="checkbox" id="account-product-id-{{order_product_id}}" value="{{order_product_id}}">
+                <label for="account-product-id-{{order_product_id}}" class="form-label">
+                    <span class="is-srOnly">Checkbox {{order_product_id}} label</span>
+                </label>
+            {{/if}}
+            <div class="account-product-body">
+                {{#if reorder_message}}
+                    <p>{{{reorder_message}}}</p>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+{{/each}}

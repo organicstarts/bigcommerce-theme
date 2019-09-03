@@ -1,0 +1,76 @@
+{{#each orders}}
+    <div class="ui segments bg-white p-0">
+        <div class="segment border-0 p-2">
+            <div class="ui top right attached large label 
+                {{#if this.status '==' 'Pending'}}
+                    gray
+                {{else if this.status '==' 'Awaiting Payment'}}
+                    olive
+                {{else if this.status '==' 'Awaiting Fulfillment'}}
+                    blue
+                {{else if this.status '==' 'Awaiting Shipment'}}
+                    red
+                {{else if this.status '==' 'Awaiting Pickup'}}
+                    purple
+                {{else if this.status '==' 'Partially Shipped'}}
+                    teal
+                {{else if this.status '==' 'Completed'}}
+                    green
+                {{else if this.status '==' 'Shipped'}}
+                    green
+                {{else if this.status '==' 'Cancelled'}}
+                    black
+                {{else if this.status '==' 'Declined'}}
+                    brown
+                {{else if this.status '==' 'Refunded'}}
+                    orange
+                {{else if this.status '==' 'Disputed'}}
+                    pink
+                {{else if this.status '==' 'Manual Verification Required'}}
+                    violet
+                {{else if this.status '==' 'Partially Refunded'}}
+                    yellow
+                {{/if}}">
+                {{this.status}}
+            </div>
+            <span class="d-none"></span>
+            <div class="row align-items-center mt-0">
+                <div class="col-auto text-center" style="min-width:150px;">
+                    {{#if items.0.type '===' 'giftcertificate'}}
+                        <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{cdn ../../theme_settings.default_image_gift_certificate}}" alt="GiftCertificate" title="GiftCertificate" style="max-width:100px">
+                    {{else}}
+                        <img class="account-product-image lazyload"
+                                data-sizes="auto"
+                                src="{{cdn 'img/loading.svg'}}"
+                                data-src="{{getImage image 'productthumb_size' (cdn ../../theme_settings.default_image_product)}}"
+                                alt="{{image.alt}}"
+                                title="{{image.alt}}">
+                    {{/if}}
+                </div>
+                <div class="col-auto">
+                    <h5 class="text-gray-800">
+                        <a href="{{this.details_url}}" class="link-unstyled">{{lang 'account.orders.list.order_number' number=this.id}}</a>
+                    </h5>
+                    <h6 class="text-gray-700">
+                        {{lang 'account.orders.list.product_details' num_products=this.items.length cost=this.total.formatted}}
+                    </h6>
+                    <h6 class="small text-uppercase text-gray-600 font-weight-bold m-0">{{lang 'account.orders.order_placed' }}</h6>
+                    <p>{{this.date}}</p>
+                    <h6 class="small text-uppercase text-gray-600 font-weight-bold m-0">{{lang 'account.orders.last_update' }}</h6>
+                    <p>{{this.last_update_date}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="ui bottom attached large menu border-top border-right-0 border-left-0 border-bottom-0">
+            <a href="{{this.details_url}}" class="bg-white item text-uppercase font-weight-bold"><i class="far fa-file-alt mr-1"></i>Details</a>
+            {{#if ../settings.returns_enabled}}
+                {{#if this.return_url}}
+                    <a class="account-orderStatus-action d-none" href="{{this.return_url}}">
+                        {{lang 'account.orders.return_items' }}
+                    </a>
+                {{/if}}
+            {{/if}}
+            <a class="bg-white item text-pink text-uppercase font-weight-bold ml-auto small" href="https://support.organicstart.com" target="_blank">Support<i class="fas fa-external-link-alt ml-1"></i></a>
+        </div>
+    </div>
+{{/each}}

@@ -13,28 +13,127 @@ brand:
     {{/if}}
 {{/partial}}
 
+{{#partial "header"}} 
+    <header class="border-bottom border-moss">
+        <div class="category-title bg-gray-100 pb-5 d-flex justify-content-end align-items-end">
+            <div class="container mt-10">
+                {{#if brand.name '==' 'BABO Botanicals'}}
+                    <img class="ui medium image img-fluid" src="https://triad.imgix.net/os/i/brands/babo-botanicals.svg?s=4b4ff3e2c80b418d531c051bd8e7fb92" alt="{{brand.name}}" title="{{brand.name}}">
+                {{else if brand.name '==' 'Bambo Nature'}}
+                    <img class="ui medium image img-fluid" src="https://triad.imgix.net/os/i/brands/bambo-nature.svg?s=adcd3d788d027ba363847223fdaf0df1" alt="{{brand.name}}" title="{{brand.name}}">
+                {{else if brand.name '==' 'Boiron'}}
+                    <img class="ui medium image img-fluid" src="https://triad.imgix.net/os/i/brands/boiron.png?s=fa5a35133ec4349d414a9a53d6854f3c" alt="{{brand.name}}" title="{{brand.name}}">
+                {{else if brand.name '==' 'Earth Mama Organics'}}
+                    <img class="ui medium image img-fluid" src="https://triad.imgix.net/os/i/brands/earth-mama.svg?s=ea9f3f9e54babd95c07a40430f021a98" alt="{{brand.name}}" title="{{brand.name}}">
+                {{else if brand.name '==' 'Green Goo by Sierra Sage'}}
+                    <img class="ui medium image img-fluid" src="https://triad.imgix.net/os/i/brands/green-goo.svg?s=f831d707d4c4391f7eb0fa80b066dc83" alt="{{brand.name}}" title="{{brand.name}}">
+                {{else if brand.name '==' 'HiPP'}}
+                    <img class="ui medium image img-fluid" src="https://triad.imgix.net/os/i/brands/hipp.svg?s=7160e5ccd5b69efeb85fee268e9f485b" alt="{{brand.name}}" title="{{brand.name}}">
+                {{else if brand.name '==' 'Holle'}}
+                    <img class="ui medium image img-fluid" src="https://triad.imgix.net/os/i/brands/holle.svg?s=b123bd9e536b10e75406fe36be9266ed" alt="{{brand.name}}" title="{{brand.name}}">
+                {{else if brand.name '==' "Jack N' Jill"}}
+                    <img class="ui medium image img-fluid" src="https://triad.imgix.net/os/i/brands/jack-n-jill.svg?s=284cb198b4f1f705e6eb4b520e96cf98" alt="{{brand.name}}" title="{{brand.name}}">
+                {{else if brand.name '==' 'Kabrita'}}
+                    <img class="ui medium image img-fluid" src="https://triad.imgix.net/os/i/brands/kabrita.svg?s=44f1fb62b17ce1829c6cdc808f40e4ab" alt="{{brand.name}}" title="{{brand.name}}">
+                {{else if brand.name '==' 'Lac Larde'}}
+                    <img class="ui medium image img-fluid" src="https://triad.imgix.net/os/i/brands/lac-larde.svg?s=102334fc0d18f3f711cd50be422088e8" alt="{{brand.name}}" title="{{brand.name}}">
+                {{else if brand.name '==' "Lafe's Natural BodyCare"}}
+                    <img class="ui medium image img-fluid" src="https://triad.imgix.net/os/i/brands/lafes.svg?s=d7a214625ada3feb90d9ed4c3ae6dc30" alt="{{brand.name}}" title="{{brand.name}}">
+                {{else if brand.name '==' 'Lebenswert'}}
+                    <img class="ui medium image img-fluid" src="https://triad.imgix.net/os/i/brands/lebenswert.svg?s=dbb2a4c762156362afa73484ec44e0ed" alt="{{brand.name}}" title="{{brand.name}}">
+                {{else if brand.name '==' 'Lebenswert Bio'}}
+                    <img class="ui medium image img-fluid" src="https://triad.imgix.net/os/i/brands/lebenswert.svg?s=dbb2a4c762156362afa73484ec44e0ed" alt="{{brand.name}}" title="{{brand.name}}">
+                {{else if brand.name '==' 'Little Zi'}}
+                    <img class="ui medium image img-fluid" src="https://triad.imgix.net/os/i/brands/little-zi.svg?s=cf41f10a63a04eadd22e0fa06b371292" alt="{{brand.name}}" title="{{brand.name}}">
+                {{else if brand.name '==' 'Loulouka'}}
+                    <img class="ui medium image img-fluid" src="https://triad.imgix.net/os/i/brands/loulouka.svg?s=342d469815c89b3355879b98f6d59cb0" alt="{{brand.name}}" title="{{brand.name}}">
+                {{else if brand.name '==' 'Mambino Organics'}}
+                    <img class="ui medium image img-fluid" src="https://triad.imgix.net/os/i/brands/mambino.svg?s=4dcb9ef20f123a8a064f91a5e91f2ce2" alt="{{brand.name}}" title="{{brand.name}}">
+                {{else if brand.name '==' 'NANNYCare'}}
+                    <img class="ui medium image img-fluid" src="https://triad.imgix.net/os/i/brands/nannycare.svg?s=7de0f63f8f41c6729007f5b2228aa313" alt="{{brand.name}}" title="{{brand.name}}">
+                {{else if brand.name '==' 'Natures Paradise Organics'}}
+                    <img class="ui medium image img-fluid" src="https://triad.imgix.net/os/i/brands/natures-paradise.svg?s=881339b98cf31262b0b252e3fd01fec7" alt="{{brand.name}}" title="{{brand.name}}">
+                {{else if brand.name '==' 'Organic Start'}}
+                    <img class="ui medium image img-fluid" src="https://triad.imgix.net/os/i/logo.svg?s=83f3f5678face7e3f500c8aba1fd41e9" alt="{{brand.name}}" title="{{brand.name}}">
+                {{else if brand.name '==' 'RADIUS'}}
+                    <img class="ui medium image img-fluid" src="https://triad.imgix.net/os/i/brands/radius.svg?s=0f65a254de07ad07e29bb545c99192d1" alt="{{brand.name}}" title="{{brand.name}}">
+                {{else if brand.name '==' 'Rubbabu'}}
+                    <img class="ui medium image img-fluid" src="https://triad.imgix.net/os/i/brands/rubbabu.svg?s=11760352deeb4a6f0f71b1bc9c8b1d90" alt="{{brand.name}}" title="{{brand.name}}">
+                {{else if brand.name '==' 'Topfer'}}
+                    <img class="ui medium image img-fluid" src="https://triad.imgix.net/os/i/brands/topfer.svg?s=dd934f5b38621df83c5b30e4f0bc87de" alt="{{brand.name}}" title="{{brand.name}}">
+                {{else if brand.name '==' 'ZNYA'}}
+                    <img class="ui medium image img-fluid" src="https://triad.imgix.net/os/i/brands/znya.svg?s=1e97a3534269a62bc2a5648c9afbb00d" alt="{{brand.name}}" title="{{brand.name}}">
+                {{else}}
+                    <h1 class="display-3 animated fadeInUp slow text-gray-800">{{brand.name}}</h1>
+                {{/if}}
+            </div>
+        </div>
+        <div class="category-breadcrumbs bg-gray-300 container-fluid">
+            <div class="container">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb bg-transparent py-2 p-0 m-0 border-0" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+                        <li class="breadcrumb-item" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                                <a href="/" class="breadcrumb-label" itemprop="item"><span itemprop="name">Home</span></a>
+                            <meta itemprop="position" content="1">
+                        </li>
+                        <li class="breadcrumb-item" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                            <a href="/brands" class="breadcrumb-label" itemprop="item"><span itemprop="name">Brands</span></a>
+                            <meta itemprop="position" content="2">
+                        </li>
+                        <li class="breadcrumb-item active" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                                <meta itemprop="item" content="{{brand.url}}">
+                                <span class="breadcrumb-label" itemprop="name">{{brand.name}}</span>
+                            <meta itemprop="position" content="3">
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </header>
+{{/partial}}
+
 {{#partial "page"}}
-{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-{{#if brand.image}}
-    <div class="brand-image-container">
-        <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage brand.image 'thumb_size'}}">
-    </div>
-{{/if}}
-<h1 class="page-heading">{{brand.name}}</h1>
+
 {{{snippet 'brand'}}}
-<div class="page">
-    <aside class="page-sidebar" id="faceted-search-container">
-        {{> components/brand/sidebar}}
-    </aside>
+<div class="container mt-4">
+    <div class="row">
+        <aside class="col-12 col-lg-3 d-none d-lg-block">
+            <nav>
+                {{#if brand.faceted_search_enabled}}
+                    {{> components/faceted-search/index brand}}
+                {{else}}
+                    {{#if shop_by_brand}}
+                        <ul class="nav flex-column">
+                            {{#each shop_by_brand}}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{url}}">{{name}}</a>
+                                </li>
+                            {{/each}}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{urls.brands}}">{{lang 'common.view_all'}}</a>
+                            </li>
+                        </ul>
+                    {{/if}}
+                {{/if}}
+            </nav>
+        </aside>
+        <main class="col-12 col-lg-9 page-content">
+            {{#if brand.products}}
+                {{> components/products/filter sort=pagination.brand.sort}}
+                <form action="{{urls.compare}}" method='POST' {{#if settings.data_tag_enabled}} data-list-name="Brand: {{brand.name}}" {{/if}} data-product-compare>
+                    {{#if theme_settings.product_list_display_mode '===' 'grid'}}
+                        {{> os/components/products/grid products=brand.products show_compare=brand.show_compare theme_settings=theme_settings event="list"}}
+                    {{else}}
+                        {{> os/components/products/list products=brand.products show_compare=brand.show_compare theme_settings=theme_settings event="list"}}
+                    {{/if}}
+                </form>
 
-    <main class="page-content" id="product-listing-container">
-        {{#if brand.products}}
-            {{> components/brand/product-listing}}
-        {{else}}
-            <p>{{lang 'brands.no_products'}}</p>
-        {{/if}}
-    </main>
+                {{> os/components/common/paginator pagination.brand}}
+            {{else}}
+                <p>{{lang 'brands.no_products'}}</p>
+            {{/if}}
+        </main>
+    </div>
 </div>
-
 {{/partial}}
 {{> layout/base}}

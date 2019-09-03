@@ -1,0 +1,76 @@
+<nav class="mt-4 mb-2">
+    <ul class="ui fluid vertical large stackable secondary menu">
+        <li class="item">
+            <strong>YOUR ACCOUNT</strong>
+        </li>
+        {{#if account_page '===' 'orders'}}
+            {{#if page_type '===' 'account_order'}}
+                <li class="item text-uppercase active">
+                    <a class="link-unstyled" href="{{urls.account.orders.all}}">{{lang 'account.nav.orders'}}</a>
+                </li>
+            {{else}}
+                <li class="item text-uppercase active">{{lang 'account.nav.orders'}}</li>
+            {{/if}}
+        {{else}}
+            <li class="item text-uppercase">
+                <a class="link-unstyled" href="{{urls.account.orders.all}}">{{lang 'account.nav.orders'}}</a>
+            </li>
+        {{/if}}
+        {{#if settings.returns_enabled}}
+            {{#if account_page '===' 'returns'}}
+                <li class="item text-uppercase active">{{lang 'account.nav.returns'}}</li>
+            {{else}}
+                <li class="item text-uppercase">
+                    <a class="link-unstyled" href="{{urls.account.returns}}">{{lang 'account.nav.returns'}}</a>
+                </li>
+            {{/if}}
+        {{/if}}
+        {{#if account_page '===' 'messages'}}
+            <li class="item text-uppercase active">{{lang 'account.nav.messages' num_new_messages=customer.num_new_messages}}</li>
+        {{else}}
+            <li class="item text-uppercase">
+                <a class="link-unstyled" href="{{urls.account.inbox}}">{{lang 'account.nav.messages' num_new_messages=customer.num_new_messages}}</a>
+            </li>
+        {{/if}}
+        {{#if account_page '===' 'addresses'}}
+            <li class="item text-uppercase active">{{lang 'account.nav.addresses'}}</li>
+        {{else}}
+            <li class="item text-uppercase">
+                <a class="link-unstyled" href="{{urls.account.addresses}}">{{lang 'account.nav.addresses'}}</a>
+            </li>
+        {{/if}}
+        {{#if settings.show_payment_methods}}
+            {{#if account_page '===' 'payment_methods'}}
+                <li class="item text-uppercase active">{{lang 'account.nav.payment_methods'}}</li>
+            {{else}}
+                <li class="item text-uppercase">
+                    <a class="link-unstyled" href="{{urls.account.payment_methods.all}}">{{lang 'account.nav.payment_methods'}}</a>
+                </li>
+            {{/if}}
+        {{/if}}
+        {{#if settings.show_wishlist}}
+            {{#if account_page '===' 'wishlists'}}
+                <li class="item text-uppercase active">{{lang 'account.nav.wishlists' num_wishlists=customer.num_wishlists}}</li>
+            {{else}}
+                <li class="item text-uppercase">
+                    <a class="link-unstyled" href="{{urls.account.wishlists.all}}">{{lang 'account.nav.wishlists' num_wishlists=customer.num_wishlists}}</a>
+                </li>
+            {{/if}}
+        {{/if}}
+        {{#if account_page '===' 'recent_items'}}
+            <li class="item text-uppercase active">{{lang 'account.nav.recently_viewed'}}</li>
+        {{else}}
+            <li class="item text-uppercase">
+                <a class="link-unstyled" href="{{urls.account.recent_items}}">{{lang 'account.nav.recently_viewed'}}</a>
+            </li>
+        {{/if}}
+        {{#if account_page '===' 'settings'}}
+            <li class="item text-uppercase active">{{lang 'account.nav.settings'}}</li>
+        {{else}}
+            <li class="item text-uppercase">
+                <a class="link-unstyled" href="{{urls.account.details}}">{{lang 'account.nav.settings'}}</a>
+            </li>
+        {{/if}}
+    </ul>
+</nav>
+    

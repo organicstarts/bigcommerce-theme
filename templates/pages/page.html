@@ -1,41 +1,46 @@
 {{#partial "page"}}
 
-{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-
-<main class="page">
+<div class="container">
+    
     {{#unless theme_settings.hide_page_heading }}
-        <h1 class="page-heading">{{ page.title }}</h1>
+        <h1 class="display-1">{{ page.title }}</h1>
     {{/unless}}
-
+    
+    {{> os/components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+    
     {{#if page.sub_pages}}
-    <nav class="navBar navBar--sub">
-        <ul class="navBar-section account-navigation">
-        {{#each page.sub_pages}}
-            <li class="navBar-item"><a class="navBar-action" href="{{url}}">{{title}}</a></li>
-        {{/each}}
-        </ul>
-    </nav>
+        <div class="row mt-4">
+            <div class="col-12 col-lg-3 col-xl-2">
+                <ul class="ui fluid vertical large stackable secondary menu">
+                    {{#each page.sub_pages}}
+                        <li class="item"><a class="link-unstyled" href="{{url}}">{{title}}</a></li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div class="col-12 col-lg-9 col-xl-10">
     {{/if}}
-
-    <div class="page-content page-content--centered">
-        {{#replace '%%Syndicate%%' page.content}}
-            {{> components/page/rss_feed}}
-        {{else}}
-            <p>{{{page.content}}}</p>
-        {{/replace}}
-    </div>
-
-    {{#if page.feed}}
-        <ul>
-            {{#each page.feed}}
-                <li>
-                    <h6><a href="{{url}}" target="_blank">{{title}}</a></h6>
-                    <p>{{content}}</p>
-                </li>
-            {{/each}}
-        </ul>
+                <div class="ui segment p-2 p-lg-4{{#unless page.sub_pages}} mt-4{{/unless}}">
+                    {{#replace '%%Syndicate%%' page.content}}
+                        {{> components/page/rss_feed}}
+                    {{else}}
+                        <p>{{{page.content}}}</p>
+                    {{/replace}}
+                    {{#if page.feed}}
+                        <ul>
+                            {{#each page.feed}}
+                                <li>
+                                    <h6><a href="{{url}}" target="_blank">{{title}}</a></h6>
+                                    <p>{{content}}</p>
+                                </li>
+                            {{/each}}
+                        </ul>
+                    {{/if}}
+                </div>
+    {{#if page.sub_pages}}
+            </div>
+        </div>
     {{/if}}
-</main>
+</div>
 
 {{/partial}}
 

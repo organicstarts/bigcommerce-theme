@@ -5,31 +5,40 @@ customer:
 ---
 
 {{#partial "page"}}
+    <div class="container">
+        <h1 class="display-1">{{lang 'account.orders.heading' }}</h1>
+        {{> os/components/common/breadcrumbs breadcrumbs=breadcrumbs}}
 
-{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-<h1 class="page-heading">{{lang 'account.orders.heading' }}</h1>
-{{> components/account/navigation account_page='orders'}}
-
-<main class="account account--fixed">
-    <div class="account-head">
-        {{#if customer.store_credit.value '>' 0}}
-            <div class="alertBox alertBox--storeCredit">
-                {{{lang 'common.store_credit' store_credit=customer.store_credit.formatted}}}
+        <div class="row mt-4">
+            <div class="col-12 col-lg-3 col-xl-2">
+                {{> os/components/account/navigation account_page='orders'}}
             </div>
-        {{/if}}
+            <div class="col-12 col-lg-9 col-xl-10">
+                {{#if customer.store_credit.value '>' 0}}
+                    <div class="alert alert-info p-2 mb-4">
+                        <div class="d-flex flex-row justify-content-between align-items-center">
+                            <div class="flex-column">
+                                <i class="fas fa-info fs-4 ml-2 mr-4"></i>
+                            </div>
+                            <div class="flex-column">
+                                {{{lang 'common.store_credit' store_credit=customer.store_credit.formatted}}}
+                            </div>
+                        </div>
+                    </div>
+                {{/if}}
+                <h4 class="mb-2">Order History <small>{{customer.orders.length}} recent orders</small></h4>
+                {{#if customer.orders.length}}
+                    {{> os/components/account/orders-list orders=customer.orders}}
+                    {{> os/components/common/small-paginator pagination.orders}}
+                    {{{snippet 'account'}}}
+                {{else}}
+                    <div class="ui red segment p-2 p-lg-4">
+                        <strong>Hey, {{customer.name}}.</strong>
+                        {{{lang 'account.orders.none'}}}
+                    </div>
+                {{/if}}
+            </div>
+        </div>
     </div>
-    <div class="account-body">
-        <section class="account-content">
-            {{#if customer.orders.length}}
-                {{> components/account/orders-list orders=customer.orders}}
-                {{> components/common/small-paginator pagination.orders}}
-            {{else}}
-                {{> components/common/alert-info (lang 'account.orders.none')}}
-            {{/if}}
-        </section>
-    </div>
-    {{{snippet 'account'}}}
-</main>
-
 {{/partial}}
 {{> layout/base}}

@@ -1,20 +1,25 @@
-<div id="mainMenu" class="main-menu py-2 py-lg-4 px-2 px-xl-4 invisible position-absolute" role="banner">
+<div id="mainMenu" class="main-menu py-2 p-lg-2 invisible position-absolute" role="banner">
     <div class="container-fluid">
         <div class="row justify-content-center align-items-center">
-            <div class="col-1 m-0 d-lg-none">
-                <a id="MobileMenuLink" href="#mainMobileMenu" class="link-unstyled">
-                    <i class="fas fa-bars"></i>
-                </a>
-            </div>
-            <div class="col-1 col-lg-2 col-xl-1 m-0">
-                <a href="/" title="Home">
-                    <img src="https://triad.imgix.net/os/i/logo.svg?s=83f3f5678face7e3f500c8aba1fd41e9"
-                        alt="Organic Start" title="Organic Start Logo" class="logo my-0 d-none d-lg-block">
-                    <img src="https://triad.imgix.net/os/i/icon-white.svg?s=96aba761ae07349b74aadd9e2fefa98b"
-                        alt="Organic Start" title="Organic Start Icon" class="icon my-0 d-lg-none">
-                </a>
+            <div class="col-6 col-lg-2 col-xl-1 m-0">
+                <ul class="nav align-items-center m-0">
+                    <li class="nav-item ml-0 mr-2 d-lg-none" id="accountDrawer">
+                        <a id="MobileMenuLink" href="#mainMobileMenu" class="link-unstyled">
+                            <i class="fas fa-bars fs-4"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/" title="Home">
+                            <img src="https://triad.imgix.net/os/i/logo.svg?s=83f3f5678face7e3f500c8aba1fd41e9"
+                                alt="Organic Start" title="Organic Start Logo" class="logo my-0 d-none d-lg-block">
+                            <img src="https://triad.imgix.net/os/i/icon.svg?s=67d902c3eb05636556671ea991a2c744"
+                                alt="Organic Start" title="Organic Start Icon" class="logo icon my-0 d-lg-none">
+                        </a>
+                    </li>
+                </ul>
             </div>
             {{> os/components/common/navigation}}
         </div>
     </div>
 </div>
+<!--<img src="https://triad.imgix.net/os/i/logo.svg?s=83f3f5678face7e3f500c8aba1fd41e9" alt="Organic Start" title="Organic Start Logo" class="mobile logo my-0 d-lg-none">-->

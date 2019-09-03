@@ -2,20 +2,18 @@
 cart: true
 ---
 {{#partial "page"}}
-<div class="page">
 
-    <main class="page-content" data-cart>
-        {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+<div class="container">
+    
+    <h1 class="display-1" data-cart-page-title>{{{lang 'cart.label' quantity=cart.quantity}}}</h1>
 
-        {{> components/cart/page-title}}
+    {{> os/components/common/breadcrumbs breadcrumbs=breadcrumbs}}
 
-        <div data-cart-status>
-            {{> components/cart/status-messages}}
-        </div>
-
+    <div data-cart-status>
+        {{> components/cart/status-messages}}
+    </div>
+    <div class="ui segment p-2 p-lg-4 mt-4">
         {{#if cart.items.length}}
-            <div class="loadingOverlay"></div>
-
             <div data-cart-content>
                 {{> components/cart/content}}
             </div>
@@ -47,12 +45,15 @@ cart: true
                 </div>
             {{/if}}
         {{else}}
-            <h3>{{lang 'cart.checkout.empty_cart'}}</h3>
+            <div class="p-2">
+                <img src="https://triad.imgix.net/os/i/basket.png?s=c28539ed8dcafa3533211257fc0bea16" alt="Empty Shopping Basket" class="ui medium image img-fluid mx-auto">
+                <h5 class="text-center">{{lang 'cart.checkout.empty_cart'}}</h5>
+            </div>
             {{{ remote_api_scripts }}}
         {{/if}}
 
         {{{snippet 'cart'}}}
-    </main>
+    </div>
 </div>
 {{/partial}}
 {{> layout/base}}

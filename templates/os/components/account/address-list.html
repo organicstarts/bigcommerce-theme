@@ -1,0 +1,46 @@
+<div class="row">
+    {{#if customer.addresses}}
+        {{#each customer.addresses}}
+            <div class="col-12 col-sm-6 col-xl-4">
+                <div class="ui segments bg-white">
+                    <div class="segment p-2 p-lg-4" style="min-height:275px;">
+                        <h5 class="address-title">{{first_name}} {{last_name}}</h5>
+                        <ul class="address-details address-details--postal">
+                            <li>{{company}}</li>
+                            <li>{{address1}}</li>
+                            <li>{{address2}}</li>
+                            <li>{{city}}{{#if state}}, {{state}}{{/if}} {{zip}}</li>
+                            <li>{{country}}</li>
+                        </ul>
+                        {{#if phone}}
+                            <dl class="address-details">
+                                <dt class="address-label">{{lang 'account.addresses.phone' }}</dt>
+                                <dd class="address-description">{{phone}}</dd>
+                            </dl>
+                        {{/if}}
+                    </div>
+                    <form action="{{delete_url}}" method="post" data-delete-address="{{lang 'forms.address.confirm_delete'}}">
+                        <div class="ui bottom attached large fluid two item menu border-top border-right-0 border-left-0 border-bottom-0">
+                            <a class="item bg-white text-uppercase font-weight-bold" href="{{edit_url}}">{{lang 'common.edit' }}</a>
+                            <button type="submit" class="item bg-white text-red text-uppercase font-weight-bold">{{lang 'common.delete' }}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        {{/each}}
+    {{else}}
+        <div class="col-12">
+            {{> components/common/alert-info (lang 'account.addresses.no_addresses')}}
+        </div>
+    {{/if}}
+    <div class="col-12 col-sm-6 col-xl-4">
+        <a class="link-unstyled" href="{{urls.account.add_address}}">
+            <div class="ui segment p-2 p-lg-4 text-center d-flex align-items-center" style="min-height:323.5px;">
+                <div class="text-center mx-auto">
+                    <div class="text-green mb-4 fs-5"><i class="fas fa-plus"></i></div>
+                    <h4 class="fs-3">{{lang 'account.addresses.new_address' }}</h4>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>

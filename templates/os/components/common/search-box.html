@@ -1,0 +1,14 @@
+{{{ snippet "forms_search"}}}
+<form class="form"  action="{{urls.search}}">
+    <fieldset class="form-fieldset">
+        <div class="form-field">
+            <label class="form-label is-srOnly" for="search_query_adv">{{lang 'search.results.form_label'}}</label>
+            <div class="form-prefixPostfix wrap">
+                <input class="form-input rounded-pill" id="search_query_adv" name="search_query_adv" value="{{forms.search.query}}">
+                <button class="ui green rounded-pill button ml-2" type="submit">
+                    {{lang 'search.results.form_button_text'}} <i class="fas fa-angle-double-right"></i>
+                </button>
+            </div>
+        </div>
+    </fieldset>
+</form>
