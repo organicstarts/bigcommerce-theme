@@ -67,7 +67,7 @@
                 <div class="col m-0 text-right">
                     {{#if show_cart_action}}
                             {{#if has_options}}
-                                <a href="{{add_to_cart_url}}" class="ui green icon vertical animated card-atc options button rounded-pill m-0" data-product-id="{{id}}">
+                                <a href="{{url}}" class="ui green icon vertical animated card-atc options button rounded-pill m-0">
                                     <div class="hidden content">{{lang 'products.choose_options'}}</div>
                                     <div class="visible content">
                                             <i class="fas fa-tasks"></i>
@@ -75,7 +75,7 @@
                                 </a>
                             {{/if}}
                             {{#if pre_order}}
-                                <a href="{{add_to_cart_url}}" class="ui orange icon vertical animated card-atc button rounded-pill m-0" data-product-id="{{id}}">
+                                <a href="{{pre_order_add_to_cart_url}}" class="ui orange icon vertical animated card-atc button rounded-pill m-0" data-product-id="{{id}}">
                                     <div class="hidden content">{{lang 'products.pre_order'}}</div>
                                     <div class="visible content">
                                         <i class="fas fa-plus"></i>
@@ -83,7 +83,7 @@
                                 </a>
                             {{/if}}
                             {{#if add_to_cart_url}}
-                                <a href="{{add_to_cart_url}}" class="ui green icon vertical animated card-atc button rounded-pill m-0" data-product-id="{{id}}">
+                                <a href="{{add_to_cart_url}}" class="ui green icon vertical animated card-atc instant-atc button rounded-pill m-0" data-product-id="{{id}}">
                                     <div class="hidden content">{{lang 'products.add_to_cart'}}</div>
                                     <div class="visible content">
                                         <i class="fas fa-plus"></i>

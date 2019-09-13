@@ -26,9 +26,9 @@
             {{/if}}
         {{/if}}
         {{#if account_page '===' 'messages'}}
-            <li class="item text-uppercase active">{{lang 'account.nav.messages' num_new_messages=customer.num_new_messages}}</li>
+            <li class="item text-uppercase active d-none">{{lang 'account.nav.messages' num_new_messages=customer.num_new_messages}}</li>
         {{else}}
-            <li class="item text-uppercase">
+            <li class="item text-uppercase d-none">
                 <a class="link-unstyled" href="{{urls.account.inbox}}">{{lang 'account.nav.messages' num_new_messages=customer.num_new_messages}}</a>
             </li>
         {{/if}}

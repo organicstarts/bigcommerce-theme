@@ -198,7 +198,7 @@
                 <p>{{product.release_date}}</p>
             {{/if}}
             <form class="form" method="post" action="{{product.cart_url}}" enctype="multipart/form-data"
-                  data-cart-item-add>
+                  >
                 <input type="hidden" name="action" value="add">
                 <input type="hidden" name="product_id" value="{{product.id}}"/>
                 <div data-product-option-change style="display:none;">

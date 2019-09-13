@@ -1,5 +1,6 @@
 {{#partial "page"}}
 
+{{#if 1 '==' 2}}
 <div class="container">
     <h1 class="display-1">{{lang 'account.messages.heading' }}</h1>
     {{> os/components/common/breadcrumbs breadcrumbs=breadcrumbs}}
@@ -23,6 +24,24 @@
         </div>
     </div>
 </div>
+{{else}}
+    <section class="container flex-page d-flex align-items-center justify-content-center pt-0">
+        <div class="row text-left text-sm-center justify-content-center align-items-center">
+            <div class="col">
+                <h1 class="display mb-4">
+                    {{lang 'page_not_found.page_heading'}}
+                    <br>
+                        <small>
+                            {{lang 'page_not_found.message'}}
+                        </small>
+                </h1>
+                <div class="max-w-500 mx-auto">
+                    {{> os/components/common/search-box}}
+                </div>
+            </div>
+        </div>
+    </section>
+{{/if}}
 
 {{/partial}}
 {{> layout/base}}

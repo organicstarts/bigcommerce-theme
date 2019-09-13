@@ -1,4 +1,4 @@
-<div class="bg-white py-4">
+<div class="bg-white py-2 py-lg-4">
     <div class="container">
         <div class="productView" {{#if settings.data_tag_enabled}} data-event-type="product" data-entity-id="{{product.id}}" data-name="{{product.title}}" data-product-category="{{#each product.category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{product.brand.name}}" data-product-price="{{#if product.price.with_tax}}{{product.price.with_tax.value}}{{else}}{{product.price.without_tax.value}}{{/if}}" data-product-variant="single-product-option"{{/if}}>
             {{#each product.reviews.messages}}
@@ -22,7 +22,7 @@
             {{/if}}
 
             <div class="row justify-content-center align-items-center">
-                <div class="col-4 productView-images" data-image-gallery>
+                <div class="col-8 col-sm-6 col-md-4 offset-md-0 productView-images" data-image-gallery>
                     <figure class="productView-image"
                             data-image-gallery-main
                             {{#if product.main_image}}
@@ -66,14 +66,14 @@
                         {{/each}}
                     </ul>
                 </div>
-                <div class="col-8">
+                <div class="col-10 col-md-8">
 
                     {{#if product.brand}}
                         <h2 class="m-0" itemprop="brand" itemscope itemtype="http://schema.org/Brand">
                             <a href="{{product.brand.url}}" itemprop="url"class="text-gray-500 link-unstyled"><small><span itemprop="name">{{product.brand.name}}</span></small></a>
                         </h2>
                     {{/if}}
-                    <h1 class="display-4 m-0" itemprop="name">{{product.title}}</h1>
+                    <h1 class="display-4 m-0 product-name" itemprop="name">{{product.title}}</h1>
                     
                     <div class="my-2 productView-rating"{{#if product.num_reviews '>' 0}} itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating"{{/if}}>
                         {{#if settings.show_product_rating}}
@@ -119,6 +119,12 @@
                         {{/or}}
                     </div>
 
+                    {{#contains name "Add-on"}}
+                        <p class="mt-2 mb-2">
+                            <a class="ui large teal label">Add-on Item</a> <strong>Only ships with qualifying orders over $25.</strong>
+                        </p>
+                    {{/contains}}
+
                     {{{region name="product_below_price"}}}
                     
                     <div class="productView-options">
@@ -126,7 +132,7 @@
                             <p>{{product.release_date}}</p>
                         {{/if}}
                         <form class="form" method="post" action="{{product.cart_url}}" enctype="multipart/form-data"
-                                data-cart-item-add>
+                            data-cart-item-add>
                             <input type="hidden" name="action" value="add">
                             <input type="hidden" name="product_id" value="{{product.id}}"/>
                             <div data-product-option-change style="display:none;">
@@ -134,7 +140,7 @@
                                     {{{dynamicComponent 'components/products/options'}}}
                                 {{/each}}
                             </div>
-                            <div class="form-field form-field--stock{{#unless product.stock_level}} u-hiddenVisually{{/unless}}">
+                            <div class="d-none form-field form-field--stock{{#unless product.stock_level}} u-hiddenVisually{{/unless}}">
                                 <label class="form-label form-label--alternate">
                                     {{lang 'products.current_stock'}}
                                     <span data-product-stock>{{product.stock_level}}</span>
@@ -153,6 +159,23 @@
         </div>
     </div>
 </div>
+
+{{#each product.custom_fields}}
+    {{#or (if name '==' 'Wholesale') (if name '==' 'wholesale')}}
+        <div class="phoenix_start p-2 p-lg-4">
+            <div class="tablet container">
+                <div class="d-flex flex-row justify-content-between align-items-center">
+                    <h5 class="flex-grow-1 text-white m-0">Wholesale Options Available<br><span class="text-gray-100 small">Buy Bulk and Save Up 40%</span></h5>
+                    <div class="align-self-center">
+                        <a href="{{{value}}}" class="ui black button" target="_blank">
+                            Shop Wholesale <i class="fas fa-angle-double-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{/or}}
+{{/each}}
 
 <div class="tablet container px-0">
     <table class="table table-borderless border-0">
@@ -315,12 +338,4 @@
             {{{product.warranty}}}
         </div>
     {{/if}}
-
-    <div id="previewModal" class="modal modal--large" data-reveal>
-        <a href="#" class="modal-close" aria-label="{{lang 'common.close'}}" role="button">
-            <span aria-hidden="true">&#215;</span>
-        </a>
-        <div class="modal-content"></div>
-        <div class="loadingOverlay"></div>
-    </div>
 </div>

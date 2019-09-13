@@ -14,33 +14,47 @@ blog:
 
 {{#partial "scripts"}}
     <script>
-        oSx.Swipes.Categories(); 
+        oSx.Swipes.Categories();
+        oSx.Swipes.Brands();
+        if(!oSx.Cookies.Check('welcomeModal')) {
+            oSx.Modals.Create("welcomeModal", {
+                dismissable: true,
+                size: 'lg',
+                centered: true,
+                header: '🎉 Introducing the New Organic Start!',
+                body: `<p class="text-center"><img src="https://triad.imgix.net/os/i/home/welcome-back.svg" class="ui medium image mx-auto"></p>
+                <p>Welcome to our all-new website! We're back and better than ever!! Browse hundreds of certified organic baby and mommy products! Explore trusted brands that we love and support! And as always, expect the same high quality products and superior support!</p>
+                <p>Our team is going to be working directly with parents in the coming months to create awesome new products perfect for your little one. Be sure to check back as we continue to add those awesome new products!</p>
+                <p>We've worked hard on this, we hope you love it! You might find some bugs / glitches, please let us know via our contact form from the footer of our website.</p>
+                <p>Thank you for your continued love and support,<br><i>Your Friends & Family at Organic Start.</i></p>
+                <p>Looking for baby milk formula? Please refer to <a href="http://alert.organicstart.com/" target="_blank">our public alert</a>.</p>`
+            });
+            oSx.Cookies.Set('welcomeModal', true);
+        }
     </script>
 {{/partial}}
 
 {{#partial "page"}}
 
     <section class="home jumbotron overflow-hidden rounded-0 m-0 pt-0 pb-0">
-        <div class="container d-flex justify-content-center justify-content-lg-end align-items-end align-items-lg-center text-center text-lg-left h-100">
-            <h1 class="display-3 animated fadeInUp slow mb-5 text-gray-800 d-none d-lg-block">Home to<span class="d-inline">&nbsp;</span><br class="d-none d-lg-block">the world's best<span class="d-inline">&nbsp;</span><br class="d-none d-lg-block">organic baby<span class="d-inline">&nbsp;</span><br class="d-none d-lg-block">products.</h1>
+        <div class="container d-none d-lg-flex justify-content-center justify-content-lg-end align-items-end align-items-lg-center text-center text-lg-left h-100">
+            <h1 class="display-3 animated fadeInUp slow mb-5 text-gray-800">Home to<span class="d-inline">&nbsp;</span><br class="d-none d-lg-block">the world's best<span class="d-inline">&nbsp;</span><br class="d-none d-lg-block">organic baby<span class="d-inline">&nbsp;</span><br class="d-none d-lg-block">products.</h1>
         </div>
     </section>
 
-    <section class="py-4 py-lg-5 bg-headline bg-white text-center d-lg-none" id="tagline" data-spy="scroll" data-delayed="1200">
-        <div class="container py-lg-5">
-            <h1 class="display-3 slow mb-2 text-moss-700 d-lg-none" data-spy="item" data-animation="fadeIn" data-staggered="true">Home to<span class="d-inline">&nbsp;</span><br class="d-none d-lg-block">the world's best<span class="d-inline">&nbsp;</span><br class="d-none d-lg-block">organic baby<span class="d-inline">&nbsp;</span><br class="d-none d-lg-block">products.</h1>
-            <h2 class="h1-md" data-spy="item" data-animation="fadeIn" data-staggered="true" data-timeout="500"><small class="text-moss-300 text-md-moss-700">Explore our new collections<span class="d-none d-sm-inline">&nbsp;</span><br class="d-sm-none">&amp; hand-crafted products.</small></h2>
-            <!--<h2 class="text-moss-600" data-spy="item" data-animation="fadeIn" data-staggered="true" data-timeout="500">Health &amp; Happiness Starts at Day #1</h2>
-            <h2 data-spy="item" data-animation="fadeIn" data-staggered="true" data-timeout="300"><small class="text-moss-300"></small></h2>-->
+    <section class="bg-headline bg-white text-center d-lg-none pt-5 pt-md-6" id="tagline" data-spy="scroll" data-delayed="1200">
+        <div class="container">
+            <h1 class="display-3 slow mb-2 text-gray-800" data-spy="item" data-animation="fadeIn" data-staggered="true">Home to the<br class="d-sm-none"><span class="d-none d-sm-inline">&nbsp;</span>world's best<br>organic baby<br class="d-sm-none"><span class="d-none d-sm-inline">&nbsp;</span>products.</h1>
+            <h2 class="h4 text-gray-600" data-spy="item" data-animation="fadeIn" data-staggered="true" data-timeout="500">Explore our new collections<span class="d-none d-sm-inline">&nbsp;</span><br class="d-sm-none">&amp; hand-crafted products.</h2>
         </div>
     </section>
 
-    <section class="py-10 py-xl-15 bg-white" id="points" data-spy="scroll">
+    <section class="bg-white py-10 py-md-12 py-lg-14 py-xl-16" id="points" data-spy="scroll">
         <div class="container">
             <div class="row align-items-center justify-content-center text-center">
                 <div class="col-10 col-md-6 order-2 order-lg-1 col-lg-4 px-lg-5 px-xl-0 col-xl-3 mb-10 mb-lg-0">
                     <div class="max-w-350 mx-auto">
-                        <img class="ui medium image img-fluid mx-auto mb-7" src="https://triad.imgix.net/os/i/home/stork.svg?s=733bc5059f5f3fa14bac41d63c8a37bf" data-spy="item" data-animation="bounceIn slow">
+                        <a href="/mommy/" class="link-unstyled"><img class="ui medium image img-fluid mx-auto mb-7" src="https://triad.imgix.net/os/i/home/stork.svg?s=733bc5059f5f3fa14bac41d63c8a37bf" data-spy="item" data-animation="bounceIn slow"></a>
                         <h5 class="text-uppercase font-weight-bold text-gray-800 mb-3" data-spy="item" data-animation="fadeInUp slow">
                             Mommy Care
                         </h5>
@@ -62,7 +76,7 @@ blog:
                 </div>
                 <div class="col-10 col-md-6 order-3 col-lg-4 px-lg-5 px-xl-0 col-xl-3 offset-xl-1">
                     <div class="max-w-350 mx-auto">
-                        <img class="ui medium image img-fluid mx-auto mb-7" src="https://triad.imgix.net/os/i/home/truck-v2.svg?s=8bd836b06025d00d275dd1a315ee337a" data-spy="item" data-animation="bounceIn slow">
+                        <a href="/support/shipping" class="link-unstyled"><img class="ui medium image img-fluid mx-auto mb-7" src="https://triad.imgix.net/os/i/home/truck-v2.svg?s=8bd836b06025d00d275dd1a315ee337a" data-spy="item" data-animation="bounceIn slow"></a>
                         <h5 class="text-uppercase font-weight-bold text-gray-800 mb-3" data-spy="item" data-animation="fadeInUp slow">
                             Fast &amp; Free Shipping
                         </h5>
@@ -75,8 +89,8 @@ blog:
         </div>
     </section>
 
-    <section class="bg-bundles bg-white" id="bundles" data-spy="scroll">
-        <div class="container-fluid pt-5 pt-md-10 pb-0">
+    <section class="bg-bundles bg-white py-10 py-md-12 py-lg-14 py-xl-16" id="bundles" data-spy="scroll">
+        <div class="container-fluid">
             <div class="row align-items-center">
                 <div class="col-8 offset-2 col-sm-6 offset-sm-3 col-md-4 offset-md-0 col-lg-5 col-xl-5 mb-0">
                     <div class="text-center text-lg-right">
@@ -85,27 +99,30 @@ blog:
                 </div>
                 <div class="col-12 col-md-8 col-lg-7 col-xl-7">
                     <div class="text-center text-md-left pt-5 pt-md-0 pl-0 pl-lg-2 pl-xl-4">
-                        <h2 class="text-gray-800 mb-4">
+                        <h2 class="mb-2 mb-lg-4">
                             <span data-spy="item" data-animation="fadeInRight" data-staggered="true"
-                                data-timeout="300">Bundles for Every Occassion</span><br>
-                            <small  class="text-gray-700" data-spy="item" data-animation="fadeInRight" data-staggered="true"
-                                data-timeout="300">
-                                We've paired the best products<span class="d-none d-sm-inline">&nbsp;</span><br class="d-inline d-sm-none">with the best prices.
-                            </small>
+                                data-timeout="300"><span class="text-moss-600 font-weight-bold">Organic</span> <span class="text-mustard-600 font-weight-bold">Bundles</span><br class="d-sm-none"><span class="d-none d-sm-inline">&nbsp;</span><span class="text-gray">for</span> every occassion</span></span><br>
                         </h2>
-                        <a href="#" class="ui large inverted red button rounded-pill" data-spy="item"
-                        data-animation="fadeInUp" data-staggered="true" data-timeout="250">
-                        Shop Bundles <i class="fas fa-angle-double-right"></i>
-                        </a>
+                        <h3 class="h4 text-gray-800 mb-4" data-spy="item" data-animation="fadeInRight" data-staggered="true" data-timeout="300">
+                            We've paired<br class="d-xs-none"><span class="d-none d-xs-inline">&nbsp;</span>the best products<br class="d-sm-none"><span class="d-none d-sm-inline">&nbsp;</span>with the best prices.
+                        </h3>
+                        <div class="d-md-flex flex-row align-items-center">
+                            <a href="#" class="ui large disabled inverted red button rounded-pill" data-spy="item"
+                            data-animation="fadeInUp" data-staggered="true" data-timeout="250">
+                            Coming Soon <i class="far fa-clock"></i>
+                            </a>
+                            <p class="mt-4 mt-lg-0 ml-2 ml-lg-8" data-spy="item"
+                            data-animation="bounceIn" data-staggered="true" data-timeout="300"><span class="d-block rotate-neg-10 text-red"><i>You won't want to miss this!</i></span></p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="bg-white py-10 py-lg-12 py-xl-15" id="categories" data-spy="scroll">
+    <section class="py-10 py-md-12 py-lg-14 py-xl-16" id="categories" data-spy="scroll">
         <div class="category-carousel">
-            <a class="category-slide d-flex justify-content-center align-items-center m-auto link-unstyled" href="/baby-care">
+            <a class="category-slide d-flex justify-content-center align-items-center m-auto link-unstyled" href="/baby-care/">
                 <div class="category-card baby-care sharp_blues">
                     <p class="content text-white text-uppercase font-weight-bold pt-5 pl-1">Baby Care</p>
                     <div class="suds" data-spy="item" data-animation="fadeIn slow"></div>
@@ -114,13 +131,13 @@ blog:
                     <div class="bubbles-right"></div>
                 </div>
             </a>
-            <a class="category-slide d-flex justify-content-center align-items-center m-auto link-unstyled" href="/baby-food">
+            <a class="category-slide d-flex justify-content-center align-items-center m-auto link-unstyled" href="/baby-food/">
                 <div class="category-card baby-food young_grass">
                     <p class="content text-white text-uppercase font-weight-bold pt-5 pl-1">Baby Food</p>
                     <div class="food"></div>
                 </div>
             </a>
-            <a class="category-slide d-flex justify-content-center align-items-center m-auto link-unstyled" href="/clothes">
+            <a class="category-slide d-flex justify-content-center align-items-center m-auto link-unstyled" href="/clothes/">
                 <div class="category-card clothes happy_memories"">
                     <p class="content text-white text-uppercase font-weight-bold pt-5 pl-1">Clothes
                     </p>
@@ -128,7 +145,7 @@ blog:
                     <div class="cotton-right"></div>
                 </div>
             </a>
-            <a class="category-slide d-flex justify-content-center align-items-center m-auto link-unstyled" href="/diapers">
+            <a class="category-slide d-flex justify-content-center align-items-center m-auto link-unstyled" href="/diapers/">
                 <div class="category-card diapers mars_party">
                     <p class="content text-white text-uppercase font-weight-bold pt-5 pl-1">Diapers
                     </p>
@@ -136,14 +153,14 @@ blog:
                     <div class="diapers-right"></div>
                 </div>
             </a>
-            <a class="category-slide d-flex justify-content-center align-items-center m-auto link-unstyled" href="/toys">
+            <a class="category-slide d-flex justify-content-center align-items-center m-auto link-unstyled" href="/toys/">
                 <div class="category-card toys eternal_constance">
                     <p class="content text-white text-uppercase font-weight-bold pt-5 pl-1">Toys</p>
                         <div class="toys-left"></div>
                         <div class="toys-right"></div>
                 </div>
             </a>
-            <a class="category-slide d-flex justify-content-center align-items-center m-auto link-unstyled" href="/mommy">
+            <a class="category-slide d-flex justify-content-center align-items-center m-auto link-unstyled" href="/mommy/">
                 <div class="category-card mommy amour_amour">
                     <p class="content text-white text-uppercase font-weight-bold pt-5 pl-1">Mommy
                     </p>
@@ -151,9 +168,9 @@ blog:
                     <div class="mommy-right"></div>
                 </div>
             </a>
-            <a class="category-slide d-flex justify-content-center align-items-center m-auto link-unstyled" href="/powder-nest">
-                <div class="category-card powder-nest loon_crest">
-                    <p class="content text-white text-uppercase font-weight-bold pt-5 pl-1">Powder Nest</p>
+            <a class="category-slide d-flex justify-content-center align-items-center m-auto link-unstyled" href="/brands/powder-nest/">
+                <div class="category-card powder-nest glass_water">
+                    <p class="content text-gray-800 text-uppercase font-weight-bold pt-5 pl-1">Powder Nest</p>
                     <div class="pn-left"></div>
                     <div class="pn-right"></div>
                 </div>
@@ -162,30 +179,30 @@ blog:
     </section>
 
     {{#if products.featured}}
-        <section class="py-5 py-lg-10 dense_water" id="featured" data-spy="scroll">
-            <div class="container-fluid text-white">
-                <h2 class="display-3 text-center my-5 pb-5 text-gray-50" data-spy="item" data-animation="fadeInUp">{{lang 'products.featured' }}</h2>
-                <div class="pb-5 mb-5">{{> os/components/products/carousel products=products.featured type="featured" name=(lang 'products.featured') wrap="true"}}</div>
+        <section class="py-10 py-md-12 py-lg-14 py-xl-16 dense_water" id="featured" data-spy="scroll">
+            <div class="container-fluid">
+                <h2 class="display-3 text-center mb-5 mb-md-6 mb-lg-7 mb-xl-8 text-white" data-spy="item" data-animation="fadeInUp">{{lang 'products.featured' }}</h2>
+                {{> os/components/products/carousel products=products.featured type="featured" name=(lang 'products.featured') wrap="true"}}
             </div>
         </section>
     {{/if}}
 
-    <div class="position-relative">
+    <section class="position-relative">
         <div class="shape shape-bottom shape-fluid-x svg-shim text-light">
             <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="#fff"></path>
             </svg>
         </div>
-    </div>
+    </section>
 
-    <section class="py-10 py-lg-12 py-xl-15 bg-pn" id="powderNest" data-spy="scroll">
+    <section class="py-10 py-md-12 py-lg-14 py-xl-16 bg-pn" id="powderNest" data-spy="scroll">
         <div class="container-fluid">
             <div class="row justify-content-center align-items-center mb-4">
                 <div class="col-10 col-md-6 col-lg-12 text-center">
-                    <img src="https://triad.imgix.net/pn/i/logo-green.svg?s=9e85e4a9f6e4283d3cd15b1a1d40df6a" class="ui large image img-fluid mx-auto" alt="Powder Nest Logo" data-spy="item" data-animation="fadeIn" data-staggered="true">
+                    <a href="/brands/powder-nest/"><img src="https://triad.imgix.net/pn/i/logo-green.svg?s=9e85e4a9f6e4283d3cd15b1a1d40df6a" class="ui large image img-fluid mx-auto" alt="Powder Nest Logo" data-spy="item" data-animation="fadeIn" data-staggered="true"></a>
                 </div>
             </div>
-            <p class="h5 my-4 text-gray-600 text-center" data-spy="item" data-animation="fadeInUp" data-staggered="true"><strong>The Ultimate Storage Container</strong></p>
+            <p class="h5 my-4 text-gray-600 text-center" data-spy="item" data-animation="fadeInUp" data-staggered="true"><strong>The Ultimate<br class="d-xs-none"><span class="d-none d-xs-inline">&nbsp;</span>Storage Container</strong></p>
             <div class="my-4 text-center">
                 <svg height="40" width="40" class="star rating" data-rating="1" data-spy="item" data-animation="bounceIn" data-staggered="true">
                     <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" style="fill:#ffd055;fill-rule:nonzero;"/>
@@ -214,38 +231,63 @@ blog:
                         </div>
                     </div>
                     <div class="col-12 col-md-6 text-center text-md-left">
-                        <p class="my-lg-4 lead text-gray-700" data-spy="item" data-animation="fadeInUp slow" data-staggered="true" data-timeout="300">Maximize the shelf life of powders in your pantry</p>
-                        <p class="my-lg-4 lead text-gray-700" data-spy="item" data-animation="fadeInUp slow" data-staggered="true" data-timeout="350">Recommended for all baby formula brands</p>
-                        <p class="my-lg-4 lead text-gray-700" data-spy="item" data-animation="fadeInUp slow" data-staggered="true" data-timeout="400">Air-tight, moisture-proof seal</p>
-                        <p class="my-lg-4 lead text-gray-700" data-spy="item" data-animation="fadeInUp slow" data-staggered="true" data-timeout="450">Removable leveler & scoop storage</p>
-                        <p class="my-lg-4 lead text-gray-700" data-spy="item" data-animation="fadeInUp slow" data-staggered="true" data-timeout="500">The most durable &amp; safe #5 PP FDA food-grade construction</p>
-                        <p class="my-lg-4 lead text-gray-700" data-spy="item" data-animation="fadeInUp slow" data-staggered="true" data-timeout="550">Unlike glass, heat (temperature) and UV resistant</p>
-                        <a href="#" class="ui rounded-pill large green button" data-spy="item" data-animation="fadeIn slower delay-1s" data-staggered="true" data-timeout="600">Shop Now <i class="fas fa-angle-double-right"></i></a>
+                        <p class="my-lg-4 lead text-gray-700" data-spy="item" data-animation="fadeInUp" data-staggered="true" data-timeout="300">Maximize the shelf life of<br class="d-sm-none"><span class="d-none d-sm-inline">&nbsp;</span>powders in your pantry</p>
+                        <p class="my-lg-4 lead text-gray-700" data-spy="item" data-animation="fadeInUp" data-staggered="true" data-timeout="325">Recommended for all<br class="d-sm-none"><span class="d-none d-sm-inline">&nbsp;</span>baby formula brands</p>
+                        <p class="my-lg-4 lead text-gray-700" data-spy="item" data-animation="fadeInUp" data-staggered="true" data-timeout="350">Air-tight, moisture-proof seal</p>
+                        <p class="my-lg-4 lead text-gray-700" data-spy="item" data-animation="fadeInUp" data-staggered="true" data-timeout="375">Removable leveler<br class="d-sm-none"><span class="d-none d-sm-inline">&nbsp;</span>& scoop storage</p>
+                        <p class="my-lg-4 lead text-gray-700" data-spy="item" data-animation="fadeInUp" data-staggered="true" data-timeout="400">The most durable &amp; safe<br class="d-md-none"><span class="d-none d-md-inline">&nbsp;</span>#5 PP FDA food-grade construction</p>
+                        <p class="my-lg-4 lead text-gray-700" data-spy="item" data-animation="fadeInUp" data-staggered="true" data-timeout="425">Unlike glass,<br class="d-sm-none"><span class="d-none d-sm-inline">&nbsp;</span>heat (temperature)<br class="d-sm-none"><span class="d-none d-sm-inline">&nbsp;</span>and UV resistant</p>
+                        <a href="/brands/powder-nest/formula-storage-container" class="ui rounded-pill large green button mt-4" data-spy="item" data-animation="fadeIn slow" data-staggered="true" data-timeout="450">Shop Now <i class="fas fa-angle-double-right"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="text-center"></div>
         </div>
     </section>
 
-    <div class="position-relative">
+    <section class="position-relative">
         <div class="shape shape-bottom shape-fluid-x svg-shim text-light">
             <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="#2c2c2c"></path>
+                <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="#fff"></path>
             </svg>
         </div>
-    </div>
+    </section>
 
     {{#if products.top_sellers}}
-        <section class="py-5 py-lg-10 slick_carbon" id="topSellers" data-spy="scroll">
+        <section class="py-10 py-md-12 py-lg-14 py-xl-16 slick_carbon d-none" id="topSellers" data-spy="scroll">
             <div class="container-fluid text-white">
-                <h2 class="display-3 text-center my-5 pb-5 text-white" data-spy="item" data-animation="fadeInUp">{{lang 'products.top' }}</h2>
+                <h2 class="display-3 text-center mb-10 mb-md-12 mb-lg-14 mb-xl-16 text-white" data-spy="item" data-animation="fadeInUp">{{lang 'products.top' }}</h2>
                 {{> os/components/products/carousel products=products.top_sellers type="top_sellers" name=(lang 'products.top') wrap="true"}}
             </div>
         </section>
     {{/if}}
 
-    <section class="py-10 py-lg-12 py-xl-15 bg-white" id="crinkleCloth" data-spy="scroll">
+    <section class="py-10 py-md-12 py-lg-14 py-xl-16 bg-white" id="messyButCute" data-spy="scroll">
+        <div class="container-fluid d-none d-md-block mb-4">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-6 text-right">
+                    <img src="https://triad.imgix.net/os/i/home/mbc-banner.png?w=640" class="ui huge image img-fluid ml-auto mr-neg-6" alt="Messy but Cute Giraffee Baby Bodysuit, Socks and Bib">
+                </div>
+                <div class="col-4 col-xl-6">
+                    <img src="https://triad.imgix.net/mbc/i/logo-black.png?w=450" class="ui large image img-fluid mt-10 mt-xl-20" alt="Messy but Cute Script Logo">
+                </div>
+            </div>
+        </div>
+        <div class="container text-center">
+            <img src="https://triad.imgix.net/os/i/home/mbc-clothes.png?w=768" class="ui large image img-fluid mx-auto d-md-none" alt="Messy but Cute Giraffee Baby Bodysuit, Socks and Bib">
+            <img src="https://triad.imgix.net/os/i/home/mbc-combined.png?w=768" class="ui large image img-fluid mx-auto mt-neg-8 mb-4 d-md-none" alt="Messy but Cute Script Logo">
+            <h5 class="mb-4 text-gray-600" data-spy="item" data-animation="fadeInUp slow" data-staggered="true" data-timeout="150">Adorable characters & designs,<br class="d-md-none"><span class="d-none d-md-inline">&nbsp;</span>all-organic cotton.</h5>
+            <a href="#" class="ui large rounded-pill inverted black disabled button text-gray-800" data-spy="item" data-animation="fadeIn slower delay-1s" data-staggered="true" data-timeout="300">Coming Soon <i class="far fa-clock"></i></a>            
+        </div>
+    </section>
+
+    {{#if products.new}}
+        <section class="py-10 py-md-12 py-lg-14 py-xl-16 bg-gray-50" id="NewProducts" data-spy="scroll">
+            <h2 class="display-3 text-center mb-5 text-gray-800">{{lang 'products.new' }}</h2>
+            {{> os/components/products/carousel products=products.new name=(lang 'products.new') wrap="true"}}
+        </section>
+    {{/if}}
+
+    <section class="py-10 py-md-12 py-lg-14 py-xl-16 bg-white" id="crinkleCloth" data-spy="scroll">
         <div class="container-fluid">
             <div class="row justify-content-center align-items-center mb-4">
                 <div class="col-10 col-md-6 col-lg-12 text-center">
@@ -261,22 +303,183 @@ blog:
                     <p class="lead most spread" data-spy="item" data-animation="fadeInUp slow" data-staggered="true" data-timeout="150">SOFT CRINKLE SOUNDS</p>
                     <h2 class="h3" data-spy="item" data-animation="fadeInUp slow" data-staggered="true" data-timeout="300">Designed for Adolescent Entertainment</h2>
                     <p class="spread" data-spy="item" data-animation="fadeInUp slow" data-staggered="true" data-timeout="450">The most simple yet effective toy for infants.</p>
-                    <a href="#" class="ui rounded-pill black disabled button bg-gray-50 text-gray-500" data-spy="item" data-animation="fadeIn slower delay-1s" data-staggered="true" data-timeout="600">Coming Soon <i class="far fa-clock"></i></a>
+                    <a href="#" class="ui large rounded-pill black disabled button bg-gray-50 text-gray-500" data-spy="item" data-animation="fadeIn slower delay-1s" data-staggered="true" data-timeout="600">Coming Soon <i class="far fa-clock"></i></a>
                 </div>
             </div>
         </div>
+    </section> 
+    
+    <section class="py-10 py-md-12 py-lg-14 py-xl-16 bg-gray-50">
+        <div class="container">
+            <h2 class="text-center mb-5 font-weight-bold">Shop by Brand</h2>
+            <div class="brand-carousel carousel">
+                <div class="brand-slide">
+                    <div class="d-flex justify-content-center align-items-center m-auto h-100">
+                        <a href="/brands/babo/">
+                            <img class="ui medium image m-auto img-fluid p-2" src="https://triad.imgix.net/os/i/brands/babo-botanicals.svg" alt="{{name}}" title="{{name}}">
+                        </a>
+                    </div>
+                </div>
+                <div class="brand-slide">
+                    <div class="d-flex justify-content-center align-items-center m-auto h-100">
+                        <a href="/brands/bambo/">
+                            <img class="ui medium image m-auto img-fluid p-2" src="https://triad.imgix.net/os/i/brands/bambo-nature.svg" alt="{{name}}" title="{{name}}">
+                        </a>
+                    </div>
+                </div>
+                <div class="brand-slide">
+                    <div class="d-flex justify-content-center align-items-center m-auto h-100">
+                        <a href="/brands/boiron/">
+                            <img class="ui medium image m-auto img-fluid p-2" src="https://triad.imgix.net/os/i/brands/boiron.png" alt="{{name}}" title="{{name}}">
+                        </a>
+                    </div>
+                </div>
+                <div class="brand-slide">
+                    <div class="d-flex justify-content-center align-items-center m-auto h-100">
+                        <a href="/brands/earth-mama/">
+                            <img class="ui medium image m-auto img-fluid p-2" src="https://triad.imgix.net/os/i/brands/earth-mama.svg" alt="{{name}}" title="{{name}}">
+                        </a>
+                    </div>
+                </div>
+                <div class="brand-slide">
+                    <div class="d-flex justify-content-center align-items-center m-auto h-100">
+                        <a href="/brands/green-goo/">
+                            <img class="ui medium image m-auto img-fluid p-2" src="https://triad.imgix.net/os/i/brands/green-goo.svg" alt="{{name}}" title="{{name}}">
+                        </a>
+                    </div>
+                </div>
+                <div class="brand-slide">
+                    <div class="d-flex justify-content-center align-items-center m-auto h-100">
+                        <a href="/brands/hipp/">
+                            <img class="ui medium image m-auto img-fluid p-2" src="https://triad.imgix.net/os/i/brands/hipp.svg" alt="{{name}}" title="{{name}}">
+                        </a>
+                    </div>
+                </div>
+                <div class="brand-slide">
+                    <div class="d-flex justify-content-center align-items-center m-auto h-100">
+                        <a href="/brands/holle/">
+                            <img class="ui medium image m-auto img-fluid p-2" src="https://triad.imgix.net/os/i/brands/holle.svg" alt="{{name}}" title="{{name}}">
+                        </a>
+                    </div>
+                </div>
+                <div class="brand-slide">
+                    <div class="d-flex justify-content-center align-items-center m-auto h-100">
+                        <a href="/brands/jack-n-jill/">
+                            <img class="ui medium image m-auto img-fluid p-2" src="https://triad.imgix.net/os/i/brands/jack-n-jill.svg" alt="{{name}}" title="{{name}}">
+                        </a>
+                    </div>
+                </div>
+                <div class="brand-slide">
+                    <div class="d-flex justify-content-center align-items-center m-auto h-100">
+                        <a href="/brands/kabrita/">
+                            <img class="ui medium image m-auto img-fluid p-2" src="https://triad.imgix.net/os/i/brands/kabrita.svg" alt="{{name}}" title="{{name}}">
+                        </a>
+                    </div>
+                </div>
+                <div class="brand-slide">
+                    <div class="d-flex justify-content-center align-items-center m-auto h-100">
+                        <a href="/brands/lac-larde/">
+                            <img class="ui medium image m-auto img-fluid p-2" src="https://triad.imgix.net/os/i/brands/lac-larde.svg" alt="{{name}}" title="{{name}}">
+                        </a>
+                    </div>
+                </div>
+                <div class="brand-slide">
+                    <div class="d-flex justify-content-center align-items-center m-auto h-100">
+                        <a href="/brands/lafes/">
+                            <img class="ui medium image m-auto img-fluid p-2" src="https://triad.imgix.net/os/i/brands/lafes.svg" alt="{{name}}" title="{{name}}">
+                        </a>
+                    </div>
+                </div> 
+                <div class="brand-slide">
+                    <div class="d-flex justify-content-center align-items-center m-auto h-100">
+                        <a href="/brands/lebenswert/">
+                            <img class="ui medium image m-auto img-fluid p-2" src="https://triad.imgix.net/os/i/brands/lebenswert.svg" alt="{{name}}" title="{{name}}">
+                        </a>
+                    </div>
+                </div>
+                <div class="brand-slide">
+                    <div class="d-flex justify-content-center align-items-center m-auto h-100">
+                        <a href="/brands/little-zi/">
+                            <img class="ui medium image m-auto img-fluid p-2" src="https://triad.imgix.net/os/i/brands/little-zi.svg" alt="{{name}}" title="{{name}}">
+                        </a>
+                    </div>
+                </div>
+                <div class="brand-slide">
+                    <div class="d-flex justify-content-center align-items-center m-auto h-100">
+                        <a href="/brands/loulouka/">
+                            <img class="ui medium image m-auto img-fluid p-2" src="https://triad.imgix.net/os/i/brands/loulouka.svg" alt="{{name}}" title="{{name}}">
+                        </a>
+                    </div>
+                </div>
+                <div class="brand-slide">
+                    <div class="d-flex justify-content-center align-items-center m-auto h-100">
+                        <a href="/brands/mambino/">
+                            <img class="ui medium image m-auto img-fluid p-2" src="https://triad.imgix.net/os/i/brands/mambino.svg" alt="{{name}}" title="{{name}}">
+                        </a>
+                    </div>
+                </div>
+                <div class="brand-slide">
+                    <div class="d-flex justify-content-center align-items-center m-auto h-100">
+                        <a href="/brands/nannycare/">
+                            <img class="ui medium image m-auto img-fluid p-2" src="https://triad.imgix.net/os/i/brands/nannycare.svg" alt="{{name}}" title="{{name}}">
+                        </a>
+                    </div>
+                </div>
+                <div class="brand-slide">
+                    <div class="d-flex justify-content-center align-items-center m-auto h-100">
+                        <a href="/brands/natures-paradise/">
+                            <img class="ui medium image m-auto img-fluid p-2" src="https://triad.imgix.net/os/i/brands/natures-paradise.svg" alt="{{name}}" title="{{name}}">
+                        </a>
+                    </div>
+                </div>
+                <div class="brand-slide">
+                    <div class="d-flex justify-content-center align-items-center m-auto h-100">
+                        <a href="/brands/organic-start/">
+                            <img class="ui medium image m-auto img-fluid p-2" src="https://triad.imgix.net/os/i/logo.svg" alt="{{name}}" title="{{name}}">
+                        </a>
+                    </div>
+                </div>
+                <div class="brand-slide">
+                    <div class="d-flex justify-content-center align-items-center m-auto h-100">
+                        <a href="/brands/powder-nest/">
+                            <img class="ui medium image m-auto img-fluid p-2" src="https://triad.imgix.net/pn/i/logo-green.svg" alt="{{name}}" title="{{name}}">
+                        </a>
+                    </div>
+                </div>
+                <div class="brand-slide">
+                    <div class="d-flex justify-content-center align-items-center m-auto h-100">
+                        <a href="/brands/radius/">
+                            <img class="ui medium image m-auto img-fluid p-2" src="https://triad.imgix.net/os/i/brands/radius.svg" alt="{{name}}" title="{{name}}">
+                        </a>
+                    </div>
+                </div>
+                <div class="brand-slide">
+                    <div class="d-flex justify-content-center align-items-center m-auto h-100">
+                        <a href="/brands/rubbabu/">
+                            <img class="ui medium image m-auto img-fluid p-2" src="https://triad.imgix.net/os/i/brands/rubbabu.svg" alt="{{name}}" title="{{name}}">
+                        </a>
+                    </div>
+                </div>
+                <div class="brand-slide">
+                    <div class="d-flex justify-content-center align-items-center m-auto h-100">
+                        <a href="/brands/topfer/">
+                            <img class="ui medium image m-auto img-fluid p-2" src="https://triad.imgix.net/os/i/brands/topfer.svg" alt="{{name}}" title="{{name}}">
+                        </a>
+                    </div>
+                </div>
+                <!--<div class="brand-slide">
+                    <div class="d-flex justify-content-center align-items-center m-auto h-100">
+                        <img class="ui medium image m-auto img-fluid p-2" src="https://triad.imgix.net/os/i/brands/znya.svg" alt="{{name}}" title="{{name}}">
+                    </div>
+                </div>-->
+            </div>            
+        </div>
     </section>
 
-    {{#if products.new}}
-        <section class="py-10 py-lg-12 py-xl-15" id="NewProducts" data-spy="scroll">
-            <h2 class="display-3 text-center mb-5 text-gray-800">{{lang 'products.new' }}</h2>
-            {{> os/components/products/carousel products=products.new name=(lang 'products.new') wrap="true"}}
-        </section>
-    {{/if}}
-
-    <section>
+    <section class="py-10 py-md-12 py-lg-14 py-xl-16">
         <div class="container">
-            <h2 class="display-3 text-center text-gray mb-5">The #<span class="text-mustard">Organic</span><span class="text-moss">Start</span> Community</h2>
+            <h2 class="display-3 text-center text-gray mb-5">The<br class="d-md-none"><span class="d-none d-md-inline">&nbsp;</span>#<span class="text-mustard">Organic</span><span class="text-moss">Start</span><br class="d-md-none"><span class="d-none d-md-inline">&nbsp;</span>Community</h2>
+            
             <div class="curator px-4 px-md-0">
                 <!-- Place <div> tag where you want the feed to appear -->
                 <div id="curator-feed"><a href="https://curator.io" target="_blank" class="crt-logo crt-tag">Powered by Curator.io</a></div>
@@ -293,6 +496,28 @@ blog:
         </div>
     </section>
 
+    <section class="py-10 py-md-12 py-lg-14 py-xl-16">
+        <h2 class="display-4 text-center text-gray">Stay in the loop!</h2>
+        <div class="lead text-center mb-4">Subscribe to our most important emails.</div>
+        <div class="container text-center">
+            <div id="mc_embed_signup">
+                <form action="https://organicstart.us11.list-manage.com/subscribe/post?u=78602557f28fe9727237590f2&amp;id=062b80ab11" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="ui huge form text-center validate" target="_blank" novalidate>
+                    <div id="mc_embed_signup_scroll">
+                    
+                <div class="mc-field-group">
+                    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Email Address" required>
+                </div>
+                    <div id="mce-responses" class="clear">
+                        <div class="response" id="mce-error-response" style="display:none"></div>
+                        <div class="response" id="mce-success-response" style="display:none"></div>
+                    </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_78602557f28fe9727237590f2_062b80ab11" tabindex="-1" value=""></div>
+                    <div class="clear mt-4"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="ui huge green button rounded-pill"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
 {{/partial}}
 
 {{> layout/base}}
