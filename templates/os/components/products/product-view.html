@@ -325,17 +325,4 @@
     </dl>
     {{> components/common/share}}
     {{{snippet 'product_details'}}}
-
-    <h4 class="mt-4 mb-2">{{lang 'products.description'}}</h4>
-    <article class="ui segment p-2 p-lg-4" itemprop="description">
-        {{{product.description}}}
-        {{{snippet 'product_description'}}}
-    </article>
-
-    {{#if product.warranty}}
-        <h4 class="mt-4 mb-2">Ingredients</h4>
-        <div class="ui segment p-2 p-lg-4">
-            {{{product.warranty}}}
-        </div>
-    {{/if}}
 </div>

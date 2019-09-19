@@ -22,7 +22,7 @@ category:
 {{/partial}}
 
 {{#partial "header"}} 
-    <header class="border-bottom border-moss bg-{{#if category.name '==' "Baby Care"}}baby-care{{else if category.name '==' "Baby Food"}}baby-food{{else if category.name '==' "Clothes"}}clothes{{else if category.name '==' "Diapers"}}diapers{{else if category.name '==' "Toys"}}toys{{else if category.name '==' "Mommy"}}mommy{{/if}}">
+    <header class="border-bottom border-moss bg-{{category.id}}">
         {{#or (if category.name '==' "Clothes") (if category.name '==' "Diapers")}}<div class="floater pt-0"></div><div class="overlay"></div>{{/or}}
         <div class="category-title bg-gray-100 pb-5 d-flex justify-content-end align-items-end">
             <div class="container mt-10">
@@ -77,9 +77,9 @@ category:
                         <img class="ui medium image img-fluid" src="{{getImage category.image 'zoom_size'}}" alt="{{category.name}}" title="{{category.name}}">
                     {{else}}
                         {{#or (if category.name '==' "Baby Care") (if category.name '==' "Baby Food") (if category.name '==' "Clothes") (if category.name '==' "Diapers") (if category.name '==' "Toys") (if category.name '==' "Mommy")}}
-                            {{> os/components/category/title title=category.name class="display-1"}}
+                            {{> os/components/category/title title=category.name class="display-1" id=category.id}}
                         {{else}}
-                            {{> os/components/category/title title=category.name}}
+                            {{> os/components/category/title title=category.name id=category.id}}
                         {{/or}}
                     {{/if}}
                 {{/if}}
@@ -92,15 +92,13 @@ category:
 {{/partial}}
 
 {{#partial "page"}}
-
-                    
     {{#if category.subcategories}}
         <div class="container mt-4">
-            <div class="scroll-title">Subcategories</div>
-            <div class="bg-gray-50 border text-gray rounded">
-                <div class="vertical-align-middle scroll sub-carousel w-100">
+            <div class="category-carousel">
+                <div class="title ml-1 mb-1">Subcategories</div>
+                <div class="vertical-align-middle nav-sub carousel w-100">
                     {{#each category.subcategories}}
-                    <a class="nav-item link-unstyled" href="{{url}}" alt="{{name}}" title="{{name}}">{{name}}</a>
+                        <a class="nav-item link-unstyled" href="{{url}}" alt="{{name}}" title="{{name}}">{{name}}</a>
                     {{/each}}
                 </div>
             </div>
@@ -108,11 +106,12 @@ category:
     {{/if}}
 
     {{#if category.description}}
-    <div class="container my-4">
-        {{{category.description}}}
-        <div class="ui divider"></div>
-    </div>
+        <div class="container my-4">
+            {{{category.description}}}
+            <div class="ui divider"></div>
+        </div>
     {{/if}}
+
     {{{snippet 'categories'}}}
     
     {{#if category.products}}
@@ -133,8 +132,8 @@ category:
                     
                 </main>
             </div>-->
-            
-            {{> components/products/filter sort=pagination.category.sort}}
+
+            {{> os/components/products/filter sort=pagination.category.sort}}
 
             <form action="{{urls.compare}}" method='POST' {{#if settings.data_tag_enabled}} data-list-name="Category: {{category.name}}" {{/if}} data-product-compare>
                 {{#if theme_settings.product_list_display_mode '===' 'grid'}}

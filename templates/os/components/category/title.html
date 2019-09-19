@@ -1,5 +1,23 @@
-<h1 class="{{#if class}}{{class}}{{else}}display-3{{/if}} animated fadeInUp slow text-gray-800">{{capitalizeAll title}}</h1>
-<h2 class="h5 mt-2 font-weight-bold animated fadeInUp slow delay-1s text-gray-700">
+<h1 class="{{#if class}}{{class}}{{else}}display-3{{/if}} animated fadeInUp slow title-category{{#or 
+        (if category.id '==' 21) 
+        (if category.id '==' 33) 
+        (if category.id '==' 34) 
+        (if category.id '==' 48) 
+        (if category.id '==' 59) 
+        (if category.id '==' 62) 
+        (if category.id '==' 115) 
+        (if category.id '==' 117) 
+        (if category.id '==' 142)
+        (if category.id '==' 169) 
+    }} primary{{/or}}">{{capitalizeAll title}}</h1>
+<h2 class="h5 mt-2 font-weight-bold animated fadeInUp slow delay-1s title-subcategory{{#or 
+        (if category.id '==' 48) 
+        (if category.id '==' 59) 
+        (if category.id '==' 62) 
+        (if category.id '==' 115) 
+        (if category.id '==' 117) 
+        (if category.id '==' 142)
+    }} primary{{/or}}">
     {{#if category.name '==' "Baby Care"}}
         Paraben Free &middot; Cruelty Free &middot; Sensitive &amp; Hypoallergenic
     {{else if category.name '==' "Baby Food"}}
@@ -9,7 +27,7 @@
     {{else if category.name '==' "Diapers"}}
         Comfort Starts at the Tushy
     {{else if category.name '==' "Toys"}}
-        Handcrafted with Natural Dyes &amp Real Rubber <small class="text-gray-800">(From Trees - Not Tires)</small>
+        Handcrafted with Natural Dyes &amp Real Rubber <small>(From Trees - Not Tires)</small>
     {{else if category.name '==' "Mommy"}}
         Prenatal &amp; Post-Partum Care using Natural Oils and Herbs
     {{/if}}
