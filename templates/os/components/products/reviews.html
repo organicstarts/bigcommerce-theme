@@ -29,9 +29,9 @@
                                 <small>Published on {{date}}.</small>
                             </p>
 
-                            <h5 itemprop="name" class="productReview-title">{{#replace "@hotmail.com" title}}{{else}}{{#replace "@gmail.com" title}}{{else}}{{title}}{{/replace}}{{/replace}}</h5>
+                            <h6 itemprop="name" class="mb-1">{{#replace "@hotmail.com" title}}{{else}}{{#replace "@gmail.com" title}}{{else}}{{title}}{{/replace}}{{/replace}}</h6>
                         </header>
-                        <p itemprop="reviewBody" class="productReview-body">{{nl2br text}}</p>
+                        <p itemprop="reviewBody" class="mb-2">{{nl2br text}}</p>
                         {{#if name}}
                             <div class="d-flex align-items-end flex-column ml-auto">
                                 <p class="d-flex align-items-center text-right text-green">

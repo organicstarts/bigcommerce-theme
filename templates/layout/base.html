@@ -29,9 +29,9 @@
         <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Nunito:300,400,600,700,800|Open+Sans:300,400,600&display=swap" rel="stylesheet">
         {{{stylesheet '/assets/css/theme.css'}}}
 
-        <!--<link href="https://powerful-island-42757.herokuapp.com/dist/main.css?v=091720192" rel="stylesheet">-->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E" crossorigin="anonymous">
-        <link href="http://localhost:8080/main.css" rel="stylesheet">
+        <link href="https://powerful-island-42757.herokuapp.com/dist/main.css?v=091720192" rel="stylesheet">
+        <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E" crossorigin="anonymous">
+        <link href="http://localhost:8080/main.css" rel="stylesheet">-->
 
         {{{head.scripts}}}
         {{{head.rsslinks}}}
@@ -52,7 +52,7 @@
         <!-- End Google Tag Manager (noscript) -->
         
         {{{snippet 'header'}}}
-        <svg class="icon-svg sprite">
+        <svg class="icon-svg sprite d-none">
             <defs>
                 <symbol id="triangle" viewbox="0 0 32 32">
                 <title>Triangle icon.</title>
@@ -140,7 +140,7 @@
                 </symbol>
             </defs>
         </svg>
-        <!--<svg data-src="{{cdn 'img/icon-sprite.svg'}}" class="icons-svg-sprite"></svg>-->
+        <svg data-src="{{cdn 'img/icon-sprite.svg'}}" class="icons-svg-sprite d-none"></svg>
 
         {{#and settings.privacy_cookie settings.is_eu_ip_address}}
             {{> components/common/cookie}}
@@ -158,8 +158,8 @@
             {{> os/components/common/footer }}
         </div>
 
-        <!--<script src="https://powerful-island-42757.herokuapp.com/dist/main.js?v=091720192"></script>-->
-        <script src="http://localhost:8080/main.js"></script>
+        <script src="https://powerful-island-42757.herokuapp.com/dist/main.js?v=091720192"></script>
+        <!--<script src="http://localhost:8080/main.js"></script>-->
         <script>
             oSx.Start();
         </script>
