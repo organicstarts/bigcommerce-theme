@@ -15,6 +15,9 @@ import 'lazysizes';
 import loadingProgressBar from './global/loading-progress-bar';
 import svgInjector from './global/svg-injector';
 
+// Lets do my own stuff
+import Headroom from "headroom.js";
+
 export default class Global extends PageManager {
     onReady() {
         // Only load visible elements until the onload event fires,
@@ -34,5 +37,15 @@ export default class Global extends PageManager {
         maintenanceMode(this.context.maintenanceMode);
         loadingProgressBar();
         svgInjector();
+
+        // Lets do my own stuff
+        var header = document.querySelector("header");
+        if(window.scrollY) {
+            header.classList.add('headroom', 'headroom--not-top', 'headroom--not-bottom', 'headroom--unpinned');
+        } else {
+            header.classList.add('headroom', 'headroom--not-bottom', 'headroom--pinned', 'headroom--top');
+        }
+        var headroom  = new Headroom(header);
+        headroom.init();
     }
 }

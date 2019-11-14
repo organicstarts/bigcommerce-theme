@@ -1,34 +1,212 @@
-<nav id="mainMobileMenu" class="primary sidebar d-none" aria-hidden="true">
+<div id="sideMenu" class="sidenav" aria-hidden="true">
+    <picture>
+        <source
+            media="(min-width: 768px)"
+            ix-path="os/i/home/tile-baby-care.jpeg"
+            ix-params='{
+                "ar": "2:1",
+                "fit": "crop",
+                "crop": "faces"
+            }'
+            sizes="500px"
+        >
+        <source
+            media="(min-width: 425px)"
+            ix-path="os/i/home/tile-baby-care.jpeg"
+            ix-params='{
+                "ar": "2:1",
+                "fit": "crop",
+                "crop": "faces"
+            }'
+            sizes="425px"
+        >
+        <source
+            ix-path="os/i/home/tile-baby-care.jpeg"
+            ix-params='{
+                "ar": "2:1",
+                "fit": "crop",
+                "crop": "faces"
+            }'
+            sizes="100vw"
+        >
+        <img 
+            ix-path="os/i/home/tile-baby-care.jpeg"
+            ix-params='{
+                "ar": "2:1",
+                "fit": "crop",
+                "crop": "faces"
+            }'
+            sizes="100vw"
+            class="lazyload"
+            alt="Baby Laughing in Bath Tub with Mom"
+        >
+    </picture>
     <ul>
         <li>
-            <a class="nav-link" href="/baby-care/">
-                Baby Care
+            <input type="checkbox" id="baby-care">
+            <label for="baby-care">Baby Care</label>
+            <a href="/baby-care/" onclick="return false;">
             </a>
+            <ul>
+                <li>
+                    <a href="/baby-care/baby-wash/">Baby Wash</a>
+                </li>
+                <li>
+                    <a href="/baby-care/balms/">Balms</a>
+                </li>
+                <li>
+                    <a href="/baby-care/oils/">Oils</a>
+                </li>
+                <li>
+                    <a href="/baby-care/lotions/">Lotions</a>
+                </li>
+                <li>
+                    <a href="/baby-care/dental/">Dental</a>
+                </li>
+            </ul>
         </li>
         <li>
-            <a class="nav-link" href="/baby-food/">
-                Baby Food
-            </a>
+            <input type="checkbox" id="baby-food">
+            <label for="baby-food">Baby Food</label>
+            <ul>
+                <li>
+                    <a href="/baby-food/porridge/">Porridge</a>
+                </li>
+                <li>
+                    <a href="/baby-food/snacks-teas/">Snacks &amp; Teas</a>
+                </li>
+                <li>
+                    <a href="/baby-food/fruit-vegetable-purees/">Fruit &amp; Vegetable Purees</a>
+                </li>
+                <li>
+                    <a href="/baby-food/storage-accessories/">Storage &amp; Accessories</a>
+                </li>
+            </ul>
         </li>
         <li>
-            <a class="active nav-link" href="/clothes/">
-                Clothes
-            </a>
+            <input type="checkbox" id="clothes">
+            <label for="clothes">Clothes</label>
+            <ul>
+                <li>
+                    <a href="/clothes/blankets/">Blankets</a>
+                </li>
+                <li>
+                    <a href="/clothes/bodysuits/">Bodysuits</a>
+                </li>
+                <li>
+                    <a href="/clothes/bibs-burp-cloths/">Bibs &amp; Burp Cloths</a>
+                </li>
+                <li>
+                    <a href="/clothes/pajamas-sleepwear/">Pajamas &amp; Sleepwear</a>
+                </li>
+                <li>
+                    <a href="/clothes/shirts-pants/">Shirts &amp; Pants</a>
+                </li>
+                <li>
+                    <a href="/clothes/bundles/">Bundles</a>
+                </li>
+                <li>
+                    <a href="/clothes/accessories/">Accessories</a>
+                </li>
+            </ul>
         </li>
         <li>
-            <a class="active nav-link" href="/diapers/">
-                Diapers
-            </a>
+            <input type="checkbox" id="diapers">
+            <label for="diapers">Diapers</label>
+            <ul>
+                <li class="text">
+                    Shop by Size
+                </li>
+                <li>
+                    <a href="/diapers/sizes-0-1/">Sizes 0 and 1 <small>(6-14 lb)</small></a>
+                </li>
+                <li>
+                    <a href="/diapers/sizes-2-3/">Sizes 2 and 3 <small>(12-28 lb)</small></a>
+                </li>
+                <li>
+                    <a href="/diapers/sizes-4-5/">Sizes 4 and 5 <small>(22-37 lb)</small></a>
+                </li>
+                <li>
+                    <a href="/diapers/sizes-6-plus/">Sizes 6 and up <small>(33+ lb)</small></a>
+                </li>
+            </ul>
         </li>
         <li>
-            <a class="active nav-link" href="/toys/">
+            <!-- <input type="checkbox" id="toys">
+            <label for="toys">Toys</label> -->
+            <a href="/toys/">
                 Toys
             </a>
         </li>
         <li>
-            <a class="active nav-link" href="/mommy/">
+            <input type="checkbox" id="mommy">
+            <label for="mommy">Mommy</label>
+            <ul>
+                <li>
+                    <a href="/mommy/body-wash/">Body Wash</a>
+                </li>
+                <li>
+                    <a href="/mommy/balms/">Balms</a>
+                </li>
+                <li>
+                    <a href="/mommy/lotions/">Lotions</a>
+                </li>
+                <li>
+                    <a href="/mommy/teas/">Teas</a>
+                </li>
+                <li>
+                    <a href="/mommy/bundles/">Bundles</a>
+                </li>
+                <li class="text">
+                    Shop By Stage
+                </li>
+                <li>
+                    <a href="/mommy/prenatal/">Prenatal</a>
+                </li>
+                <li>
+                    <a href="/mommy/post-partum/">Post-Partum</a>
+                </li>
+                <li>
+                    <a href="/mommy/breast-feeding/">Breast-Feeding</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+
+
+<!-- <nav id="mainMobileMenu" class="primary sidebar d-none" aria-hidden="true">
+    <ul>
+        <li>
+            <a href="/baby-care/">
+                Baby Care
+            </a>
+        </li>
+        <li>
+            <a href="/baby-food/">
+                Baby Food
+            </a>
+        </li>
+        <li>
+            <a href="/clothes/">
+                Clothes
+            </a>
+        </li>
+        <li>
+            <a href="/diapers/">
+                Diapers
+            </a>
+        </li>
+        <li>
+            <a href="/toys/">
+                Toys
+            </a>
+        </li>
+        <li>
+            <a href="/mommy/">
                 Mommy
             </a>
         </li>
     </ul>
-</nav>
+</nav> -->

@@ -1,25 +1,6 @@
-<div id="mainMenu" class="main-menu py-2 p-lg-2 splash on-canvas invisible" role="banner">
-    <div class="container-fluid">
-        <div class="row justify-content-center align-items-center">
-            <div class="col-4 col-lg-2 col-xl-1 m-0">
-                <ul class="nav align-items-center m-0">
-                    <li class="nav-item ml-0 mr-2 d-lg-none" id="accountDrawer">
-                        <a id="MobileMenuLink" href="#mainMobileMenu" class="link-unstyled">
-                            <i class="fas fa-bars fs-4"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/" title="Home">
-                            <img src="https://triad.imgix.net/os/i/logo.svg?s=83f3f5678face7e3f500c8aba1fd41e9"
-                                alt="Organic Start" title="Organic Start Logo" class="logo my-0 d-none d-lg-block">
-                            <img src="https://triad.imgix.net/os/i/icon.svg?s=67d902c3eb05636556671ea991a2c744"
-                                alt="Organic Start" title="Organic Start Icon" class="logo icon my-0 d-lg-none">
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            {{> os/components/common/navigation}}
-        </div>
+<div id="mainMenu"></div>
+<header id="header" class="header hide-from-print" role="banner">
+    <div class="header-container">
+        {{> os/components/common/navigation}}
     </div>
-</div>
-<!--<img src="https://triad.imgix.net/os/i/logo.svg?s=83f3f5678face7e3f500c8aba1fd41e9" alt="Organic Start" title="Organic Start Logo" class="mobile logo my-0 d-lg-none">-->
+</header>

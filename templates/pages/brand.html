@@ -73,20 +73,31 @@ brand:
         <div class="category-breadcrumbs bg-gray-300 container-fluid">
             <div class="container">
                 <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb bg-transparent py-2 p-0 m-0 border-0" itemscope="" itemtype="http://schema.org/BreadcrumbList">
-                        <li class="breadcrumb-item" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                                <a href="/" class="breadcrumb-label" itemprop="item"><span itemprop="name">Home</span></a>
-                            <meta itemprop="position" content="1">
-                        </li>
-                        <li class="breadcrumb-item" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                            <a href="/brands" class="breadcrumb-label" itemprop="item"><span itemprop="name">Brands</span></a>
-                            <meta itemprop="position" content="2">
-                        </li>
-                        <li class="breadcrumb-item active" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                                <meta itemprop="item" content="{{brand.url}}">
-                                <span class="breadcrumb-label" itemprop="name">{{brand.name}}</span>
-                            <meta itemprop="position" content="3">
-                        </li>
+                    <ol class="breadcrumb bg-transparent py-2 p-0 m-0 border-0" itemscope itemtype="http://schema.org/BreadcrumbList">
+                        {{#unless theme_settings.hide_breadcrumbs }}
+                            {{#each breadcrumbs}}
+                                {{#if name "==" "Home"}}
+                                    <li class="breadcrumb-item" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                                        <a href="https://organicstart.com/" class="breadcrumb-label" itemprop="item"><span itemprop="name">Home</span></a>
+                                        <meta itemprop="position" content="{{add @index 1}}">
+                                    </li>
+                                    <li class="breadcrumb-item" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
+                                        <a href="https://organicstart.com/brands/" class="breadcrumb-label" itemprop="item"><span itemprop="name">Brands</span></a>
+                                        <meta itemprop="position" content="2">
+                                    </li>
+                                {{else}}
+                                    <li class="breadcrumb-item{{#if @last}} active{{/if}}" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                                        {{#or @last (if url "==" null)}}
+                                            <meta itemprop="item" content="{{url}}">
+                                            <span class="breadcrumb-label" itemprop="name">{{capitalizeAll name}}</span>
+                                        {{else}}
+                                            <a href="{{url}}" class="breadcrumb-label" itemprop="item"><span itemprop="name">{{capitalizeAll name}}</span></a>
+                                        {{/or}}
+                                        <meta itemprop="position" content="3" />
+                                    </li>
+                                {{/if}}
+                            {{/each}}
+                        {{/unless}}
                     </ol>
                 </nav>
             </div>

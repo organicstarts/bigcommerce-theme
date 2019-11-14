@@ -1,5 +1,8 @@
 __webpack_public_path__ = window.__webpack_public_path__; // eslint-disable-line
 
+import 'lazysizes';
+import 'imgix.js';
+
 import Global from './theme/global';
 
 const getAccount = () => import('./theme/account');
