@@ -39,13 +39,38 @@ export default class Global extends PageManager {
         svgInjector();
 
         // Lets do my own stuff
-        var header = document.querySelector("header");
+        const header = document.querySelector("#header"), 
+            tint = document.querySelector("#tint"), 
+            sidebar = document.querySelector("#sidebar"), 
+            toggleSidebar = document.querySelector(".toggleSidebar"), 
+            headroom  = new Headroom(header);
+
         if(window.scrollY) {
             header.classList.add('headroom', 'headroom--not-top', 'headroom--not-bottom', 'headroom--unpinned');
         } else {
             header.classList.add('headroom', 'headroom--not-bottom', 'headroom--pinned', 'headroom--top');
         }
-        var headroom  = new Headroom(header);
         headroom.init();
+        
+        toggleSidebar.addEventListener('click', (e) => {
+            e.preventDefault();
+            tint.classList.toggle('active');
+            sidebar.classList.toggle('active');
+            document.body.classList.toggle('unscrollable');
+        });
+        
+        tint.addEventListener('click', (e) => {
+            e.preventDefault();
+            tint.classList.remove('active');
+            sidebar.classList.remove('active');
+            document.body.classList.remove('unscrollable');
+        });
+
+        // document.addEventListener('click', (e) => {
+        //     console.log(e.target);
+        //     if(sidebar != e.target || toggleSidebar == e.target) {
+        //         sidebar.classList.toggle('active');
+        //     }
+        // });
     }
 }

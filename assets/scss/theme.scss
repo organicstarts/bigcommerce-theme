@@ -91,12 +91,35 @@
 // Written by Isaiah Marc Sanchez <isaiah@mymx.io>html,
 body {
     scroll-padding-top: 67px;
+    &.unscrollable {
+        overflow: hidden;
+    }
 }
 main > .container {
     padding-top: 132px;
 }
 
-.sidenav {
+#mainMobileMenu, #mainMenu {
+    display: none;
+}
+#tint {
+    background: rgba(0,0,0,0.5);
+    position: fixed;
+    z-index: 29;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    will-change: opacity, visibility;
+    transition: visibility 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+.sidebar {
     position: fixed;
     overflow-y: auto;
     top: 0;
@@ -233,19 +256,24 @@ main > .container {
 }
 .brand {
     position: absolute;
-    top: 0;
-    width: 100%;
+    top: 35px;
+    left: calc((100% - 100vw) / 2);
+    @media screen and (min-width: 1440px) {
+        left: calc((100% - 1440px) / 2);
+    }
     padding: 1rem 0!important;
+    z-index: 20;
     &-container {
         display: flex;
         max-width: 1440px;
         margin: 0 auto;
+        z-index: 20;
         & > a {
-            z-index: 15;
+            z-index: 20;
             & > img {
                 width: 100%;
                 max-height: 100px;
-                z-index: 15;
+                z-index: 20;
             }
         }
     }
@@ -320,7 +348,7 @@ main > .container {
                         }
                     }
                     // Dropdowns
-                    &:hover .dropdown {
+                    &:hover > .dropdown {
                         padding-top: 2rem;
                         opacity: 1;
                         visibility: visible;
@@ -331,58 +359,67 @@ main > .container {
     
                         position: absolute;
                         left: 50%;
+                        z-index: 1030;
                     
                         opacity: 0;
                         visibility: hidden;
                         transform: translate3d(-50%, 20px, 0);
+                        transform-origin: top center;
                         transition: all .1s ease-in-out;
                         transition-property: opacity,visibility,transform;
-                        transform-origin: top center;
                     
-                        z-index: 1030;
-    
-                        & {
-                            .style {
-                                background: #fff;
-                                box-shadow: 0 1.5rem 4rem rgba(22,28,45,.15);
-                                border: 0 solid rgba(22,28,45,.15);
-                                border-radius: 1rem;
+                        will-change: opacity, visibility, transform, transform-origin;
+
+                        & .style {
+                            background: #fff;
+                            box-shadow: 0 1.5rem 4rem rgba(22,28,45,.15);
+                            border: 0 solid rgba(22,28,45,.15);
+                            border-radius: 1rem;
+                        }
+
+                        & ul > li {
+                            padding: 0;
+                            margin-bottom: 0.5rem;
+                            color: theme-color-level(moss, 5);
+                            font-weight: 900;
+                            text-transform: uppercase;
+                        }
+
+                        & ul > li a:not(.button) {
+                            padding: 0;
+                            margin-bottom: 0.5rem;
+                            background: transparent;
+                            color: #000;
+                            font-weight: 400;
+                            text-transform: none;
+                            opacity: 0.8;
+                            will-change: opacity;
+                            &:hover, &:active, &:focus {
+                                opacity: 1;
+                                text-decoration: none;
                             }
-                            .dropdown-item:not(.button) {
-                                color: #000;
-                                background: transparent;
-                                outline: none;
-                                opacity: 0.8;
-                                &:hover, &:active, &:focus {
-                                    opacity: 1;
-                                }
-                            }
-                            .dropdown-item, .dropdown-header {
-                                margin-bottom: 0.5rem;
-                            }
-                            .dropdown-header {
-                                text-transform: uppercase;
-                                font-weight: 900;
-                                color: theme-color-level(moss, 5);
-                            }
-                            .dropdown-image, [class^="dropdown-image-"], [class*=" dropdown-image-"] {
+                        }
+
+                        & .dropdown-image {
+                            &, &-top, &-left, &-right {
                                 background-size: cover;
                                 background-repeat: no-repeat;
                                 background-position:center center;
                             }
-                            .dropdown-image-top {
+                            &-top {
                                 border-top-left-radius: 1rem;
                                 border-top-right-radius: 1rem;
                             }
-                            .dropdown-image-left {
+                            &-left {
                                 border-top-left-radius: 1rem;
                                 border-bottom-left-radius: 1rem;
                             }
-                            .dropdown-image-right {
+                            &-right {
                                 border-top-right-radius: 1rem;
                                 border-bottom-right-radius: 1rem;
                             }
                         }
+                        
                         &.small {
                             font-size: 100%;
                             min-width: 25rem;

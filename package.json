@@ -10,6 +10,7 @@
     "@bigcommerce/stencil-utils": "^4.2.0",
     "creditcards": "^3.0.1",
     "easyzoom": "^2.5.0",
+    "flickity": "^2.2.1",
     "foundation-sites": "^5.5.3",
     "headroom.js": "^0.10.3",
     "imgix.js": "^3.4.1",
@@ -21,7 +22,8 @@
     "nod-validate": "^2.0.12",
     "slick-carousel": "^1.8.1",
     "svg-injector": "^1.1.3",
-    "sweetalert2": "^6.11.5"
+    "sweetalert2": "^6.11.5",
+    "vanilla-lazyload": "^12.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",

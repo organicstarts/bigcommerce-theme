@@ -71,12 +71,11 @@
 
         {{> os/components/common/banner }}
 
+        {{> os/components/common/brand }}
+
         {{> os/components/common/header }}
-
-        <div id="wrapper" class="mm-page mm-slideout" data-currency-code="{{currency_selector.active_currency_code}}">
+        <div id="wrapper" data-currency-code="{{currency_selector.active_currency_code}}">
             <main id="body">
-                {{> os/components/common/brand }}
-
                 {{#block "header"}} {{/block}}
 
                 {{> os/components/common/body }}
@@ -84,19 +83,13 @@
             {{> os/components/common/footer }}
         </div>
 
-        <script src="https://powerful-island-42757.herokuapp.com/dist/main.js?v=091720192"></script>
-        <!--<script src="http://localhost:8080/main.js"></script>-->
-        <script>
-            oSx.Start();
-        </script>
-        {{#block "scripts"}} {{/block}}
-
         <script>window.__webpack_public_path__ = "{{cdn 'assets/dist/'}}";</script>
         <script src="{{cdn 'assets/dist/theme-bundle.main.js'}}"></script>
         <script>
             // Exported in app.js
             window.stencilBootstrap("{{page_type}}", {{jsContext}}).load();
         </script>
+        {{#block "scripts"}} {{/block}}
         {{{footer.scripts}}}
         {{{snippet 'footer'}}}
     </body>
