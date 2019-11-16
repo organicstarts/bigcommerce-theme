@@ -1,0 +1,470 @@
+.home.jumbotron {
+    width: 100%;
+    position: relative;
+    height: 50vh;
+    min-height: 300px;
+    background-color: #fff;
+    @include Background(
+        "https://triad.imgix.net/os/i/home/jumbotron.jpeg?w=320&q=80&s=1e3eba956f11aa98241e63829b05ff7d",
+        "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=320&q=60&dpr=1.5&s=3c479431823ec4e71ad89248a35ea2b6",
+        "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=320&q=40&dpr=2&s=f786f9b52dcdd23f5edba74592e5bc58",
+        "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=320&q=20&dpr=3&s=e06e9683726938d6868268d8cbedddc9",
+        "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=320&q=10&dpr=4&s=6e57bdd6fcb66200bd5c5b0b766d73f2"
+    );
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top left;
+    @media screen and (max-height: 1000px) and (max-width: 425px) {
+        background-position: 0px 15px;
+    }
+    @media screen and (max-height: 850px) and (max-width: 425px) {
+        background-position: 0px 30px;
+    }
+    @media screen and (max-height: 750px) and (max-width: 425px) {
+        background-position: 0px 45px;
+    }
+    @media screen and (max-height: 650px) and (max-width: 425px) {
+        background-position: 0px 65px;
+    }
+    @media screen and (min-width: 425px) {
+        background-position: 0px 25%;
+    }
+    @media screen and (min-width: 1024px) {
+        height: 75vh;
+        min-height: 750px;
+        @include Background(
+            "https://triad.imgix.net/os/i/home/jumbotron.jpeg?w=1024&q=80&s=1e3eba956f11aa98241e63829b05ff7d",
+            "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=1024&q=60&dpr=1.5&s=3c479431823ec4e71ad89248a35ea2b6",
+            "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=1024&q=40&dpr=2&s=f786f9b52dcdd23f5edba74592e5bc58",
+            "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=1024&q=20&dpr=3&s=e06e9683726938d6868268d8cbedddc9",
+            "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=1024&q=10&dpr=4&s=6e57bdd6fcb66200bd5c5b0b766d73f2"
+        );
+    }
+    @media screen and (min-width: 1440px) {
+        @include Background(
+            "https://triad.imgix.net/os/i/home/jumbotron.jpeg?w=1440&q=80&s=1e3eba956f11aa98241e63829b05ff7d",
+            "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=1440&q=60&dpr=1.5&s=3c479431823ec4e71ad89248a35ea2b6",
+            "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=1440&q=40&dpr=2&s=f786f9b52dcdd23f5edba74592e5bc58",
+            "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=1440&q=20&dpr=3&s=e06e9683726938d6868268d8cbedddc9",
+            "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=1440&q=10&dpr=4&s=6e57bdd6fcb66200bd5c5b0b766d73f2"
+        );
+    }
+    @media screen and (min-width: 2560px) {
+        @include Background(
+            "https://triad.imgix.net/os/i/home/jumbotron.jpeg?w=2560&q=80&s=1e3eba956f11aa98241e63829b05ff7d",
+            "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=2560&q=60&dpr=1.5&s=3c479431823ec4e71ad89248a35ea2b6",
+            "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=2560&q=40&dpr=2&s=f786f9b52dcdd23f5edba74592e5bc58",
+            "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=2560&q=20&dpr=3&s=e06e9683726938d6868268d8cbedddc9",
+            "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=2560&q=10&dpr=4&s=6e57bdd6fcb66200bd5c5b0b766d73f2"
+        );
+    }
+    // 320 w -> 600 h
+    // @include Background(
+    //     "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=600&q=80&s=ebd9afdcf48c454dcf3baff126f4495e",
+    //     "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=600&q=60&dpr=1.5&s=37365ae63c29402807dea120f2e476aa",
+    //     "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=600&q=40&dpr=2&s=91b53ee7ea4127d7bbbd0c02c8958fdd",
+    //     "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=600&q=20&dpr=3&s=59eb0278a4f82cf110d98eeb1a473c46",
+    //     "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=600&q=10&dpr=4&s=e86bb02026d3c10937763bd2b644bc14"
+    // );
+    // @include media-breakpoint-up(md) {
+    //     @include Background(
+    //         "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=900&q=80&s=f7d63ef36acdeb7e649600bf22a19ec8",
+    //         "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=900&q=60&dpr=1.5&s=fa96cdbd53102e0898dd8755e72449f4",
+    //         "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=900&q=40&dpr=2&s=7c144e1355f1d076b631ee8c9252ebad",
+    //         "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=900&q=20&dpr=3&s=b63cba44af37202b4b728a30a035e025",
+    //         "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=900&q=10&dpr=4&s=c53ab07c43f812261595e5c226056b0a"
+    //     );
+    // }
+    // // 2560 w -> 1200h
+    // @include media-breakpoint-up(xl) {
+    //     @include Background(
+    //         "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=1200&q=80&s=1e3eba956f11aa98241e63829b05ff7d",
+    //         "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=1200&q=60&dpr=1.5&s=3c479431823ec4e71ad89248a35ea2b6",
+    //         "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=1200&q=40&dpr=2&s=f786f9b52dcdd23f5edba74592e5bc58",
+    //         "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=1200&q=20&dpr=3&s=e06e9683726938d6868268d8cbedddc9",
+    //         "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=1200&q=10&dpr=4&s=6e57bdd6fcb66200bd5c5b0b766d73f2"
+    //     );
+    // }
+}
+.home.jumbotron:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#fff 100px, rgba(255, 255, 255, 0), #fff);
+    @media screen and (min-width: 1024px) {
+        display: none;
+    }
+    z-index: 0;
+}
+.home.jumbotron h1 {
+    color: theme-color(gray);
+}
+
+.bg-bundles {
+    overflow: visible;
+    background-image: url("https://triad.imgix.net/os/i/home/baby-shower-divider.svg?v=2&s=c753a91a52e9d0104991730dc3715861");
+    background-repeat: repeat-x;
+    background-position: center top;
+    padding-top: 150px;
+}
+
+.category-carousel {
+    overflow: visible;
+    & .slick-list, & .slick-track {
+        overflow: visible;
+    }
+    & .slick-slide {
+        padding: 1rem;
+        width: 100vw;
+        max-width: 400px;
+        height: 100vw;
+        max-height: 400px;
+        transition: all .3s ease-in-out;
+        @include media-breakpoint-up(sm) {
+            transform: scale(0.95);
+            &.slick-current {
+                transform: scale(1)!important;
+            }
+        }
+        @include media-breakpoint-up(xl) {
+            width: calc((100vw / 6) - (1rem / 6))!important;
+            min-width: 400px;
+            max-width: none;
+            height: calc((100vw / 6) - (1rem / 6))!important;
+            min-height: 400px;
+            max-height: none;
+        }
+        @media(min-width:2559px) {
+            transform: scale(1)!important;
+        }
+        & > div, & > div > .category-slide {
+            width: 100%;
+            height: 100%;
+            margin: 0!important;
+        }
+    }
+}
+
+.category-card {
+    position: relative;
+    padding: 1rem;
+    width: 100%;
+    height: 100%;
+    border-radius: 2rem;
+    transition: all .3s ease-out;
+    @include BoxShadow(8);
+    &:hover {
+        @include BoxShadow(16);
+    }
+    & .content {
+        font-size: 2rem;
+        font-weight: 900;
+        @include TextShadow(6);
+    }
+    &.powder-nest:before,
+    &.powder-nest .pn-left,
+    &.powder-nest .pn-right,
+    &.baby-care::before, 
+    &.baby-care .suds,
+    &.baby-care .bubbles-left,
+    &.baby-care .bubbles-middle,
+    &.baby-care .bubbles-right,
+    &.baby-food::before, 
+    &.baby-food .food, 
+    &.clothes::before,
+    &.clothes .cotton-left,
+    &.clothes .cotton-right,
+    &.toys::before,
+    &.toys .toys-left,
+    &.toys .toys-right,
+    &.diapers::before,
+    &.diapers .diapers-left,
+    &.diapers .diapers-right,
+    &.mommy::before,
+    &.mommy .mommy-left,
+    &.mommy .mommy-right {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        background-repeat: no-repeat!important;
+    }
+    &.powder-nest {
+        & .pn-left {
+            width: 50%;
+            height: 50%;
+            top: auto;
+            bottom: -5%;
+            left: -8%;
+            right: auto;
+            z-index: 4;
+            background: url("https://triad.imgix.net/os/i/home/pn-left.png?s=92d1acd78e249590df873454529418a0");
+            background-size: contain;
+            background-position: center center;
+        }
+        & .pn-right {
+            width: 80%;
+            height: 80%;
+            top: auto;
+            bottom: -5%;
+            left: auto;
+            right: -10%;
+            background: url("https://triad.imgix.net/os/i/home/pn-right.png?s=74ef6ef9fc1c85ed9f3bfcae379a37cb");
+            background-size: contain;
+            background-position: center center;
+        }
+    }
+    &.baby-care {
+        & .suds {
+            width: 110%;
+            height: 110%;
+            top: -5%;
+            left: -5%;
+            background: url("https://triad.imgix.net/os/i/home/categories/baby-care-cloud.png?s=da4d8ab356d686caaaa92b14b9cbdcbe");
+            background-size: contain;
+            background-position: bottom center;
+        }
+        & .bubbles-left {
+            width: 125px;
+            height: 157px;
+            top: calc(50% - (157px / 2));
+            left: -5%;
+            background: url("https://triad.imgix.net/os/i/home/categories/baby-care-bubble-left.png?s=131d49cb528562948634531e72222ea9");
+            background-size: contain;
+            background-position: center center;
+        }
+        & .bubbles-middle {
+            width: 100px;
+            height: 86px;
+            top: 50%;
+            left: calc(50% - (100px / 2));
+            background: url("https://triad.imgix.net/os/i/home/categories/baby-care-bubble-middle.png?s=3165b46f8fb00b0e229fb7e35a7faa25");
+            background-size: contain;
+            background-position: center center;
+        }
+        & .bubbles-right {
+            width: 81px;
+            height: 122px;
+            top: calc(50% - (122px / 2));
+            left: auto;
+            right: -5%;
+            background: url("https://triad.imgix.net/os/i/home/categories/baby-care-bubble-right.png?s=598cd044506bc557498448d6fba24d9d");
+            background-size: contain;
+            background-position: right center;
+        }
+    } 
+    &.baby-food .food {
+        width: 110%;
+        height: 110%;
+        top: -5%;
+        left: -5%;
+        background: url("https://triad.imgix.net/os/i/home/categories/food.png?s=19d3f5da2ebe78d1f9f8df759326ee40");
+        background-size: contain;
+        background-position: bottom center;
+    }
+    &.clothes {
+        & .cotton-left {
+            width: 50%;
+            height: 50%;
+            top: auto;
+            bottom: -5%;
+            left: -10%;
+            right: auto;
+            background: url("https://triad.imgix.net/os/i/home/categories/clothes-left.png?s=eeaa8851a38621ba3aefb828810d329a");
+            background-size: contain;
+            background-position: center center;
+        }
+        & .cotton-right {
+            width: 80%;
+            height: 80%;
+            top: auto;
+            bottom: -5%;
+            left: auto;
+            right: -5%;
+            background: url("https://triad.imgix.net/os/i/home/categories/clothes-right.png?s=f213da5aa0aa481ecb9a564e90c9c7d1");
+            background-size: contain;
+            background-position: center center;
+        }
+    } 
+    &.toys {
+        & .toys-left {
+            width: 50%;
+            height: 50%;
+            top: auto;
+            bottom: -5%;
+            left: -5%;
+            right: auto;
+            z-index: 1;
+            background: url("https://triad.imgix.net/os/i/home/categories/toys-left.png?s=b106c9df93b6bfc4da239175f133b03f");
+            background-size: contain;
+            background-position: center center;
+        }
+        & .toys-right {
+            width: 80%;
+            height: 80%;
+            top: auto;
+            bottom: -5%;
+            left: auto;
+            right: -15%;
+            background: url("https://triad.imgix.net/os/i/home/categories/toys-right-v4.png?s=5eb472d5b9659781e98ea44a18de5258");
+            background-size: contain;
+            background-position: center center;
+        }
+    }
+    &.diapers {
+        & .diapers-left {
+            width: 50%;
+            height: 50%;
+            top: calc(50% - (50% / 4));
+            bottom: auto;
+            left: -5%;
+            right: auto;
+            z-index: 1;
+            background: url("https://triad.imgix.net/os/i/home/categories/diapers-left.png?s=5e43c3ee19545eb05e5bb8475afc9908");
+            background-size: contain;
+            background-position: center center;
+        }
+        & .diapers-right {
+            width: 60%;
+            height: 60%;
+            top: auto;
+            bottom: -10%;
+            left: auto;
+            right: -5%;
+            background: url("https://triad.imgix.net/os/i/home/categories/diapers-right.png?s=c8a134a3506ce226e0164222f96b90de");
+            background-size: contain;
+            background-position: center center;
+        }
+    }
+    &.mommy {
+        & .mommy-left {
+            width: 100%;
+            height: 50%;
+            top: auto;
+            bottom: -5%;
+            left: -5%;
+            right: auto;
+            z-index: 0;
+            background: url("https://triad.imgix.net/os/i/home/categories/mommy-flowers.png?s=ba5bf2232d41efab2d1710e32fbbcb72");
+            background-size: contain;
+            background-position: bottom left;
+        }
+        & .mommy-right {
+            width: 60%;
+            height: 60%;
+            top: auto;
+            bottom: -5%;
+            left: auto;
+            right: -5%;
+            background: url("https://triad.imgix.net/os/i/home/categories/mommy-mug.png?s=ff87603a48ca879d8425f0ab5f284cba");
+            background-size: contain;
+            background-position: bottom right;
+        }
+    } 
+}
+
+.bg-pn {
+    background-image: linear-gradient(top, #fff, #f8f8f8);
+}
+
+.pn-container {
+    position: relative;
+    overflow: visible;
+    z-index: 0;
+    min-height: 300px;
+    @include media-breakpoint-up(md) {
+        min-height: 600px;
+    }
+    & .spoon, & .divider, & .body-top, & .body-bottom {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat!important;
+        background-size: contain!important;
+        background-position: center center!important;
+        overflow: visible;
+        animation-direction: alternate!important;
+    }
+    & .spoon {
+        background: url("https://triad.imgix.net/pn/i/spoon-v2.png?s=4c1e2967878c9108a62bd0410af7fdd3");
+        z-index: 2;
+        animation: pn-spoon-half 8s ease-in-out infinite;
+        @include media-breakpoint-up(lg) {
+            animation: pn-spoon 16s ease-in-out infinite;
+        }
+    }
+    & .divider {
+        background: url("https://triad.imgix.net/pn/i/divider-v2.png?s=ea85e6ff3c353a39f7ac3a6756956a65");
+        z-index: 3;
+        animation: pn-divider-half 8s ease-in-out infinite;
+        @include media-breakpoint-up(lg) {
+            animation: pn-divider 16s ease-in-out infinite;
+        }
+    }
+    & .body-top {
+        background: url("https://triad.imgix.net/pn/i/container-top.png?s=6d473905cfdc8e4a99c35884f7f5e36f");
+        z-index: 1;
+    }
+    & .body-bottom {
+        background: url("https://triad.imgix.net/pn/i/container-bottom.png?s=ffe95a647b254bf8675ad1b17801f9e1");
+        z-index: 4;
+    }
+}
+@keyframes pn-spoon {
+  from {
+    top: -5%;
+  }
+  to {
+    top: -70%;
+  }
+}
+@keyframes pn-divider {
+    from {
+      top: 0%;
+    }
+    to {
+      top: -25%;
+    }
+}
+@keyframes pn-spoon-half {
+  from {
+    top: -5%;
+  }
+  to {
+    top: -35%;
+  }
+}
+@keyframes pn-divider-half {
+    from {
+      top: 0%;
+    }
+    to {
+      top: -12.5%;
+    }
+}
+
+.pn-logo {
+    
+}
+
+// Curator
+.crt-post-hover, .crt-grid-post .crt-social-icon {
+    display: none!important
+}
+.crt-widget-grid.crt-grid-col5 .crt-grid-post {
+    padding: 1rem;
+}
+.crt-grid-post .crt-post-c {
+    border-radius: 0.5rem;
+}

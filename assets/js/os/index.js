@@ -1,5 +1,5 @@
 import Master from "./master"
-import Menus from "./menus"
+//import Menus from "./menus"
 import Modals from "./modals"
 import Cookies from "./cookies"
 import Swipes from "./swipes"
@@ -19,7 +19,7 @@ class Public extends Master {
   }
 
   Init() {
-    const Menu = new Menus(),
+    const //Menu = new Menus(),
           Scrolly = new Scrolls(),
           Carts = new Cart()
 
@@ -53,10 +53,9 @@ class Public extends Master {
        y = (window.scrollY || document.documentElement.scrollTop) <= 0 ? 0 : (window.scrollY || document.documentElement.scrollTop)
 
         if (!this.isMobile) {
-          Menu.Scrolling(dir)
+        //  Menu.Scrolling(dir)
+          Scrolly.Animate('scroll')
         }
-
-        Scrolly.Animate('scroll')
       })
     })
   }

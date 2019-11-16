@@ -1,0 +1,113 @@
+.flickity-viewport, .flickity-slider {
+    overflow: visible;
+}
+
+.product-carousel {
+    & .product-slide {
+        padding: 0.5rem;
+        width: 100%;
+        max-width: 25rem;
+        height: 25rem;
+        min-height: 25rem;
+        transition: transform .15s ease-out;
+        /*
+        @include media-breakpoint-up(sm) {
+            width: calc((100vw / 4) - (1.5rem / 4));
+        }
+        @include media-breakpoint-up(md) {
+            width: calc((100vw / 5) - (2rem / 5));
+        }
+        @include media-breakpoint-up(lg) {
+            width: calc((100vw / 6) - (2.5rem / 6));
+        }
+        @include media-breakpoint-up(xl) {
+            width: calc((100vw / 7) - (3rem / 7));
+        }*/
+        @include media-breakpoint-up(md) {
+            &:hover {
+                transform: translateY(-1rem);
+            }
+        }
+        & .slide {
+            width: 100%;
+            height: 100%;
+            margin: 0!important;
+        }
+    }
+    & .flickity-prev-next-button {
+        display: none;
+    }
+}
+
+.brand-carousel {
+    height: 15rem;
+    min-height: 15rem;
+    @include media-breakpoint-up(md) {
+        height: 20rem;
+        min-height: 20rem;
+    }
+    & .brand-slide {
+        padding: 1rem;
+        width: 100%;
+        max-width: 15rem;
+        height: 15rem;
+        min-height: 15rem;
+        transition: transform .15s ease-out;
+        &.is-selected {
+            transform: scale(1.25);
+        }
+        @include media-breakpoint-up(md) {
+            max-width: 20rem;
+            height: 20rem;
+            min-height: 20rem;
+            &.is-selected {
+                transform: none;
+            }
+            &:hover {
+                transform: scale(1.25);
+            }
+        }
+        & .slide {
+            width: 100%;
+            height: 100%;
+            margin: 0!important;
+        }
+    }
+    & .flickity-prev-next-button {
+        display: none;
+    }
+}
+
+.category-carousel {
+    & .title {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: .2em;
+        color: theme-color(gray-400); 
+    }
+    & .carousel {
+        background: #fff;
+        border-radius: 0.5rem;
+        border-width: 1px;
+        border-style: solid;
+        border-color: theme-color(gray-200);
+        border-image: initial;
+        overflow: hidden;
+        white-space: nowrap;
+        & {
+            .nav-item {
+                color: theme-color(gray-700);
+                padding: 1rem 2rem;
+                font-family: $font-family-base;
+                font-weight: 700;
+                &:not(:last-child) {
+                  border-right: 1px solid theme-color(gray-200);
+                }
+            }
+            .nav-item:hover,.nav-item:focus {
+                color: theme-color(gray-900);
+                background: theme-color(gray-50);
+            }
+        }
+    }
+}

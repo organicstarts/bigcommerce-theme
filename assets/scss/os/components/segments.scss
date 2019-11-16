@@ -1,0 +1,43 @@
+/* Segments */
+.ui.segments, *:not(.segments) > .segment {
+    border: none!important;
+}
+.ui.segments > .segment:first-child {
+    border-top: none!important;
+}
+.ui.segments > .segment:last-child {
+    border-bottom: none!important;
+}
+.ui {
+    &.segments, &.segment, &.inverted.segment {
+        border-radius: 0.5rem;
+        @include BoxShadow(1);
+
+        &.flat {
+            box-shadow: none!important;
+        }
+        &.lifted {
+            @include BoxShadow(6);
+        }
+
+        &.raised {
+            @include BoxShadow(12);
+        }
+
+        &.boosted {
+            @include BoxShadow(24);
+        }
+
+        &.padded {
+            padding: 1.5rem;
+        }
+    }
+    &.segment, &.inverted.segment {
+        padding: 1rem;
+    }
+    &.segments {
+        border-radius: 0.5rem;
+        overflow: hidden;
+        border: none!important;
+    }
+}

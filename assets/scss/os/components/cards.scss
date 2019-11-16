@@ -1,0 +1,56 @@
+/* Segments */
+.card {
+    &.cards &.card {
+        border: none;
+        box-shadow: none;
+    }
+    &.cards, &.card, &.inverted.card {
+        border: none;
+        @include BoxShadow(1);
+
+        &.flat {
+            box-shadow: none;
+        }
+        &.lifted {
+            @include BoxShadow(6);
+        }
+
+        &.raised {
+            @include BoxShadow(12);
+        }
+
+        &.boosted {
+            @include BoxShadow(24);
+        }
+
+        &.padded {
+            padding: 1.5rem;
+        }
+    }
+    &.card, &.inverted.card {
+        padding: 1rem;
+    }
+    &.product {
+        overflow: visible;
+        width: 100%;
+        height: 100%;
+        max-height: 500px;
+        transition: all .3s ease-out;
+        border-radius: 1rem;
+        @include BoxShadow(4);
+        &:hover {
+            @include BoxShadow(8);
+        }
+        & .card-figcaption {
+            display: none!important;
+        }
+        & .card-image {
+            max-height: 200px;
+            /*max-height: calc(250px + (250 - 250) * (100vw - 320px)/ (2560 - 320));*/
+        }
+        & .card-img-container:after {
+            padding-bottom: 75%;
+        }
+        
+    }
+}

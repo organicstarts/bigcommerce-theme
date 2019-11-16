@@ -1,0 +1,88 @@
+/*
+ * Buttons
+ *
+ * Here we have all of the button styles.
+ *
+ */
+ button,
+ .button,
+ .ui.button,
+ .ui.basic.button,
+ .btn {
+     /*font-size: 0.875rem;*/
+     font-family: $font-family-base;
+     font-weight: 600;
+     text-transform: uppercase;
+ 
+     &.btn-moss {
+         color: #fff;
+     }
+ }
+ .ui.animated.button {
+    padding: 0.78571429em 1.5em 0.78571429em!important;
+}
+.ui.basic.borderless.button, .ui.basic.borderless.button:hover, .ui.basic.borderless.button:focus, .ui.basic.borderless.button:active {
+    background: transparent!important;
+    padding: 0!important;
+    border: none!important;
+    box-shadow: none!important;
+}
+
+@each $name, $hex in $semantic-colors {
+    .ui.#{$name}.button {
+        border: none!important;
+        @include BoxShadow(2);
+        background: color-level($hex, 1);
+        transition: background 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+    .ui.#{$name}.button:hover, .ui.#{$name}.button:focus {
+        @include BoxShadow(4);
+        background: color-level($hex, 0); // theme-color-level($hex, -5);
+    }
+    .ui.#{$name}.button:active  {
+        @include BoxShadow(8);
+        background: color-level($hex, -1); // theme-color-level($hex, -5);
+    }
+}
+
+// ADD TO CART BUTTON
+.ui.vertical.animated.button.card-atc {
+    width: 50px;
+    height: 40px;
+    padding: 0.6rem 1rem!important;
+    transition: width .3s ease-in-out!important;
+    text-align: center;
+    & .hidden.content {
+        opacity: 0;
+        top: -50%;
+        min-width: 150px!important;
+        padding-top: 0.15rem;
+    }
+    & .visible.content {
+        font-size: 1.3rem;
+        transform: none;
+        margin-right: auto;
+    }
+    & .hidden.content, & .visible.content {
+        margin: 0 auto;
+        transition: opacity .3s ease-in-out!important;
+    }
+    &.options:hover {
+        width: 180px;
+    }
+    &:hover {
+        width: 150px;
+        & .hidden.content {
+            opacity: 1;
+            top: auto;
+        }
+        & .visible.content {
+            opacity: 0;
+        }
+    }
+}
+
+/* CHROME BLUR FIX */
+.ui.animated.button .content, .featured.cards > .product.card * {
+    will-change: auto!important;
+}

@@ -8,6 +8,9 @@
   "dependencies": {
     "@babel/polyfill": "^7.7.0",
     "@bigcommerce/stencil-utils": "^4.2.0",
+    "@fortawesome/fontawesome-free": "^5.11.2",
+    "animate.css": "^3.7.2",
+    "bootstrap": "^4.3.1",
     "creditcards": "^3.0.1",
     "easyzoom": "^2.5.0",
     "flickity": "^2.2.1",

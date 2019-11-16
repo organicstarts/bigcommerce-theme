@@ -43,8 +43,8 @@ export default class Global extends PageManager {
             tint = document.querySelector("#tint"), 
             sidebar = document.querySelector("#sidebar"), 
             toggleSidebar = document.querySelector(".toggleSidebar"), 
-            headroom  = new Headroom(header);
-
+            headroom  = new Headroom(header, {tolerance: 15, offset : 35});
+            
         if(window.scrollY) {
             header.classList.add('headroom', 'headroom--not-top', 'headroom--not-bottom', 'headroom--unpinned');
         } else {

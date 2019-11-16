@@ -1,0 +1,326 @@
+.staggered-fade-up {
+    transform: translateY(200%);
+    opacity: 0;
+}
+
+.main-menu {
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+    transition: all 0.5s ease;
+    transform: translateY(-100%);
+    opacity: 0;
+    &.on-canvas {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+    &.off-canvas {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    &.splash {
+        position: absolute;
+    }
+    &.drawer {
+        position: fixed;
+        background: #fff;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+        @include BoxShadow(1);
+        @include media-breakpoint-up(xl) {
+            padding-top: 1rem!important;
+            padding-bottom: 1rem!important;
+        }
+        & .nav .nav-item:hover .dropdown {
+            padding-top: 4rem;
+        }
+    }
+    & .nav {
+        & .nav-item {
+            position: relative;
+            padding: 0;
+            &:hover {
+                .nav-link:not(.button) {
+                    opacity: 1;
+                    outline: none;
+                }
+                .dropdown {
+                    padding-top: 2rem;
+                    opacity: 1;
+                    visibility: visible;
+                    transform: translate3d(-50%, 0rem, 0);
+                }
+            }
+            & {
+                @include media-breakpoint-up(lg) {
+                    margin: 0 0.25rem;
+                }
+                @include media-breakpoint-up(xl) {
+                    margin: 0 1rem;
+                }
+                @include media-breakpoint-up(xxl) {
+                    margin: 0 1.25rem;
+                }
+                .nav-link:not(.button) {
+                    color: #000;
+                    background: transparent;
+                    //font-family: $subheader-font;
+                    //text-transform: uppercase;
+                    opacity: 0.75;
+                    outline: none;
+                    font-weight: 900;
+                    transition: all .1s ease-in-out;
+                    transition-property: opacity;
+
+                    padding: 0 0.5rem;
+                    @include media-breakpoint-up(xl) {
+                        padding: 0 0.75rem;
+                    }
+                    @include media-breakpoint-up(xxl) {
+                        padding: 0 1rem;
+                    }
+                }
+
+                // Dropdowns
+                .dropdown {
+                    padding-top: 2rem;
+
+                    position: absolute;
+                    left: 50%;
+                
+                    opacity: 0;
+                    visibility: hidden;
+                    transform: translate3d(-50%, 20px, 0);
+                    transition: all .1s ease-in-out;
+                    transition-property: opacity,visibility,transform;
+                    transform-origin: top center;
+                
+                    z-index: 1030;
+
+                    & {
+                        .style {
+                            background: #fff;
+                            box-shadow: 0 1.5rem 4rem rgba(22,28,45,.15);
+                            border: 0 solid rgba(22,28,45,.15);
+                            border-radius: 1rem;
+                        }
+                        .dropdown-item:not(.button) {
+                            color: #000;
+                            background: transparent;
+                            outline: none;
+                            opacity: 0.8;
+                            &:hover, &:active, &:focus {
+                                opacity: 1;
+                            }
+                        }
+                        .dropdown-item, .dropdown-header {
+                            margin-bottom: 0.5rem;
+                        }
+                        .dropdown-header {
+                            text-transform: uppercase;
+                            font-weight: 900;
+                            color: theme-color-level(moss, 5);
+                        }
+                        .dropdown-image, [class^="dropdown-image-"], [class*=" dropdown-image-"] {
+                            background-size: cover;
+                            background-repeat: no-repeat;
+                            background-position:center center;
+                        }
+                        .dropdown-image-top {
+                            border-top-left-radius: 1rem;
+                            border-top-right-radius: 1rem;
+                        }
+                        .dropdown-image-left {
+                            border-top-left-radius: 1rem;
+                            border-bottom-left-radius: 1rem;
+                        }
+                        .dropdown-image-right {
+                            border-top-right-radius: 1rem;
+                            border-bottom-right-radius: 1rem;
+                        }
+                    }
+                    
+                    // Dropdown Sizes
+                    &.small {
+                        font-size: 100%;
+                        min-width: 25rem;
+                    }
+                    &.medium {
+                        min-width: 30rem;
+                    }
+                    &.large {
+                        min-width: 35rem;
+                    }
+                    &.extra {
+                        min-width: 45rem;
+                    }
+
+                    // Different Background Images
+                    /*&.baby-care {
+                        & .dropdown-item:not(.button) {
+                            color: #fff;
+                        }
+                        & .style {
+                            position: relative;
+                            overflow: hidden;
+                            &::before, & .row::before {
+                                content: "";
+                                position: absolute;
+                                width: 115%;
+                                height: 115%;
+                                bottom: 65%;
+                                left: -10%;
+                                right: 0%;
+                                z-index: 0;
+                                background-image: url("https://triad.imgix.net/os/i/home/bubbles-v2.png?s=12b5e839439f6721fb25a32dc7dd30e3");
+                                background-size: contain;
+                                background-position: bottom center;
+                                background-repeat: no-repeat;
+                                transform: rotate(8deg) scale(3);
+                            }
+                            & .row::before {
+                                width: 100%;
+                                height: 100%;
+                                bottom: -40%;
+                                left: -25%;
+                                transform: rotate(-130deg) scale(3);
+                            }
+                        }
+                    }*/
+                    &.baby-care .dropdown-image, &.baby-care [class^="dropdown-image-"], &.baby-care [class*=" dropdown-image-"] {
+                        background-position: 50% 10%;
+                        @include Background(
+                            "https://triad.imgix.net/os/i/nav/baby-care.jpeg?w=400&q=80",
+                            "https://triad.imgix.net/os/i/nav/baby-care.jpeg?w=400&q=60&dpr=1.5",
+                            "https://triad.imgix.net/os/i/nav/baby-care.jpeg?w=400&q=40&dpr=2",
+                            "https://triad.imgix.net/os/i/nav/baby-care.jpeg?w=400&q=20&dpr=3",
+                            "https://triad.imgix.net/os/i/nav/baby-care.jpeg?w=400&q=10&dpr=4"
+                        );
+                    }
+                    &.baby-food .dropdown-image, &.baby-food [class^="dropdown-image-"], &.baby-food [class*=" dropdown-image-"] {
+                        @include Background(
+                            "https://triad.imgix.net/os/i/nav/new-baby-food.jpeg?w=360&q=80&s=6c3c2a7f2b45ca791388db895fed6d98",
+                            "https://triad.imgix.net/os/i/nav/new-baby-food.jpeg?w=360&q=60&dpr=1.5&s=602d2eeb2db11f65dda98bd16b800526",
+                            "https://triad.imgix.net/os/i/nav/new-baby-food.jpeg?w=360&q=40&dpr=2&s=1ed7a84b3e48903ef580d00c7f536bef",
+                            "https://triad.imgix.net/os/i/nav/new-baby-food.jpeg?w=360&q=20&dpr=3&s=9269fca0bae61b315fc9f99b25a9d43d",
+                            "https://triad.imgix.net/os/i/nav/new-baby-food.jpeg?w=360&q=10&dpr=4&s=f497a34a6207129cd18fb5bb21de797a"
+                        );
+                    }
+                    &.clothes .dropdown-image, &.clothes [class^="dropdown-image-"], &.clothes [class*=" dropdown-image-"] {
+                        @include Background(
+                            "https://triad.imgix.net/os/i/nav/clothes.jpg?w=280&q=80&s=ad38e73acb4541fa0a2afd2538272230",
+                            "https://triad.imgix.net/os/i/nav/clothes.jpg?w=280&q=60&dpr=1.5&s=289dc347c234d6b5a3ca4f487e94a49b",
+                            "https://triad.imgix.net/os/i/nav/clothes.jpg?w=280&q=40&dpr=2&s=2e026415d0fd4b3f2613e34e04dcf599",
+                            "https://triad.imgix.net/os/i/nav/clothes.jpg?w=280&q=20&dpr=3&s=f2dc3b5ff6c7854d2baee743770050dc",
+                            "https://triad.imgix.net/os/i/nav/clothes.jpg?w=280&q=10&dpr=4&s=b1a9c0ad05a6b367c35c1ec4cccf26f3"
+                        );
+                    }
+                    &.diapers .dropdown-image, &.diapers [class^="dropdown-image-"], &.diapers [class*=" dropdown-image-"] {
+                        @include Background(
+                            "https://triad.imgix.net/os/i/nav/diapers.jpeg?w=420&q=80&s=1ca63a29d0c0c6e3bcb58f6d92160c26",
+                            "https://triad.imgix.net/os/i/nav/diapers.jpeg?w=420&q=60&dpr=1.5&s=31ddb3c857651e1298e7f0b6bf1adb15",
+                            "https://triad.imgix.net/os/i/nav/diapers.jpeg?w=420&q=40&dpr=2&s=d2a4b7a79467476b633a4a057bb77b22",
+                            "https://triad.imgix.net/os/i/nav/diapers.jpeg?w=420&q=20&dpr=3&s=b85992e7b2f4c609a6dd267d1763209e",
+                            "https://triad.imgix.net/os/i/nav/diapers.jpeg?w=420&q=10&dpr=4&s=cf2ff85f479a3f9911a8e8f69c02b9c9"
+                        );
+                    }
+                    &.mommy .dropdown-image, &.mommy [class^="dropdown-image-"], &.mommy [class*=" dropdown-image-"] {
+                        @include Background(
+                            "https://triad.imgix.net/os/i/nav/mommy.jpeg?w=400&q=80&s=a46502da07ab4b7aa4bfd0fe62d58f18",
+                            "https://triad.imgix.net/os/i/nav/mommy.jpeg?w=400&q=60&dpr=1.5&s=2d2a5415172a0e75dada845a3601b26a",
+                            "https://triad.imgix.net/os/i/nav/mommy.jpeg?w=400&q=40&dpr=2&s=71a2162e1a10aef09c224aeee80a7304",
+                            "https://triad.imgix.net/os/i/nav/mommy.jpeg?w=400&q=20&dpr=3&s=38b4e0ae2d0520b1fa8ed01f0de09be4",
+                            "https://triad.imgix.net/os/i/nav/mommy.jpeg?w=400&q=10&dpr=4&s=82a0ed11b355995e37bb902d08660a25"
+                        );
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+.sidebarBlock + .sidebarBlock {
+    border: none;
+}
+
+.pagination .list-group {
+    list-style: none;
+}
+
+// Cart Stuff
+.cart-sidebar {
+    background: #fff;
+    @include BoxShadow(24);
+    position: fixed;
+    right: 0;
+    width: 80%;
+    min-width: 320px;
+    max-width: 440px;
+    height: 100vh;
+    top: 0;
+    overflow: hidden;
+    bottom: 0;
+    left: auto;
+    right: 0;
+    z-index: 99;
+    opacity: 1;
+    transform: translateX(0%);
+    transition: all 0.5s ease;
+    @media (min-width: 1024px) and (min-height: 900px) {
+        max-height: 768px;
+        top: auto;
+        right: 1rem;
+        border-top-left-radius: 2rem;
+        border-top-right-radius: 2rem;
+        transform: translateY(0%);
+    }
+    &.offcanvas {
+        opacity: 0;
+        transform: translateX(100%);
+        @media (min-width: 1024px) and (min-height: 900px) {
+            transform: translateY(100%);
+        }
+    }
+    & .cart-wrapper {
+        position: relative;
+    }
+    & .cart-contained {
+        height: 100%;
+        overflow: scroll;
+        overflow-x: hidden;
+        overflow-y: auto;
+        box-sizing: border-box;
+    }
+    & .cart-top, & .cart-bottom {
+        background: #fff;
+        display: block;
+        position: fixed;
+        height: auto;
+        width: 100%;
+        min-width: 240px;
+        max-width: 440px;
+        transform: none;
+        z-index: 100;
+        &:after {
+            display: none;
+        }
+    }
+    & .cart-top {
+        top: 0;
+        bottom: auto;
+    }
+    & .cart-bottom {
+        bottom: 0;
+        top: auto;
+    }
+}
+
+#cartPill {
+    left: 100%;
+    border-radius: 99rem;
+    padding: 0.25rem 0.5rem;
+}

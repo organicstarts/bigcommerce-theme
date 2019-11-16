@@ -1,0 +1,39 @@
+.sidebar {
+    padding: 0;
+    //z-index: 2;
+    //@include BoxShadow(4);
+}
+.primary.sidebar {
+    --mm-color-border: rgba( 0,0,0, 0 );
+    --mm-color-button: rgba( 0,0,0, 0.4 );
+    --mm-color-text: rgba( 0,0,0, 1 );
+    --mm-color-text-dimmed: rgba( 0,0,0, 1 );
+    --mm-color-background: #fff;
+    --mm-color-background-highlight: rgba( 0,0,0, 0.08 );
+    --mm-color-background-emphasis: rgba( 0,0,0, 0.1 );
+    --mm-shadow: 0 0 20px rgba( 0,0,0, 0.5 );
+}
+.mm-wrapper_opening .mm-menu_offcanvas ~ .mm-slideout::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+}
+.mm-navbar__title, .mm-listitem__text {
+    font-family: $font-family-base;
+    font-weight: 600;
+    min-height: 48px;
+    line-height: 1rem;
+}
+.mm-navbar__title {
+    font-size: 1.25rem;
+    padding: 1.375rem 1rem;
+}
+.mm-listitem__text {
+    padding: 1rem;
+}
+.mm-listitem:after {
+    display: none;
+}

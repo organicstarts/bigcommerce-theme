@@ -1,0 +1,657 @@
+// Misc
+$curve: cubic-bezier(0.650, 0.000, 0.450, 1.000);
+
+$body-bg: #fafafa;
+$body-color: #333333;
+$gray-100: #efefef !default;
+$gray-200: #e9ecef !default;
+$gray-300: #e2e2e2 !default;
+$gray-400: #bfbfbf !default;
+$gray-500: #a0a0a0 !default;
+$gray-600: #777777 !default;
+$gray-700: #636363 !default;
+$gray-800: #444444 !default;
+$gray-900: #232323 !default;
+$colors: (
+//   "blue": $blue,
+//   "indigo": $indigo,
+//   "purple": $purple,
+//   "pink": $pink,
+//   "red": $red,
+//   "orange": $orange,
+//   "yellow": $yellow,
+//   "green": $green,
+//   "teal": $teal,
+//   "cyan": $cyan,
+//   "white": $white,
+//   "gray": $gray-600,
+//   "gray-dark": $gray-800
+) !default;
+$semantic-colors: (
+   'red': #db2828,
+   'orange': #f2711c,
+   'yellow': #fbbd08,
+   'olive': #b5cc18,
+   'green': #21ba45,
+   'teal': #00b5ad,
+   'blue': #2185d0,
+   'violet': #6435c9,
+   'purple': #a333c8,
+   'pink': #e03997,
+   'brown': #a5673f,
+   'grey': #767676,
+   'black': #1b1c1d
+);
+$theme-colors:(
+    'moss': #93c11f,
+    'moss-light': #c7f457,
+    'moss-dark': #609000,
+
+    'moss-50': #f3f8e6,
+    'moss-100': #e0ecc0,
+    'moss-200': #cbe097,
+    'moss-300': #b5d36c,
+    'moss-400': #a4ca49,
+    'moss-500': #93c11f,
+    'moss-600': #83b116,
+    'moss-700': #6d9e07,
+    'moss-800': #588a00,
+    'moss-900': #306900,
+
+    'mustard': #ffc107,
+    'mustard-light': #fff350,
+    'mustard-dark': #c79100,
+
+    'mustard-50': #fff8e1,
+    'mustard-100': #ffecb3,
+    'mustard-200': #ffe082,
+    'mustard-300': #ffd54f,
+    'mustard-400': #ffca28,
+    'mustard-500': #ffc107,
+    'mustard-600': #ffb300,
+    'mustard-700': #ffa000,
+    'mustard-800': #ff8f00,
+    'mustard-900': #ff6f00,
+
+    'mustard-a100': #FFE57F,
+    'mustard-a200': #FFD740,
+    'mustard-a400': #FFC400,
+    'mustard-a700': #FFAB00,
+
+    'gray': #444444,
+    'gray-50': #fafafa,
+    'gray-100': $gray-100,
+    'gray-200': $gray-200,
+    'gray-300': $gray-300,
+    'gray-400': $gray-400,
+    'gray-500': $gray-500,
+    'gray-600': $gray-600,
+    'gray-700': $gray-700,
+    'gray-800': $gray-800,
+    'gray-900': $gray-900,
+
+    // Other Colors
+    'dark-gray': #989898,
+    'burly-wood': #DDD76C,
+    'goldenrod': #CCC02C
+);
+$spacer: 1rem; 
+$enable-rounded: true;
+$enable-shadows: true;
+$enable-gradients: true;
+$enable-transitions: true;
+$enable-prefers-reduced-motion-media-query: true; // Enables the prefers-reduced-motion media query, which suppresses certain animations/transitions based on the users’ browser/operating system preferences.
+$enable-grid-classes: true;
+$enable-caret: false;
+$enable-pointer-cursor-for-buttons: true;
+$enable-print-styles: true;
+$enable-responsive-font-sizes: true;
+$enable-validation-icons: true;
+$enable-deprecation-messages: false;
+
+$grid-breakpoints: (
+  xxs: 0,
+  xs: 340px,
+  sm: 560px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1440px,
+  xxl: 2561px
+);
+
+$font-family-base: 'Open Sans', sans-serif; // This is where we switch the global font-family
+
+$font-family-sans-serif: 
+    // Safari for macOS and iOS (San Francisco)
+    -apple-system,
+    // Chrome < 56 for macOS (San Francisco)
+    BlinkMacSystemFont,
+    // Windows
+    "Segoe UI",
+    // Android
+    "Roboto",
+    // Basic web fallback
+    "Helvetica Neue",
+    Arial,
+    sans-serif,
+    // Emoji fonts
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol";
+
+$header-font: 'Fredoka One', cursive;
+
+$subheader-font: 'Nunito', sans-serif;
+
+// Spacers
+$spacer: 1rem;
+$spacers: (
+    0: 0,
+    1: ($spacer * .5),
+    2: $spacer,
+    3: ($spacer * 1.5),
+    4: ($spacer * 2),
+    5: ($spacer * 2.5),
+    6: ($spacer * 3),
+    7: ($spacer * 3.5),
+    8: ($spacer * 4),
+    9: ($spacer * 4.5),
+    10: ($spacer * 5),
+    11: ($spacer * 5.5),
+    12: ($spacer * 6),
+    13: ($spacer * 6.5),
+    14: ($spacer * 7),
+    15: ($spacer * 7.5),
+    16: ($spacer * 8),
+    17: ($spacer * 8.5),
+    18: ($spacer * 9),
+    19: ($spacer * 9.5),
+    20: ($spacer * 10)
+);
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css');
+//@import "../../../node_modules/animate.css/animate.css";
+
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+
+$fa-font-path: "../../../node_modules/@fortawesome/fontawesome-free/webfonts";
+@import "../../../node_modules/@fortawesome/fontawesome-free/scss/brands";
+@import "../../../node_modules/@fortawesome/fontawesome-free/scss/solid";
+@import "../../../node_modules/@fortawesome/fontawesome-free/scss/regular";
+@import "../../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.1/flickity.min.css');
+//@import "../../../node_modules/flickity/dist/flickity.min";
+
+$slick-loader-path: "../../../node_modules/slick-carousel/slick/";
+$slick-font-path: "../../..//node_modules/slick-carousel/slick/fonts/";
+
+@import "../../../node_modules/slick-carousel/slick/slick";
+@import "../../../node_modules/slick-carousel/slick/slick-theme";
+
+@import '../../../node_modules/sweetalert2/src/sweetalert2';
+
+$theme-color-shades: (
+   'moss-neg-1': theme-color-level(moss, -1),
+   'moss-neg-2': theme-color-level(moss, -2),
+   'moss-neg-3': theme-color-level(moss, -3),
+   'moss-neg-4': theme-color-level(moss, -4),
+   'moss-neg-5': theme-color-level(moss, -5),
+   'moss-neg-6': theme-color-level(moss, -6),
+   'moss-neg-7': theme-color-level(moss, -7),
+   'moss-neg-8': theme-color-level(moss, -8),
+   'moss-neg-9': theme-color-level(moss, -9),
+   'moss-neg-10': theme-color-level(moss, -10),
+   'moss-1': theme-color-level(moss, 1),
+   'moss-2': theme-color-level(moss, 2),
+   'moss-3': theme-color-level(moss, 3),
+   'moss-4': theme-color-level(moss, 4),
+   'moss-5': theme-color-level(moss, 5),
+   'moss-6': theme-color-level(moss, 6),
+   'moss-7': theme-color-level(moss, 7),
+   'moss-8': theme-color-level(moss, 8),
+   'moss-9': theme-color-level(moss, 9),
+   'moss-10': theme-color-level(moss, 10),
+   'mustard-neg-1': theme-color-level(mustard, -1),
+   'mustard-neg-2': theme-color-level(mustard, -2),
+   'mustard-neg-3': theme-color-level(mustard, -3),
+   'mustard-neg-4': theme-color-level(mustard, -4),
+   'mustard-neg-5': theme-color-level(mustard, -5),
+   'mustard-neg-6': theme-color-level(mustard, -6),
+   'mustard-neg-7': theme-color-level(mustard, -7),
+   'mustard-neg-8': theme-color-level(mustard, -8),
+   'mustard-neg-9': theme-color-level(mustard, -9),
+   'mustard-neg-10': theme-color-level(mustard, -10),
+   'mustard-1': theme-color-level(mustard, 1),
+   'mustard-2': theme-color-level(mustard, 2),
+   'mustard-3': theme-color-level(mustard, 3),
+   'mustard-4': theme-color-level(mustard, 4),
+   'mustard-5': theme-color-level(mustard, 5),
+   'mustard-6': theme-color-level(mustard, 6),
+   'mustard-7': theme-color-level(mustard, 7),
+   'mustard-8': theme-color-level(mustard, 8),
+   'mustard-9': theme-color-level(mustard, 9),
+   'mustard-10': theme-color-level(mustard, 10)
+);
+
+/* 
+ * REM Conversion
+ *
+ * px / 16 (base font-size) = REM
+ * 10px = 0.625rem
+ * 12px = 0.75rem
+ * 14px = 0.875rem
+ * 16px = 1rem (base)
+ * 20px = 1.25rem
+ * 24px = 1.5rem
+ * 36px = 2.25rem
+ * 48px = 3rem
+ * 60px = 3.75rem
+ * 72px = 4.5rem
+ * 84px = 5.25rem
+ * 96px = 6rem
+ * 
+ */
+ 
+ @each $name, $color in $semantic-colors {
+    .text-#{$name}, .color-#{$name} {
+        color: #{$color}!important;
+    }
+    .text-sm-#{$name} {
+        @include media-breakpoint-up(sm) {
+            color: #{$color}!important;
+        }
+    }
+    .text-md-#{$name} {
+        @include media-breakpoint-up(md) {
+            color: #{$color}!important;
+        }
+    }
+    .text-lg-#{$name} {
+        @include media-breakpoint-up(lg) {
+            color: #{$color}!important;
+        }
+    }
+    .text-xl-#{$name} {
+        @include media-breakpoint-up(xl) {
+            color: #{$color}!important;
+        }
+    }
+    .bg-#{$name} {
+        background-color: #{$color}!important;
+    }
+    .border-#{$name} {
+        border-color: #{$color}!important;
+    }
+    .fill-#{$name} {
+        fill: #{$color}!important;
+    }
+    .stroke-#{$name} {
+      stroke: #{$color};
+    }
+}
+
+@each $name, $color in $theme-color-shades {
+    .text-#{$name}, .color-#{$name} {
+        color: #{$color}!important;
+    }
+    .text-sm-#{$name} {
+        @include media-breakpoint-up(sm) {
+            color: #{$color}!important;
+        }
+    }
+    .text-md-#{$name} {
+        @include media-breakpoint-up(md) {
+            color: #{$color}!important;
+        }
+    }
+    .text-lg-#{$name} {
+        @include media-breakpoint-up(lg) {
+            color: #{$color}!important;
+        }
+    }
+    .text-xl-#{$name} {
+        @include media-breakpoint-up(xl) {
+            color: #{$color}!important;
+        }
+    }
+    .bg-#{$name} {
+        background-color: #{$color}!important;
+    }
+    .border-#{$name} {
+        border-color: #{$color}!important;
+    }
+    .fill-#{$name} {
+        fill: #{$color}!important;
+    }
+    .stroke-#{$name} {
+      stroke: #{$color};
+    }
+}
+
+@each $name, $color in $theme-colors {
+    .text-#{$name}, .color-#{$name} {
+        color: #{$color}!important;
+    }
+    .text-sm-#{$name} {
+        @include media-breakpoint-up(sm) {
+            color: #{$color}!important;
+        }
+    }
+    .text-md-#{$name} {
+        @include media-breakpoint-up(md) {
+            color: #{$color}!important;
+        }
+    }
+    .text-lg-#{$name} {
+        @include media-breakpoint-up(lg) {
+            color: #{$color}!important;
+        }
+    }
+    .text-xl-#{$name} {
+        @include media-breakpoint-up(xl) {
+            color: #{$color}!important;
+        }
+    }
+    .bg-#{$name} {
+        background-color: #{$color}!important;
+    }
+    .border-#{$name} {
+        border-color: #{$color}!important;
+    }
+    .fill-#{$name} {
+        fill: #{$color}!important;
+    }
+    .stroke-#{$name} {
+      stroke: #{$color};
+    }
+}
+
+
+@each $num, $size in $spacers {
+    .fs-#{$num} {
+        font-size: #{$size};
+        line-height: 1;
+    }
+    .mt-neg-#{$num} {
+        margin-top: -#{$size};
+    }
+    .ml-neg-#{$num} {
+        margin-left: -#{$size};
+    }
+    .mr-neg-#{$num} {
+        margin-right: -#{$size};
+    }
+    .rounded-#{$num} {
+        border-radius: #{$size}!important;
+    }
+    .w-#{$num} {
+        width: #{$size}!important;
+    }
+    .h-#{$num} {
+        height: #{$size}!important;
+    }
+}
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+.flex-page {
+    width: 100%;
+    height: 100%;
+    min-height: 75vh;
+    padding-top: 6rem!important;
+    position: relative;
+    & .row {
+        height: 100%;
+    }
+    @include media-breakpoint-up(lg) {
+        padding-top: 10rem!important;
+    }
+}
+
+.img-fluid {
+    width: 100%;
+}
+
+.bg-404, .bg-404 body {
+    
+}
+
+.placeholder-header {
+    height: 1px;
+    position: relative;
+}
+
+.logo {
+    min-width: 12.5rem;
+    width: 12.5rem;
+    max-width: 12.5rem;
+    @include media-breakpoint-up(xl) {
+        min-width: 15rem;
+        width: 15rem;
+        max-width: 15rem;
+    }
+    height: auto;
+    &.mobile {
+        position: absolute;
+        left: calc(50% - 6.25rem);
+        z-index: 2;
+        top: 6.66px;
+    }
+    &.icon {
+        min-width: 3.125rem;
+        width: 3.125rem;
+        max-width: 3.125rem;
+        height: auto;
+        top: -1.9rem;
+        position: absolute;
+    }
+}
+
+.cover {
+    height: 100vh;
+    min-height: 56.25rem;
+    overflow: hidden;
+}
+
+.border-none {
+    border: none!important;
+}
+
+.max-w-350 {
+    max-width: 21.875rem;
+}
+
+.max-w-500 {
+    max-width: 31.25rem;
+}
+
+.alert {
+    border-radius: 0.5rem;
+    border: none;
+}
+
+.top.left.ribbon {
+    position: absolute;
+    height: 2.5rem;
+    padding: 0.6875rem;
+    font-size: 1rem;
+    line-height: 1;
+    text-align: center;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    width: 75%;
+    top: 20%;
+    left: -20%;
+    @include media-breakpoint-up(sm) {
+        -webkit-transform: rotate(-35deg);
+        transform: rotate(-35deg);
+        font-size: 1.25rem;
+        width: 60%;
+        top: 15%;
+        left: -15%;
+    }
+}
+
+.swal2-popup {
+    border-radius: 2rem!important;
+}
+.swal2-styled.swal2-confirm {
+    background-color: map-get($semantic-colors, "green")!important;
+    border-radius: 2rem!important;
+    &.error-button {
+        background-color: map-get($semantic-colors, "red")!important;
+    }
+    &, &:focus, &:active {
+        outline: 0!important;
+        border: none!important;
+        box-shadow: none!important;
+    }
+}
+
+.product-thumbnail {
+    position: relative;
+    float: left;
+    text-align: center;
+    overflow: hidden;
+    height: 50%;
+    padding: 1rem;
+    & img {
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        max-height: 100%;
+        margin: 0 auto;
+    }
+}
+
+.productView-image .easyzoom-flyout {
+    background: #fff!important;
+}
+
+.rotate-neg-10 {
+    transform: rotate(-10deg)!important;
+}
+
+.lh-1, .lh-1 p {
+    line-height: 1rem!important;
+}
+.lh-2, .lh-2 p {
+    line-height: 2rem!important;
+}
+
+.max-h-100 {
+    width: auto;
+    max-height: 100px;
+}
+
+@import "./init";
+
+.bg-reviews {
+    box-shadow: 0rem 0.5rem 1.5rem rgba(0, 0, 0, 0.025);
+    background-image: linear-gradient(135deg, #f9f9f9 1%, #f5f5f5 100%);
+    border: 1px solid rgba(0, 0, 0, 0.025);
+    //linear-gradient(45deg, rgba(194, 233, 221, 0.5) 1%, rgba(104, 119, 132, 0.5) 100%), 
+    //linear-gradient(-45deg, #494d71 0%, rgba(217, 230, 185, 0.5) 80%);
+    //background: 
+}
+
+.rating__label {
+    cursor: pointer;
+    padding: 1em;
+    display: flex;
+    box-sizing: border-box;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-left: -1px;
+  }
+  .rating-icon {
+    z-index: 2;
+    transition: fill 0.3s ease-in-out;
+  }
+  .rating__label:nth-of-type(4) .rating-icon {
+    transition-delay: 0.075s;
+  }
+  .rating__label:nth-of-type(3) .rating-icon {
+    transition-delay: 0.15s;
+  }
+  .rating__label:nth-of-type(2) .rating-icon {
+    transition-delay: 0.225s;
+  }
+  .rating__label:nth-of-type(1) .rating-icon {
+    transition-delay: 0.3s;
+  }
+  .rating__label:nth-of-type(0) .rating-icon {
+    transition-delay: 0.375s;
+  }
+
+  .icon-svg {
+    width: 1em;
+    height: 1em;
+    transform-origin: 50% 50%;
+    &.sprite {
+        display: none;
+    }
+    &.r-180 {
+        transform: rotate(180deg);
+    }
+  }
+  
+.svg-check {
+    border-radius: 50%;
+    display: block;
+    stroke-width: 2;
+    stroke: #fff;
+    stroke-miterlimit: 10;
+    &.animated {
+        & {
+            .check-circle {
+                animation: animated-check-stroke .6s $curve forwards;
+            }
+            .check-icon {
+                animation: animated-check-stroke .3s $curve .8s forwards;
+            }
+        }
+        &.green {
+            animation: animated-check-fill-green .4s ease-in-out .4s forwards, animated-check-scale .3s ease-in-out .9s both;
+            box-shadow: inset 0px 0px 0px theme-color(green);
+            & .check-circle {
+                stroke: theme-color(green);
+            }
+        }
+    }
+    & {
+        .check-circle {
+            stroke-dasharray: 166;
+            stroke-dashoffset: 166;
+            stroke-width: 2;
+            stroke-miterlimit: 10;
+            fill: none;
+        }
+        .check-icon {
+            transform-origin: 50% 50%;
+            stroke-dasharray: 48;
+            stroke-dashoffset: 48;
+        }
+    }
+}
+@keyframes animated-check-stroke {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+@keyframes animated-check-scale {
+    0%, 100% {
+        transform: none;
+    }
+    50% {
+        transform: scale3d(1.1, 1.1, 1);
+    }
+}
+@keyframes animated-check-fill-green {
+    100% {
+        box-shadow: inset 0px 0px 0px 30px theme-color(green);
+    }
+}
