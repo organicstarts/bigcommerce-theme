@@ -1,26 +1,23 @@
-import Master from "./master"
+import Master from './master';
 import utils from '@bigcommerce/stencil-utils';
 
 export default class Cart extends Master {
+    constructor() {
+        super();
 
-  constructor() {
-    super()
+        this.overlay = document.getElementById('cartLoader');
+        this.sidebar = document.getElementById('cartMenu');
+        this.header = document.querySelector('.cart-top');
+        this.container = document.querySelector('.cart-contained');
+        this.footer = document.querySelector('.cart-bottom');
+        this.counter = document.getElementById('cartPill');
+        this.content = document.getElementById('cartItems');
+        this.cartDate = document.getElementById('cart-date');
+    }
 
-    this.overlay = document.getElementById('cartLoader')
-    this.sidebar = document.getElementById('cartMenu')
-    this.header = document.querySelector('.cart-top')
-    this.container = document.querySelector('.cart-contained')
-    this.footer = document.querySelector('.cart-bottom')
-    this.counter = document.getElementById("cartPill")
-    this.content = document.getElementById("cartItems")
-    this.cartDate = document.getElementById('cart-date')
-  }
-
-  ParseData(products) {
-    let items = []
-    products.map(product => {
-      items.push(
-        `<div class="border-bottom p-2">
+    parseData(products) {
+        const items = [];
+        products.map(product => items.push(`<div class="border-bottom p-2">
             <div class="row justify-content-center align-items-center">
               <div class="col-2 text-center m-0">
                 <a href="${product.url}" class="link-unstyled">
@@ -34,151 +31,145 @@ export default class Cart extends Master {
                 </a>
                 <div class="row">
                   <div class="col-6 m-0">
-                    <a href="#" class="link-unstyled rfc" data-product-id="${product.id}" onclick="oSx.RemoveFromCart(this);return false;"><small>REMOVE</small></a>
+                    <a href="#" class="link-unstyled rfc" data-product-id="${product.id}" onclick="oSx.removeFromCart(this);return false;"><small>REMOVE</small></a>
                   </div>
                   <div class="col-6 text-right m-0">
-                    <a href="#" class="ui mini button p-1" onclick="oSx.RemoveOneFromCart(this);return false;" data-product-id="${product.id}" data-product-quantity="${product.quantity}">&#x2212;</a>&nbsp;${product.quantity}&nbsp;<a href="#" class="ui mini button p-1" onclick="oSx.AddOneToCart(this);return false;" data-product-id="${product.productId}" data-product-quantity="${product.quantity}">&#x2b;</a> <small>&times;</small> <strong>$${product.salePrice}</strong>
+                    <a href="#" class="ui mini button p-1" onclick="oSx.removeOneFromCart(this);return false;" data-product-id="${product.id}" data-product-quantity="${product.quantity}">&#x2212;</a>&nbsp;${product.quantity}&nbsp;<a href="#" class="ui mini button p-1" onclick="oSx.AddOneToCart(this);return false;" data-product-id="${product.productId}" data-product-quantity="${product.quantity}">&#x2b;</a> <small>&times;</small> <strong>$${product.salePrice}</strong>
                   </div>
                 </div>
               </div>
             </div>
-          </div>`
-      )
-    })
-    return items
-  }
-
-  Init() {
-    this.Refresh()
-
-    const parent = this
-    
-    const cartButtons = document.querySelectorAll('.toggle-cart')
-    if (cartButtons) {
-        super.forEachElements(cartButtons, (i, el) => {
-            el.addEventListener('click', () => {
-              // this.sidebar.classList.remove('invisible') FOUC Protection
-              this.sidebar.classList.toggle('offcanvas')
-            })
-        })
+          </div>`));
+        return items;
     }
 
-    const atcButtons = document.querySelectorAll('.instant-atc')
-    if (atcButtons) {
-      super.forEachElements(atcButtons, (i, el) => {
-        const atcId = el.getAttribute('data-product-id')
+    init() {
+        this.refresh();
 
-        el.addEventListener('click', (e) => {
-          e.preventDefault()
-          
-          this.overlay.classList.remove('d-none')
-          parent.Add(atcId, 1)
-        })
-      })
+        const parent = this;
+
+        const cartButtons = document.querySelectorAll('.toggle-cart');
+        if (cartButtons) {
+            super.forEachElements(cartButtons, (i, el) => {
+                el.addEventListener('click', () => {
+                    // this.sidebar.classList.remove('invisible') FOUC Protection
+                    this.sidebar.classList.toggle('offcanvas');
+                });
+            });
+        }
+
+        const atcButtons = document.querySelectorAll('.instant-atc');
+        if (atcButtons) {
+            super.forEachElements(atcButtons, (i, el) => {
+                const atcId = el.getAttribute('data-product-id');
+
+                el.addEventListener('click', (e) => {
+                    e.preventDefault();
+
+                    this.overlay.classList.remove('d-none');
+                    parent.add(atcId, 1);
+                });
+            });
+        }
+
+        this.container.style.maxHeight = `${(window.innerWidth > 1024 && window.innerHeight > 900 ? 768 : window.innerHeight) - this.header.offsetHeight - this.footer.offsetHeight}px`;
+        this.container.style.marginTop = `${this.header.offsetHeight}px`;
+
+        window.addEventListener('resize', () => {
+            this.container.style.maxHeight = `${(window.innerWidth > 1024 && window.innerHeight > 900 ? 768 : window.innerHeight) - this.header.offsetHeight - this.footer.offsetHeight}px`;
+            this.container.style.marginTop = `${this.header.offsetHeight}px`;
+        });
+
+        this.overlay.classList.add('d-none');
     }
 
-    this.container.style.maxHeight = ((window.innerWidth > 1024 && window.innerHeight > 900 ? 768 : window.innerHeight) - this.header.offsetHeight - this.footer.offsetHeight) + "px"
-    this.container.style.marginTop = this.header.offsetHeight + "px"
+    update(itemId, quantity) {
+        utils.api.cart.itemUpdate(itemId, quantity, (err, response) => {
+            if (response.data.status === 'succeed') {
+                this.refresh();
+            } else {
+                console.log(`Send the following to tech@organicstart.com for a gift:\n${err}`);
+                this.swal({
+                    title: 'Internal Error',
+                    text: 'Sorry, please try again or contact support.',
+                    type: 'error',
+                });
+            }
+        });
+    }
 
-    window.addEventListener("resize", () => {
-      this.container.style.maxHeight = ((window.innerWidth > 1024 && window.innerHeight > 900 ? 768 : window.innerHeight) - this.header.offsetHeight - this.footer.offsetHeight) + "px"
-      this.container.style.marginTop = this.header.offsetHeight + "px"
-    })
+    remove(itemId) {
+        utils.api.cart.itemRemove(itemId, (err, response) => {
+            if (response.data.status === 'succeed') {
+                this.refresh();
+            } else {
+                console.log(`Send the following to tech@organicstart.com for a gift:\n${err}`);
+                this.swal({
+                    title: 'Internal Error',
+                    text: 'Sorry, please try again or contact support.',
+                    type: 'error',
+                });
+            }
+        });
+    }
 
-    this.overlay.classList.add('d-none')
-  }
+    removeFromCart(el) {
+        const rfcId = el.getAttribute('data-product-id');
+        this.overlay.classList.remove('d-none');
+        this.remove(rfcId);
+    }
 
-  Update(itemId, quantity) {
-    utils.api.cart.itemUpdate(itemId, quantity, (err, response) => {
-        if (response.data.status === 'succeed') {
-          this.Refresh()
-        } else {
-          console.log('Send the following to tech@organicstart.com for a gift:\n' + err)
-          this.Swal({
-            title: 'Internal Error',
-            text: 'Sorry, please try again or contact support.',
-            type: 'error',
-          })
-        }
-    })
-  }
+    removeOneFromCart(el) {
+        const rfcId = el.getAttribute('data-product-id');
+        const rfcQty = el.getAttribute('data-product-quantity');
+        this.overlay.classList.remove('d-none');
+        this.update(rfcId, rfcQty - 1);
+    }
 
-  Remove(itemId) {
-    utils.api.cart.itemRemove(itemId, (err, response) => {
-        if (response.data.status === 'succeed') {
-          this.Refresh()
-        } else {
-          console.log('Send the following to tech@organicstart.com for a gift:\n' + err)
-          this.Swal({
-            title: 'Internal Error',
-            text: 'Sorry, please try again or contact support.',
-            type: 'error',
-          })
-        }
-    })
-  }
+    add(id, quantity) {
+    // this.$overlay.show(); // ADD CART OVERLAY
+        const data = new FormData();
+        data.append('product_id', id);
+        data.append('qty', quantity);
+        utils.api.cart.itemAdd(data, (err) => {
+            if (!err) {
+                this.refresh();
+                this.sidebar.classList.remove('offcanvas'); // FOUC Protection
+            } else {
+                console.log(`Send the following to tech@organicstart.com for a gift:\n${err}`);
+                this.swal({
+                    title: 'Internal Error',
+                    text: 'Sorry, please try again or contact support.',
+                    type: 'error',
+                });
+            }
+        });
+    }
 
-  RemoveFromCart(el) {
-    const rfcId = el.getAttribute('data-product-id')
-    this.overlay.classList.remove('d-none')
-    this.Remove(rfcId)
-  }
+    addOneToCart(el) {
+        const rfcId = el.getAttribute('data-product-id');
+        this.overlay.classList.remove('d-none');
+        this.add(rfcId, 1);
+    }
 
-  RemoveOneFromCart(el) {
-    const rfcId = el.getAttribute('data-product-id'),
-          rfcQty = el.getAttribute('data-product-quantity')
-    this.overlay.classList.remove('d-none')
-    this.Update(rfcId, rfcQty - 1)
-  }
+    refresh() {
+        this.jQuery.get('/api/storefront/cart').then(data => {
+            if (data.length > 0) {
+                const cart = data[0];
+                const products = cart.lineItems.physicalItems;
 
-  Add(id, quantity) {
-    //this.$overlay.show(); // ADD CART OVERLAY
-    const data = new FormData()
-    data.append("product_id", id);
-    data.append("qty", quantity);
-    utils.api.cart.itemAdd(data, (err, response) => {
-      if (!err) {
-        this.Refresh()
-        this.sidebar.classList.remove('offcanvas') // FOUC Protection
-      } else {
-        console.log('Send the following to tech@organicstart.com for a gift:\n' + err)
-        this.Swal({
-          title: 'Internal Error',
-          text: 'Sorry, please try again or contact support.',
-          type: 'error',
-        })
-      }
-    })
-  }
+                let totalQuantity = 0;
 
-  AddOneToCart(el) {
-    const rfcId = el.getAttribute('data-product-id')
-    this.overlay.classList.remove('d-none')
-    this.Add(rfcId, 1)
-  }
+                const html = this.parseData(products);
 
-  Refresh() {
-    this.jQuery.get("/api/storefront/cart").then(data => {
-              
-      if (data.length > 0) {
-        const cart = data[0],
-              products = cart.lineItems.physicalItems
-        
-        var totalQuantity = 0
-        
-        let html = this.ParseData(products)
+                totalQuantity += products.map((product) => product.quantity);
 
-        products.map(product => {
-          totalQuantity = totalQuantity + product.quantity
-        })
+                // Pill Quantity Counter
+                this.counter.innerHTML = totalQuantity;
+                this.counter.classList.remove('invisible');
+                this.counter.classList.add('animated', 'bounceIn');
 
-        // Pill Quantity Counter
-        this.counter.innerHTML = totalQuantity
-        this.counter.classList.remove("invisible")
-        this.counter.classList.add("animated", "bounceIn")
-        
-        html.push(
-          `<div class="row m-0 px-2 pt-2 pb-1">
+                html.push(`<div class="row m-0 px-2 pt-2 pb-1">
             <div class="col-6 m-0">
               <strong class="text-uppercase text-gray-600">Subtotal</strong>
             </div>
@@ -199,7 +190,7 @@ export default class Cart extends Master {
               <strong class="text-uppercase text-gray-600">Discounts</strong>
             </div>
             <div class="col-6 text-right m-0 text-gray-800">
-              ${cart.discountAmount == 0 ? '<a href="#">ADD CODE</a>' : '$' + cart.cartAmount.toFixed(2)}
+              ${cart.discountAmount === 0 ? '<a href="#">ADD CODE</a>' : `$${cart.cartAmount.toFixed(2)}`}
             </div>
           </div>
           <div class="row m-0 px-2 pt-1 pb-2">
@@ -209,25 +200,24 @@ export default class Cart extends Master {
             <div class="col-6 h6 text-right text-gray-800">
               $${cart.cartAmount.toFixed(2)}
             </div>
-          </div>`
-        )
+          </div>`);
 
-        this.footer.classList.remove('invisible')
-        
-        this.content.innerHTML = html.join("")
-      } else {
-        this.counter.classList.add('invisible')
-        this.footer.classList.add('invisible')
-        this.content.innerHTML = `<div class="p-2"><img src="https://triad.imgix.net/os/i/basket.png?s=c28539ed8dcafa3533211257fc0bea16" alt="Empty Shopping Basket" class="ui medium image img-fluid mx-auto"><p class="text-center"><strong>Your shopping basket is empty.</strong></p></div>`
-      }
+                this.footer.classList.remove('invisible');
 
-      if(this.cartDate) {
-        var d = new Date(),
-          months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-        this.cartDate.innerHTML = `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`
-      }
+                this.content.innerHTML = html.join('');
+            } else {
+                this.counter.classList.add('invisible');
+                this.footer.classList.add('invisible');
+                this.content.innerHTML = '<div class="p-2"><img src="https://triad.imgix.net/os/i/basket.png?s=c28539ed8dcafa3533211257fc0bea16" alt="Empty Shopping Basket" class="ui medium image img-fluid mx-auto"><p class="text-center"><strong>Your shopping basket is empty.</strong></p></div>';
+            }
 
-      this.overlay.classList.add('d-none')
-    }).catch(err => console.log(err.message))
-  }
+            if (this.cartDate) {
+                const d = new Date();
+                const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+                this.cartDate.innerHTML = `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+            }
+
+            this.overlay.classList.add('d-none');
+        }).catch(err => console.log(err.message));
+    }
 }

@@ -3,9 +3,9 @@ __webpack_public_path__ = window.__webpack_public_path__; // eslint-disable-line
 // Let's do my stuff now
 import 'lazysizes';
 import 'imgix.js';
-import OrganicStart from './os/index';
-window.oSx = OrganicStart;
-OrganicStart.Init();
+import organicStart from './os/index';
+window.oSx = organicStart;
+organicStart.init();
 
 import Global from './theme/global';
 
