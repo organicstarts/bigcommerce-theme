@@ -1,0 +1,161 @@
+// Misc
+$curve: cubic-bezier(0.650, 0.000, 0.450, 1.000);
+
+//From Bootstrap for Modals
+$zindex-modal-background:  1040 !default;
+$zindex-modal:             1050 !default;
+
+$body-bg: #fafafa;
+$body-color: #333333;
+$gray-100: #efefef !default;
+$gray-200: #e9ecef !default;
+$gray-300: #e2e2e2 !default;
+$gray-400: #bfbfbf !default;
+$gray-500: #a0a0a0 !default;
+$gray-600: #777777 !default;
+$gray-700: #636363 !default;
+$gray-800: #444444 !default;
+$gray-900: #232323 !default;
+
+// $colors: (
+// //   "blue": $blue,
+// //   "indigo": $indigo,
+// //   "purple": $purple,
+// //   "pink": $pink,
+// //   "red": $red,
+// //   "orange": $orange,
+// //   "yellow": $yellow,
+// //   "green": $green,
+// //   "teal": $teal,
+// //   "cyan": $cyan,
+// //   "white": $white,
+// //   "gray": $gray-600,
+// //   "gray-dark": $gray-800
+// ) !default;
+
+$semantic-colors: (
+   'red': #db2828,
+   'orange': #f2711c,
+   'yellow': #fbbd08,
+   'olive': #b5cc18,
+   'green': #21ba45,
+   'teal': #00b5ad,
+   'blue': #2185d0,
+   'violet': #6435c9,
+   'purple': #a333c8,
+   'pink': #e03997,
+   'brown': #a5673f,
+   'grey': #767676,
+   'black': #1b1c1d
+);
+$theme-colors:(
+    'moss': #93c11f,
+    'moss-light': #c7f457,
+    'moss-dark': #609000,
+
+    'moss-50': #f3f8e6,
+    'moss-100': #e0ecc0,
+    'moss-200': #cbe097,
+    'moss-300': #b5d36c,
+    'moss-400': #a4ca49,
+    'moss-500': #93c11f,
+    'moss-600': #83b116,
+    'moss-700': #6d9e07,
+    'moss-800': #588a00,
+    'moss-900': #306900,
+
+    'mustard': #ffc107,
+    'mustard-light': #fff350,
+    'mustard-dark': #c79100,
+
+    'mustard-50': #fff8e1,
+    'mustard-100': #ffecb3,
+    'mustard-200': #ffe082,
+    'mustard-300': #ffd54f,
+    'mustard-400': #ffca28,
+    'mustard-500': #ffc107,
+    'mustard-600': #ffb300,
+    'mustard-700': #ffa000,
+    'mustard-800': #ff8f00,
+    'mustard-900': #ff6f00,
+
+    'mustard-a100': #FFE57F,
+    'mustard-a200': #FFD740,
+    'mustard-a400': #FFC400,
+    'mustard-a700': #FFAB00,
+
+    'gray': #444444,
+    'gray-50': #fafafa,
+    'gray-100': $gray-100,
+    'gray-200': $gray-200,
+    'gray-300': $gray-300,
+    'gray-400': $gray-400,
+    'gray-500': $gray-500,
+    'gray-600': $gray-600,
+    'gray-700': $gray-700,
+    'gray-800': $gray-800,
+    'gray-900': $gray-900,
+
+    // Other Colors
+    'dark-gray': #989898,
+    'burly-wood': #DDD76C,
+    'goldenrod': #CCC02C
+);
+
+$spacer: 1rem; 
+$enable-rounded: true;
+$enable-shadows: true;
+$enable-gradients: true;
+$enable-transitions: true;
+$enable-prefers-reduced-motion-media-query: true; // Enables the prefers-reduced-motion media query, which suppresses certain animations/transitions based on the users’ browser/operating system preferences.
+$enable-grid-classes: true;
+$enable-caret: false;
+$enable-pointer-cursor-for-buttons: true;
+$enable-print-styles: true;
+$enable-responsive-font-sizes: true;
+$enable-validation-icons: true;
+$enable-deprecation-messages: false;
+
+$grid-breakpoints: (
+  xxs: 0,
+  xs: 340px,
+  sm: 560px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1440px,
+  xxl: 2561px
+);
+
+$font-family-base: 'Open Sans', sans-serif;
+$header-font: 'Fredoka One', cursive;
+$subheader-font: 'Nunito', sans-serif;
+
+// Spacers
+$spacer: 1rem;
+$spacers: (
+    0: 0,
+    1: ($spacer * .5),
+    2: $spacer,
+    3: ($spacer * 1.5),
+    4: ($spacer * 2),
+    5: ($spacer * 2.5),
+    6: ($spacer * 3),
+    7: ($spacer * 3.5),
+    8: ($spacer * 4),
+    9: ($spacer * 4.5),
+    10: ($spacer * 5),
+    11: ($spacer * 5.5),
+    12: ($spacer * 6),
+    13: ($spacer * 6.5),
+    14: ($spacer * 7),
+    15: ($spacer * 7.5),
+    16: ($spacer * 8),
+    17: ($spacer * 8.5),
+    18: ($spacer * 9),
+    19: ($spacer * 9.5),
+    20: ($spacer * 10)
+);
+
+
+$themeColor: #007aff;
+$colors: ('white': #ffffff, 'black': #000000);

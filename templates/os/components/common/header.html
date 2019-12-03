@@ -1,5 +1,8 @@
-<header id="header" class="header hide-from-print" role="banner">
-    <div class="header-container">
+<header id="hdrm" class="hdrm" role="banner">
+    <div class="wrap">
         {{> os/components/common/navigation}}
     </div>
 </header>
+<div class="dropdown dropdown--quickSearch" id="quickSearch" aria-hidden="true" tabindex="-1" data-prevent-quick-search-close>
+    {{> os/components/common/quick-search}}
+</div>

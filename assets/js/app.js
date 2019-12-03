@@ -1,11 +1,6 @@
 __webpack_public_path__ = window.__webpack_public_path__; // eslint-disable-line
 
-// Let's do my stuff now
-import 'lazysizes';
-import 'imgix.js';
 import organicStart from './os/index';
-window.oSx = organicStart;
-organicStart.init();
 
 import Global from './theme/global';
 
@@ -77,6 +72,7 @@ window.stencilBootstrap = function stencilBootstrap(pageType, contextJSON = null
                 // Load globals
                 if (loadGlobal) {
                     Global.load(context);
+                    organicStart();
                 }
 
                 const importPromises = [];

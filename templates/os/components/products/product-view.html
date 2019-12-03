@@ -163,7 +163,7 @@
 {{#each product.custom_fields}}
     {{#or (if name '==' 'Wholesale') (if name '==' 'wholesale')}}
         <div class="phoenix_start p-2 p-lg-4">
-            <div class="tablet container">
+            <div class="container-sm">
                 <div class="d-flex flex-row justify-content-between align-items-center">
                     <h5 class="flex-grow-1 text-white m-0">Wholesale Options Available<br><span class="text-gray-100 small">Buy Bulk and Save Up 40%</span></h5>
                     <div class="align-self-center">
@@ -177,7 +177,7 @@
     {{/or}}
 {{/each}}
 
-<div class="tablet container px-0">
+<div class="container-sm">
     <table class="table table-borderless border-0">
         <tbody>
             {{#each product.custom_fields}}
@@ -237,7 +237,7 @@
     </table>
 </div>
 
-<div class="tablet container d-none">
+<div class="container-sm d-none">
     {{product.detail_messages}}
     <dl class="productView-info">
         <dt class="productView-info-name sku-label"{{#unless product.sku}} style="display: none;"{{/unless}}>{{lang 'products.sku'}}</dt>

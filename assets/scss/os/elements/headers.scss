@@ -1,0 +1,84 @@
+/*
+ * Headers
+ *
+ * Here we have all of the display, header and subheader styles.
+ *
+ */
+ $headers: ('h1', 'h2', 'h3', 'h4', 'h5', 'h6');
+
+ @each $header in $headers {
+     #{$header}, #{$header} small, .subheader {
+         font-family: $subheader-font;
+     }
+ }
+
+ h1, .h1 {
+     @include FluidType(320px, 2560px, 36px, 72px, 0px, -1.5px);
+     font-weight: 300;
+     &-md {
+        @media (min-width: map-get($grid-breakpoints, md)) {
+            @include FluidType(320px, 2560px, 36px, 72px, 0px, -1.5px);
+            font-weight: 300;
+        }
+     }
+     &-lg {
+        @media (min-width: map-get($grid-breakpoints, lg)) {
+            @include FluidType(320px, 2560px, 36px, 72px, 0px, -1.5px);
+            font-weight: 300;
+        }
+     }
+     &-xl {
+        @media (min-width: map-get($grid-breakpoints, xl)) {
+            @include FluidType(320px, 2560px, 36px, 72px, 0px, -1.5px);
+            font-weight: 300;
+        }
+     }
+ }
+ h2, .h2 {
+     @include FluidType(320px, 2560px, 30px, 60px, 0px, -0.5px);
+     font-weight: 300;
+     &-lg {
+        @media (min-width: map-get($grid-breakpoints, lg)) {
+            @include FluidType(320px, 2560px, 30px, 60px, 0px, -0.5px);
+            font-weight: 300;
+        }
+     }
+     &-xl {
+        @media (min-width: map-get($grid-breakpoints, xl)) {
+            @include FluidType(320px, 2560px, 30px, 60px, 0px, -0.5px);
+            font-weight: 300;
+        }
+     }
+ }
+ h3, .h3 { 
+     @include FluidType(320px, 2560px, 24px, 48px, 0px, 0px);
+     font-weight: 400;
+ }
+ h4, .h4 {
+     @include FluidType(320px, 2560px, 22px, 34px, 0px, -0.25px);
+     font-weight: 400;
+ }
+ h5, .h5 {
+     @include FluidType(320px, 2560px, 20px, 24px, 0px, 0px);
+     font-weight: 600;
+ }
+ h6, .h6 {
+     @include FluidType(320px, 2560px, 18px, 20px, 0px, 0.15px);
+     font-weight: 600;
+ }
+ 
+ *[class^="display-"], .display  {
+     font-family: $header-font
+ }
+ .display-1 {
+     @include FluidType(320px, 2560px, 48px, 96px, 0px, -1.5px);
+ }
+ .display-2 {
+     @include FluidType(320px, 2560px, 42px, 84px, 0px, -0.5px);
+ }
+ .display-3 {
+     @include FluidType(320px, 2560px, 36px, 72px, 0px, -0.25px);
+ }
+ .display-4 {
+     @include FluidType(320px, 2560px, 30px, 60px, 0px, 0px);
+ }

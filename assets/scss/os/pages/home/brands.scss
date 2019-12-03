@@ -1,0 +1,56 @@
+
+#brands {
+    margin: 1rem 0;
+    @media (min-width: 1025px) {
+        margin: 2rem 0;
+    }
+    & h2 {
+        color: #212121;
+        margin: 1rem;
+        @include FluidType(320px, 2560px, 32px, 64px, 0px, 1px);
+        font-family: $font-family-base; //$header-font;
+        @media (min-width: 1025px) {
+            color: #424242;
+            font-family: $header-font;
+            font-weight: 400;
+            text-align: center;
+        }
+    }
+    & .swiper {
+        &-container {
+            padding: 1rem;
+            @media (min-width: 1025px) {
+                padding: 2rem 0;
+            }
+            @media (max-width: 1024px) {
+                background: #F5F5F5;
+            }
+        }
+        &-slide {
+            padding: 1rem;
+
+            @media (max-width: 1024px) {
+                border-radius: 1rem;
+                background: #fff;
+                //@include BoxShadow(1);
+            }
+
+            width: calc(50vw - 2rem);
+            max-width: 320px;
+            height: calc(50vw - 2rem);
+            max-height: 320px;
+            &_content {
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                & img {
+                    width: 100%;
+                    max-width: 256px;
+                    max-height: 256px;
+                    margin: auto;
+                }
+            }
+        }
+    }
+}

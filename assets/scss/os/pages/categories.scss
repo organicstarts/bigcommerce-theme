@@ -76,7 +76,7 @@ $subcategories: (
     }
     &:before {
         opacity: 0.5;
-        @include media-breakpoint-up(lg) {
+        @media (min-width: map-get($grid-breakpoints, lg)) {
             opacity: 0.75;
         }
         @include ResponsiveBackground(
@@ -121,7 +121,7 @@ $subcategories: (
     }
     &:before {
         opacity: 0.5;
-        @include media-breakpoint-up(lg) {
+        @media (min-width: map-get($grid-breakpoints, lg)) {
             opacity: 0.75;
         }
         @include ResponsiveBackground(
@@ -168,14 +168,14 @@ $subcategories: (
         opacity: 1;
         height: 150px;
         background: linear-gradient(top, #fff, rgba(255,255,255,0));
-        @include media-breakpoint-up(sm) {
+        @media (min-width: map-get($grid-breakpoints, sm)) {
             opacity: 0;
         }
-        @include media-breakpoint-up(lg) { 
+        @media (min-width: map-get($grid-breakpoints, lg) ){ 
             height: 300px;
             opacity: 1;
         }
-        @include media-breakpoint-up(xl) {
+        @media (min-width: map-get($grid-breakpoints, xl)) {
             opacity: 0;
         }
     }
@@ -190,7 +190,7 @@ $subcategories: (
         background-image: url('https://triad.imgix.net/os/i/categories/clothes.png?s=8a2bd728e39cd2e439cad1d17a2f7197');
         background-size: contain;
     
-        @include media-breakpoint-up(sm) {
+        @media (min-width: map-get($grid-breakpoints, sm)) {
             opacity: 1;
             width: 768px;
             top: 0;
@@ -198,11 +198,11 @@ $subcategories: (
             right: -475px;
             transform: none;
         }
-        @include media-breakpoint-up(lg) {
+        @media (min-width: map-get($grid-breakpoints, lg)) {
             left: 50%;
             right: auto;
         }
-        @include media-breakpoint-up(xl) {
+        @media (min-width: map-get($grid-breakpoints, xl)) {
             left: calc(50% - (768px / 2));
             right: auto;
         }
@@ -257,7 +257,7 @@ $subcategories: (
             "https://triad.imgix.net/os/i/categories/diapers-v2.png?flip=h&w=2560&q=10&dpr=4&s=4bdc9a676c509094935c3ecb35a50377"
         );
         background-position: left center;
-        @include media-breakpoint-up(md) {
+        @media (min-width: map-get($grid-breakpoints, md)) {
             background-position: center 82.5%;
         }
     }
@@ -273,7 +273,7 @@ $subcategories: (
     }
     &:before {
         opacity: 0.5;
-        @include media-breakpoint-up(lg) {
+        @media (min-width: map-get($grid-breakpoints, lg)) {
             opacity: 0.75;
         }
         @include ResponsiveBackground(
@@ -320,7 +320,7 @@ $subcategories: (
     }
     &:before {
         opacity: 0.5;
-        @include media-breakpoint-up(lg) {
+        @media (min-width: map-get($grid-breakpoints, lg)) {
             opacity: 0.75;
         }
         @include ResponsiveBackground(           
@@ -403,13 +403,13 @@ $subcategories: (
     & .category-title:before {
         height: 100%;
         background-image: linear-gradient(#fff, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5));
-        @include media-breakpoint-up(lg) {
+        @media (min-width: map-get($grid-breakpoints, lg)) {
             background-image: linear-gradient(#fff, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75));
         }
     }
     &:before {
         opacity: 0.5;
-        @include media-breakpoint-up(lg) {
+        @media (min-width: map-get($grid-breakpoints, lg)) {
             opacity: 0.75;
         }
         background-position: 50% 25%;
@@ -423,7 +423,7 @@ $subcategories: (
     }
     &:before {
         opacity: 0.5;
-        @include media-breakpoint-up(lg) {
+        @media (min-width: map-get($grid-breakpoints, lg)) {
             opacity: 0.75;
         }
         background-position: 50% 75%;
@@ -437,7 +437,7 @@ $subcategories: (
     }
     &:before {
         opacity: 0.5;
-        @include media-breakpoint-up(lg) {
+        @media (min-width: map-get($grid-breakpoints, lg)) {
             opacity: 0.75;
         }
         background-position: center center;
@@ -451,7 +451,7 @@ $subcategories: (
     }
     &:before {
         opacity: 0.5;
-        @include media-breakpoint-up(lg) {
+        @media (min-width: map-get($grid-breakpoints, lg)) {
             opacity: 0.75;
         }
         background-position: 50% 38%;

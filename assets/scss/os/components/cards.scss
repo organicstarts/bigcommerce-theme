@@ -1,4 +1,133 @@
-/* Segments */
+.grid {
+    &--wrapper {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-wrap: wrap;
+        @media (min-width: 425px) {
+            max-width: 425px;
+        }
+        @media (min-width: 768px) {
+            max-width: 768px;
+        }
+        @media (min-width: 1024px) {
+            max-width: 1024px;
+        }
+        @media (min-width: 1440px) {
+            max-width: 1440px;
+        }
+        margin: 0 auto;
+    }
+    &--item {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        width: 100%;
+        max-width: 375px;
+        height: 500px;
+        @media (min-width: 768px) {
+            max-width: 50%;
+        }
+        @media (min-width: 1024px) {
+            max-width: 33.3333333333%;
+        }
+        @media (min-width: 1440px) {
+            max-width: 25%;
+        }
+    }
+    &--product {
+        display: flex;
+        flex: 1 0 auto;
+        flex-direction: column;
+        position: relative;
+        padding: 1rem;
+        background: #fff;
+        box-shadow: 0 25px 99px 0 rgba(10,22,31,0.05);
+        border-radius: 1rem;
+        &-image img {
+            display: block;
+            width: auto;
+            height: 100%;
+            max-height: 200px;
+            margin: 0 auto 1rem auto;
+        }
+        &-row {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            & h5, h6 {
+                padding: 0;
+            }
+            & h5 {
+                margin: 0;
+                font-size: 1.125rem;
+                font-weight: 400;
+            }
+            & h6 {
+                margin: 0 0 0.25rem 0;
+                font-size: 1rem;
+                font-weight: 300;
+            }
+            & h5 a, & h6 a {
+                color: #424242;
+            }
+            & h6 a {
+                opacity: 0.6;
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+            &.rating {
+                margin-top: auto;
+            }
+            &.price {
+                display: flex;
+                flex-direction: row;
+                margin-top: 1rem;
+                color: #21ba45;
+                font-size: 1.25rem;
+                & .price--rrp, .price--non-sale, .price--discounted {
+                    color: #dc3545!important;
+                    margin-right: 0.5rem;
+                }
+            }
+        }
+        &-btn {
+            display: block;
+            margin: 1rem 0 0 0;
+            padding: 0.5rem 2rem;
+            border-radius: 2rem;
+            font-size: 0.85rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            will-change: color, background;
+            transition: color 150ms linear, background 150ms linear;
+            &.atc {
+                color: #21ba45;
+                border: 1px solid #21ba45;
+                &:hover {
+                    color: #fff;
+                    background: #21ba45;
+                }
+            }
+            &.oos svg {
+                fill: #616161;
+            }
+            &:not(.atc) {
+                color: rgba(0, 0, 0, 0.6);
+                border: 1px solid rgba(0, 0, 0, 0.8);
+                &:hover {
+                    color: #fff;
+                    background: rgba(0, 0, 0, 0.9);
+                }
+            }
+        }
+    }
+}
 .card {
     &.cards &.card {
         border: none;
@@ -29,28 +158,5 @@
     }
     &.card, &.inverted.card {
         padding: 1rem;
-    }
-    &.product {
-        overflow: visible;
-        width: 100%;
-        height: 100%;
-        max-height: 500px;
-        transition: all .3s ease-out;
-        border-radius: 1rem;
-        @include BoxShadow(4);
-        &:hover {
-            @include BoxShadow(8);
-        }
-        & .card-figcaption {
-            display: none!important;
-        }
-        & .card-image {
-            max-height: 200px;
-            /*max-height: calc(250px + (250 - 250) * (100vw - 320px)/ (2560 - 320));*/
-        }
-        & .card-img-container:after {
-            padding-bottom: 75%;
-        }
-        
     }
 }

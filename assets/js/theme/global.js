@@ -15,9 +15,6 @@ import 'lazysizes';
 import loadingProgressBar from './global/loading-progress-bar';
 import svgInjector from './global/svg-injector';
 
-// Lets do my own stuff
-import Headroom from 'headroom.js';
-
 export default class Global extends PageManager {
     onReady() {
         // Only load visible elements until the onload event fires,
@@ -37,40 +34,5 @@ export default class Global extends PageManager {
         maintenanceMode(this.context.maintenanceMode);
         loadingProgressBar();
         svgInjector();
-
-        // Lets do my own stuff
-        const header = document.querySelector('#header'), 
-            tint = document.querySelector('#tint'), 
-            sidebar = document.querySelector('#sidebar'), 
-            toggleSidebar = document.querySelector('.toggleSidebar'), 
-            headroom  = new Headroom(header, {tolerance: 15, offset : 35});
-            
-        if(window.scrollY) {
-            header.classList.add('headroom', 'headroom--not-top', 'headroom--not-bottom', 'headroom--unpinned');
-        } else {
-            header.classList.add('headroom', 'headroom--not-bottom', 'headroom--pinned', 'headroom--top');
-        }
-        headroom.init();
-        
-        toggleSidebar.addEventListener('click', (e) => {
-            e.preventDefault();
-            tint.classList.toggle('active');
-            sidebar.classList.toggle('active');
-            document.body.classList.toggle('unscrollable');
-        });
-        
-        tint.addEventListener('click', (e) => {
-            e.preventDefault();
-            tint.classList.remove('active');
-            sidebar.classList.remove('active');
-            document.body.classList.remove('unscrollable');
-        });
-
-        // document.addEventListener('click', (e) => {
-        //     console.log(e.target);
-        //     if(sidebar != e.target || toggleSidebar == e.target) {
-        //         sidebar.classList.toggle('active');
-        //     }
-        // });
     }
 }

@@ -1,0 +1,107 @@
+
+.bg-reviews {
+    box-shadow: 0rem 0.5rem 1.5rem rgba(0, 0, 0, 0.025);
+    background-image: linear-gradient(135deg, #f9f9f9 1%, #f5f5f5 100%);
+    border: 1px solid rgba(0, 0, 0, 0.025);
+    //linear-gradient(45deg, rgba(194, 233, 221, 0.5) 1%, rgba(104, 119, 132, 0.5) 100%), 
+    //linear-gradient(-45deg, #494d71 0%, rgba(217, 230, 185, 0.5) 80%);
+    //background: 
+}
+
+.rating__label {
+    cursor: pointer;
+    padding: 1em;
+    display: flex;
+    box-sizing: border-box;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-left: -1px;
+  }
+  .rating-icon {
+    z-index: 2;
+    transition: fill 0.3s ease-in-out;
+  }
+  .rating__label:nth-of-type(4) .rating-icon {
+    transition-delay: 0.075s;
+  }
+  .rating__label:nth-of-type(3) .rating-icon {
+    transition-delay: 0.15s;
+  }
+  .rating__label:nth-of-type(2) .rating-icon {
+    transition-delay: 0.225s;
+  }
+  .rating__label:nth-of-type(1) .rating-icon {
+    transition-delay: 0.3s;
+  }
+  .rating__label:nth-of-type(0) .rating-icon {
+    transition-delay: 0.375s;
+  }
+
+  .icon-svg {
+    width: 1em;
+    height: 1em;
+    transform-origin: 50% 50%;
+    &.sprite {
+        display: none;
+    }
+    &.r-180 {
+        transform: rotate(180deg);
+    }
+  }
+  
+.svg-check {
+    border-radius: 50%;
+    display: block;
+    stroke-width: 2;
+    stroke: #fff;
+    stroke-miterlimit: 10;
+    &.animated {
+        & {
+            .check-circle {
+                animation: animated-check-stroke .6s $curve forwards;
+            }
+            .check-icon {
+                animation: animated-check-stroke .3s $curve .8s forwards;
+            }
+        }
+        &.green {
+            animation: animated-check-fill-green .4s ease-in-out .4s forwards, animated-check-scale .3s ease-in-out .9s both;
+            box-shadow: inset 0px 0px 0px theme-color(green);
+            & .check-circle {
+                stroke: theme-color(green);
+            }
+        }
+    }
+    & {
+        .check-circle {
+            stroke-dasharray: 166;
+            stroke-dashoffset: 166;
+            stroke-width: 2;
+            stroke-miterlimit: 10;
+            fill: none;
+        }
+        .check-icon {
+            transform-origin: 50% 50%;
+            stroke-dasharray: 48;
+            stroke-dashoffset: 48;
+        }
+    }
+}
+@keyframes animated-check-stroke {
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+@keyframes animated-check-scale {
+    0%, 100% {
+        transform: none;
+    }
+    50% {
+        transform: scale3d(1.1, 1.1, 1);
+    }
+}
+@keyframes animated-check-fill-green {
+    100% {
+        box-shadow: inset 0px 0px 0px 30px theme-color(green);
+    }
+}

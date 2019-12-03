@@ -1,0 +1,45 @@
+@import "./bfcm.scss";
+@import "./brands.scss";
+@import "./categories.scss";
+@import "./tiles.scss";
+
+.bg-bundles {
+    overflow: visible;
+    background-image: url("https://triad.imgix.net/os/i/home/baby-shower-divider.svg?v=2&s=c753a91a52e9d0104991730dc3715861");
+    background-repeat: repeat-x;
+    background-position: center top;
+    padding-top: 150px;
+}
+
+#new-products, #featured-products {
+    margin: 1rem 0;
+    @media (min-width: 1025px) {
+        margin: 2rem 0;
+    }
+    & h2 {
+        margin: 1rem;
+        @include FluidType(320px, 2560px, 32px, 64px, 0px, 1px);
+        font-family: $font-family-base; //$header-font;
+        @media (min-width: 1025px) {
+            color: #424242;
+            font-family: $header-font;
+            font-weight: 400;
+            text-align: center;
+        }
+    }
+}
+
+#top-sellers {
+    display: none;
+}
+
+// Curator
+.crt-post-hover, .crt-grid-post .crt-social-icon {
+    display: none!important
+}
+.crt-widget-grid.crt-grid-col5 .crt-grid-post {
+    padding: 1rem;
+}
+.crt-grid-post .crt-post-c {
+    border-radius: 0.5rem;
+}

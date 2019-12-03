@@ -1,0 +1,94 @@
+
+<div class="grid--product{{#if alternate}} alternate{{/if}}" {{#if settings.data_tag_enabled}} data-event-type="{{event}}" data-entity-id="{{id}}" data-position="{{position}}" data-name="{{name}}" data-product-category="{{#each category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{brand.name}}" data-product-price="{{#if price.with_tax}}{{price.with_tax.value}}{{else}}{{price.without_tax.value}}{{/if}}"  {{/if}}>
+   
+    {{#if out_of_stock_message}}
+        <div class="ui red ribbon label bg-gray-600 text-white d-none">Sold Out</div>
+    {{else if pre_order}}
+        <a class="top left ribbon bg-orange text-white d-none">Pre-Order</a>
+    {{else if theme_settings.product_sale_badges}}
+        {{#or price.non_sale_price_with_tax price.non_sale_price_without_tax}}
+            {{#if theme_settings.product_sale_badges '===' 'sash'}}
+                <div class="sale-flag-sash d-none">
+                    <span class="sale-text">On Sale!</span>
+                </div>
+            {{else if theme_settings.product_sale_badges '===' 'topleft'}}
+                <div class="sale-flag-side d-none">
+                    <span class="sale-text">On Sale!</span>
+                </div>
+            {{else if theme_settings.product_sale_badges '===' 'burst'}}
+                <div class="starwrap d-none">
+                    <div class="sale-text-burst">On Sale!</div>
+                    <div class="sale-flag-star"></div>
+                </div>
+            {{/if}}
+        {{/or}}
+    {{/if}}
+
+    <a class="grid--product-image" href="{{url}}"{{#if settings.data_tag_enabled}} data-event-type="product-click"{{/if}}>
+        <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage image 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{image.alt}}" title="{{image.alt}}">
+    </a>
+    <div class="grid--product-row">
+        {{#if brand.name}}
+                <h6 data-test-info-type="brandName">
+                    <a href="{{url}}">
+                        {{brand.name}}
+                    </a>
+                </h6>
+        {{/if}}
+        <h5>
+            <a href="{{url}}">
+                {{name}}
+            </a>
+        </h5>
+    </div>
+    <div class="grid--product-row rating">
+        <div class="grid--product-rating" data-test-info-type="productRating">
+            {{> os/components/products/ratings rating=rating}}
+        </div>
+    </div>
+    <div class="grid--product-row price" data-test-info-type="price">
+        {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+            {{> os/components/products/price price=price}}
+        {{else}}
+            <a href="login.php">Sign in for pricing</a>
+        {{/or}}
+        {{> components/products/bulk-discount-rates}}
+    </div>
+    <div class="grid--product-row">
+        {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+            {{#if show_cart_action}}
+                    {{#if has_options}}
+                        <a href="{{url}}" class="grid--product-btn atc" data-product-id="{{id}}">
+                            Choose Options
+                        </a>
+                    {{/if}}
+                    {{#if pre_order}}
+                        <a href="{{pre_order_add_to_cart_url}}" class="ui orange icon vertical animated card-atc button rounded-pill m-0" data-product-id="{{id}}">
+                            <div class="hidden content">{{lang 'products.pre_order'}}</div>
+                            <div class="visible content">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                        </a>
+                    {{/if}}
+                    {{#if add_to_cart_url}}
+                        <a href="{{add_to_cart_url}}" class="grid--product-btn atc instant-atc" data-product-id="{{id}}">
+                            Add to Cart
+                        </a>
+                    {{/if}}
+                    {{#if out_of_stock_message}}
+                        <a href="{{url}}" class="grid--product-btn oos">
+                            Out of Stock
+                        </a>
+                    {{/if}}
+            {{else}}
+                <a href="{{url}}" class="grid--product-btn oos" disabled="disabled">
+                        Add to Cart
+                </a>
+            {{/if}}
+        {{else}}
+            <a href="{{url}}" class="grid--product-btn oos" disabled="disabled">
+                Add to Cart
+            </a>
+        {{/or}}
+    </div>
+</div>

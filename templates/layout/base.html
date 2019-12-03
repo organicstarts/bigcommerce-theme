@@ -20,24 +20,26 @@
         <link href="{{ head.favicon }}" rel="shortcut icon">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link rel="canonical" href="https://organicstart.com" />
+        
+        <!--<meta property="ix:srcInputAttribute" content="ix-src">
+        <meta property="ix:pathInputAttribute" content="ix-path">
+        <meta property="ix:paramsInputAttribute" content="ix-params">
         <meta property="ix:srcAttribute" content="data-src">
         <meta property="ix:srcsetAttribute" content="data-srcset">
-        <meta property="ix:sizesAttribute" content="data-sizes">
+        <meta property="ix:sizesAttribute" content="data-sizes">-->
         <meta property="ix:host" content="triad.imgix.net">
         <meta property="ix:useHttps" content="true">
 
         <script>
             document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+            window.lazySizesConfig = window.lazySizesConfig || {};
+            window.lazySizesConfig.init = false;
         </script>
 
         <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Nunito:300,400,600,700,800|Open+Sans:300,400,600&display=swap" rel="stylesheet">
         {{{stylesheet '/assets/css/theme.css'}}}
-
         <link href="https://powerful-island-42757.herokuapp.com/dist/main.css?v=091720192" rel="stylesheet">
-        <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha384-i1LQnF23gykqWXg6jxC2ZbCbUMxyw5gLZY6UiUS98LYV5unm8GWmfkIS6jqJfb4E" crossorigin="anonymous">
-        <link href="http://localhost:8080/main.css" rel="stylesheet">-->
-
-        {{{stylesheet '/assets/css/os.css'}}}
+        {{{stylesheet '/assets/dist/style.css'}}}
 
         {{{head.scripts}}}
         {{{head.rsslinks}}}
@@ -85,6 +87,7 @@
             {{> os/components/common/footer }}
         </div>
 
+        <script src="https://cdn.jsdelivr.net/npm/imgix.js@3.4.1/dist/imgix.min.js"></script>
         <script>window.__webpack_public_path__ = "{{cdn 'assets/dist/'}}";</script>
         <script src="{{cdn 'assets/dist/theme-bundle.main.js'}}"></script>
         <script>
@@ -94,5 +97,10 @@
         {{#block "scripts"}} {{/block}}
         {{{footer.scripts}}}
         {{{snippet 'footer'}}}
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" async=""></script>
+        <script>
+            lazySizes.init();
+        </script>
     </body>
 </html>

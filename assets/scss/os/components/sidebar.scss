@@ -1,39 +1,121 @@
+
 .sidebar {
-    padding: 0;
-    //z-index: 2;
-    //@include BoxShadow(4);
-}
-.primary.sidebar {
-    --mm-color-border: rgba( 0,0,0, 0 );
-    --mm-color-button: rgba( 0,0,0, 0.4 );
-    --mm-color-text: rgba( 0,0,0, 1 );
-    --mm-color-text-dimmed: rgba( 0,0,0, 1 );
-    --mm-color-background: #fff;
-    --mm-color-background-highlight: rgba( 0,0,0, 0.08 );
-    --mm-color-background-emphasis: rgba( 0,0,0, 0.1 );
-    --mm-shadow: 0 0 20px rgba( 0,0,0, 0.5 );
-}
-.mm-wrapper_opening .mm-menu_offcanvas ~ .mm-slideout::after {
-    position: absolute;
+    position: fixed;
+    overflow-y: auto;
     top: 0;
-    left: 0;
+    @media screen and (max-width: 599px) {
+        left: 0;
+        transform: translateX(-100%);
+    }
+    @media screen and (min-width: 600px) {
+        right: 0;
+        transform: translateX(100%);
+    }
+    z-index: 30;
     width: 100%;
+    max-width: 270px;
+    @media screen and (min-width: 425px) {
+        max-width: 320px;
+    }
     height: 100%;
-    background: #000;
-}
-.mm-navbar__title, .mm-listitem__text {
-    font-family: $font-family-base;
-    font-weight: 600;
-    min-height: 48px;
-    line-height: 1rem;
-}
-.mm-navbar__title {
-    font-size: 1.25rem;
-    padding: 1.375rem 1rem;
-}
-.mm-listitem__text {
-    padding: 1rem;
-}
-.mm-listitem:after {
-    display: none;
+
+    //background: #121212;
+    background: #fff; 
+
+    will-change: transform, box-shadow;
+    transition: transform 0.3s ease-in-out;
+    &.active {
+        transform: translateX(0);
+        box-shadow: -1.5rem 0 4rem rgba(22,28,45,.15);
+    }
+    & > ul {
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        min-height: 400px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-align: left;
+        & > li {
+            margin: 1rem;
+            padding: 0;
+            &:last-child {
+                margin: 0;
+                padding: 1rem;
+                background-color: #db2828;
+                & > a {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    color: #fff;
+                    font-weight: 600;
+                    & > small {
+                        text-transform: uppercase;
+                        font-size: 0.75rem;
+                    }
+                }
+            }
+            & > a, & > label {
+                margin: 0;
+                padding: 0;
+                font-size: 1.125rem;
+                //color: rgba(255, 255, 255, 0.9);
+                color: #666;
+                &:hover, &:active, &:focus {
+                    text-decoration: none;
+                    cursor: pointer;
+                }
+            }
+            & > ul {
+                max-height: 0;
+                overflow: hidden;
+                will-change: max-height;
+                transition: max-height 0.5s ease-in-out;
+            }
+            & > input[type=checkbox] {
+                display: none;
+                &:checked ~ label {
+                    //color: #fff;
+                    color: #111;
+                    font-weight: 600;
+                }
+                &:checked ~ ul {
+                    max-height: 500px;
+                }
+            }
+            & > ul {
+                display: flex;
+                margin: 0;
+                padding: 0;
+                flex-direction: column;
+                list-style: none;
+                & > li {
+                    margin: 1rem;
+                    padding: 0;
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                    &.text {
+                        //color: rgba(255, 255, 255, 0.8);
+                        color: #ccc;
+                        font-size: 0.875rem;
+                        font-weight: 900;
+                        text-transform: uppercase;
+                        margin-bottom: 0;
+                    }
+                    & > a {
+                        font-size: 1rem; 
+                        //color: rgba(255, 255, 255, 0.9);
+                        color: #666;
+                        &:hover, &:active {
+                            //color: #fff;
+                            color: #111;
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

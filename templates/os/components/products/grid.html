@@ -1,7 +1,7 @@
-<div class="row">
+<div class="grid--wrapper">
     {{#each products}}
-        <div class="col-12 col-sm-6 col-md-3 col-lg-4 col-xl-3 mb-2">
-            {{> os/components/products/card settings=../settings show_compare=../show_compare show_rating=../settings.show_product_rating theme_settings=../theme_settings customer=../customer event=../event position=(add @index 1)}}
+        <div class="grid--item">
+            {{> os/components/products/card-grid settings=../settings show_compare=../show_compare show_rating=../settings.show_product_rating theme_settings=../theme_settings customer=../customer event=../event position=(add @index 1)}}
         </div>
     {{/each}}
 </div>

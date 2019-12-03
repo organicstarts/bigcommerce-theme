@@ -1,0 +1,360 @@
+.hdrm {
+    z-index: 25;
+
+    padding: 1rem 0.5rem;
+    @media screen and (min-width: 600px) {
+        padding: 1rem;
+    }
+    
+    position: absolute;
+    top: 38.67px;
+    right: 0;
+    .wrap {
+        margin-right: 0;
+        @media screen and (min-width: 1440px) {
+            margin-right: calc((100vw - 1440px) / 2)!important;
+        }
+    }
+    visibility: hidden;
+    will-change: width, top, position, transform, background, visibility;
+
+    // Mobile
+    @media screen and (max-width: 599px) {
+        z-index: 28;
+        width: 100%;
+        //background: #121212;
+        background: #fff;
+        box-shadow: 0 2px 10px 0 rgba(0,0,0,.15);
+    }
+
+    &.top {
+        top: 38.67px;
+        position: absolute;
+        visibility: visible;
+        @media screen and (min-width: 600px) {
+            & .wrap {
+                height: 100px;
+                transition: height 0.3s linear;
+            }
+        }
+    }
+    
+    &.not-top {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        //background: #121212;
+        background: #fff;
+        box-shadow: 0 2px 10px 0 rgba(0,0,0,.15);
+        transition: transform 0.3s linear, visibility 0.3s linear;
+        &.unpinned {
+            transform: translateY(-100%);
+            visibility: hidden;
+        }
+        &.pinned {
+            transform: translateY(0%);
+            visibility: visible;
+        }
+    }
+    
+    & .wrap {
+        display: flex;
+        height: 35px;
+        //max-width: 1440px;
+        align-items: center;
+        justify-content: flex-end;
+        will-change: height;
+
+        & > nav {
+            @media print {
+                display: none;
+            }
+            @media screen and (max-width: 599px) {
+                width: 100%;
+                & > ul {
+                    justify-self: flex-end;
+                }
+            }
+            & > ul {
+                display: flex;
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                & > li {
+                    position: relative;
+                    &.x {
+                        padding: 1rem;
+                    }
+                    &.y {
+                        @media screen and (max-width: 599px) {
+                            margin-right: auto;
+                        }
+                        @media screen and (min-width: 600px) {
+                            order: 4;
+                        }
+                    }
+                    &:not(.x) {
+                        display: none;
+                        padding: 1rem 0.8rem;
+                        @media screen and (min-width:1080px) {
+                            padding: 1rem 1rem;
+                        }
+                        @media screen and (min-width:1220px) {
+                            padding: 1rem 1.5rem;
+                        }
+                        @media screen and (min-width:1440px) {
+                            padding: 1rem 2rem;
+                        }
+                    }
+                    @media screen and (min-width:1025px) {
+                        &:not(.x) {
+                            display: block;
+                        }
+                        &.y {
+                            display: none;
+                        }
+                    }
+
+
+                    & > a {
+                        vertical-align: middle;
+                        //color: rgba(255, 255, 255, 0.7);
+                        color: rgba(0, 0, 0, 0.7);
+                        will-change: color;
+                        transition: color 0.3s linear;
+                        &:hover {
+                            text-decoration: none;
+                            //color: rgba(255, 255, 255, 0.95);
+                            color: rgba(0, 0, 0, 0.95);
+                        }
+                    }
+                    & svg {
+                        width: 35px;
+                        height: 35px;
+                        //fill: rgba(255, 255, 255, 0.7);
+                        fill: rgba(0, 0, 0, 0.7);
+                        will-change: fill;
+                        transition: fill 0.3s linear;
+                        &:hover {
+                            //fill: rgba(255, 255, 255, 0.95);
+                            fill: rgba(0, 0, 0, 0.95);
+                        }
+                    }
+                    // Dropdowns
+                    &:hover > .dropdown {
+                        padding-top: 2rem;
+                        opacity: 1;
+                        visibility: visible;
+                        transform: translate3d(-50%, 0rem, 0);
+                    }
+                    & > .dropdown {
+                        padding-top: 2rem;
+    
+                        position: absolute;
+                        left: 50%;
+                        z-index: 1030;
+                    
+                        opacity: 0;
+                        visibility: hidden;
+                        transform: translate3d(-50%, 20px, 0);
+                        transform-origin: top center;
+                        transition: all .1s ease-in-out;
+                        transition-property: opacity,visibility,transform;
+                    
+                        will-change: opacity, visibility, transform, transform-origin;
+                        
+                        &.small {
+                            font-size: 100%;
+                            min-width: 25rem;
+                        }
+                        &.medium {
+                            min-width: 30rem;
+                        }
+                        &.large {
+                            min-width: 35rem;
+                        }
+                        &.extra {
+                            min-width: 45rem;
+                        }
+
+                        & .style {
+                            display: flex;
+                            justify-content: space-evenly;
+                            flex-wrap: wrap;
+                            flex-direction: row;
+                            //background: #000;
+                            background: #fff;
+                            box-shadow: 0 1.5rem 4rem rgba(22,28,45,.15);
+                            border: 0 solid rgba(22,28,45,.15);
+                            border-radius: 1rem;
+                            &.image {
+                                &-top .dropdown-image, &-left .dropdown-image , &-right .dropdown-image  {
+                                    height: auto;
+                                    min-height: 200px;
+                                    background-size: cover;
+                                    background-repeat: no-repeat;
+                                    background-position: center center;
+                                }
+                                &-top {
+                                    & nav {
+                                        width: 100%;
+                                    }
+                                    & .dropdown-image {
+                                        width: 100%;
+                                        border-top-left-radius: 1rem;
+                                        border-top-right-radius: 1rem;
+                                    }
+                                }
+                                &-left {
+                                    & nav {
+                                        width: 50%;
+                                        flex: 1 0 auto;
+                                    }
+                                    & .dropdown-image {
+                                        width: 50%;
+                                        border-top-left-radius: 1rem;
+                                        border-bottom-left-radius: 1rem;
+                                    }
+                                }
+                                &-right {
+                                    & nav {
+                                        width: 50%;
+                                        flex: 1 0 auto;
+                                    }
+                                    & .dropdown-image {
+                                        width: 50%;
+                                        border-top-right-radius: 1rem;
+                                        border-bottom-right-radius: 1rem;
+                                    }
+                                }
+                            }
+                        }
+
+                        & nav {
+                            padding: 3rem;
+                            display: flex;
+                            justify-content: space-evenly;
+                            flex-wrap: wrap;
+                            flex-direction: row;
+                            & > ul {
+                                display: flex;
+                                flex-direction: column;
+
+                                margin: 0;
+
+                                list-style: none;
+
+                                &:first-child:nth-last-child(1) {
+                                    width: 100%;
+                                }
+                                &:first-child:nth-last-child(2),
+                                &:first-child:nth-last-child(2) ~ ul {
+                                    width: 100%;
+                                }
+                                &:first-child:nth-last-child(3),
+                                &:first-child:nth-last-child(3) ~ ul {
+                                    width: 50%;
+                                }
+                                &:last-child {
+                                    width: 100%!important;
+                                    text-align: right;
+                                    margin-top: 3rem;
+                                    & > li > a {
+                                        display: flex;
+                                        margin-left: auto;
+                                        justify-content: flex-end;
+                                        align-items: center;
+                                        font-size: 0.8rem;
+                                        text-transform: uppercase!important;
+                                        &:after {
+                                            content: '';
+                                            display: inline-block;
+                                            width: 1rem;
+                                            height: 1rem;
+                                            margin-left: 0.4rem;
+                                            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0yMS44ODMgMTJsLTcuNTI3IDYuMjM1LjY0NC43NjUgOS03LjUyMS05LTcuNDc5LS42NDUuNzY0IDcuNTI5IDYuMjM2aC0yMS44ODR2MWgyMS44ODN6Ii8+PC9zdmc+');
+                                            background-size: contain;
+                                            background-position: center center;
+                                            background-repeat: no-repeat;
+                                        }
+                                    }
+                                }
+                                & > li {
+                                    padding: 0;
+                                    margin-bottom: 0.5rem;
+                                    color: theme-color-level(moss, 5);
+                                    font-weight: 900;
+                                    text-transform: uppercase;
+                                    &:last-child {
+                                        margin-bottom: 0;
+                                    }
+                                    & a:not(.button) {
+                                        padding: 0;
+                                        margin-bottom: 0.5rem;
+                                        background: transparent;
+                                        //color: #fff;
+                                        color: #000;
+                                        font-weight: 400;
+                                        text-transform: none;
+                                        opacity: 0.8;
+                                        will-change: opacity;
+                                        &:hover, &:active, &:focus {
+                                            opacity: 1;
+                                            text-decoration: none;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        &.baby-care .dropdown-image, &.baby-care [class^="dropdown-image-"], &.baby-care [class*=" dropdown-image-"] {
+                            background-position: 0 0!important;
+                            @include Background(
+                                "https://triad.imgix.net/os/i/nav/baby-care.jpeg?w=400&q=80",
+                                "https://triad.imgix.net/os/i/nav/baby-care.jpeg?w=400&q=60&dpr=1.5",
+                                "https://triad.imgix.net/os/i/nav/baby-care.jpeg?w=400&q=40&dpr=2",
+                                "https://triad.imgix.net/os/i/nav/baby-care.jpeg?w=400&q=20&dpr=3",
+                                "https://triad.imgix.net/os/i/nav/baby-care.jpeg?w=400&q=10&dpr=4"
+                            );
+                        }
+                        &.baby-food .dropdown-image, &.baby-food [class^="dropdown-image-"], &.baby-food [class*=" dropdown-image-"] {
+                            @include Background(
+                                "https://triad.imgix.net/os/i/nav/new-baby-food.jpeg?w=360&q=80",
+                                "https://triad.imgix.net/os/i/nav/new-baby-food.jpeg?w=360&q=60&dpr=1.5",
+                                "https://triad.imgix.net/os/i/nav/new-baby-food.jpeg?w=360&q=40&dpr=2",
+                                "https://triad.imgix.net/os/i/nav/new-baby-food.jpeg?w=360&q=20&dpr=3",
+                                "https://triad.imgix.net/os/i/nav/new-baby-food.jpeg?w=360&q=10&dpr=4"
+                            );
+                        }
+                        &.clothes .dropdown-image, &.clothes [class^="dropdown-image-"], &.clothes [class*=" dropdown-image-"] {
+                            @include Background(
+                                "https://triad.imgix.net/os/i/nav/clothes.jpg?w=280&q=80",
+                                "https://triad.imgix.net/os/i/nav/clothes.jpg?w=280&q=60&dpr=1.5",
+                                "https://triad.imgix.net/os/i/nav/clothes.jpg?w=280&q=40&dpr=2",
+                                "https://triad.imgix.net/os/i/nav/clothes.jpg?w=280&q=20&dpr=3",
+                                "https://triad.imgix.net/os/i/nav/clothes.jpg?w=280&q=10&dpr=4"
+                            );
+                        }
+                        &.diapers .dropdown-image, &.diapers [class^="dropdown-image-"], &.diapers [class*=" dropdown-image-"] {
+                            @include Background(
+                                "https://triad.imgix.net/os/i/nav/diapers.jpeg?w=420&q=80",
+                                "https://triad.imgix.net/os/i/nav/diapers.jpeg?w=420&q=60&dpr=1.5",
+                                "https://triad.imgix.net/os/i/nav/diapers.jpeg?w=420&q=40&dpr=2",
+                                "https://triad.imgix.net/os/i/nav/diapers.jpeg?w=420&q=20&dpr=3",
+                                "https://triad.imgix.net/os/i/nav/diapers.jpeg?w=420&q=10&dpr=4"
+                            );
+                        }
+                        &.mommy .dropdown-image, &.mommy [class^="dropdown-image-"], &.mommy [class*=" dropdown-image-"] {
+                            @include Background(
+                                "https://triad.imgix.net/os/i/nav/mommy.jpeg?w=400&q=80",
+                                "https://triad.imgix.net/os/i/nav/mommy.jpeg?w=400&q=60&dpr=1.5",
+                                "https://triad.imgix.net/os/i/nav/mommy.jpeg?w=400&q=40&dpr=2",
+                                "https://triad.imgix.net/os/i/nav/mommy.jpeg?w=400&q=20&dpr=3",
+                                "https://triad.imgix.net/os/i/nav/mommy.jpeg?w=400&q=10&dpr=4"
+                            );
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

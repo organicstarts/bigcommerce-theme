@@ -1,113 +1,135 @@
-.flickity-viewport, .flickity-slider {
-    overflow: visible;
-}
-
-.product-carousel {
-    & .product-slide {
+.products.swiper-container {
+    padding: 1rem 0;
+    @media (min-width: 1025px) {
+        padding: 2rem 0;
+        overflow: visible;
+    }
+    @media (max-width: 1024px) {
+        /*background: #F5F5F5;*/
+    }
+    & > .swiper-wrapper > .swiper-slide {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         padding: 0.5rem;
-        width: 100%;
-        max-width: 25rem;
-        height: 25rem;
-        min-height: 25rem;
-        transition: transform .15s ease-out;
-        /*
-        @include media-breakpoint-up(sm) {
-            width: calc((100vw / 4) - (1.5rem / 4));
+        @media (min-width: 1025px) {
+            padding: 1rem;
         }
-        @include media-breakpoint-up(md) {
-            width: calc((100vw / 5) - (2rem / 5));
-        }
-        @include media-breakpoint-up(lg) {
-            width: calc((100vw / 6) - (2.5rem / 6));
-        }
-        @include media-breakpoint-up(xl) {
-            width: calc((100vw / 7) - (3rem / 7));
-        }*/
-        @include media-breakpoint-up(md) {
-            &:hover {
-                transform: translateY(-1rem);
-            }
-        }
-        & .slide {
+        width: calc(100vw - 4rem);
+        max-width: 320px;
+        height: calc(100vw - 4rem);
+        max-height: 320px;
+        & .card--product {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            padding: 1rem;
+            background: #fff;
+            box-shadow: none;
+            border-radius: 1rem;
             width: 100%;
             height: 100%;
-            margin: 0!important;
-        }
-    }
-    & .flickity-prev-next-button {
-        display: none;
-    }
-}
-
-.brand-carousel {
-    height: 15rem;
-    min-height: 15rem;
-    @include media-breakpoint-up(md) {
-        height: 20rem;
-        min-height: 20rem;
-    }
-    & .brand-slide {
-        padding: 1rem;
-        width: 100%;
-        max-width: 15rem;
-        height: 15rem;
-        min-height: 15rem;
-        transition: transform .15s ease-out;
-        &.is-selected {
-            transform: scale(1.25);
-        }
-        @include media-breakpoint-up(md) {
-            max-width: 20rem;
-            height: 20rem;
-            min-height: 20rem;
-            &.is-selected {
-                transform: none;
-            }
-            &:hover {
-                transform: scale(1.25);
-            }
-        }
-        & .slide {
-            width: 100%;
-            height: 100%;
-            margin: 0!important;
-        }
-    }
-    & .flickity-prev-next-button {
-        display: none;
-    }
-}
-
-.category-carousel {
-    & .title {
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        letter-spacing: .2em;
-        color: theme-color(gray-400); 
-    }
-    & .carousel {
-        background: #fff;
-        border-radius: 0.5rem;
-        border-width: 1px;
-        border-style: solid;
-        border-color: theme-color(gray-200);
-        border-image: initial;
-        overflow: hidden;
-        white-space: nowrap;
-        & {
-            .nav-item {
-                color: theme-color(gray-700);
-                padding: 1rem 2rem;
-                font-family: $font-family-base;
-                font-weight: 700;
-                &:not(:last-child) {
-                  border-right: 1px solid theme-color(gray-200);
+            box-shadow: 0 25px 99px 0 rgba(10,22,31,0.05);
+            &-content {
+                width: 100%;
+                height: 100%;
+                max-height: calc(50% - 1rem);
+                padding-top: 2rem;
+                display: flex;
+                justify-content: space-between;
+                align-self: flex-end;
+                flex-direction: column;
+                & h5, h6 {
+                    padding: 0;
+                }
+                & h5 {
+                    margin: 0;
+                    font-size: 1.125rem;
+                    font-weight: 400;
+                }
+                & h6 {
+                    margin: 0 0 0.25rem 0;
+                    font-size: 1rem;
+                    font-weight: 300;
+                }
+                & h5 a, & h6 a {
+                    color: #424242;
+                }
+                & h6 a {
+                    opacity: 0.6;
+                    &:hover {
+                        opacity: 0.8;
+                    }
                 }
             }
-            .nav-item:hover,.nav-item:focus {
-                color: theme-color(gray-900);
-                background: theme-color(gray-50);
+            &-row {
+                width: 100%;
+                display: flex;
+                &:first-child {
+                    flex-direction: column;
+                    align-self: flex-start;
+                    justify-self: flex-start;
+                }
+                &:last-child {
+                    flex-direction: row;
+                    align-self: flex-end;
+                    justify-self: flex-end;
+                    justify-content: space-between;
+                }
+                &_column {
+                    display: flex;
+                    flex-direction: column;
+                    &:first-child {
+                        align-self: flex-start;
+                    }
+                    &:last-child {
+                        margin-left: auto;
+                        align-self: flex-end;
+                    }
+                }
+            }
+            &-rating {
+                margin: 0 0 0.5rem 0;
+            }
+            &-price {
+                display: flex;
+                color: #21ba45;
+                font-size: 1.25rem;
+                & .price--rrp, .price--non-sale, .price--discounted {
+                    color: #dc3545!important;
+                    margin-right: 0.5rem;
+                }
+            }
+            &-btn {
+                &.atc svg {
+                    fill: #21ba45;
+                }
+                &.oos svg {
+                    fill: #616161;
+                }
+                & svg {
+                    width: 2rem;
+                    height: 2rem;
+                }
             }
         }
+    }
+}
+
+.nav-carousel {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    & > .swiper-wrapper > .swiper-slide {
+        display: flex;
+        width: auto!important;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        border-right: 1px solid #ccc;
     }
 }

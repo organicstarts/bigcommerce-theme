@@ -1,0 +1,84 @@
+
+.home.jumbotron {
+    width: 100%;
+    position: relative;
+    height: 50vh;
+    min-height: 300px;
+    background-color: #fff;
+    @include Background(
+        "https://triad.imgix.net/os/i/home/jumbotron.jpeg?w=320&q=80&s=1e3eba956f11aa98241e63829b05ff7d",
+        "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=320&q=60&dpr=1.5&s=3c479431823ec4e71ad89248a35ea2b6",
+        "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=320&q=40&dpr=2&s=f786f9b52dcdd23f5edba74592e5bc58",
+        "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=320&q=20&dpr=3&s=e06e9683726938d6868268d8cbedddc9",
+        "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=320&q=10&dpr=4&s=6e57bdd6fcb66200bd5c5b0b766d73f2"
+    );
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top left;
+    @media screen and (max-height: 1000px) and (max-width: 425px) {
+        background-position: 0px 15px;
+    }
+    @media screen and (max-height: 850px) and (max-width: 425px) {
+        background-position: 0px 30px;
+    }
+    @media screen and (max-height: 750px) and (max-width: 425px) {
+        background-position: 0px 45px;
+    }
+    @media screen and (max-height: 650px) and (max-width: 425px) {
+        background-position: 0px 65px;
+    }
+    @media screen and (min-width: 425px) {
+        background-position: 0px 25%;
+    }
+    @media screen and (min-width: 1024px) {
+        height: 75vh;
+        min-height: 750px;
+        @include Background(
+            "https://triad.imgix.net/os/i/home/jumbotron.jpeg?w=1024&q=80&s=1e3eba956f11aa98241e63829b05ff7d",
+            "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=1024&q=60&dpr=1.5&s=3c479431823ec4e71ad89248a35ea2b6",
+            "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=1024&q=40&dpr=2&s=f786f9b52dcdd23f5edba74592e5bc58",
+            "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=1024&q=20&dpr=3&s=e06e9683726938d6868268d8cbedddc9",
+            "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=1024&q=10&dpr=4&s=6e57bdd6fcb66200bd5c5b0b766d73f2"
+        );
+    }
+    @media screen and (min-width: 1440px) {
+        @include Background(
+            "https://triad.imgix.net/os/i/home/jumbotron.jpeg?w=1440&q=80&s=1e3eba956f11aa98241e63829b05ff7d",
+            "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=1440&q=60&dpr=1.5&s=3c479431823ec4e71ad89248a35ea2b6",
+            "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=1440&q=40&dpr=2&s=f786f9b52dcdd23f5edba74592e5bc58",
+            "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=1440&q=20&dpr=3&s=e06e9683726938d6868268d8cbedddc9",
+            "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=1440&q=10&dpr=4&s=6e57bdd6fcb66200bd5c5b0b766d73f2"
+        );
+    }
+    @media screen and (min-width: 2560px) {
+        @include Background(
+            "https://triad.imgix.net/os/i/home/jumbotron.jpeg?w=2560&q=80&s=1e3eba956f11aa98241e63829b05ff7d",
+            "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=2560&q=60&dpr=1.5&s=3c479431823ec4e71ad89248a35ea2b6",
+            "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=2560&q=40&dpr=2&s=f786f9b52dcdd23f5edba74592e5bc58",
+            "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=2560&q=20&dpr=3&s=e06e9683726938d6868268d8cbedddc9",
+            "https://triad.imgix.net/os/i/home/jumbotron.jpeg?h=2560&q=10&dpr=4&s=6e57bdd6fcb66200bd5c5b0b766d73f2"
+        );
+    }
+}
+@media screen and (min-width: 1024px) {
+    .home.jumbotron {
+        &:before {
+            display: none;
+        }
+    }
+}
+.home.jumbotron:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#fff 100px, rgba(255, 255, 255, 0), #fff);
+    z-index: 0;
+}
+.home.jumbotron h1 {
+    color: theme-color(gray);
+}

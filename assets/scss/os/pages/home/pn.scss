@@ -1,0 +1,81 @@
+
+.bg-pn {
+    background-image: linear-gradient(top, #fff, #f8f8f8);
+}
+
+.pn-container {
+    position: relative;
+    overflow: visible;
+    z-index: 0;
+    min-height: 300px;
+    @media (min-width: map-get($grid-breakpoints, md)) {
+        min-height: 600px;
+    }
+    & .spoon, & .divider, & .body-top, & .body-bottom {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat!important;
+        background-size: contain!important;
+        background-position: center center!important;
+        overflow: visible;
+        animation-direction: alternate!important;
+    }
+    & .spoon {
+        background: url("https://triad.imgix.net/pn/i/spoon-v2.png?s=4c1e2967878c9108a62bd0410af7fdd3");
+        z-index: 2;
+        animation: pn-spoon-half 8s ease-in-out infinite;
+        @media (min-width: map-get($grid-breakpoints, lg)) {
+            animation: pn-spoon 16s ease-in-out infinite;
+        }
+    }
+    & .divider {
+        background: url("https://triad.imgix.net/pn/i/divider-v2.png?s=ea85e6ff3c353a39f7ac3a6756956a65");
+        z-index: 3;
+        animation: pn-divider-half 8s ease-in-out infinite;
+        @media (min-width: map-get($grid-breakpoints, lg)) {
+            animation: pn-divider 16s ease-in-out infinite;
+        }
+    }
+    & .body-top {
+        background: url("https://triad.imgix.net/pn/i/container-top.png?s=6d473905cfdc8e4a99c35884f7f5e36f");
+        z-index: 1;
+    }
+    & .body-bottom {
+        background: url("https://triad.imgix.net/pn/i/container-bottom.png?s=ffe95a647b254bf8675ad1b17801f9e1");
+        z-index: 4;
+    }
+}
+@keyframes pn-spoon {
+  from {
+    top: -5%;
+  }
+  to {
+    top: -70%;
+  }
+}
+@keyframes pn-divider {
+    from {
+      top: 0%;
+    }
+    to {
+      top: -25%;
+    }
+}
+@keyframes pn-spoon-half {
+  from {
+    top: -5%;
+  }
+  to {
+    top: -35%;
+  }
+}
+@keyframes pn-divider-half {
+    from {
+      top: 0%;
+    }
+    to {
+      top: -12.5%;
+    }
+}

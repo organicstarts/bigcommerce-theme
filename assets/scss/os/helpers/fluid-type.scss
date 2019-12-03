@@ -1,0 +1,33 @@
+/*
+ * CSS-Tricks Fluid Typography
+ *
+ * Here's a robust mixin for fluid typography.
+ * Based on https://css-tricks.com/snippets/css/fluid-typography/ 
+ *
+ */
+ @function StripUnit($value) {
+    @return $value / ($value * 0 + 1);
+}
+@mixin FluidType($min-vw, $max-vw, $min-font-size, $max-font-size, $min-letter-spacing, $max-letter-spacing) {
+    $u1: unit($min-vw);
+    $u2: unit($max-vw);
+    $u3: unit($min-font-size);
+    $u4: unit($max-font-size);
+    $u5: unit($min-letter-spacing);
+    $u6: unit($max-letter-spacing);
+
+    @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 { // and $u1 == $u5 and $u1 == $u6 {
+        & {
+            font-size: $min-font-size;
+            letter-spacing: $min-letter-spacing;
+            @media screen and (min-width: $min-vw) {
+                font-size: calc(#{$min-font-size} + #{StripUnit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{StripUnit($max-vw - $min-vw)}));
+                letter-spacing: calc(#{$min-letter-spacing} + #{StripUnit($max-letter-spacing - $min-letter-spacing)} * ((100vw - #{$min-vw}) / #{StripUnit($max-vw - $min-vw)}));
+            }
+            @media screen and (min-width: $max-vw) {
+                font-size: $max-font-size;
+                letter-spacing: $max-letter-spacing;
+            }
+        }
+    }
+}

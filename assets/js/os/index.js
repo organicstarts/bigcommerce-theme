@@ -1,76 +1,16 @@
-import Master from './master';
-// import Menus from "./menus";
-import Modals from './modals';
-import Cookies from './cookies';
-import Swipes from './swipes';
-import Products from './products';
-import Scrolls from './scrolls';
-import Cart from './cart';
+import 'lazysizes';
+import 'imgix.js';
 
-class Public extends Master {
-    constructor() {
-        super();
+import organicStart from '../os-bak/index';
+window.oSx = organicStart;
+organicStart.init();
 
-        this.Swipes = new Swipes();
-        this.Modals = new Modals();
-        this.Products = new Products();
-        this.Cookies = new Cookies();
-    }
+import headroom from './headroom';
+import sidebar from './sidebar';
+import swiper from './swiper';
 
-    init() {
-        const // Menu = new Menus(),
-            Scrolly = new Scrolls();
-        const Carts = new Cart();
-
-        this.jQuery(document).ready(() => {
-            // Initialize the Main Menu
-            // Menu.Init(this.isTablet)
-
-            // Initilize Swipes (Flickity and Slick)
-            this.Swipes.products();
-
-            // Initilize the Cart
-            Carts.init();
-
-            // Mobile Only
-            if (!this.isMobile) {
-                Scrolly.init();
-                Scrolly.animate('ready');
-            }
-
-            // let y = 0;
-
-            // / On Scrolling...
-            window.addEventListener('scroll', () => {
-                // if (window.scrollY > y) {
-                //     const dir = 'down';
-                // } else {
-                //     const dir = 'up';
-                // }
-                // let y = (window.scrollY || document.documentElement.scrollTop) <= 0 ? 0 : (window.scrollY || document.documentElement.scrollTop);
-
-                if (!this.isMobile) {
-                    //  Menu.Scrolling(dir)
-                    Scrolly.animate('scroll');
-                }
-            });
-        });
-    }
-
-    removeFromCart(el) {
-        const Carts = new Cart();
-        Carts.removeFromCart(el);
-    }
-
-    addOneToCart(el) {
-        const Carts = new Cart();
-        Carts.addOneToCart(el);
-    }
-
-    removeOneFromCart(el) {
-        const Carts = new Cart();
-        Carts.removeOneFromCart(el);
-    }
+export default function () {
+    headroom();
+    sidebar();
+    swiper();
 }
-const OrganicStart = new Public();
-export default OrganicStart;

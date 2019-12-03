@@ -1,5 +1,6 @@
-<div class="ui product card position-relative p-0 {{#if alternate}}card--alternate{{/if}}" {{#if settings.data_tag_enabled}} data-event-type="{{event}}" data-entity-id="{{id}}" data-position="{{position}}" data-name="{{name}}" data-product-category="{{#each category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{brand.name}}" data-product-price="{{#if price.with_tax}}{{price.with_tax.value}}{{else}}{{price.without_tax.value}}{{/if}}"  {{/if}}>
-    
+
+<div class="card--product{{#if alternate}} alternate{{/if}}" {{#if settings.data_tag_enabled}} data-event-type="{{event}}" data-entity-id="{{id}}" data-position="{{position}}" data-name="{{name}}" data-product-category="{{#each category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{brand.name}}" data-product-price="{{#if price.with_tax}}{{price.with_tax.value}}{{else}}{{price.without_tax.value}}{{/if}}"  {{/if}}>
+   
     {{#if out_of_stock_message}}
         <div class="ui red ribbon label bg-gray-600 text-white d-none">Sold Out</div>
     {{else if pre_order}}
@@ -22,56 +23,63 @@
             {{/if}}
         {{/or}}
     {{/if}}
-
-    <div class="product-thumbnail">
-        {{#if demo}}
-            <img class="mx-auto img-fluid lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage image 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{image.alt}}" title="{{image.alt}}">
-        {{else}}
-            <a href="{{url}}" {{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}>
-                <img class="mx-auto img-fluid lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage image 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{image.alt}}" title="{{image.alt}}">
-            </a>
-        {{/if}}
-    </div>
     
-    <h6 class="text-gray-800 mx-2">
-        {{#unless demo}}
-            <a class="link-unstyled" href="{{url}}" {{#if settings.data_tag_enabled}} data-event-type="product-click"{{/if}}>
-        {{/unless}}
+    <style>
+        .swiper-slide > .card--product > .card--product-image {
+            height: 100%!important;
+            max-height: 50%!important;
+            text-align: center;
+        }
+        .card--product-image img {
+            display: block;
+            width: auto!important;
+            height: 100%!important;
+            max-height: 144px;
+            margin: 0 auto!important;
+        }
+    </style>
+
+    <a class="card--product-image" href="{{url}}"{{#if settings.data_tag_enabled}} data-event-type="product-click"{{/if}}>
+        <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage image 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{image.alt}}" title="{{image.alt}}">
+    </a>
+
+    <div class="card--product-content">
+        <div class="card--product-row">
             {{#if brand.name}}
-                <small class="lead text-gray-600" data-test-info-type="brandName">{{brand.name}}</small>
+                    <h6 data-test-info-type="brandName">
+                        <a href="{{url}}">
+                            {{brand.name}}
+                        </a>
+                    </h6>
             {{/if}}
-            <br>
-            {{name}}
-        {{#unless demo}}
-            </a>
-        {{/unless}}
-    </h6>
-    <p class="m-0 px-2" data-test-info-type="productRating">
-        {{> os/components/products/ratings rating=rating}}
-    </p>
-    <div class="d-flex align-self-end mt-auto w-100 pt-2 pl-2 pb-2 text-left">
-        <div class="row w-100 align-items-center">
-            <div class="col m-0 text-left">
-                <div class="m-0 p-0" data-test-info-type="price">
+            <h5>
+                <a href="{{url}}">
+                    {{name}}
+                </a>
+            </h5>
+        </div>
+        <div class="card--product-row">
+            <div class="card--product-row_column">
+                <div class="card--product-rating" data-test-info-type="productRating">
+                    {{> os/components/products/ratings rating=rating}}
+                </div>
+
+                <div class="card--product-price" data-test-info-type="price">
                     {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
-                        <div class="h5 text-success">
-                            {{> os/components/products/price price=price}}
-                        </div>
+                        {{> os/components/products/price price=price}}
                     {{else}}
-                        <p class="m-0" translate><strong><a href="login.php">Sign in for pricing</a></strong></p>
+                        <a href="login.php">Sign in for pricing</a>
                     {{/or}}
                 </div>
+
                 {{> components/products/bulk-discount-rates}}
             </div>
-            {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
-                <div class="col m-0 text-right">
+            <div class="card--product-row_column">
+                {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
                     {{#if show_cart_action}}
                             {{#if has_options}}
-                                <a href="{{url}}" class="ui green icon vertical animated card-atc options button rounded-pill m-0">
-                                    <div class="hidden content">{{lang 'products.choose_options'}}</div>
-                                    <div class="visible content">
-                                            <i class="fas fa-tasks"></i>
-                                    </div>
+                                <a href="{{url}}" class="card--product-btn atc" data-product-id="{{id}}">
+                                    <svg class="icon"><use xlink:href="#task" /></svg>
                                 </a>
                             {{/if}}
                             {{#if pre_order}}
@@ -83,40 +91,26 @@
                                 </a>
                             {{/if}}
                             {{#if add_to_cart_url}}
-                                <a href="{{add_to_cart_url}}" class="ui green icon vertical animated card-atc instant-atc button rounded-pill m-0" data-product-id="{{id}}">
-                                    <div class="hidden content">{{lang 'products.add_to_cart'}}</div>
-                                    <div class="visible content">
-                                        <i class="fas fa-plus"></i>
-                                    </div>
+                                <a href="{{add_to_cart_url}}" class="card--product-btn atc instant-atc" data-product-id="{{id}}">
+                                    <svg class="icon"><use xlink:href="#add" /></svg>
                                 </a>
                             {{/if}}
                             {{#if out_of_stock_message}}
-                                <a class="ui bg-gray-100 text-gray-800 icon vertical animated card-atc button rounded-pill m-0">
-                                    <div class="hidden content">{{out_of_stock_message}}</div>
-                                    <div class="visible content">
-                                        <i class="fas fa-times"></i>
-                                    </div>
+                                <a href="{{url}}" class="card--product-btn oos">
+                                    <svg class="icon"><use xlink:href="#x" /></svg>
                                 </a>
                             {{/if}}
                     {{else}}
-                        <a href="#" class="ui disabled green icon vertical animated card-atc button rounded-pill m-0" disabled="disabled">
-                            <div class="hidden content">{{lang 'products.add_to_cart'}}</div>
-                            <div class="visible content">
-                                <i class="fas fa-plus"></i>
-                            </div>
+                        <a href="{{url}}" class="card--product-btn oos" disabled="disabled">
+                            <svg class="icon"><use xlink:href="#add" /></svg>
                         </a>
                     {{/if}}
-                </div>
-            {{else}}
-                <div class="col m-0 text-right">
-                    <a href="#" class="ui disabled green icon vertical animated card-atc button rounded-pill m-0" disabled="disabled">
-                        <div class="hidden content">{{lang 'products.add_to_cart'}}</div>
-                        <div class="visible content">
-                            <i class="fas fa-plus"></i>
-                        </div>
+                {{else}}
+                    <a href="{{url}}" class="card--product-btn oos" disabled="disabled">
+                        <svg class="icon"><use xlink:href="#add" /></svg>
                     </a>
-                </div>
-            {{/or}}
+                {{/or}}
+            </div>
         </div>
     </div>
 </div>

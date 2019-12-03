@@ -4,12 +4,35 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
       path = require('path'),
       webpack = require('webpack');
 
+const MiniCssExtractPlugin = require('mini-css-extract-plugin'), // Extracts CSS into separate files
+      TerserPlugin = require('terser-webpack-plugin'), // Uses terser to minify JavaScript
+      OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin'); // Optimize \ minimize CSS assets
+
 // Common configuration, with extensions in webpack.dev.js and webpack.prod.js.
 module.exports = {
     bail: true,
     context: __dirname,
     entry: {
         main: './assets/js/app.js',
+        style: './assets/scss/os/index.scss',
+    },
+    optimization: {
+      minimize: true,
+      minimizer: [
+        new TerserPlugin(),
+        // new TerserJSPlugin({ // Uses terser to minify JavaScript
+        //   terserOptions: {
+        //     output: {
+        //       comments: false,
+        //     },
+        //   },
+        // }), 
+        new OptimizeCSSAssetsPlugin({ // Optimize \ minimize CSS assets
+          cssProcessorPluginOptions: {
+            preset: ['default', { discardComments: { removeAll: true } }],
+          }
+        })
+      ],
     },
     module: {
         rules: [
@@ -34,6 +57,111 @@ module.exports = {
                     },
                 },
             },
+            // {
+            //   test: /\.css$/,
+            //   use: [
+            //     //"style-loader",  // Adds CSS to the DOM by injecting a <style> tag
+            //     {
+            //       loader: MiniCssExtractPlugin.loader, // Extracts CSS into separate files
+            //       options: {
+            //         hmr: true,
+            //         //reloadAll: true, // Forceful method for Hot Module Reloading (HMR)
+            //       },
+            //     },
+            //     "css-loader", // Interprets @import and url() like import/require() and will resolve them
+            //     {
+            //       loader: "postcss-loader", // Process CSS
+            //       options: {
+            //         plugins: [
+            //           require("precss"), // Use Sass-like markup and staged CSS features in CSS
+            //           require("autoprefixer") // Parse CSS and add vendor prefixes to CSS rules
+            //         ]
+            //       }
+            //     }
+            //   ]
+            // },
+            {
+                test: /\.(sa|sc|c)ss$/,
+                use: [
+                  {
+                    loader: MiniCssExtractPlugin.loader, // Extracts CSS into separate files
+                    options: {
+                      hmr: true,
+                      reloadAll: true,
+                    }
+                  },
+                  {
+                    loader: "css-loader" // Interprets @import and url() like import/require() and will resolve them
+                  },
+                  {
+                    loader: "postcss-loader", // Process CSS
+                    options: {
+                      plugins: [
+                        //require('postcss-advanced-variables'), // Use Sass-like variables, conditionals, and iterators in CSS.
+                        require('postcss-import'),
+                        require("precss"), // Use Sass-like markup and staged CSS features in CSS
+                        require("autoprefixer") // Parse CSS and add vendor prefixes to CSS rules
+                      ]
+                    }
+                  },
+                  {
+                    loader: "sass-loader" // Loads a Sass/SCSS file and compiles it to CSS
+                  }
+                ]
+              },
+              // {
+              //   test: /\.less$/,
+              //   use: [
+              //     //"style-loader", // Adds CSS to the DOM by injecting a <style> tag
+              //     {
+              //       loader: MiniCssExtractPlugin.loader, // Extracts CSS into separate files
+              //       options: {
+              //         hmr: true,
+              //         //reloadAll: true, // Forceful method for Hot Module Reloading (HMR)
+              //       },
+              //     },
+              //     "css-loader", // Interprets @import and url() like import/require() and will resolve them
+              //     {
+              //       loader: "postcss-loader", // Process CSS
+              //       options: {
+              //         plugins: [
+              //           require("autoprefixer") // Parse CSS and add vendor prefixes to CSS rules
+              //         ]
+              //       }
+              //     },
+              //     "less-loader" // Compiles Less to CSS
+              //   ]
+              // },
+              {
+                test: /\.(png|jpe?g|gif)$/,
+                use: [
+                  {
+                    loader: "file-loader",
+                    options: {
+                      name: "images/[name].[ext]"
+                    }
+                  }
+                ]
+              },
+              {
+                test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                loader: "url-loader",
+                options: {
+                  name: "fonts/[name].[ext]",
+                  limit: 8192,
+                  mimetype: "application/font-woff"
+                }
+              },
+              {
+                test: /\.svg(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                loader: "file-loader",
+                options: { name: "images/[name].[ext]" }
+              },
+              {
+                test: /\.(ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                loader: "file-loader",
+                options: { name: "fonts/[name].[ext]" }
+              }
         ],
     },
     output: {
@@ -47,6 +175,11 @@ module.exports = {
         maxEntrypointSize: 1024 * 300,
     },
     plugins: [
+        new MiniCssExtractPlugin({ // Extracts CSS into separate files
+          filename: '[name].css',
+          chunkFilename: '[id].css',
+          ignoreOrder: false, 
+        }),
         new CleanPlugin(['assets/dist'], {
             verbose: false,
             watch: false,
