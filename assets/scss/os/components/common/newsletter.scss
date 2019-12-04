@@ -1,0 +1,96 @@
+.newsletter {
+    width: 100%;
+    margin: 5rem 1rem;
+    &-container {
+        width: 100%;
+        @media (min-width:768px) {
+            max-width: 768px;
+        }
+        @media (min-width:1024px) {
+            max-width: 1024px;
+        }
+        @media (min-width:1440px) {
+            max-width: 1440px;
+        }
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+        padding: 2rem;
+        border-radius: 2rem;
+        background: hsl(180, 45%, 70%);
+        box-shadow: 0 25px 99px 0 rgba(10,22,31,.05);
+        text-align: center;
+        @media (min-width: 768px) {
+            flex-direction: row;
+            text-align: left;
+        }
+        &_col {
+            display: flex;
+            flex-direction: column;
+            & > h2, & > h3 {
+                color: #f5f5f5;
+                margin: 0;
+            }
+            & > h2 {
+                font-family: $header-font;
+                @include FluidType(320px, 2560px, 24px, 32px, 0.5px, 1px);
+            }
+            & > h3 {
+                @include FluidType(320px, 2560px, 16px, 20px, 0px, 0.25px);
+            }
+            &:last-child {
+                flex-grow: 0.5;
+                margin-left: auto;
+            }
+        }
+    }
+}
+#mc_embed_signup, #mc-embedded-subscribe-form, #mc_embed_signup_scroll, .mc-field-group, #mce-EMAIL, #mce-responses, #mc-embedded-subscribe {
+    margin: 0;
+}
+#mc_embed_signup_scroll {
+    display: flex;
+    flex-direction: column;
+    @media (min-width: 768px) {
+        flex-direction: row;
+    }
+    justify-content: center;
+    align-items: center;
+    & .mc-field-group {
+        flex-grow: 1;
+        & > input {
+            outline: 0;
+            border: 0;
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 0;
+            border-bottom-left-radius: 1rem;
+            border-bottom-right-radius: 0;
+
+            font-size: 1.5rem;
+            line-height: 1;
+            padding: 1rem;
+            color: #F5F5F5;
+            background: hsl(180, 40%, 60%);
+
+            &::placeholder {
+                color: #EEEEEE;
+            }
+        }
+    }
+}
+#mc-embedded-subscribe {
+    outline: 0;
+    border: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 1rem;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 1rem;
+
+    font-size: 1.5rem;
+    line-height: 1;
+    padding: 1rem;
+    color: #fff;
+    background: hsl(350, 100%, 75%);
+}

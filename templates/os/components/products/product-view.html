@@ -1,3 +1,10 @@
+{{#contains product.title "Infant"}}
+    <div class="alert-x1">
+        <div class="wrap">
+            <svg class="icon"><use xlink:href="#warningCircle" /></svg> <strong>Due to regulatory issues, this formula is unavailable for sale in the United States.</strong>
+        </div>
+    </div>
+{{/contains}}
 <div class="bg-white py-2 py-lg-4">
     <div class="container">
         <div class="productView" {{#if settings.data_tag_enabled}} data-event-type="product" data-entity-id="{{product.id}}" data-name="{{product.title}}" data-product-category="{{#each product.category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{product.brand.name}}" data-product-price="{{#if product.price.with_tax}}{{product.price.with_tax.value}}{{else}}{{product.price.without_tax.value}}{{/if}}" data-product-variant="single-product-option"{{/if}}>
@@ -111,6 +118,7 @@
                             <span>{{product.call_for_price}}</span>
                         </p>
                     {{/if}}
+                    
                     <div class="h4 font-weight-bold text-green">
                         {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
                             {{> os/components/products/price price=product.price schema_org=schema}}
@@ -118,6 +126,31 @@
                             {{> components/common/login-for-pricing}}
                         {{/or}}
                     </div>
+
+                    
+
+                    {{#if settings.bulk_discount_enabled}}
+                    <div class="bulkPricing">
+                        <input type="checkbox" id="bulk-pricing">
+                        <label for="bulk-pricing"><svg class="icon"><use xlink:href="#tag" /></svg> Bulk Discounts</label>
+                        <ul>
+                            {{#each product.bulk_discount_rates}}
+                                <li>
+                                    {{lang 'products.bulk_pricing.range' min=min max=max}}
+                                    {{#if type '===' 'percent'}}
+                                        {{lang 'products.bulk_pricing.percent' discount=discount.formatted}}.
+                                    {{/if}}
+                                    {{#if type '===' 'fixed'}}
+                                        {{lang 'products.bulk_pricing.fixed' discount=discount.formatted}}.
+                                    {{/if}}
+                                    {{#if type '===' 'price'}}
+                                        {{lang 'products.bulk_pricing.price' discount=discount.formatted}}.
+                                    {{/if}}
+                                </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                    {{/if}}
 
                     {{#contains name "Add-on"}}
                         <p class="mt-2 mb-2">
@@ -162,16 +195,18 @@
 
 {{#each product.custom_fields}}
     {{#or (if name '==' 'Wholesale') (if name '==' 'wholesale')}}
-        <div class="phoenix_start p-2 p-lg-4">
-            <div class="container-sm">
-                <div class="d-flex flex-row justify-content-between align-items-center">
-                    <h5 class="flex-grow-1 text-white m-0">Wholesale Options Available<br><span class="text-gray-100 small">Buy Bulk and Save Up 40%</span></h5>
-                    <div class="align-self-center">
-                        <a href="{{{value}}}" class="ui black button" target="_blank">
-                            Shop Wholesale <i class="fas fa-angle-double-right"></i>
-                        </a>
-                    </div>
+        <div class="alert-osw">
+            <div class="wrap">
+                <div class="left">
+                    <h5>Wholesale Options Available</h5>
+                    <h6>Shop Direct and Save Up 40%</h6>
                 </div>
+                <div class="right">
+                    <a href="{{{value}}}" target="_blank">
+                        Browse <svg class="icon"><use xlink:href="#arrowRight" /></svg>
+                    </a>
+                </div>
+                    
             </div>
         </div>
     {{/or}}

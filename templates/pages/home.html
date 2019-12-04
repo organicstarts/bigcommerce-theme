@@ -13,30 +13,12 @@ blog:
 ---
 
 {{#partial "scripts"}}
-    <script>
-        oSx.Swipes.Categories();
-        oSx.Swipes.Brands();
-        /*if(!oSx.Cookies.Check('welcomeModal')) {
-            oSx.Modals.Create("welcomeModal", {
-                dismissable: true,
-                size: 'lg',
-                centered: true,
-                header: '🎉 Introducing the New Organic Start!',
-                body: `<p class="text-center"><img src="https://triad.imgix.net/os/i/home/welcome-back.svg" class="ui medium image mx-auto"></p>
-                <p>Welcome to our all-new website! We're back and better than ever!! Browse hundreds of certified organic baby and mommy products! Explore trusted brands that we love and support! And as always, expect the same high quality products and superior support!</p>
-                <p>Our team is going to be working directly with parents in the coming months to create awesome new products perfect for your little one. Be sure to check back as we continue to add those awesome new products!</p>
-                <p>We've worked hard on this, we hope you love it! You might find some bugs / glitches, please let us know via our contact form from the footer of our website.</p>
-                <p>Thank you for your continued love and support,<br><i>Your Friends & Family at Organic Start.</i></p>
-                <p>Looking for baby milk formula? Please refer to <a href="http://alert.organicstart.com/" target="_blank">our public alert</a>.</p>`
-            });
-            oSx.Cookies.Set('welcomeModal', true);
-        }*/
-    </script>
+
 {{/partial}}
 
 {{#partial "page"}}
 
-    {{> os/pages/home/jumbotron }}
+    {{> os/pages/home/formula }}
 
     {{> os/pages/home/tiles }}
 
@@ -78,14 +60,10 @@ blog:
     <section class="position-relative">
         <div class="shape shape-bottom shape-fluid-x svg-shim text-light">
             <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="#fff"></path>
+                <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="#fafafa"></path>
             </svg>
         </div>
     </section>
-
-    {{> os/pages/home/curator }}
-
-    {{> os/pages/home/newsletter }}
     
 {{/partial}}
 

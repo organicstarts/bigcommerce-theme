@@ -7,6 +7,7 @@ export default function () {
         e.preventDefault();
         tint.classList.toggle('active');
         sidebar.classList.toggle('active');
+        sidebar.setAttribute('aria-hidden', 'false');
         document.body.classList.toggle('unscrollable');
     });
 
@@ -14,6 +15,7 @@ export default function () {
         e.preventDefault();
         tint.classList.remove('active');
         sidebar.classList.remove('active');
+        sidebar.setAttribute('aria-hidden', 'false');
         document.body.classList.remove('unscrollable');
     });
 }

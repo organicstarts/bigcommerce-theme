@@ -28,6 +28,10 @@
         transform: translateX(0);
         box-shadow: -1.5rem 0 4rem rgba(22,28,45,.15);
     }
+
+    & > a > img {
+        border-bottom: 1px solid rgba(0,0,0,0.25);
+    }
     & > ul {
         display: flex;
         justify-content: space-evenly;
@@ -72,6 +76,7 @@
                 overflow: hidden;
                 will-change: max-height;
                 transition: max-height 0.5s ease-in-out;
+                margin-top: 1rem;
             }
             & > input[type=checkbox] {
                 display: none;

@@ -15,7 +15,6 @@
 @import "helpers/gradients";
 @import "helpers/images";
 @import "helpers/shadows";
-@import "helpers/shapes";
 
 // Static universal elements
 @import "elements/buttons";
@@ -26,6 +25,9 @@
 @import "elements/type";
 
 // Specific universal components
+@import "components/common/footer";
+@import "components/common/newsletter";
+
 @import "components/cards";
 @import "components/carousels";
 @import "components/menu";

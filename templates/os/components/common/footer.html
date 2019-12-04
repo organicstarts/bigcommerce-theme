@@ -1,5 +1,6 @@
-<footer id="footer" data-spy="scroll" class="os-footer mt-4 mt-lg-5 position-relative">
-    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none">
+{{> os/components/common/newsletter }}
+<footer class="page-footer">
+    <svg class="page-footer__waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none">
         <defs>
             <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
         </defs>
@@ -13,176 +14,200 @@
             <use xlink:href="#gentle-wave" x="50" y="9" fill="#444444" />
         </g>
         <g class="wave-4">
-            <use xlink:href="#gentle-wave" x="50" y="6" fill="#232323" />
+            <use xlink:href="#gentle-wave" x="50" y="6" fill="#ECEFF1" />
         </g>
     </svg>
-    <div class="bg-gray-900 py-4 py-lg-5">
-        <div class="container my-4 my-lg-5">
+    <div class="page-footer__wrapper">
+        <div class="page-footer__container">
+            <ul>
+                <li>
+                    Shop
+                </li>
+                <li>
+                    <a href="/baby-care">
+                        Baby Care
+                    </a>
+                </li>
+                <li>
+                    <a href="/baby-food">
+                        Baby Food
+                    </a>
+                </li>
+                <li>
+                    <a href="/clothes">
+                        Clothes
+                    </a>
+                </li>
+                <li>
+                    <a href="/diapers">
+                        Diapers
+                    </a>
+                </li>
+                <li>
+                    <a href="/toys">
+                        Toys
+                    </a>
+                </li>
+                <li>
+                    <a href="/mommy">
+                        Mommy
+                    </a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    Company
+                </li>
+                <li>
+                    <a href="/about-us/">
+                        About Us
+                    </a>
+                </li>
+                <li>
+                    <a href="/baby-bank">
+                        The Baby Bank
+                    </a>
+                </li>
+                <li>
+                    <a href="/multiples-discount">
+                        Multiples Discount
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        News
+                    </a>
+                </li>
+                <li>
+                    <a href="/company/careers">
+                        Careers
+                    </a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    Support
+                </li>
+                <li>
+                    <a href="/baby-formulas">
+                        Baby Formulas
+                    </a>
+                </li>
+                <li>
+                    <a href="/support/shipping">
+                        Shipping
+                    </a>
+                </li>
+                <li>
+                    <a href="/support/returns-exchanges">
+                        Returns <small>&amp; Exchanges</small>
+                    </a>
+                </li>
+                <li>
+                    <a href="/support/faqs">
+                        FAQs
+                    </a>
+                </li>
+                <li>
+                    <a href="/support/contact">
+                        Contact Us
+                    </a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    Legal
+                </li>
+                <li>
+                    <a href="/legal/accessibility">
+                        Accessibility
+                    </a>
+                </li>
+                <li>
+                    <a href="/legal/disclaimer">
+                        Disclaimer
+                    </a>
+                </li>
+                <li>
+                    <a href="/legal/privacy-policy">
+                        Privacy
+                    </a>
+                </li>
+                <li>
+                    <a href="/legal/terms-of-service">
+                        Terms
+                    </a>
+                </li>
+            </ul>
+
+            <div class="subfooter">
+                <div class="subfooter-left">
+                    <a href="https://www.google.com/shopping/ratings/account/metrics?q=organicstart.com&c=US&v=4&hl=en" target="_blank">
+                        <img 
+                            class="lazyload"
+                            ix-path="os/i/google-trusted-store.png"
+                            sizes="200px"
+                            src="https://triad.imgix.net/os/i/home/tile-clothes.jpg?w=100&px=8&blur=100&auto=format"
+                            data-src="https://triad.imgix.net/os/i/home/tile-clothes.jpg?w=200"
+                            alt="Google Trusted Store"
+                            title="Google Trusted Store"
+                        />
+                    </a>
+                </div>
+                <ul>
+                    <li>
+                        <a href="https://www.facebook.com/organicstart">
+                            <svg viewBox="0 0 24 24" fill="#3b5998">
+                                <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm3 8h-1.35c-.538 0-.65.221-.65.778v1.222h2l-.209 2h-1.791v7h-3v-7h-2v-2h2v-2.308c0-1.769.931-2.692 3.029-2.692h1.971v3z" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/organic_start/">
+                            <svg viewBox="0 0 24 24" fill="url(#instagramGradient)">
+                                    <radialGradient id="instagramGradient" r="150%" cx="30%" cy="107%">
+                                      <stop stop-color="#fdf497" offset="0" />
+                                      <stop stop-color="#fdf497" offset="0.05" />
+                                      <stop stop-color="#fd5949" offset="0.45" />
+                                      <stop stop-color="#d6249f" offset="0.6" />
+                                      <stop stop-color="#285AEB" offset="0.9" />
+                                    </radialGradient>
+                                <path d="M14.829 6.302c-.738-.034-.96-.04-2.829-.04s-2.09.007-2.828.04c-1.899.087-2.783.986-2.87 2.87-.033.738-.041.959-.041 2.828s.008 2.09.041 2.829c.087 1.879.967 2.783 2.87 2.87.737.033.959.041 2.828.041 1.87 0 2.091-.007 2.829-.041 1.899-.086 2.782-.988 2.87-2.87.033-.738.04-.96.04-2.829s-.007-2.09-.04-2.828c-.088-1.883-.973-2.783-2.87-2.87zm-2.829 9.293c-1.985 0-3.595-1.609-3.595-3.595 0-1.985 1.61-3.594 3.595-3.594s3.595 1.609 3.595 3.594c0 1.985-1.61 3.595-3.595 3.595zm3.737-6.491c-.464 0-.84-.376-.84-.84 0-.464.376-.84.84-.84.464 0 .84.376.84.84 0 .463-.376.84-.84.84zm-1.404 2.896c0 1.289-1.045 2.333-2.333 2.333s-2.333-1.044-2.333-2.333c0-1.289 1.045-2.333 2.333-2.333s2.333 1.044 2.333 2.333zm-2.333-12c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.958 14.886c-.115 2.545-1.532 3.955-4.071 4.072-.747.034-.986.042-2.887.042s-2.139-.008-2.886-.042c-2.544-.117-3.955-1.529-4.072-4.072-.034-.746-.042-.985-.042-2.886 0-1.901.008-2.139.042-2.886.117-2.544 1.529-3.955 4.072-4.071.747-.035.985-.043 2.886-.043s2.14.008 2.887.043c2.545.117 3.957 1.532 4.071 4.071.034.747.042.985.042 2.886 0 1.901-.008 2.14-.042 2.886z" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/organic_start">
+                            <svg viewBox="0 0 24 24" fill="#00acee">
+                                <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.066 9.645c.183 4.04-2.83 8.544-8.164 8.544-1.622 0-3.131-.476-4.402-1.291 1.524.18 3.045-.244 4.252-1.189-1.256-.023-2.317-.854-2.684-1.995.451.086.895.061 1.298-.049-1.381-.278-2.335-1.522-2.304-2.853.388.215.83.344 1.301.359-1.279-.855-1.641-2.544-.889-3.835 1.416 1.738 3.533 2.881 5.92 3.001-.419-1.796.944-3.527 2.799-3.527.825 0 1.572.349 2.096.907.654-.128 1.27-.368 1.824-.697-.215.671-.67 1.233-1.263 1.589.581-.07 1.135-.224 1.649-.453-.384.578-.87 1.084-1.433 1.489z" />
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <p class="copyright">
+                &copy; 2019. Organic Start, Inc.
+            </p>
+        </div>
+    </div>
+        <!--<div class="container my-4 my-lg-5">
             <div class="row">
                 <div class="col-12 col-md-4 col-lg-3">
-                    <ul class="list-unstyled list-inline list-social mb-6 mb-md-0" data-spy="item" data-animation="fadeInLeft" data-staggered="true">
-                        <li class="list-inline-item list-social-item mr-3">
-                            <a href="https://www.facebook.com/organicstart" class="link-unstyled text-white">
-                                <i class="fab fa-facebook-square fs-4"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item list-social-item mr-3">
-                            <a href="https://www.instagram.com/organic_start/" class="link-unstyled text-white">
-                                <i class="fab fa-instagram fs-4"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item list-social-item mr-3">
-                            <a href="https://twitter.com/organic_start" class="link-unstyled text-white">
-                                <i class="fab fa-twitter-square fs-4"></i>
-                            </a>
-                        </li>
-                    </ul>
                 </div>
                 <div class="col-6 col-md-4 col-lg-2">
-                    <ul class="list-unstyled text-gray-400 mb-6 mb-md-8 mb-lg-0" data-spy="item" data-animation="fadeInLeft" data-staggered="true">
-                        <li class="header font-weight-bold text-uppercase text-gray-700 mb-3">
-                            Categories
-                        </li>
-                        <li class="mb-3">
-                            <a href="/baby-care" class="link-unstyled">
-                                Baby Care
-                            </a>
-                        </li>
-                        <li class="mb-3">
-                            <a href="/baby-food" class="link-unstyled">
-                                Baby Food
-                            </a>
-                        </li>
-                        <li class="mb-3">
-                            <a href="/clothes" class="link-unstyled">
-                                Clothes
-                            </a>
-                        </li>
-                        <li class="mb-3">
-                            <a href="/diapers" class="link-unstyled">
-                                Diapers
-                            </a>
-                        </li>
-                        <li class="mb-3">
-                            <a href="/toys" class="link-unstyled">
-                                Toys
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/mommy" class="link-unstyled">
-                                Mommy
-                            </a>
-                        </li>
-                    </ul>
                 </div>
                 <div class="col-6 col-md-4 col-lg-2">
-                    <ul class="list-unstyled text-gray-400 mb-6 mb-md-8 mb-lg-0" data-spy="item" data-animation="fadeInLeft" data-staggered="true">
-                        <li class="header font-weight-bold text-uppercase text-gray-700 mb-3">
-                            Company
-                        </li>
-                        <li class="mb-3 d-none">
-                            <a href="#!" class="link-unstyled disabled">
-                                The Story
-                            </a>
-                        </li>
-                        <li class="mb-3 d-none">
-                            <a href="#!" class="link-unstyled disabled">
-                                Our Process
-                            </a>
-                        </li>
-                        <li class="mb-3">
-                            <a href="/about-us/" class="link-unstyled disabled">
-                                About Us
-                            </a>
-                        </li>
-                        <li class="mb-3">
-                            <a href="/multiples-discount" class="link-unstyled">
-                                Multiples Discount
-                            </a>
-                        </li>
-                        <li class="mb-3 d-none">
-                            <a href="#!" class="link-unstyled disabled">
-                                News
-                            </a>
-                        </li>
-                        <li class="mb-3">
-                            <a href="/company/careers" class="link-unstyled">
-                                Careers
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/baby-formulas" class="link-unstyled">
-                                Baby Formulas
-                            </a>
-                        </li>
-                    </ul>
                 </div>
                 <div class="col-6 col-md-4 offset-md-4 col-lg-2 offset-lg-0">
-                    <ul class="list-unstyled text-gray-400 mb-0" data-spy="item" data-animation="fadeInLeft" data-staggered="true">
-                        <li class="header font-weight-bold text-uppercase text-gray-700 mb-3">
-                            Support
-                        </li>
-                        <li class="mb-3">
-                            <a href="/baby-bank" class="link-unstyled d-none">
-                                The Baby Bank
-                            </a>
-                        </li>
-                        <li class="mb-3">
-                            <a href="/support/shipping" class="link-unstyled">
-                                Shipping
-                            </a>
-                        </li>
-                        <li class="mb-3">
-                            <a href="/support/returns-exchanges" class="link-unstyled">
-                                Returns &amp; Exchanges
-                            </a>
-                        </li>
-                        <li class="mb-3 d-none">
-                            <a href="/support/faqs" class="link-unstyled">
-                                FAQs
-                            </a>
-                        </li>
-                        <li class="mb-3">
-                            <a href="/support/contact" class="link-unstyled">
-                                Contact Us
-                            </a>
-                        </li>
-                    </ul>
                 </div>
                 <div class="col-6 col-md-4 col-lg-2">
-                    <ul class="list-unstyled text-gray-400 mb-0" data-spy="item" data-animation="fadeInLeft" data-staggered="true">
-                        <li class="header font-weight-bold text-uppercase text-gray-700 mb-3">
-                            Legal
-                        </li>
-                        <li class="mb-3">
-                            <a href="/legal/accessibility" class="link-unstyled">
-                                Accessibility
-                            </a>
-                        </li>
-                        <li class="mb-3">
-                            <a href="/legal/disclaimer" class="link-unstyled">
-                                Disclaimer
-                            </a>
-                        </li>
-                        <li class="mb-3">
-                            <a href="/legal/privacy-policy" class="link-unstyled">
-                                Privacy
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/legal/terms-of-service" class="link-unstyled">
-                                Terms
-                            </a>
-                        </li>
-                    </ul>
 
                 </div>
             </div>
             <div class="row justify-content-center align-items-center mt-5">
                 <div class="col text-center text-gray-800 mt-5">
-                    <p><small>Copyright &copy; 2019 Organic Start, Inc. All Rights Reserved.</small></p>
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
 </footer>
