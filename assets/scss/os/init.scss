@@ -26,6 +26,7 @@
 
 // Specific universal components
 @import "components/common/footer";
+@import "components/common/logo";
 @import "components/common/newsletter";
 
 @import "components/cards";
@@ -39,6 +40,7 @@
 
 // To-do: Seperate & only request on specific pages
 @import "pages/home/index";
+@import "pages/products";
 @import "pages/categories";
 
 $fa-font-path: "../../../node_modules/@fortawesome/fontawesome-free/webfonts";

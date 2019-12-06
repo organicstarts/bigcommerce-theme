@@ -7,6 +7,26 @@ export default function () {
         watchSlidesVisibility: true,
         centeredSlides: true,
     });
+    var productThumbs = new Swiper('.product-thumbs.swiper-container', {
+        spaceBetween: 16,
+        slidesPerView: 'auto',
+        freeMode: true,
+        watchSlidesVisibility: true,
+        watchSlidesProgress: true,
+    });
+    new Swiper('.product-view.swiper-container', {
+        effect: 'fade',
+        slidesPerView: 1,
+        spaceBetween: 0,
+        centeredSlides: true,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        thumbs: {
+          swiper: productThumbs,
+        },
+    });
     new Swiper('#categories .swiper-container', {
         slidesPerView: 'auto',
         loop: true,

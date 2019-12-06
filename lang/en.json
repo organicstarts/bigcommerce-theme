@@ -202,7 +202,7 @@
         "header": "Comparing {products, plural, one {# Product} other {# Products}}",
         "remove": "Remove",
         "no_remove": "At least 2 products are needed to make a valid comparison.",
-        "add_to_cart": "Add to cart"
+        "add_to_cart": "Add to Shopping Bag"
     },
     "category": {
         "label": "Categories",
