@@ -86,7 +86,6 @@
             &.price {
                 display: flex;
                 flex-direction: row;
-                margin-top: 1rem;
                 color: #21ba45;
                 font-size: 1.25rem;
                 & .price--rrp, .price--non-sale, .price--discounted {
@@ -97,7 +96,6 @@
         }
         &-btn {
             display: block;
-            margin: 1rem 0 0 0;
             padding: 0.5rem 2rem;
             border-radius: 2rem;
             font-size: 0.85rem;

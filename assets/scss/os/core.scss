@@ -34,7 +34,7 @@ body {
 
     padding-top: 237px!important;
     @media screen and (min-width: 600px) {
-        padding-top: 170px!important;
+        padding-top: 175px!important;
     }
 
     &.unscrollable {
@@ -95,6 +95,8 @@ body {
     & > .container {
         display: flex;
         justify-content: space-between;
+        max-width: 1440px;
+        margin: 0 auto;
     }
     &-container {
         &__left {

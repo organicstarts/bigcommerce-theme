@@ -18,7 +18,7 @@
         width: calc(100vw - 4rem);
         max-width: 320px;
         height: calc(100vw - 4rem);
-        max-height: 320px;
+        max-height: 370px;
         & .card--product {
             position: relative;
             overflow: hidden;
@@ -47,7 +47,7 @@
                 }
                 & h5 {
                     margin: 0;
-                    font-size: 1.125rem;
+                    font-size: 1rem;
                     font-weight: 400;
                 }
                 & h6 {
@@ -92,10 +92,11 @@
                 }
             }
             &-rating {
-                margin: 0 0 0.5rem 0;
+                
             }
             &-price {
                 display: flex;
+                align-items: center;
                 color: #21ba45;
                 font-size: 1.25rem;
                 & .price--rrp, .price--non-sale, .price--discounted {
