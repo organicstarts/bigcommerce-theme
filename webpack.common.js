@@ -15,6 +15,7 @@ module.exports = {
     entry: {
         main: './assets/js/app.js',
         style: './assets/scss/os/index.scss',
+        home: './assets/scss/os/pages/home/index.scss',
     },
     optimization: {
       minimize: true,

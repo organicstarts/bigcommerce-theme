@@ -13,7 +13,10 @@ blog:
 ---
 
 {{#partial "scripts"}}
-
+    {{{stylesheet '/assets/dist/home.css'}}}
+    <script>
+        window.renderHome();
+    </script>
 {{/partial}}
 
 {{#partial "page"}}
@@ -24,7 +27,7 @@ blog:
 
     {{#if products.featured}}
         <section id="featured-products">
-            <h2>{{lang 'products.featured' }}</h2>
+            <h2>Products Your &#128118; will &#10084;&#65039;</h2>
             {{> os/components/products/carousel products=products.featured type="featured" name=(lang 'products.featured') wrap="true"}}
         </section>
     {{/if}}
@@ -47,7 +50,7 @@ blog:
     
     {{> os/pages/home/categories }}
 
-    <section class="position-relative">
+    <!--<section class="position-relative">
         <div class="shape shape-bottom shape-fluid-x svg-shim text-light">
             <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="#fff"></path>
@@ -63,7 +66,7 @@ blog:
                 <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="#fafafa"></path>
             </svg>
         </div>
-    </section>
+    </section>-->
     
 {{/partial}}
 

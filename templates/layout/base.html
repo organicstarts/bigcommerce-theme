@@ -30,16 +30,20 @@
         <meta property="ix:host" content="triad.imgix.net">
         <meta property="ix:useHttps" content="true">
 
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link href="https://www.googletagmanager.com" rel="preconnect" crossorigin>
+        <link href="https://cdn.jsdelivr.net" rel="preconnect" crossorigin>
+        <link href="https://cdnjs.cloudflare.com" rel="preconnect" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Nunito:300,400,600,700,800|Open+Sans:300,400,600&display=swap" rel="stylesheet">
+        {{{stylesheet '/assets/css/theme.css'}}}
+        {{{stylesheet '/assets/dist/style.css'}}}
+
         <script>
             document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
             window.lazySizesConfig = window.lazySizesConfig || {};
             window.lazySizesConfig.init = false;
         </script>
-
-        <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Nunito:300,400,600,700,800|Open+Sans:300,400,600&display=swap" rel="stylesheet">
-        {{{stylesheet '/assets/css/theme.css'}}}
-        <link href="https://powerful-island-42757.herokuapp.com/dist/main.css?v=091720192" rel="stylesheet">
-        {{{stylesheet '/assets/dist/style.css'}}}
 
         {{{head.scripts}}}
         {{{head.rsslinks}}}
@@ -90,15 +94,17 @@
         <script src="https://cdn.jsdelivr.net/npm/imgix.js@3.4.1/dist/imgix.min.js"></script>
         <script>window.__webpack_public_path__ = "{{cdn 'assets/dist/'}}";</script>
         <script src="{{cdn 'assets/dist/theme-bundle.main.js'}}"></script>
+
         <script>
             // Exported in app.js
             window.stencilBootstrap("{{page_type}}", {{jsContext}}).load();
         </script>
+
         {{#block "scripts"}} {{/block}}
         {{{footer.scripts}}}
         {{{snippet 'footer'}}}
         
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" async=""></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" defer></script>
         <script>
             lazySizes.init();
         </script>

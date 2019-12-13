@@ -1,43 +1,41 @@
 .tiles {
     &-group {
-        max-width: 425px;
         flex-direction: column;
         @media screen and (min-width: 768px) {
-            max-width: 1440px;
             flex-direction: row;
         }
-        margin: 0 auto;
-        @media screen and (min-width: 768px) {
-            padding: 2rem 0;
-        }
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
         &__tile {
-            position: relative;
-            overflow: hidden;
-            margin: 1rem 0;
-            @media screen and (max-width: 767px) {
-                &:first-child {
-                    margin-top: 2rem;
-                }
-                &:last-child {
-                    margin-bottom: 2rem;
-                }
-            }
-            @media screen and (min-width: 426px) {
-                border-radius: 1rem;
-            }
+            display: flex;
             @media screen and (min-width: 768px) {
-                margin: 0.5rem;
-                &:first-child {
-                    margin-left: 1rem;
+                flex: 0 50%;
+                max-width: 50%;
+            }
+            @media screen and (min-width: 1024px) {
+                &:nth-child(2) {
+                    display: none;
                 }
-                &:last-child {
-                    margin-right: 1rem;
-                }
+                flex: 1 0 auto;
+                max-width: calc(100% / 3);
             }
             @media screen and (min-width: 1440px) {
-                margin: 1rem;
+                &:nth-child(2) {
+                    display: flex;
+                }
+                max-width: 25%;
+                flex: 1 0 auto;
+            }
+            position: relative;
+            overflow: hidden;
+
+            
+            @media screen and (max-width: 767px) {
+                &:nth-child(1) > .tile-content, &:nth-child(3) > .tile-content {
+                    align-items: flex-end;
+                    text-align: right;
+                }
             }
             & > .tile-content {
                 position: absolute;
@@ -51,6 +49,61 @@
                 width: 100%;
                 height: 100%;
                 padding: 1rem;
+
+                & h3 {
+                    //@include FluidType(320px, 2560px, 24px, 48px, 0px, 1px);
+                    font-family: Fredoka One, cursive;
+                    line-height: 1;
+                    font-size: 1.5rem;
+                    letter-spacing: 0.5px;
+                    @media screen and (min-width:425px) {
+                        font-size: 2rem;
+                        letter-spacing: 2px;
+                    }
+                    @media screen and (min-width:1024px) {
+                        font-size: 2rem;
+                        letter-spacing: 2px;
+                    }
+                    @media screen and (min-width:2560px) {
+                        font-size: 3rem;
+                        letter-spacing: 3px;
+                    }
+                    color: #fff;
+                    margin: 0 0 0.5rem 0;
+                    @media screen and (min-width: 425px) {
+                        margin: 0 0 1rem 0;
+                    }
+                    text-shadow: 1px 1px 1rem rgba(0, 0, 0, 0.6);
+                    will-change: text-shadow;
+                    transition: text-shadow 0.3s linear;
+                }
+                & h4 {
+                    //@include FluidType(320px, 2560px, 20px, 26px, 0px, 0px);
+                    letter-spacing: 0;
+                    font-size: 1rem;
+                    letter-spacing: 0.5px;
+                    @media screen and (min-width:425px) {
+                        font-size: 1.25rem;
+                        letter-spacing: 0.75px;
+                    }
+                    @media screen and (min-width:1024px) {
+                        line-height: 1.5;
+                        font-size: 0.875rem;
+                        letter-spacing: 0.5px;
+                    }
+                    @media screen and (min-width:1440px) {
+                        font-size: 1rem;
+                        letter-spacing: 0.75px;
+                    }
+                    @media screen and (min-width:2560px) {
+                        font-size: 1.75rem;
+                    }
+                    color: #fff;
+                    margin: 0;
+                    text-shadow: 1px 1px 1rem rgba(0, 0, 0, 0.6);
+                    will-change: text-shadow;
+                    transition: text-shadow 0.3s linear;
+                }
                
                 & > .smaller {
                     font-size: 0.875rem;
@@ -92,24 +145,33 @@
                 color: #fff;
                 background: linear-gradient(rgba(0,0,0,0), rgba(0, 0, 0, 0.5));   
                 @media screen and (min-width: 768px) {
-                    opacity: 0.8;
-                    background: linear-gradient(rgba(0,0,0,0) 30%, rgba(0, 0, 0, 0.8));   
+                    opacity: 0.9;
+                    background: linear-gradient(rgba(0,0,0,0) 50%, rgba(0, 0, 0, 0.5));   
                 }
                 will-change: opacity;
                 transition: opacity 0.3s linear;
             }
             &:hover > .tile-content {
-                opacity: 1;
+                opacity: 1; 
+                & h3, & h4 {
+                    text-shadow: 1px 1px 2rem rgba(0, 0, 0, 0.4);
+                }
             }
-            & > picture > img {
+            & > picture {
                 width: 100%;
-                height: auto;
-                will-change: transform, opacity;
-                transform: scale(1);
-                transition: transform 0.3s linear, opacity 300ms;;
+                height: 100%;
+                will-change: transform;
+                transform: scale(1.1);
+                transform-origin: center;
+                transition: transform 300ms ease-in-out;
+                & > img {
+                    width: 100%;
+                    height: auto;
+                    margin: 0;
+                }
             }
-            &:hover > picture > img {
-                transform: scale(1.075);
+            &:hover > picture {
+                transform: scale(1);
             }
         }
     }

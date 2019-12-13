@@ -1,10 +1,10 @@
-{{#contains product.title "Infant"}}
+{{#if (add (occurrences product.title "Infant") (occurrences product.title "Milk")) '>' 1}}
     <div class="alert-x1">
         <div class="wrap">
             <svg class="icon"><use xlink:href="#warningCircle" /></svg> <strong>Due to regulatory issues, this formula is unavailable for sale in the United States.</strong>
         </div>
     </div>
-{{/contains}}
+{{/if}}
 <div class="product" {{#if settings.data_tag_enabled}} data-event-type="product" data-entity-id="{{product.id}}" data-name="{{product.title}}" data-product-category="{{#each product.category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{product.brand.name}}" data-product-price="{{#if product.price.with_tax}}{{product.price.with_tax.value}}{{else}}{{product.price.without_tax.value}}{{/if}}" data-product-variant="single-product-option"{{/if}}>
     <div class="product-jumbotron">
         <div class="container">
@@ -134,16 +134,8 @@
                                 <meta itemprop="ratingCount" content="{{product.num_reviews}}">
                                 <meta itemprop="reviewCount" content="{{product.num_reviews}}">
                             {{/if}}
-                            {{> os/components/products/ratings rating=product.rating}} ({{product.num_reviews}} reviews)
+                            {{#if product.num_reviews '==' 0}}{{> os/components/products/ratings rating=0}}{{else}}{{> os/components/products/ratings rating=(avg (pluck reviews.list 'rating'))}}{{/if}} <span>{{#if product.num_reviews '==' 0}}No customer reviews yet{{else}}{{toFixed  (avg (pluck reviews.list 'rating')) 1}} out of 5.0 based on {{product.num_reviews}} {{#if product.num_reviews '==' 1}}review{{else}}reviews{{/if}}{{/if}}.</span>
                         {{/if}}
-                        
-                        <span class="productView-reviewLink">
-                            <a href="{{product.url}}{{#if is_ajax}}#write_review{{/if}}"
-                                {{#unless is_ajax }}data-reveal-id="modal-review-form"{{/unless}}>
-                                {{lang 'products.reviews.new'}}
-                            </a>
-                        </span>
-                        {{> components/products/modals/writeReview}}
                     </div>
                 {{/if}}
 
@@ -169,7 +161,24 @@
                     {{else}}
                         <div class="product-bulk">
                             <input type="checkbox" id="bulk-pricing">
-                            <label for="bulk-pricing"><svg class="icon"><use xlink:href="#tag" /></svg> Bulk Discounts</label>
+                            <label for="bulk-pricing">
+                                <svg id="tag" viewBox="0 0 24 24" fill-rule="evenodd" clip-rule="evenodd">
+                                    <filter id="dropshadow" height="130%">
+                                        <feGaussianBlur in="SourceAlpha" stdDeviation="16"/> <!-- stdDeviation is how much to blur -->
+                                        <feOffset dx="1" dy="1" result="offsetblur"/> <!-- how much to offset -->
+                                        <feComponentTransfer>
+                                            <feFuncA type="linear" slope="0.5"/> <!-- slope is the opacity of the shadow -->
+                                        </feComponentTransfer>
+                                        <feMerge> 
+                                            <feMergeNode/> <!-- this contains the offset blurred image -->
+                                            <feMergeNode in="SourceGraphic"/> <!-- this contains the element that the filter is applied to -->
+                                        </feMerge>
+                                    </filter>
+                                    <desc>Price Tag</desc>
+                                    <path d="M2 9.453v-9.453h9.352l10.648 10.625-3.794 3.794 1.849 4.733-12.34 4.848-5.715-14.547zm1.761 1.748l4.519 11.503 10.48-4.118-1.326-3.395-4.809 4.809-8.864-8.799zm-.761-10.201v8.036l9.622 9.552 7.963-7.962-9.647-9.626h-7.938zm12.25 8.293c-.415-.415-.865-.617-1.378-.617-.578 0-1.227.241-2.171.803-.682.411-1.118.585-1.456.585-.361 0-1.083-.409-.961-1.219.052-.345.25-.696.572-1.019.652-.652 1.544-.848 2.276-.107l.744-.744c-.476-.475-1.096-.792-1.761-.792-.566 0-1.125.228-1.663.677l-.626-.626-.698.699.653.652c-.569.826-.842 2.021.076 2.937 1.011 1.011 2.188.541 3.413-.232.6-.379 1.083-.563 1.475-.563.589.001 1.18.498 1.078 1.258-.052.386-.26.764-.621 1.122-.451.451-.904.679-1.347.679-.418 0-.747-.192-1.049-.462l-.739.739c.463.458 1.082.753 1.735.753.544 0 1.087-.201 1.612-.597l.54.538.697-.697-.52-.521c.743-.896 1.157-2.209.119-3.247zm-9.25-7.292c1.104 0 2 .896 2 2s-.896 2-2 2-2-.896-2-2 .896-2 2-2zm0 1c.552 0 1 .448 1 1s-.448 1-1 1-1-.448-1-1 .448-1 1-1z"/>
+                                </svg>
+                                Bulk Discounts
+                            </label>
                             <ul>
                                 {{#each product.bulk_discount_rates}}
                                     <li>
@@ -188,6 +197,21 @@
                             </ul>
                         </div>
                     {{/isEmpty}}
+                    <div class="product-features">
+                        {{#if product.stock_level '<' 25}}
+                            <div class="warning item">
+                                <svg width="24" height="24" viewBox="0 0 24 24"><path d="M15.91 13.34l2.636-4.026-.454-.406-3.673 3.099c-.675-.138-1.402.068-1.894.618-.736.823-.665 2.088.159 2.824.824.736 2.088.665 2.824-.159.492-.55.615-1.295.402-1.95zm-3.91-10.646v-2.694h4v2.694c-1.439-.243-2.592-.238-4 0zm8.851 2.064l1.407-1.407 1.414 1.414-1.321 1.321c-.462-.484-.964-.927-1.5-1.328zm-18.851 4.242h8v2h-8v-2zm-2 4h8v2h-8v-2zm3 4h7v2h-7v-2zm21-3c0 5.523-4.477 10-10 10-2.79 0-5.3-1.155-7.111-3h3.28c1.138.631 2.439 1 3.831 1 4.411 0 8-3.589 8-8s-3.589-8-8-8c-1.392 0-2.693.369-3.831 1h-3.28c1.811-1.845 4.321-3 7.111-3 5.523 0 10 4.477 10 10z"/></svg> Only {{product.stock_level}} remaining! This item may sell out soon!
+                            </div>
+                        {{/if}}
+                        {{#if product.price.without_tax.value '<' 15}}
+                            <div class="info item d-none">
+                                    <svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-.001 5.75c.69 0 1.251.56 1.251 1.25s-.561 1.25-1.251 1.25-1.249-.56-1.249-1.25.559-1.25 1.249-1.25zm2.001 12.25h-4v-1c.484-.179 1-.201 1-.735v-4.467c0-.534-.516-.618-1-.797v-1h3v6.265c0 .535.517.558 1 .735v.999z"/></svg> Free Shipping with orders over $15.
+                            </div>
+                        {{/if}}
+                        <div class="shipping item">
+                            <svg width="24" height="24" viewBox="0 0 24 24"><path d="M11 6v8h7v-2h-5v-6h-2zm10.854 7.683l1.998.159c-.132.854-.351 1.676-.652 2.46l-1.8-.905c.2-.551.353-1.123.454-1.714zm-2.548 7.826l-1.413-1.443c-.486.356-1.006.668-1.555.933l.669 1.899c.821-.377 1.591-.844 2.299-1.389zm1.226-4.309c-.335.546-.719 1.057-1.149 1.528l1.404 1.433c.583-.627 1.099-1.316 1.539-2.058l-1.794-.903zm-20.532-5.2c0 6.627 5.375 12 12.004 12 1.081 0 2.124-.156 3.12-.424l-.665-1.894c-.787.2-1.607.318-2.455.318-5.516 0-10.003-4.486-10.003-10s4.487-10 10.003-10c2.235 0 4.293.744 5.959 1.989l-2.05 2.049 7.015 1.354-1.355-7.013-2.184 2.183c-2.036-1.598-4.595-2.562-7.385-2.562-6.629 0-12.004 5.373-12.004 12zm23.773-2.359h-2.076c.163.661.261 1.344.288 2.047l2.015.161c-.01-.755-.085-1.494-.227-2.208z"/></svg> <span>Ships for FREE {{#if product.price.without_tax.value '<' 15}}with orders over $15 {{/if}}&nbsp;<span id="nextBusinessDay">on the next business day.</span><span id="arrival" class="small"></span></span>
+                        </div>
+                    </div>
                     {{#if product.can_purchase}}
                         <div class="product-atc">
                             {{#if theme_settings.show_product_quantity_box}}
@@ -195,7 +219,7 @@
                                     <label class="form-label form-label--alternate"
                                         for="qty[]">{{lang 'products.quantity'}}</label>
                                         <div class="form-increment" data-quantity-change>
-                                            <button class="ui small button py-1" data-action="dec">
+                                            <button data-action="dec">
                                                 <span class="is-srOnly">{{lang 'products.quantity_decrease'}}</span>
                                                 <i class="fas fa-minus" aria-hidden="true"></i>
                                             </button>
@@ -209,7 +233,7 @@
                                                 min="1"
                                                 pattern="[0-9]*"
                                                 aria-live="polite">
-                                            <button class="ui small button py-1" data-action="inc">
+                                            <button data-action="inc">
                                                 <span class="is-srOnly">{{lang 'products.quantity_increase'}}</span>
                                                 <i class="fas fa-plus" aria-hidden="true"></i>
                                             </button>
@@ -229,7 +253,7 @@
                                         {{#if product.pre_order}}
                                             {{lang 'products.pre_order'}}
                                         {{else}}
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13.299 3.74c-.207-.206-.299-.461-.299-.711 0-.524.407-1.029 1.02-1.029.262 0 .522.1.721.298l3.783 3.783c-.771.117-1.5.363-2.158.726l-3.067-3.067zm3.92 14.84l-.571 1.42h-9.296l-3.597-8.961-.016-.039h9.441c.171-.721.459-1.395.848-2h-14.028v2h.643c.535 0 1.021.304 1.256.784l4.101 10.216h12l1.21-3.015c-.698-.03-1.367-.171-1.991-.405zm-6.518-14.84c.207-.206.299-.461.299-.711 0-.524-.407-1.029-1.02-1.029-.261 0-.522.1-.72.298l-4.701 4.702h2.883l3.259-3.26zm8.799 4.26c-2.484 0-4.5 2.015-4.5 4.5s2.016 4.5 4.5 4.5c2.482 0 4.5-2.015 4.5-4.5s-2.018-4.5-4.5-4.5zm2.5 5h-2v2h-1v-2h-2v-1h2v-2h1v2h2v1z"/></svg> {{lang 'products.add_to_cart'}}
+                                             <svg class="icon"><use xlink:href="#plus"></use></svg> {{lang 'products.add_to_cart'}}
                                         {{/if}}
                                     </button>
                                 </div>
@@ -237,21 +261,6 @@
                             {{/or}}
                         </div>
                     {{/if}}
-                    <div class="product-features">
-                        {{#if product.stock_level '<' 50}}
-                            <div class="good item">
-                                <svg width="24" height="24" viewBox="0 0 24 24"><path d="M15.91 13.34l2.636-4.026-.454-.406-3.673 3.099c-.675-.138-1.402.068-1.894.618-.736.823-.665 2.088.159 2.824.824.736 2.088.665 2.824-.159.492-.55.615-1.295.402-1.95zm-3.91-10.646v-2.694h4v2.694c-1.439-.243-2.592-.238-4 0zm8.851 2.064l1.407-1.407 1.414 1.414-1.321 1.321c-.462-.484-.964-.927-1.5-1.328zm-18.851 4.242h8v2h-8v-2zm-2 4h8v2h-8v-2zm3 4h7v2h-7v-2zm21-3c0 5.523-4.477 10-10 10-2.79 0-5.3-1.155-7.111-3h3.28c1.138.631 2.439 1 3.831 1 4.411 0 8-3.589 8-8s-3.589-8-8-8c-1.392 0-2.693.369-3.831 1h-3.28c1.811-1.845 4.321-3 7.111-3 5.523 0 10 4.477 10 10z"/></svg> Limited Inventory Remaining.
-                            </div>
-                        {{/if}}
-                        {{#if product.price.without_tax.value '<' 15}}
-                            <div class="info item">
-                                    <svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-.001 5.75c.69 0 1.251.56 1.251 1.25s-.561 1.25-1.251 1.25-1.249-.56-1.249-1.25.559-1.25 1.249-1.25zm2.001 12.25h-4v-1c.484-.179 1-.201 1-.735v-4.467c0-.534-.516-.618-1-.797v-1h3v6.265c0 .535.517.558 1 .735v.999z"/></svg> Free Shipping with orders over $15.
-                            </div>
-                        {{/if}}
-                        <div class="good item">
-                            <svg width="24" height="24" viewBox="0 0 24 24"><path d="M11 6v8h7v-2h-5v-6h-2zm10.854 7.683l1.998.159c-.132.854-.351 1.676-.652 2.46l-1.8-.905c.2-.551.353-1.123.454-1.714zm-2.548 7.826l-1.413-1.443c-.486.356-1.006.668-1.555.933l.669 1.899c.821-.377 1.591-.844 2.299-1.389zm1.226-4.309c-.335.546-.719 1.057-1.149 1.528l1.404 1.433c.583-.627 1.099-1.316 1.539-2.058l-1.794-.903zm-20.532-5.2c0 6.627 5.375 12 12.004 12 1.081 0 2.124-.156 3.12-.424l-.665-1.894c-.787.2-1.607.318-2.455.318-5.516 0-10.003-4.486-10.003-10s4.487-10 10.003-10c2.235 0 4.293.744 5.959 1.989l-2.05 2.049 7.015 1.354-1.355-7.013-2.184 2.183c-2.036-1.598-4.595-2.562-7.385-2.562-6.629 0-12.004 5.373-12.004 12zm23.773-2.359h-2.076c.163.661.261 1.344.288 2.047l2.015.161c-.01-.755-.085-1.494-.227-2.208z"/></svg> Ships {{#if product.price.without_tax.value '>' 15}}for FREE {{/if}}on Monday, December 10th.
-                        </div>
-                    </div>
                 {{/if}}
             </div>
         </div>
@@ -337,6 +346,7 @@
     </div>
 
 </div>
+
 
 
 <div class="bg-white py-2 py-lg-4 d-none">

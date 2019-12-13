@@ -1,12 +1,2 @@
-{{#for 1 5}}
-    {{#if ../this.rating '>=' $index}}
-        <svg class="rating-icon icon-svg fill-mustard">
-            <use class="use" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#star"></use>
-        </svg>
-    {{else}}
-        <svg class="rating-icon icon-svg fill-gray-400">
-            <use class="use" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#star"></use>
-        </svg>
-    {{/if}}
-{{/for}}
+<div class="product-rating_stars" style="--rating: {{this.rating}};" aria-label="Rating of this product is 2.3 out of 5."></div>
 {{{snippet 'product_rating'}}}

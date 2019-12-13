@@ -11,31 +11,16 @@ product:
 ---
 {{#partial "scripts"}}
     <script>
-        oSx.Products.Init();
+        window.renderProducts();
     </script>
-    
-    {{#contains product.title "Milk"}}
-        <script>
-            oSx.Modals.CountryModal();
-        </script>
-    {{/contains}}
 {{/partial}}
 {{#partial "page"}}
 
     <div class="pb-0" itemscope itemtype="http://schema.org/Product">
-        {{#each product.shipping_messages}}
-            {{> components/common/alert-info message}}
-        {{/each}}
-        
-        {{> os/components/products/product-view schema=true  }}
+        {{> os/components/products/product-view avg_rating=0 reviews=product.reviews schema=true  }}
 
-        {{#if product.videos.list.length}}
-            {{> components/products/videos product.videos}}
-        {{/if}}
-
-        {{#all settings.show_product_reviews (if theme_settings.show_product_reviews_tabs '!==' true)}}
-            {{> os/components/products/reviews reviews=product.reviews product=product urls=urls}}
-        {{/all}}
+        {{> os/components/products/reviews reviews=product.reviews product=product urls=urls}}
+        {{> os/components/products/write-review}}
     </div>
     {{#if product.related_products}}
         <section class="my-5 my-lg-8 my-xl-10" id="SimilarProducts" data-spy="scroll">

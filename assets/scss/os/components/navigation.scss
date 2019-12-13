@@ -3,7 +3,7 @@
 
     padding: 1rem 0.5rem;
     @media screen and (min-width: 600px) {
-        padding: 1rem;
+        padding: 1rem 0;
     }
     
     position: absolute;
@@ -84,6 +84,12 @@
                     position: relative;
                     &.x {
                         padding: 1rem;
+                        @media screen and (min-width:1024px) and (max-width: 1050px) {
+                            padding: 1rem 0.5rem;
+                        }
+                        &:last-child {
+                            padding-right: 1rem;
+                        }
                     }
                     &.y {
                         @media screen and (max-width: 599px) {
@@ -96,7 +102,10 @@
                     &:not(.x) {
                         display: none;
                         padding: 1rem 0.8rem;
-                        @media screen and (min-width:1080px) {
+                        @media screen and (min-width:1024px) {
+                            padding: 1rem 0.5rem;
+                        }
+                        @media screen and (min-width:1200px) {
                             padding: 1rem 1rem;
                         }
                         @media screen and (min-width:1220px) {
@@ -106,7 +115,7 @@
                             padding: 1rem 2rem;
                         }
                     }
-                    @media screen and (min-width:1025px) {
+                    @media screen and (min-width:1024px) {
                         &:not(.x) {
                             display: block;
                         }
@@ -264,7 +273,8 @@
                                         margin-left: auto;
                                         justify-content: flex-end;
                                         align-items: center;
-                                        font-size: 0.8rem;
+                                        font-size: 0.875rem!important;
+                                        letter-spacing: 1px!important;
                                         text-transform: uppercase!important;
                                         &:after {
                                             content: '';
@@ -282,13 +292,17 @@
                                 & > li {
                                     padding: 0;
                                     margin-bottom: 0.5rem;
-                                    color: theme-color-level(moss, 5);
-                                    font-weight: 900;
+                                    font-weight: 300;
                                     text-transform: uppercase;
+                                    font-size: 0.75rem;
+                                    font-weight: 300;
+                                    letter-spacing: 1px;
                                     &:last-child {
                                         margin-bottom: 0;
                                     }
                                     & a:not(.button) {
+                                        font-size: 1rem;
+                                        letter-spacing: 0;
                                         padding: 0;
                                         margin-bottom: 0.5rem;
                                         background: transparent;
@@ -306,51 +320,62 @@
                                 }
                             }
                         }
-                        &.baby-care .dropdown-image, &.baby-care [class^="dropdown-image-"], &.baby-care [class*=" dropdown-image-"] {
-                            background-position: 0 0!important;
-                            @include Background(
-                                "https://triad.imgix.net/os/i/nav/baby-care.jpeg?w=400&q=80",
-                                "https://triad.imgix.net/os/i/nav/baby-care.jpeg?w=400&q=60&dpr=1.5",
-                                "https://triad.imgix.net/os/i/nav/baby-care.jpeg?w=400&q=40&dpr=2",
-                                "https://triad.imgix.net/os/i/nav/baby-care.jpeg?w=400&q=20&dpr=3",
-                                "https://triad.imgix.net/os/i/nav/baby-care.jpeg?w=400&q=10&dpr=4"
-                            );
-                        }
-                        &.baby-food .dropdown-image, &.baby-food [class^="dropdown-image-"], &.baby-food [class*=" dropdown-image-"] {
-                            @include Background(
-                                "https://triad.imgix.net/os/i/nav/new-baby-food.jpeg?w=360&q=80",
-                                "https://triad.imgix.net/os/i/nav/new-baby-food.jpeg?w=360&q=60&dpr=1.5",
-                                "https://triad.imgix.net/os/i/nav/new-baby-food.jpeg?w=360&q=40&dpr=2",
-                                "https://triad.imgix.net/os/i/nav/new-baby-food.jpeg?w=360&q=20&dpr=3",
-                                "https://triad.imgix.net/os/i/nav/new-baby-food.jpeg?w=360&q=10&dpr=4"
-                            );
-                        }
-                        &.clothes .dropdown-image, &.clothes [class^="dropdown-image-"], &.clothes [class*=" dropdown-image-"] {
-                            @include Background(
-                                "https://triad.imgix.net/os/i/nav/clothes.jpg?w=280&q=80",
-                                "https://triad.imgix.net/os/i/nav/clothes.jpg?w=280&q=60&dpr=1.5",
-                                "https://triad.imgix.net/os/i/nav/clothes.jpg?w=280&q=40&dpr=2",
-                                "https://triad.imgix.net/os/i/nav/clothes.jpg?w=280&q=20&dpr=3",
-                                "https://triad.imgix.net/os/i/nav/clothes.jpg?w=280&q=10&dpr=4"
-                            );
-                        }
-                        &.diapers .dropdown-image, &.diapers [class^="dropdown-image-"], &.diapers [class*=" dropdown-image-"] {
-                            @include Background(
-                                "https://triad.imgix.net/os/i/nav/diapers.jpeg?w=420&q=80",
-                                "https://triad.imgix.net/os/i/nav/diapers.jpeg?w=420&q=60&dpr=1.5",
-                                "https://triad.imgix.net/os/i/nav/diapers.jpeg?w=420&q=40&dpr=2",
-                                "https://triad.imgix.net/os/i/nav/diapers.jpeg?w=420&q=20&dpr=3",
-                                "https://triad.imgix.net/os/i/nav/diapers.jpeg?w=420&q=10&dpr=4"
-                            );
-                        }
-                        &.mommy .dropdown-image, &.mommy [class^="dropdown-image-"], &.mommy [class*=" dropdown-image-"] {
-                            @include Background(
-                                "https://triad.imgix.net/os/i/nav/mommy.jpeg?w=400&q=80",
-                                "https://triad.imgix.net/os/i/nav/mommy.jpeg?w=400&q=60&dpr=1.5",
-                                "https://triad.imgix.net/os/i/nav/mommy.jpeg?w=400&q=40&dpr=2",
-                                "https://triad.imgix.net/os/i/nav/mommy.jpeg?w=400&q=20&dpr=3",
-                                "https://triad.imgix.net/os/i/nav/mommy.jpeg?w=400&q=10&dpr=4"
-                            );
+                        @media screen and (min-width: 1024px) {
+                            &.baby-care .dropdown-image, &.baby-care [class^="dropdown-image-"], &.baby-care [class*=" dropdown-image-"] {
+                                background-position: 0 0!important;
+                                @include Background(
+                                    "https://triad.imgix.net/os/i/nav/baby-care.jpeg?w=450&q=80&usm=40&sat=10",
+                                    "https://triad.imgix.net/os/i/nav/baby-care.jpeg?w=450&q=60&dpr=1.5&usm=40&sat=10",
+                                    "https://triad.imgix.net/os/i/nav/baby-care.jpeg?w=450&q=40&dpr=2&usm=40&sat=10",
+                                    "https://triad.imgix.net/os/i/nav/baby-care.jpeg?w=450&q=20&dpr=3&usm=40&sat=10",
+                                    "https://triad.imgix.net/os/i/nav/baby-care.jpeg?w=450&q=10&dpr=4&usm=40&sat=10"
+                                );
+                            }
+                            &.baby-food .dropdown-image, &.baby-food [class^="dropdown-image-"], &.baby-food [class*=" dropdown-image-"] {
+                                @include Background(
+                                    "https://triad.imgix.net/os/i/nav/new-baby-food.jpeg?w=400&q=80&usm=20",
+                                    "https://triad.imgix.net/os/i/nav/new-baby-food.jpeg?w=400&q=60&dpr=1.5&usm=20",
+                                    "https://triad.imgix.net/os/i/nav/new-baby-food.jpeg?w=400&q=40&dpr=2&usm=20",
+                                    "https://triad.imgix.net/os/i/nav/new-baby-food.jpeg?w=400&q=20&dpr=3&usm=20",
+                                    "https://triad.imgix.net/os/i/nav/new-baby-food.jpeg?w=400&q=10&dpr=4&usm=20"
+                                );
+                            }
+                            &.clothes .dropdown-image, &.clothes [class^="dropdown-image-"], &.clothes [class*=" dropdown-image-"] {
+                                @include Background(
+                                    "https://triad.imgix.net/os/i/nav/clothes.jpg?w=280&q=80&usm=50&sat=30",
+                                    "https://triad.imgix.net/os/i/nav/clothes.jpg?w=280&q=60&dpr=1.5&usm=50&sat=30",
+                                    "https://triad.imgix.net/os/i/nav/clothes.jpg?w=280&q=40&dpr=2&usm=50&sat=30",
+                                    "https://triad.imgix.net/os/i/nav/clothes.jpg?w=280&q=20&dpr=3&usm=50&sat=30",
+                                    "https://triad.imgix.net/os/i/nav/clothes.jpg?w=280&q=10&dpr=4&usm=50&sat=30"
+                                );
+                            }
+                            &.diapers .dropdown-image, &.diapers [class^="dropdown-image-"], &.diapers [class*=" dropdown-image-"] {
+                                @include Background(
+                                    "https://triad.imgix.net/os/i/nav/diapers.jpeg?w=420&q=80&sat=30",
+                                    "https://triad.imgix.net/os/i/nav/diapers.jpeg?w=420&q=60&dpr=1.5&sat=30",
+                                    "https://triad.imgix.net/os/i/nav/diapers.jpeg?w=420&q=40&dpr=2&sat=30",
+                                    "https://triad.imgix.net/os/i/nav/diapers.jpeg?w=420&q=20&dpr=3&sat=30",
+                                    "https://triad.imgix.net/os/i/nav/diapers.jpeg?w=420&q=10&dpr=4&sat=30"
+                                );
+                            }
+                            &.mommy .dropdown-image, &.mommy [class^="dropdown-image-"], &.mommy [class*=" dropdown-image-"] {
+                                @include Background(
+                                    "https://triad.imgix.net/os/i/nav/mommy.jpeg?w=400&q=80&usm=30&sat=30",
+                                    "https://triad.imgix.net/os/i/nav/mommy.jpeg?w=400&q=60&dpr=1.5&usm=30&sat=30",
+                                    "https://triad.imgix.net/os/i/nav/mommy.jpeg?w=400&q=40&dpr=2&usm=30&sat=30",
+                                    "https://triad.imgix.net/os/i/nav/mommy.jpeg?w=400&q=20&dpr=3&usm=30&sat=30",
+                                    "https://triad.imgix.net/os/i/nav/mommy.jpeg?w=400&q=10&dpr=4&usm=30&sat=30"
+                                );
+                            }
+                            &.toys .dropdown-image, &.toys [class^="dropdown-image-"], &.toys [class*=" dropdown-image-"] {
+                                @include Background(
+                                    "https://triad.imgix.net/os/i/nav/toys.jpeg?w=420&q=80&sat=80",
+                                    "https://triad.imgix.net/os/i/nav/toys.jpeg?w=420&q=60&dpr=1.5&sat=80",
+                                    "https://triad.imgix.net/os/i/nav/toys.jpeg?w=420&q=40&dpr=2&sat=80",
+                                    "https://triad.imgix.net/os/i/nav/toys.jpeg?w=420&q=20&dpr=3&sat=80",
+                                    "https://triad.imgix.net/os/i/nav/toys.jpeg?w=420&q=10&dpr=4&sat=80"
+                                );
+                            }
                         }
                     }
                 }
