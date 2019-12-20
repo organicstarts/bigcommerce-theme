@@ -52,21 +52,18 @@
 
                 & h3 {
                     //@include FluidType(320px, 2560px, 24px, 48px, 0px, 1px);
-                    font-family: Fredoka One, cursive;
+                    font-family: $header-font;
+                    font-weight: 400;
                     line-height: 1;
                     font-size: 1.5rem;
-                    letter-spacing: 0.5px;
                     @media screen and (min-width:425px) {
                         font-size: 2rem;
-                        letter-spacing: 2px;
                     }
                     @media screen and (min-width:1024px) {
                         font-size: 2rem;
-                        letter-spacing: 2px;
                     }
                     @media screen and (min-width:2560px) {
                         font-size: 3rem;
-                        letter-spacing: 3px;
                     }
                     color: #fff;
                     margin: 0 0 0.5rem 0;

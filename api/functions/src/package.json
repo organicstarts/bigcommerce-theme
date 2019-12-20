@@ -1,0 +1,17 @@
+{
+  "name": "bigcommerce",
+  "version": "1.0.0",
+  "description": "Custom BigCommerce API v3 Helper Functions.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.5",
+    "request-promise-cache": "^2.0.1"
+  },
+  "author": "",
+  "private": true
+}

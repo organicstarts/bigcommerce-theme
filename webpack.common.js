@@ -14,8 +14,13 @@ module.exports = {
     context: __dirname,
     entry: {
         main: './assets/js/app.js',
+        homejs: './assets/js/os/home.js',
+        productsjs: './assets/js/os/products.js',
+        categoriesjs: './assets/js/os/categories.js',
         style: './assets/scss/os/index.scss',
         home: './assets/scss/os/pages/home/index.scss',
+        products: './assets/scss/os/pages/products.scss',
+        categories: './assets/scss/os/pages/categories.scss'
     },
     optimization: {
       minimize: true,

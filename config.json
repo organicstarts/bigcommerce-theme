@@ -63,6 +63,8 @@
     "productgallery_size": "500x659",
     "product_size": "500x659",
     "productview_thumb_size": "50x50",
+    "loading_size": "50x50",
+    "cardthumb_size": "190x190",
     "productthumb_size": "100x100",
     "thumb_size": "100x100",
     "zoom_size": "1280x1280",

@@ -9,7 +9,11 @@ product:
     similar_by_views:
         limit: {{theme_settings.productpage_similar_by_views_count}}
 ---
+{{#partial "styles"}}
+    {{{stylesheet '/assets/dist/products.css'}}}
+{{/partial}}
 {{#partial "scripts"}}
+    <script src="{{cdn 'assets/dist/theme-bundle.productsjs.js'}}"></script>
     <script>
         window.renderProducts();
     </script>
@@ -25,7 +29,7 @@ product:
     {{#if product.related_products}}
         <section class="my-5 my-lg-8 my-xl-10" id="SimilarProducts" data-spy="scroll">
             <div class="container">
-                <h3 class="display-4 mb-5 text-lg-center text-gray-800">{{lang 'products.related_products'}}</h3>
+                <h3 class="carousel-title">{{lang 'products.related_products'}}</h3>
             </div>
             {{#if settings.data_tag_enabled}}
                 {{> os/components/products/carousel products=product.related_products list="Related Products" wrap="false" align="center"}}
@@ -37,7 +41,7 @@ product:
     {{#if product.similar_by_views}}
         <section class="my-5 my-lg-8 my-xl-10" id="SimilarProducts" data-spy="scroll">
             <div class="container">
-                <h3 class="display-4 mb-5 text-lg-center text-gray-800">{{lang 'products.similar_by_views'}}</h3>
+                <h3 class="carousel-title">{{lang 'products.similar_by_views'}}</h3>
             </div>
             {{> os/components/products/carousel products=product.similar_by_views columns=6 list="Customers Also Viewed" wrap="false" align="center"}}
         </section>

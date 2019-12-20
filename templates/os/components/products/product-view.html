@@ -5,7 +5,7 @@
         </div>
     </div>
 {{/if}}
-<div class="product" {{#if settings.data_tag_enabled}} data-event-type="product" data-entity-id="{{product.id}}" data-name="{{product.title}}" data-product-category="{{#each product.category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{product.brand.name}}" data-product-price="{{#if product.price.with_tax}}{{product.price.with_tax.value}}{{else}}{{product.price.without_tax.value}}{{/if}}" data-product-variant="single-product-option"{{/if}}>
+<div class="productView" {{#if settings.data_tag_enabled}} data-event-type="product" data-entity-id="{{product.id}}" data-name="{{product.title}}" data-product-category="{{#each product.category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{product.brand.name}}" data-product-price="{{#if product.price.with_tax}}{{product.price.with_tax.value}}{{else}}{{product.price.without_tax.value}}{{/if}}" data-product-variant="single-product-option"{{/if}}>
     <div class="product-jumbotron">
         <div class="container">
             <div class="left">
@@ -134,7 +134,7 @@
                                 <meta itemprop="ratingCount" content="{{product.num_reviews}}">
                                 <meta itemprop="reviewCount" content="{{product.num_reviews}}">
                             {{/if}}
-                            {{#if product.num_reviews '==' 0}}{{> os/components/products/ratings rating=0}}{{else}}{{> os/components/products/ratings rating=(avg (pluck reviews.list 'rating'))}}{{/if}} <span>{{#if product.num_reviews '==' 0}}No customer reviews yet{{else}}{{toFixed  (avg (pluck reviews.list 'rating')) 1}} out of 5.0 based on {{product.num_reviews}} {{#if product.num_reviews '==' 1}}review{{else}}reviews{{/if}}{{/if}}.</span>
+                            {{#if product.num_reviews '==' 0}}{{> os/components/products/ratings rating=0}}{{else}}{{> os/components/products/ratings rating=(avg (pluck reviews.list 'rating'))}}{{/if}} <small>{{#if product.num_reviews '==' 0}}No customer reviews yet{{else}}{{toFixed  (avg (pluck reviews.list 'rating')) 1}} out of 5.0 based on {{product.num_reviews}} {{#if product.num_reviews '==' 1}}review{{else}}reviews{{/if}}{{/if}}.</small>
                         {{/if}}
                     </div>
                 {{/if}}
@@ -203,63 +203,42 @@
                                 <svg width="24" height="24" viewBox="0 0 24 24"><path d="M15.91 13.34l2.636-4.026-.454-.406-3.673 3.099c-.675-.138-1.402.068-1.894.618-.736.823-.665 2.088.159 2.824.824.736 2.088.665 2.824-.159.492-.55.615-1.295.402-1.95zm-3.91-10.646v-2.694h4v2.694c-1.439-.243-2.592-.238-4 0zm8.851 2.064l1.407-1.407 1.414 1.414-1.321 1.321c-.462-.484-.964-.927-1.5-1.328zm-18.851 4.242h8v2h-8v-2zm-2 4h8v2h-8v-2zm3 4h7v2h-7v-2zm21-3c0 5.523-4.477 10-10 10-2.79 0-5.3-1.155-7.111-3h3.28c1.138.631 2.439 1 3.831 1 4.411 0 8-3.589 8-8s-3.589-8-8-8c-1.392 0-2.693.369-3.831 1h-3.28c1.811-1.845 4.321-3 7.111-3 5.523 0 10 4.477 10 10z"/></svg> Only {{product.stock_level}} remaining! This item may sell out soon!
                             </div>
                         {{/if}}
-                        {{#if product.price.without_tax.value '<' 15}}
+                        {{#if product.price.without_tax.value '<' 25}}
                             <div class="info item d-none">
-                                    <svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-.001 5.75c.69 0 1.251.56 1.251 1.25s-.561 1.25-1.251 1.25-1.249-.56-1.249-1.25.559-1.25 1.249-1.25zm2.001 12.25h-4v-1c.484-.179 1-.201 1-.735v-4.467c0-.534-.516-.618-1-.797v-1h3v6.265c0 .535.517.558 1 .735v.999z"/></svg> Free Shipping with orders over $15.
+                                    <svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-.001 5.75c.69 0 1.251.56 1.251 1.25s-.561 1.25-1.251 1.25-1.249-.56-1.249-1.25.559-1.25 1.249-1.25zm2.001 12.25h-4v-1c.484-.179 1-.201 1-.735v-4.467c0-.534-.516-.618-1-.797v-1h3v6.265c0 .535.517.558 1 .735v.999z"/></svg> Free Shipping with orders over $25.
                             </div>
                         {{/if}}
                         <div class="shipping item">
-                            <svg width="24" height="24" viewBox="0 0 24 24"><path d="M11 6v8h7v-2h-5v-6h-2zm10.854 7.683l1.998.159c-.132.854-.351 1.676-.652 2.46l-1.8-.905c.2-.551.353-1.123.454-1.714zm-2.548 7.826l-1.413-1.443c-.486.356-1.006.668-1.555.933l.669 1.899c.821-.377 1.591-.844 2.299-1.389zm1.226-4.309c-.335.546-.719 1.057-1.149 1.528l1.404 1.433c.583-.627 1.099-1.316 1.539-2.058l-1.794-.903zm-20.532-5.2c0 6.627 5.375 12 12.004 12 1.081 0 2.124-.156 3.12-.424l-.665-1.894c-.787.2-1.607.318-2.455.318-5.516 0-10.003-4.486-10.003-10s4.487-10 10.003-10c2.235 0 4.293.744 5.959 1.989l-2.05 2.049 7.015 1.354-1.355-7.013-2.184 2.183c-2.036-1.598-4.595-2.562-7.385-2.562-6.629 0-12.004 5.373-12.004 12zm23.773-2.359h-2.076c.163.661.261 1.344.288 2.047l2.015.161c-.01-.755-.085-1.494-.227-2.208z"/></svg> <span>Ships for FREE {{#if product.price.without_tax.value '<' 15}}with orders over $15 {{/if}}&nbsp;<span id="nextBusinessDay">on the next business day.</span><span id="arrival" class="small"></span></span>
+                            <svg width="24" height="24" viewBox="0 0 24 24"><path d="M11 6v8h7v-2h-5v-6h-2zm10.854 7.683l1.998.159c-.132.854-.351 1.676-.652 2.46l-1.8-.905c.2-.551.353-1.123.454-1.714zm-2.548 7.826l-1.413-1.443c-.486.356-1.006.668-1.555.933l.669 1.899c.821-.377 1.591-.844 2.299-1.389zm1.226-4.309c-.335.546-.719 1.057-1.149 1.528l1.404 1.433c.583-.627 1.099-1.316 1.539-2.058l-1.794-.903zm-20.532-5.2c0 6.627 5.375 12 12.004 12 1.081 0 2.124-.156 3.12-.424l-.665-1.894c-.787.2-1.607.318-2.455.318-5.516 0-10.003-4.486-10.003-10s4.487-10 10.003-10c2.235 0 4.293.744 5.959 1.989l-2.05 2.049 7.015 1.354-1.355-7.013-2.184 2.183c-2.036-1.598-4.595-2.562-7.385-2.562-6.629 0-12.004 5.373-12.004 12zm23.773-2.359h-2.076c.163.661.261 1.344.288 2.047l2.015.161c-.01-.755-.085-1.494-.227-2.208z"/></svg> <span>Ships for FREE {{#if product.price.without_tax.value '<' 25}}with orders over $25{{/if}}&nbsp;<span id="nextBusinessDay">on the next business day.</span><span id="arrival" class="small"></span></span>
                         </div>
                     </div>
                     {{#if product.can_purchase}}
-                        <div class="product-atc">
-                            {{#if theme_settings.show_product_quantity_box}}
-                                <div class="form-field form-field--increments">
-                                    <label class="form-label form-label--alternate"
-                                        for="qty[]">{{lang 'products.quantity'}}</label>
-                                        <div class="form-increment" data-quantity-change>
-                                            <button data-action="dec">
-                                                <span class="is-srOnly">{{lang 'products.quantity_decrease'}}</span>
-                                                <i class="fas fa-minus" aria-hidden="true"></i>
-                                            </button>
-                                            <input class="form-input form-input--incrementTotal"
-                                                id="qty[]"
-                                                name="qty[]"
-                                                type="tel"
-                                                value="{{#if product.min_purchase_quantity}}{{product.min_purchase_quantity}}{{else}}1{{/if}}"
-                                                data-quantity-min="{{product.min_purchase_quantity}}"
-                                                data-quantity-max="{{product.max_purchase_quantity}}"
-                                                min="1"
-                                                pattern="[0-9]*"
-                                                aria-live="polite">
-                                            <button data-action="inc">
-                                                <span class="is-srOnly">{{lang 'products.quantity_increase'}}</span>
-                                                <i class="fas fa-plus" aria-hidden="true"></i>
-                                            </button>
-                                        </div>
-                                </div>
-                            {{/if}}
-
-                            <div class="alertBox productAttributes-message" style="display:none">
-                                <div class="alertBox-column alertBox-icon">
-                                    <icon glyph="ic-success" class="icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg></icon>
-                                </div>
-                                <p class="alertBox-column alertBox-message"></p>
+                        <form class="form" method="post" action="{{product.cart_url}}" enctype="multipart/form-data"
+                        data-cart-item-add>
+                            <input type="hidden" name="action" value="add">
+                            <input type="hidden" name="product_id" value="{{product.id}}"/>
+                            <div data-product-option-change style="display:none;">
+                                {{#each product.options}}
+                                    {{{dynamicComponent 'components/products/options'}}}
+                                {{/each}}
                             </div>
-                            {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
-                                <div class="form-action">
-                                    <button id="form-action-addToCart" data-wait-message="{{lang 'products.adding_to_cart'}}" type="submit">
-                                        {{#if product.pre_order}}
-                                            {{lang 'products.pre_order'}}
-                                        {{else}}
-                                             <svg class="icon"><use xlink:href="#plus"></use></svg> {{lang 'products.add_to_cart'}}
-                                        {{/if}}
-                                    </button>
-                                </div>
-                                {{{snippet 'product_addtocart'}}}
-                            {{/or}}
-                        </div>
+                            <div class="form-field form-field--stock{{#unless product.stock_level}} u-hiddenVisually{{/unless}} d-none">
+                                <label class="form-label form-label--alternate">
+                                    {{lang 'products.current_stock'}}
+                                    <span data-product-stock>{{product.stock_level}}</span>
+                                </label>
+                            </div>
+                            {{#if product.can_purchase}}
+                                {{> components/products/add-to-cart}}
+                            {{/if}}
+                            {{#if product.out_of_stock}}
+                                {{#if product.out_of_stock_message}}
+                                    {{> components/common/alert-error product.out_of_stock_message}}
+                                {{else}}
+                                    {{> components/common/alert-error (lang 'products.sold_out')}}
+                                {{/if}}
+                            {{/if}}
+                        </form>
                     {{/if}}
                 {{/if}}
             </div>
@@ -344,156 +323,4 @@
             </tbody>
         </table>
     </div>
-
-</div>
-
-
-
-<div class="bg-white py-2 py-lg-4 d-none">
-    <div class="container">
-        <div class="productView" {{#if settings.data_tag_enabled}} data-event-type="product" data-entity-id="{{product.id}}" data-name="{{product.title}}" data-product-category="{{#each product.category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{product.brand.name}}" data-product-price="{{#if product.price.with_tax}}{{product.price.with_tax.value}}{{else}}{{product.price.without_tax.value}}{{/if}}" data-product-variant="single-product-option"{{/if}}>
-            {{#each product.reviews.messages}}
-                {{#if error}}
-                    {{> components/common/alert-error error}}
-                {{/if}}
-                {{#if success}}
-                    {{> components/common/alert-success success}}
-                {{/if}}
-            {{/each}}
-
-            <div class="row justify-content-center align-items-center">
-                <div class="col-8 col-sm-6 col-md-4 offset-md-0 productView-images" 
-                </div>
-                <div class="col-10 col-md-8">
-
-                    
-
-
-                    {{#contains name "Add-on"}}
-                        <p class="mt-2 mb-2">
-                            <a class="ui large teal label">Add-on Item</a> <strong>Only ships with qualifying orders over $25.</strong>
-                        </p>
-                    {{/contains}}
-
-                    {{{region name="product_below_price"}}}
-                    
-                    <div class="productView-options">
-                        {{#if product.release_date }}
-                            <p>{{product.release_date}}</p>
-                        {{/if}}
-                        <form class="form" method="post" action="{{product.cart_url}}" enctype="multipart/form-data"
-                            data-cart-item-add>
-                            <input type="hidden" name="action" value="add">
-                            <input type="hidden" name="product_id" value="{{product.id}}"/>
-                            <div data-product-option-change style="display:none;">
-                                {{#each product.options}}
-                                    {{{dynamicComponent 'components/products/options'}}}
-                                {{/each}}
-                            </div>
-                            <div class="d-none form-field form-field--stock{{#unless product.stock_level}} u-hiddenVisually{{/unless}}">
-                                <label class="form-label form-label--alternate">
-                                    {{lang 'products.current_stock'}}
-                                    <span data-product-stock>{{product.stock_level}}</span>
-                                </label>
-                            </div>
-                        </form>
-                        {{#if settings.show_wishlist}}
-                            {{> components/common/wishlist-dropdown}}
-                        {{/if}}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="container-sm d-none">
-    {{product.detail_messages}}
-    <dl class="productView-info">
-        <dt class="productView-info-name sku-label"{{#unless product.sku}} style="display: none;"{{/unless}}>{{lang 'products.sku'}}</dt>
-        <dd class="productView-info-value" data-product-sku>{{product.sku}}</dd>
-        <dt class="productView-info-name upc-label"{{#unless product.upc}} style="display: none;"{{/unless}}>{{lang 'products.upc'}}</dt>
-        <dd class="productView-info-value" data-product-upc>{{product.upc}}</dd>
-        {{#if product.condition}}
-            <dt class="productView-info-name">{{lang 'products.condition'}}</dt>
-            <dd class="productView-info-value">{{product.condition}}</dd>
-        {{/if}}
-        {{#if product.availability}}
-            <dt class="productView-info-name">{{lang 'products.availability'}}</dt>
-            <dd class="productView-info-value">{{product.availability}}</dd>
-        {{/if}}
-        {{#all product.weight theme_settings.show_product_weight}}
-            <dt class="productView-info-name">{{lang 'products.weight'}}</dt>
-            <dd class="productView-info-value" data-product-weight>{{product.weight}}</dd>
-        {{/all}}
-        {{#all product.width product.height product.depth theme_settings.show_product_dimensions}}
-            <dt class="productView-info-name">{{lang 'products.width'}}</dt>
-            <dd class="productView-info-value" data-product-width>
-                {{product.width}}
-                {{#if settings.measurements.length '==' 'Centimeters'}}
-                ({{lang 'products.measurement.metric'}})
-                {{else}}
-                ({{lang 'products.measurement.imperial'}})
-                {{/if}}
-            </dd>
-            <dt class="productView-info-name">{{lang 'products.height'}}</dt>
-            <dd class="productView-info-value" data-product-height>
-                {{product.height}}
-                {{#if settings.measurements.length '==' 'Centimeters'}}
-                ({{lang 'products.measurement.metric'}})
-                {{else}}
-                ({{lang 'products.measurement.imperial'}})
-                {{/if}}
-            </dd>
-            <dt class="productView-info-name">{{lang 'products.depth'}}</dt>
-            <dd class="productView-info-value" data-product-depth>
-                {{product.depth}}
-                {{#if settings.measurements.length '==' 'Centimeters'}}
-                ({{lang 'products.measurement.metric'}})
-                {{else}}
-                ({{lang 'products.measurement.imperial'}})
-                {{/if}}
-            </dd>
-        {{/all}}
-        {{#if product.min_purchase_quantity}}
-            <dt class="productView-info-name">{{lang 'products.min_purchase_quantity'}}</dt>
-            <dd class="productView-info-value">{{lang 'products.purchase_units' quantity=product.min_purchase_quantity}}</dd>
-        {{/if}}
-        {{#if product.max_purchase_quantity}}
-            <dt class="productView-info-name">{{lang 'products.max_purchase_quantity'}}</dt>
-            <dd class="productView-info-value">{{lang 'products.purchase_units' quantity=product.max_purchase_quantity}}</dd>
-        {{/if}}
-        {{#if product.gift_wrapping_available}}
-            <dt class="productView-info-name">{{lang 'products.gift_wrapping'}}</dt>
-            <dd class="productView-info-value">{{lang 'products.gift_wrapping_available'}}</dd>
-        {{/if}}
-        {{#if product.shipping}}
-            {{#if product.shipping.calculated}}
-                <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
-                <dd class="productView-info-value">{{lang 'products.shipping_calculated'}}</dd>
-            {{else}}
-                {{#if product.shipping.price.value '===' 0}}
-                    <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
-                    <dd class="productView-info-value">{{lang 'products.shipping_free'}}</dd>
-                {{else}}
-                    <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
-                    <dd class="productView-info-value">{{lang 'products.shipping_fixed' amount=product.shipping.price.formatted}}</dd>
-                {{/if}}
-            {{/if}}
-        {{/if}}
-
-        {{#if settings.bulk_discount_enabled}}
-            <div class="productView-info-bulkPricing">
-                {{> components/products/bulk-discount-rates bulk_discount_rates=product.bulk_discount_rates}}
-            </div>
-        {{/if}}
-
-        {{#each product.custom_fields}}
-            <dt class="productView-info-name">{{name}}:</dt>
-            <dd class="productView-info-value">{{{value}}}</dd>
-        {{/each}}
-    </dl>
-    {{> components/common/share}}
-    {{{snippet 'product_details'}}}
 </div>

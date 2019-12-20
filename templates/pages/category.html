@@ -15,15 +15,24 @@ category:
     {{/if}}
 {{/partial}}
 
-{{#partial "scripts"}}
-
-{{/partial}}
+{{#or (if category.name '==' "Baby Care") (if category.name '==' "Baby Food") (if category.name '==' "Clothes") (if category.name '==' "Diapers") (if category.name '==' "Toys") (if category.name '==' "Mommy")}}
+    {{#partial "styles"}}
+        {{{stylesheet '/assets/dist/categories.css'}}}
+    {{/partial}}
+    {{#partial "scripts"}}
+        <script src="{{cdn 'assets/dist/theme-bundle.categoriesjs.js'}}"></script>
+        <script>
+            window.renderCategories();
+        </script>
+    {{/partial}}
+{{/or}}
 
 {{#partial "header"}} 
     <header>
         <div class="header-title bg-{{category.id}}">
             <div class="tint">
-                {{#if category.name '==' 'Babo Botanicals'}}
+             
+             <!---->   {{#if category.name '==' 'Babo Botanicals'}}
                     <img src="https://triad.imgix.net/os/i/brands/babo-botanicals.svg" alt="{{category.name}}" title="{{category.name}}">
                 {{else if category.name '==' 'Bambo Nature'}}
                     <img src="https://triad.imgix.net/os/i/brands/bambo-nature.svg" alt="{{category.name}}" title="{{category.name}}">
@@ -84,79 +93,99 @@ category:
                 {{/if}}
             </div>
         </div>
-        {{> os/components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+        <!--
+            {{> os/components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+        -->
     </header>
 {{/partial}}
 
 {{#partial "page"}}
-    {{#if category.subcategories}}
-        <div class="container mt-4">
-            <div class="category-carousel">
-                <div class="title ml-1 mb-1">Subcategories</div>
-                <div class="nav-carousel">
-                    <div class="swiper-wrapper">
-                        {{#each category.subcategories}}
-                            <a class="nav-item link-unstyled swiper-slide" href="{{url}}" alt="{{name}}" title="{{name}}">{{name}}</a>
-                        {{/each}}
+    {{#or (if category.name '==' "Baby Care") (if category.name '==' "Baby Food") (if category.name '==' "Clothes") (if category.name '==' "Diapers") (if category.name '==' "Mommy")}}
+        <div id="subcategories">
+            {{#each category.subcategories}}
+                <h2>{{name}}</h2>
+                <div id="subcategory{{id}}">
+                    <div class="products swiper-container">
+                        <div class="swiper-wrapper">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="more-button">
+                    <a href="{{url}}" alt="{{name}}" title="{{name}}">View All {{name}} <svg class="icon"><use xlink:href="#arrowRight" /></svg></a>
+                </div>
+            {{/each}}
+        </div>
+    {{else}}
+        {{#if category.subcategories}}
+            <div class="container mt-4">
+                <div class="category-carousel">
+                    <div class="title ml-1 mb-1">Subcategories</div>
+                    <div class="nav-carousel">
+                        <div class="swiper-wrapper">
+                            {{#each category.subcategories}}
+                                <a class="nav-item link-unstyled swiper-slide" href="{{url}}" alt="{{name}}" title="{{name}}">{{name}}</a>
+                            {{/each}}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    {{/if}}
+        {{/if}}
 
-    {{#if category.description}}
-        <div class="container my-4">
-            {{{category.description}}}
-            <div class="ui divider"></div>
-        </div>
-    {{/if}}
+        {{#if category.description}}
+            <div class="container my-4">
+                {{{category.description}}}
+                <div class="ui divider"></div>
+            </div>
+        {{/if}}
 
-    {{{snippet 'categories'}}}
-    
-    {{#if category.products}}
-        <div class="container mt-4">
-            <!--<div class="row">
-                <aside class="col-12 col-lg-3" id="faceted-search-container">
-                    {{#if category.faceted_search_enabled}}
-                        {{> os/components/category/sidebar}}
-                    {{else if category.subcategories}}
-                        {{> os/components/category/sidebar}}
-                    {{else if category.shop_by_price}}
-                        {{#if theme_settings.shop_by_price_visibility}}
+        {{{snippet 'categories'}}}
+        
+        {{#if category.products}}
+            <div class="container mt-4">
+                <!--<div class="row">
+                    <aside class="col-12 col-lg-3" id="faceted-search-container">
+                        {{#if category.faceted_search_enabled}}
                             {{> os/components/category/sidebar}}
+                        {{else if category.subcategories}}
+                            {{> os/components/category/sidebar}}
+                        {{else if category.shop_by_price}}
+                            {{#if theme_settings.shop_by_price_visibility}}
+                                {{> os/components/category/sidebar}}
+                            {{/if}}
                         {{/if}}
+                    </aside>
+                    <main class="col-12 col-lg-9 page-content" id="product-listing-container">
+                        
+                    </main>
+                </div>-->
+
+                {{> os/components/products/filter sort=pagination.category.sort}}
+
+            </div>
+            <form action="{{urls.compare}}" method='POST' {{#if settings.data_tag_enabled}} data-list-name="Category: {{category.name}}" {{/if}} data-product-compare>
+                {{#if theme_settings.product_list_display_mode '===' 'grid'}}
+                    {{#if settings.data_tag_enabled}}
+                        {{> os/components/products/grid products=category.products show_compare=category.show_compare theme_settings=theme_settings event="list" }}
+                    {{else}}
+                        {{> os/components/products/grid products=category.products show_compare=category.show_compare theme_settings=theme_settings}}
                     {{/if}}
-                </aside>
-                <main class="col-12 col-lg-9 page-content" id="product-listing-container">
-                    
-                </main>
-            </div>-->
-
-            {{> os/components/products/filter sort=pagination.category.sort}}
-
-        </div>
-        <form action="{{urls.compare}}" method='POST' {{#if settings.data_tag_enabled}} data-list-name="Category: {{category.name}}" {{/if}} data-product-compare>
-            {{#if theme_settings.product_list_display_mode '===' 'grid'}}
-                {{#if settings.data_tag_enabled}}
-                    {{> os/components/products/grid products=category.products show_compare=category.show_compare theme_settings=theme_settings event="list" }}
                 {{else}}
-                    {{> os/components/products/grid products=category.products show_compare=category.show_compare theme_settings=theme_settings}}
+                    {{#if settings.data_tag_enabled}}
+                        {{> os/components/products/list products=category.products show_compare=category.show_compare theme_settings=theme_settings event="list" }}
+                    {{else}}
+                        {{> os/components/products/list products=category.products show_compare=category.show_compare theme_settings=theme_settings}}
+                    {{/if}}
                 {{/if}}
-            {{else}}
-                {{#if settings.data_tag_enabled}}
-                    {{> os/components/products/list products=category.products show_compare=category.show_compare theme_settings=theme_settings event="list" }}
-                {{else}}
-                    {{> os/components/products/list products=category.products show_compare=category.show_compare theme_settings=theme_settings}}
-                {{/if}}
-            {{/if}}
-        </form>
-        <div class="container">
-            {{> os/components/common/paginator pagination.category}}
-        </div>
-    {{else}}
-        <div class="container">
-            <h2 class="h4 my-10">{{lang 'categories.no_products'}}</h2>
-        </div>
-    {{/if}}
+            </form>
+            <div class="container">
+                {{> os/components/common/paginator pagination.category}}
+            </div>
+        {{else}}
+            <div class="container">
+                <h2 class="h4 my-10">{{lang 'categories.no_products'}}</h2>
+            </div>
+        {{/if}}
+    {{/or}}
 {{/partial}}
 {{> layout/base}}

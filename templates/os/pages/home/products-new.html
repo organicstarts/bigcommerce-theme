@@ -1,0 +1,8 @@
+
+
+    {{#if products.new}}
+    <section id="new-products">
+        <h2>{{lang 'products.new' }}</h2>
+        {{> os/components/products/carousel products=products.new name=(lang 'products.new') wrap="true"}}
+    </section>
+{{/if}}

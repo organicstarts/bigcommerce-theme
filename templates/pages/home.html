@@ -11,9 +11,11 @@ blog:
     recent_posts:
         limit: {{theme_settings.homepage_blog_posts_count}}
 ---
-
-{{#partial "scripts"}}
+{{#partial "styles"}}
     {{{stylesheet '/assets/dist/home.css'}}}
+{{/partial}}
+{{#partial "scripts"}}
+    <script src="{{cdn 'assets/dist/theme-bundle.homejs.js'}}"></script>
     <script>
         window.renderHome();
     </script>
@@ -23,7 +25,7 @@ blog:
 
     {{> os/pages/home/formula }}
 
-    {{> os/pages/home/tiles }}
+    <!--{{> os/pages/home/tiles }}-->
 
     {{#if products.featured}}
         <section id="featured-products">
@@ -31,44 +33,47 @@ blog:
             {{> os/components/products/carousel products=products.featured type="featured" name=(lang 'products.featured') wrap="true"}}
         </section>
     {{/if}}
-
-    {{#if products.top_sellers}}
-        <section id="top-sellers" data-spy="scroll">
-            <h2>{{lang 'products.top' }}</h2>
-            {{> os/components/products/carousel products=products.top_sellers name=(lang 'products.top') wrap="true"}}
-        </section>
-    {{/if}}
-
-    {{> os/pages/home/serenity-kids }}
-
-    {{#if products.new}}
-        <section id="new-products">
-            <h2>{{lang 'products.new' }}</h2>
-            {{> os/components/products/carousel products=products.new name=(lang 'products.new') wrap="true"}}
-        </section>
-    {{/if}}
     
-    {{> os/pages/home/brands }}
+    <div class="divider bubbly top flipped offset" style="background:#fff;">
+        <svg version="1.1" fill="#fafafa" x="0px" y="0px" width="1185px" height="248px" viewBox="0 0 1185 248" enable-background="new 0 0 1185 248" xml:space="preserve" preserveAspectRatio="none"><circle cx='76' cy='121.1' r='20' class='a' fill="#93c11f"/><circle cx='870' cy='201.1' r='11' class='a' fill="#93c11f"/><circle cx='814.5' cy='165.6' r='24.5' class='a' fill="#ffc107"/><path d='M0 0v17.7c22.7 14.8 53 31.9 90.7 51.5 150.8 78 322 116.6 424.8 69.3 102.9-47.4 138-69.3 210.8-69.3s118.3 48.6 219.5 38.3 76.3-59.3 188.7-59.3c18.9 0 35.5 2.6 50.5 6.8V0H0z' class='a'/></svg>
+    </div>
+
+    {{> os/pages/home/crinkle-cloth }}
+
+    <div class="divider bubbly bottom offset">
+        <svg version="1.1" fill="#fff" x="0px" y="0px" width="1185px" height="248px" viewBox="0 0 1185 248" enable-background="new 0 0 1185 248" xml:space="preserve" preserveAspectRatio="none"><circle cx='76' cy='121.1' r='20' class='a' fill="#ffc107"/><circle cx='870' cy='201.1' r='11' class='a' fill="#ffc107"/><circle cx='814.5' cy='165.6' r='24.5' class='a' fill="#93c11f"/><path d='M0 0v17.7c22.7 14.8 53 31.9 90.7 51.5 150.8 78 322 116.6 424.8 69.3 102.9-47.4 138-69.3 210.8-69.3s118.3 48.6 219.5 38.3 76.3-59.3 188.7-59.3c18.9 0 35.5 2.6 50.5 6.8V0H0z' class='a'/></svg>
+    </div>
+    
+    {{> os/pages/home/puree }}
+
+    <div class="divider top">
+        <svg version="1.1" x="0px" y="0px" width="240px" height="24px" viewBox="0 0 240 24" enable-background="new 0 0 240 24" xml:space="preserve" preserveAspectRatio="none">
+            <path fill="#ffffff" fill-opacity="0.33" d="M240,24V0c-51.797,0-69.883,13.18-94.707,15.59c-24.691,2.4-43.872-1.17-63.765-1.08
+            c-19.17,0.1-31.196,3.65-51.309,6.58C15.552,23.21,4.321,22.471,0,22.01V24H240z"></path> <path fill="#ffffff" fill-opacity="0.33" d="M240,24V2.21c-51.797,0-69.883,11.96-94.707,14.16
+            c-24.691,2.149-43.872-1.08-63.765-1.021c-19.17,0.069-31.196,3.311-51.309,5.971C15.552,23.23,4.321,22.58,0,22.189V24h239.766H240
+            z"></path> <path fill="#ffffff" d="M240,24V3.72c-51.797,0-69.883,11.64-94.707,14.021c-24.691,2.359-43.872-3.25-63.765-3.17
+            c-19.17,0.109-31.196,3.6-51.309,6.529C15.552,23.209,4.321,22.47,0,22.029V24H240z"></path> 
+        </svg>
+    </div>
+
+    {{> os/pages/home/powder-nest-v2 }}
+
+
+    <div class="divider bottom inverted">
+        <svg version="1.1" x="0px" y="0px" width="240px" height="24px" viewBox="0 0 240 24" enable-background="new 0 0 240 24" xml:space="preserve" preserveAspectRatio="none"> 
+            <path fill="#ffffff" fill-opacity="0.33" d="M240,24V0c-51.797,0-69.883,13.18-94.707,15.59c-24.691,2.4-43.872-1.17-63.765-1.08
+            c-19.17,0.1-31.196,3.65-51.309,6.58C15.552,23.21,4.321,22.471,0,22.01V24H240z"></path> <path fill="#ffffff" fill-opacity="0.33" d="M240,24V2.21c-51.797,0-69.883,11.96-94.707,14.16
+            c-24.691,2.149-43.872-1.08-63.765-1.021c-19.17,0.069-31.196,3.311-51.309,5.971C15.552,23.23,4.321,22.58,0,22.189V24h239.766H240
+            z"></path> <path fill="#ffffff" d="M240,24V3.72c-51.797,0-69.883,11.64-94.707,14.021c-24.691,2.359-43.872-3.25-63.765-3.17
+            c-19.17,0.109-31.196,3.6-51.309,6.529C15.552,23.209,4.321,22.47,0,22.029V24H240z"></path>
+        </svg>
+    </div>
+
+    {{> os/pages/home/diapers }}
     
     {{> os/pages/home/categories }}
-
-    <!--<section class="position-relative">
-        <div class="shape shape-bottom shape-fluid-x svg-shim text-light">
-            <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="#fff"></path>
-            </svg>
-        </div>
-    </section>
-
-    {{> os/pages/home/powder-nest }}
-
-    <section class="position-relative">
-        <div class="shape shape-bottom shape-fluid-x svg-shim text-light">
-            <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="#fafafa"></path>
-            </svg>
-        </div>
-    </section>-->
+    
+    {{> os/pages/home/brands }}
     
 {{/partial}}
 

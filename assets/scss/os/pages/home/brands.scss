@@ -1,44 +1,44 @@
 
 #brands {
-    margin: 1rem 0;
+    background: #F4F8FF;
+    margin: 0;
+    padding: 1rem 0;
     @media (min-width: 1025px) {
         margin: 2rem 0;
     }
     & h2 {
-        color: #212121;
+        color: #37474f;
         margin: 1rem;
         @include FluidType(320px, 2560px, 32px, 64px, 0px, 1px);
         font-family: $font-family-base; //$header-font;
         @media (min-width: 1025px) {
-            color: #424242;
             font-family: $header-font;
             font-weight: 400;
             text-align: center;
         }
     }
+    & .container {
+        position: relative;
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 1rem;
+        @media (min-width: 768px) {
+            padding: 2rem;
+        }
+    }
     & .swiper {
         &-container {
-            padding: 1rem;
-            @media (min-width: 1025px) {
-                padding: 2rem 0;
-            }
-            @media (max-width: 1024px) {
-                background: #F5F5F5;
+            @media (min-width: 768px) {
+                padding: 2rem;
             }
         }
         &-slide {
-            padding: 1rem;
-
-            @media (max-width: 1024px) {
-                border-radius: 1rem;
-                background: #fff;
-                //@include BoxShadow(1);
+            border-radius: 1rem;
+            //background: #fff;
+            @media (min-width: 1025px) {
+                background: transparent;
             }
-
-            width: calc(50vw - 2rem);
-            max-width: 320px;
-            height: calc(50vw - 2rem);
-            max-height: 320px;
+            height: 100px;
             &_content {
                 height: 100%;
                 display: flex;
@@ -46,11 +46,79 @@
                 justify-content: center;
                 & img {
                     width: 100%;
-                    max-width: 256px;
-                    max-height: 256px;
+                    max-height: 100px;
                     margin: auto;
                 }
             }
+        }
+        &-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
+            -webkit-transition: transform .2s,left .2s;
+            transition: transform .2s,left .2s;
+        }
+        &-pagination {
+            position: relative;
+            text-align: center;
+            -webkit-transition: opacity .3s;
+            transition: opacity .3s;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            z-index: 10;
+            margin: 2rem auto auto;
+            &-bullets {
+                &-dynamic {
+                    left: 0;
+                    transform: none;
+                    white-space: nowrap;
+                }
+            }
+            &-bullet {
+                width: 8px;
+                height: 8px;
+                display: inline-block;
+                border-radius: 100%;
+                background: #000;
+                opacity: .2;
+
+                margin: 0 4px;
+
+                -webkit-transform: scale(.33);
+                transform: scale(.33);
+                position: relative;
+                &-active {
+                    opacity: 1;
+                    background: var(--swiper-theme-color);
+                    background: var(--swiper-pagination-color,var(--swiper-theme-color));
+                    -webkit-transform: scale(1);
+                    transform: scale(1);
+                    &-next, &-prev {
+                        -webkit-transform: scale(.66);
+                        transform: scale(.66);
+                    }
+                }
+            }
+            &-bullets-dynamic {
+                overflow: hidden;
+                font-size: 0;
+            }
+        }
+        &-button-prev, &-button-next {
+            padding: 1rem;
+            border-radius: 8px;
+            background: #fff;
+            box-shadow: 1px 1px 0 0 rgba(0,0,0,0.10);
+            &:after {
+                font-size: 1rem;
+                color: #404E65;
+            }
+            &, &:hover, &:focus, &:active {
+                outline: none;
+            }
+        }
+        &-button-prev {
+            left: -2rem;
+        }
+        &-button-next {
+            right: -2rem;
         }
     }
 }

@@ -1,0 +1,42 @@
+<div id="cart" aria-hidden="true">
+    <div class="loader">
+        <div class="loadingio-spinner-ellipsis-f44s2d1h54"><div class="ldio-bfkeftp5d2i">
+        <div></div><div></div><div></div><div></div><div></div>
+        </div></div>
+    </div>
+    <div class="wrapper">
+        <div class="header">
+            <p class="title">
+                Shopping Bag
+            </p>
+            <a href="#" class="toggle-cart" onClick="return false;">
+                &times;
+            </a>
+        </div>
+        <div class="header sub">
+            {{#if customer}}
+                <p>
+                    Welcome back, {{customer.name}}.
+                    {{#if customer.store_credit.value '>' 0}}<br><small>{{customer.store_credit.formatted}}&nbsp;STORE CREDIT</small>{{/if}}
+                </p>
+                <a href="{{urls.auth.logout}}" class="right">{{lang 'common.logout'}}</a>
+            {{else}}
+                <p>
+                    <a href="{{urls.auth.login}}">Sign in</a>&nbsp;or&nbsp;<a href="{{urls.auth.create_account}}">create an account</a>&nbsp;to use the Baby Bank.
+                </p>
+            {{/if}}
+        </div>
+        <div class="body">
+            <table>
+                <tbody id="cartItems">
+
+                </tbody>
+            </table>
+        </div>
+        <div id="checkoutButtons" class="footer">
+            <a href="/checkout">
+                Checkout 
+            </a>
+        </div>
+    </div>
+</div>

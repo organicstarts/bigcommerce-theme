@@ -68,7 +68,8 @@
 //  }
  
  *[class^="display-"], .display  {
-     font-family: $header-font
+     font-family: $header-font;
+     font-weight: 400;
  }
 //  .display-1 {
 //      @include FluidType(320px, 2560px, 48px, 96px, 0px, -1.5px);

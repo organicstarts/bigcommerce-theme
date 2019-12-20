@@ -35,12 +35,12 @@ $fa-font-path: "../../../node_modules/@fortawesome/fontawesome-free/webfonts";
 @import "elements/headers";
 @import "elements/images";
 @import "elements/links";
-@import "elements/reviews";
 @import "elements/type";
 
 // Specific universal components
 @import "components/common/footer";
 @import "components/common/logo";
+@import "components/common/cart";
 @import "components/common/newsletter";
 
 @import "components/cards";
@@ -51,7 +51,3 @@ $fa-font-path: "../../../node_modules/@fortawesome/fontawesome-free/webfonts";
 @import "components/segments";
 @import "components/sidebar";
 @import "components/swiper";
-
-// To-do: Seperate & only request on specific pages
-@import "pages/products";
-@import "pages/categories";

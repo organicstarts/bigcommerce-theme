@@ -1,0 +1,8 @@
+
+
+    {{#if products.top_sellers}}
+    <section id="top-sellers" data-spy="scroll">
+        <h2>{{lang 'products.top' }}</h2>
+        {{> os/components/products/carousel products=products.top_sellers name=(lang 'products.top') wrap="true"}}
+    </section>
+{{/if}}

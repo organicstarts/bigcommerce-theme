@@ -71,8 +71,8 @@ window.stencilBootstrap = function stencilBootstrap(pageType, contextJSON = null
             $(() => {
                 // Load globals
                 if (loadGlobal) {
-                    Global.load(context);
                     organicStart();
+                    Global.load(context);
                 }
 
                 const importPromises = [];

@@ -54,7 +54,6 @@
         }
     }
 }
-
 .category-card {
     position: relative;
     padding: 1rem;
@@ -103,6 +102,21 @@
         height: 100%;
         z-index: 0;
         background-repeat: no-repeat!important;
+    }
+    &:not(.powder-nest) h2 {
+        color: #fff;
+        text-shadow: 1px 1px 2rem rgba(0,0,0,.3);
+    }
+    & h2 {
+        padding: 1rem;
+        font-family: $header-font;
+        font-weight: 900;
+        @include FluidType(320px, 2560px, 36px, 48px, 0, 0);
+        text-align: center;
+        @media (min-width: 768px) {
+            text-align: left;
+            padding: 2rem;
+        }
     }
     &.powder-nest {
         & .pn-left {

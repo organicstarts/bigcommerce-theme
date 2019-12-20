@@ -2,10 +2,11 @@
   "name": "node-api",
   "version": "1.0.0",
   "description": "Create static json from APIs and deploy to firebase.",
-  "main": "./src/index.js",
+  "main": "index.js",
   "scripts": {
-    "build": "node ./src/index.js",
+    "build": "node ./index.js",
     "postbuild": "firebase deploy",
+    "deploy": "firebase deploy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -13,6 +14,8 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "request": "^2.88.0",
-    "request-promise": "^4.2.5"
+    "request-promise": "^4.2.5",
+    "request-promise-cache": "^2.0.1",
+    "bigcommerce": "file:functions/src"
   }
 }

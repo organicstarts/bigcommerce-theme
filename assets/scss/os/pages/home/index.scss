@@ -1,11 +1,13 @@
 @import "../../config.scss";
 @import "../../helpers/fluid-type.scss";
 //@import "./jumbotron.scss";
+@import "./crinkle-cloth.scss";
 @import "./formula.scss";
 @import "./brands.scss";
 @import "./categories.scss";
 @import "./tiles.scss";
-@import "./serenity-kids.scss";
+@import "./pn-v2.scss";
+//@import "./serenity-kids.scss";
 
 .bg-bundles {
     overflow: visible;
@@ -14,21 +16,15 @@
     background-position: center top;
     padding-top: 150px;
 }
-
-#new-products, #featured-products {
-    margin: 1rem 0;
-    @media (min-width: 1025px) {
-        margin: 2rem 0;
-    }
+#new-products, #featured-products, #diapers, #puree {
     & h2 {
         margin: 1rem;
-        @include FluidType(320px, 2560px, 32px, 64px, 0px, 1px);
-        font-family: $font-family-base; //$header-font;
+        @include FluidType(320px, 2560px, 24px, 64px, 0px, 0px);
+        font-family: $header-font;
+        font-weight: 400;
+        text-align: center;
         @media (min-width: 1025px) {
             color: #424242;
-            font-family: $header-font;
-            font-weight: 400;
-            text-align: center;
         }
     }
 }
@@ -52,82 +48,40 @@
     padding: 0!important;
 }
 
-.alert {
-    &-osw {
-        padding: 2rem 1rem;
-        background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(228,118,0,1) 0%, rgba(247,189,2,1) 90% );
-        & .wrap {
-            max-width: 768px;
-            margin: 0 auto;
-
-            display: flex;
-            flex-direction: column;
-            @media (min-width: 500px) {
-                flex-direction: row;
-                text-align: left;
-                & .right {
-                    margin-top: 0;
-                    margin-left: auto;
-                }
-            }
-            align-items: center;
-            justify-content: space-between;
-            text-align: center;
-            & h5 {
-                margin-bottom: 0.5rem;
-            }
-            & h5, & h6 {
-                color: #fff;
-            }
-            & h6 {
-                font-family: $font-family-base;
-                font-weight: 400;
-            }
-            & .right a {
-                display: block;
-                margin-top: 1rem;
-                padding: 0.5rem 2rem;
-                text-transform: uppercase;
-                color: #fff;
-                border-radius: 2rem;
-                background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(0,0,0,1) 0%, rgba(0,0,0,1) 90% );
-                box-shadow: 0 25px 99px 0 rgba(10,22,31,.05);
-                & > svg {
-                    fill: #fff;
-                    margin-left: 0.5rem;
-                }
-            }
+.divider {
+    position: relative;
+    pointer-events: none;
+    width: 100%;
+    //height: calc(100vw / 8);
+    & svg {
+        display: block;
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+    &.top {
+        margin-top: 1rem;
+        &.bubbly.offset {
+            margin-top: -10%;
+            transform: translateY(25%);
         }
     }
-    &-x1 {
-        width: 100%;
-
-        font-size: 1rem;
-        font-family: $font-family-base;
-        padding: 2rem 1rem;
-
-        color: #fff;
-        background-image: radial-gradient( circle farthest-corner at 10.6% 22.1%,  rgba(206,18,18,1) 0%, rgba(122,21,21,1) 100.7% );
-        & .wrap {
-            display: flex;
-            flex-direction: column;
-            @media (min-width: 768px) {
-                flex-direction: row;
-            }
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-
-            max-width: 1440px;
-            margin: 0 auto;
+    &.flipped svg {
+        transform: scaleX(-1);
+    }
+    &.bottom {
+        &.inverted {
+            transform: scaleX(-1) translateX(50%);
             & svg {
-                width: 1.25rem;
-                height: 1.25rem;
-                fill: #fff;
-                margin: 0 0 1rem 0;
-                @media (min-width: 768px) {
-                    margin: 0 1rem 0 0;
-                }
+                transform: translatex(-50%) scaley(-1);
+            }
+        }
+        &.bubbly.offset {
+            margin-top: 0;
+            transform: translateY(0);
+            @media (min-width: 768px) {
+                margin-top: -8%;
+                transform: translateY(15%);
             }
         }
     }

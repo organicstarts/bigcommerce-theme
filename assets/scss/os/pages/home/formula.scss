@@ -60,12 +60,14 @@
         & > h2 {
             color: #37474F;
             font-family: $header-font;
-            @include FluidType(320px, 2560px, 32px, 64px, 0.5px, 1px);
+            font-weight: 400;
+            @include FluidType(320px, 2560px, 32px, 64px, 0px, 0px);
             margin: 0 0 1rem 0;
         }
         & > h3 {
             color: #263238;
             font-family: $subheader-font;
+            font-weight: 400;
             @include FluidType(320px, 2560px, 24px, 40px, 0.25px, 0.75px);
             margin: 0 0 2rem 0;
         }

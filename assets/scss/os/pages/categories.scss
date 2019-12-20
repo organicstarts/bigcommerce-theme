@@ -1,3 +1,7 @@
+@import "../config.scss";
+@import "../helpers/fluid-type.scss";
+@import "../helpers/images.scss";
+
 $categories: (
     'baby-care',
     'baby-food',
@@ -453,3 +457,34 @@ $subcategories: (
 //         background-position: 50% 38%;
 //     }
 // }
+
+#subcategories {
+    & h2 {
+        margin: 1rem;
+        @include FluidType(320px, 2560px, 32px, 64px, 0px, 0px);
+        font-family: $header-font;
+        font-weight: 400;
+        @media (min-width: 1025px) {
+            text-align: center;
+            color: #424242;
+        }
+    }
+    & .more-button {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin: 1rem auto 2rem auto;
+        & a {
+            padding: 0.5rem 1rem;
+            color: #fff;
+            background: #93c11f;
+            border-radius: 2rem;
+            text-transform: uppercase;
+            font-weight: 400;
+            box-shadow: 0 25px 99px 0 rgba(10,22,31,.05);
+            & > svg {
+                fill: #fff;
+            }
+        }
+    }
+}

@@ -3,6 +3,7 @@
     "public": "public",
     "ignore": [
       "firebase.json",
+      ".env",
       "**/.*",
       "**/node_modules/**"
     ],
@@ -10,7 +11,18 @@
       {
         "source": "**",
         "destination": "/index.html"
+      },
+      {
+        "source": "/inventory", 
+        "function": "inventory"
       }
-    ]
+    ],
+    "headers": [ {
+      "source": "**/*.@(json)",
+      "headers": [ {
+        "key": "Access-Control-Allow-Origin",
+        "value": "*"
+      } ]
+    } ]
   }
 }

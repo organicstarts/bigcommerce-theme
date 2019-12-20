@@ -1,42 +1,23 @@
-require('dotenv').config();
-
 const path = require('path'),
-        fs = require('fs'),
-        request = require('request-promise');
+        fs = require('fs');
 
-const resolve = dir => path.join(__dirname, "./", dir),
-        prefix = slug => `${process.env.BC_URL}/${slug}`;
+const resolve = dir => path.join(__dirname, "./", dir);
 
-// Get Specific Categories
-// request({
-//     url: prefix('catalog/categories?name=Diapers'), headers: commonHeaders
-// }, (error, response, body) => {
-//     console.log(error);
-//     console.log(response);
-//     console.log(body);
-//     fs.writeFileSync(resolve('../private/catalog/categories.json'), body);
-// });
-
-const get = url => {
-    return request(prefix(url), {
-        headers: {
-            'X-Auth-Client': process.env.BC_ID,
-            'X-Auth-Token': process.env.BC_ACCESS
-        }
-    }).then(result => {
-        return JSON.parse(result).data;
-    });
-}
-const req = url => {
-    return request(prefix(url), {
-        headers: {
-            'X-Auth-Client': process.env.BC_ID,
-            'X-Auth-Token': process.env.BC_ACCESS
-        }
-    });
+const productParse = data => {
+    return {
+        id: data.id,
+        name: data.name,
+        price: data.price,
+        sale_price: data.sale_price ? Number(data.sale_price.toFixed(2)) : 0,
+        brand: data.brand.name || null,
+        brand_url: data.brand.custom_url.url || null,
+        rating: data.reviews_rating_sum || 0,
+        thumbnail: data.thumbnail.url_thumbnail || null,
+        url: data.custom_url.url
+    };
 }
 
-req('catalog/products?categories:in=142&is_visible=true&include_fields=id,brand_id,name,reviews_rating_sum,price,custom_url').then(result => {
+req('catalog/products?categories:in=142' + commonQueries).then(result => {
     var products = [], i = 0;
     JSON.parse(result).data.map(product => {
         products[i] = req(`catalog/products/${product.id}/images`).then(result => {
@@ -47,25 +28,18 @@ req('catalog/products?categories:in=142&is_visible=true&include_fields=id,brand_
             });
             return req(`catalog/brands/${product.brand_id}`).then(result => {
                 product.brand = JSON.parse(result).data;
-                return {
-                    id: product.id,
-                    name: product.name,
-                    brand: product.brand.name || null,
-                    brand_url: product.brand.custom_url.url || null,
-                    rating: product.reviews_rating_sum || 0,
-                    thumbnail: product.thumbnail.url_thumbnail || null,
-                    url: product.custom_url.url
-                };
+                return productParse(product);
             });
         });
         i++;
     });
     return Promise.all(products).then(result => {
         fs.writeFileSync(resolve('../public/home/diapers.json'), JSON.stringify(result));
+        console.log('Diapers written successfully.');
     });
 });
 
-req('catalog/products?categories:in=172,34&is_visible=true&include_fields=id,brand_id,name,reviews_rating_sum,price,custom_url').then(result => {
+req('catalog/products?categories:in=172,34' + commonQueries).then(result => {
     var products = [], i = 0;
     JSON.parse(result).data.map(product => {
         products[i] = req(`catalog/products/${product.id}/images`).then(result => {
@@ -76,21 +50,14 @@ req('catalog/products?categories:in=172,34&is_visible=true&include_fields=id,bra
             });
             return req(`catalog/brands/${product.brand_id}`).then(result => {
                 product.brand = JSON.parse(result).data;
-                return {
-                    id: product.id,
-                    name: product.name,
-                    brand: product.brand.name || null,
-                    brand_url: product.brand.custom_url.url || null,
-                    rating: product.reviews_rating_sum || 0,
-                    thumbnail: product.thumbnail.url_thumbnail || null,
-                    url: product.custom_url.url
-                };
+                return productParse(product);
             });
         });
         i++;
     });
     return Promise.all(products).then(result => {
         fs.writeFileSync(resolve('../public/home/puree.json'), JSON.stringify(result));
+        console.log('Puree written successfully.');
     });
 });
 

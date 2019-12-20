@@ -35,9 +35,15 @@
         <link href="https://cdn.jsdelivr.net" rel="preconnect" crossorigin>
         <link href="https://cdnjs.cloudflare.com" rel="preconnect" crossorigin>
 
-        <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Nunito:300,400,600,700,800|Open+Sans:300,400,600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Fredoka+One:400|Nunito:300,400,600,700,800|Open+Sans:300,400,600&display=swap" rel="stylesheet">
+        {{#all (if template '!=' 'pages/home') (if template '!=' 'pages/category') (if template '!=' 'pages/product')}}
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha384-ATvSpJEmy1egycrmomcFxVn4Z0A6rfjwlzDQrts/1QRerQhR9EEpEYtdysLpQPuQ" crossorigin="anonymous">
+        {{/all}}
         {{{stylesheet '/assets/css/theme.css'}}}
         {{{stylesheet '/assets/dist/style.css'}}}
+
+        {{#block "styles"}} {{/block}}
 
         <script>
             document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
@@ -71,9 +77,9 @@
             {{> components/common/cookie}}
         {{/and}}
         
-        {{> os/components/cart/menu}}
+        <div id="tint"></div>
 
-        {{> os/components/account/mobile}}
+        {{> os/components/cart/sidebar}}
 
         {{> os/components/common/navigation/navigation-mobile}}
 

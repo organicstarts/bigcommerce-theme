@@ -38,6 +38,7 @@ body {
     }
 
     &.unscrollable {
+        height: 100%; 
         overflow: hidden;
     }
 }

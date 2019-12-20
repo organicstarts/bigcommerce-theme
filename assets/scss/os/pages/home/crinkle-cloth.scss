@@ -1,0 +1,114 @@
+#crinkle-cloth {
+    background: #fff;
+    width: 100%;
+    & .container {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        flex-direction: column;
+        @media (min-width: 425px) {
+            max-width: 425px;
+        }
+        @media (min-width: 768px) {
+            max-width: 768px;
+            flex-direction: row-reverse;
+        }
+        @media (min-width: 1024px) {
+            max-width: 1024px;
+        }
+        @media (min-width: 1440px) {
+            max-width: 1440px;
+        }
+        margin: 0 auto;
+        & .left {
+            min-width: 320px;
+            min-height: 320px;
+            @media (min-width: 425px) {
+                width: 75vw;
+                height: 75vw;
+            }
+            @media (min-width: 768px) {
+                width: 384px;
+                height: 384px;
+            }
+            @media (min-width: 1024px) {
+                width: 512px;
+                height: 512px;
+            }
+            @media (min-width: 1440px) {
+                width: 720px;
+                height: 720px;
+            }
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-image: url('https://triad.imgix.net/cc/i/sounds.png?w=320');
+            @media (min-width: 425px) {
+                background-image: url('https://triad.imgix.net/cc/i/sounds.png?w=500');
+            }
+            @media (min-width: 768px) {
+                background-image: url('https://triad.imgix.net/cc/i/sounds.png?w=384');
+            }
+            @media (min-width: 1024px) {
+                background-image: url('https://triad.imgix.net/cc/i/sounds.png?w=512');
+            }
+            @media (min-width: 1440px) {
+                background-image: url('https://triad.imgix.net/cc/i/sounds.png?w=720');
+            }
+        }
+        & .right {
+            z-index: 9;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            @media (min-width: 768px) {
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+            & h2 {
+                font-family: $header-font;
+                font-weight: 400;
+                @include FluidType(320px, 2560px, 30px, 62px, 0px, 0px);
+                margin: 0 0 1rem 0;
+                text-align: center;
+                @media (min-width: 768px) {
+                    text-align: left;
+                }
+            }
+            & h3 {
+                font-family: $subheader-font;
+                font-weight: 400;
+                @include FluidType(320px, 2560px, 20px, 36px, 0px, 0px);
+                margin: 0 0 2rem 0;
+                text-align: center;
+                @media (min-width: 768px) {
+                    text-align: left;
+                }
+            }
+            & a.butun {
+                padding: 0.5rem 1rem;
+                @media (min-width: 1024px) {
+                    padding: 1rem 2rem;
+                }
+                color: #fff;
+                border-radius: 2rem;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-weight: 400;
+                background: #000;
+                & > svg {
+                    fill: #fff;
+                }
+            }
+            & a img {
+                width: 100%;
+                max-width: 200px;
+                @media (min-width: 1024px) {
+                    max-width: 320px;
+                }
+                margin-bottom: 1rem;
+            }
+        }
+    }
+}

@@ -48,6 +48,13 @@
             </div>
         </div>
         <div class="cart-bottom flex-row border-top p-2 pb-10 invisible">
+            {{#if cart.additional_checkout_buttons}}
+                <div class="cart-additionalCheckoutButtons">
+                    {{#each cart.additional_checkout_buttons}}
+                        {{{this}}}
+                    {{/each}}
+                </div>
+            {{/if}}
             <a href="/checkout" class="ui large inverted fluid green button rounded-pill text-right">
                 Checkout <i class="fas fa-angle-double-right"></i>
             </a>
