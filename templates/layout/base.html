@@ -36,7 +36,7 @@
         <link href="https://cdnjs.cloudflare.com" rel="preconnect" crossorigin>
 
         <link href="https://fonts.googleapis.com/css?family=Fredoka+One:400|Nunito:300,400,600,700,800|Open+Sans:300,400,600&display=swap" rel="stylesheet">
-        {{#all (if template '!=' 'pages/home') (if template '!=' 'pages/category') (if template '!=' 'pages/product')}}
+        {{#all (if template '!=' 'pages/home') (if template '!=' 'pages/category') (if template '!=' 'pages/product') (if template '!=' 'pages/brands') (if template '!=' 'pages/brand')}}
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha384-ATvSpJEmy1egycrmomcFxVn4Z0A6rfjwlzDQrts/1QRerQhR9EEpEYtdysLpQPuQ" crossorigin="anonymous">
         {{/all}}
@@ -97,7 +97,6 @@
             {{> os/components/common/footer }}
         </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/imgix.js@3.4.1/dist/imgix.min.js"></script>
         <script>window.__webpack_public_path__ = "{{cdn 'assets/dist/'}}";</script>
         <script src="{{cdn 'assets/dist/theme-bundle.main.js'}}"></script>
 
@@ -107,7 +106,9 @@
         </script>
 
         {{#block "scripts"}} {{/block}}
+
         {{{footer.scripts}}}
+        
         {{{snippet 'footer'}}}
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" defer></script>

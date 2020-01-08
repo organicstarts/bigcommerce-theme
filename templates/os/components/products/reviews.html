@@ -1,51 +1,51 @@
-{{#if reviews.total}}
-    <section class="mt-5 mt-lg-8 mt-xl-10" id="product-reviews" data-spy="scroll" data-product-reviews>
-        <div class="container">
-            <h3 class="display-4 mb-5 text-lg-center text-gray-800">Product Reviews <small>({{lang 'products.reviews.header' total=reviews.total}})</small></h3>
-        </div>
-        <div class="laptop container">
-            <ul class="list-unstyled m-0" id="productReviews-list">
-                {{#each reviews.list}}
-                <li class="rounded-2 bg-reviews bg-white my-2 my-lg-4 p-2 p-lg-4">
-                    <article itemprop="review" itemscope itemtype="http://schema.org/Review">
-                        <header>
-                            <p class="d-flex align-items-center text-gray-600 m-0">
-                                {{#if name}}
-                                    <meta itemprop="author" content="{{#replace "@hotmail.com" name}}{{else}}{{#replace "@gmail.com" name}}{{else}}{{ capitalizeAll name}}{{/replace}}{{/replace}}">
-                                    {{#replace "@hotmail.com" name}}{{else}}{{#replace "@gmail.com" name}}{{else}}{{ capitalizeAll name}}{{/replace}}{{/replace}} rated this 
-                                        <!--{{lang 'products.reviews.post_on_by' date=date name=name }}-->
-                                {{else}}
-                                    <meta itemprop="author" content="Anonymous">
-                                    A guest rated this
-                                        <!--{{lang 'products.reviews.post_on_by' date=date name=(lang 'products.reviews.anonymous_poster')}}-->
-                                {{/if}}
-                                &nbsp;
-                                <span class="productReview-rating rating--small" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
-                                    {{> os/components/products/ratings rating=rating}}
-                                    <span class="productReview-ratingNumber" itemprop="ratingValue">{{ rating }}</span>
-                                </span>
-                            </p>
-                            <p class="text-gray-500 m-0 mb-2">
-                                <small>Published on {{date}}.</small>
-                            </p>
 
-                            <h6 itemprop="name" class="mb-1">{{#replace "@hotmail.com" title}}{{else}}{{#replace "@gmail.com" title}}{{else}}{{title}}{{/replace}}{{/replace}}</h6>
-                        </header>
-                        <p itemprop="reviewBody" class="mb-2">{{nl2br text}}</p>
-                        {{#if name}}
-                            <div class="d-flex align-items-end flex-column ml-auto">
-                                <p class="d-flex align-items-center text-right text-green">
-                                    <svg class="svg-check animated green w-2 h-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="animated-check-circle" cx="26" cy="26" r="25" fill="none"/><path class="animated-check-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg>
-                                    &nbsp;Verified Buyer
-                                </p>
-                            </div>
-                        {{/if}}
-                    </article>
-                </li>
+<section id="product-reviews" data-product-reviews>
+    <div class="container">
+        <h3>Product Reviews <small>({{lang 'products.reviews.header' total=reviews.total}})</small></h3>
+        <ul>
+            {{#if reviews.total}}
+                {{#each reviews.list}}
+                    <li>
+                        <article itemprop="review" itemscope itemtype="http://schema.org/Review">
+                            <header>
+                                <div class="row">
+                                    {{#if name}}
+                                        <meta itemprop="author" content="{{#replace "@hotmail.com" name}}{{else}}{{#replace "@gmail.com" name}}{{else}}{{ capitalizeAll name}}{{/replace}}{{/replace}}">
+                                        {{#replace "@hotmail.com" name}}{{else}}{{#replace "@gmail.com" name}}{{else}}{{ capitalizeAll name}}{{/replace}}{{/replace}} rated this 
+                                            <!--{{lang 'products.reviews.post_on_by' date=date name=name }}-->
+                                    {{else}}
+                                        <meta itemprop="author" content="Anonymous">
+                                        A guest rated this
+                                            <!--{{lang 'products.reviews.post_on_by' date=date name=(lang 'products.reviews.anonymous_poster')}}-->
+                                    {{/if}}
+                                    &nbsp;
+                                    <span class="productReview-rating rating--small" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+                                        {{> os/components/products/ratings rating=rating}}
+                                        <span class="productReview-ratingNumber" itemprop="ratingValue">{{ rating }}</span>
+                                    </span>
+                                </div>
+                                <small>Published on {{date}}.</small>
+                            </header>
+                            <h4 itemprop="name">{{#replace "@hotmail.com" title}}{{else}}{{#replace "@gmail.com" title}}{{else}}{{title}}{{/replace}}{{/replace}}</h4>
+                            <p itemprop="reviewBody">{{nl2br text}}</p>
+                            {{#if name}}
+                                <div class="verified">
+                                    <svg fill="#fff">
+                                        <use xlink:href="#check"></use>
+                                    </svg>
+                                    Verified Buyer
+                                </div>
+                            {{/if}}
+                        </article>
+                    </li>
                 {{/each}}
-            </ul>
-            {{> os/components/common/paginator pagination.reviews}}
-        </div>
-    </section>
-{{/if}}
+            {{else}}
+                <li>
+                    <strong>There are no reviews yet.</strong> Be the first!
+                </li>
+            {{/if}}
+        </ul>
+        {{> os/components/common/paginator pagination.reviews}}
+    </div>
+</section>
 {{{snippet 'reviews'}}}

@@ -14,25 +14,23 @@ category:
         <link rel="next" href="{{pagination.category.next}}">
     {{/if}}
 {{/partial}}
-
-{{#or (if category.name '==' "Baby Care") (if category.name '==' "Baby Food") (if category.name '==' "Clothes") (if category.name '==' "Diapers") (if category.name '==' "Toys") (if category.name '==' "Mommy")}}
-    {{#partial "styles"}}
-        {{{stylesheet '/assets/dist/categories.css'}}}
-    {{/partial}}
-    {{#partial "scripts"}}
-        <script src="{{cdn 'assets/dist/theme-bundle.categoriesjs.js'}}"></script>
+{{#partial "styles"}}
+    {{{stylesheet '/assets/dist/categories.css'}}}
+{{/partial}}
+{{#partial "scripts"}}
+    <script src="{{cdn 'assets/dist/theme-bundle.categoriesjs.js'}}"></script>
+    {{#or (if category.name '==' "Baby Care") (if category.name '==' "Baby Food") (if category.name '==' "Clothes") (if category.name '==' "Diapers") (if category.name '==' "Toys") (if category.name '==' "Mommy")}}
         <script>
             window.renderCategories();
         </script>
-    {{/partial}}
-{{/or}}
+    {{/or}}
+{{/partial}}
 
 {{#partial "header"}} 
     <header>
         <div class="header-title bg-{{category.id}}">
             <div class="tint">
-             
-             <!---->   {{#if category.name '==' 'Babo Botanicals'}}
+                {{#if category.name '==' 'Babo Botanicals'}}
                     <img src="https://triad.imgix.net/os/i/brands/babo-botanicals.svg" alt="{{category.name}}" title="{{category.name}}">
                 {{else if category.name '==' 'Bambo Nature'}}
                     <img src="https://triad.imgix.net/os/i/brands/bambo-nature.svg" alt="{{category.name}}" title="{{category.name}}">
@@ -159,9 +157,9 @@ category:
                         
                     </main>
                 </div>-->
-
-                {{> os/components/products/filter sort=pagination.category.sort}}
-
+            </div>
+            <div class="filter">
+                {{> components/products/filter sort=pagination.category.sort}}
             </div>
             <form action="{{urls.compare}}" method='POST' {{#if settings.data_tag_enabled}} data-list-name="Category: {{category.name}}" {{/if}} data-product-compare>
                 {{#if theme_settings.product_list_display_mode '===' 'grid'}}

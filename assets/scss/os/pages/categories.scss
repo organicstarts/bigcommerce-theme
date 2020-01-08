@@ -38,28 +38,17 @@ $subcategories: (
         & h1 {
             color: #fff;
             font-family: Fredoka One, cursive;
+            font-weight: 400;
             line-height: 1;
-            font-size: 1.5rem;
-            letter-spacing: 1px;
-            @media screen and (min-width:425px) {
-                font-size: 2rem;
-                letter-spacing: 2px;
-            }
-            @media screen and (min-width:768px) {
-                font-size: 2rem;
-                letter-spacing: 2px;
-            }
+            font-size: 2.25rem;
             @media screen and (min-width:1024px) {
                 font-size: 3rem;
-                letter-spacing: 3px;
             }
             @media screen and (min-width:1440px) {
                 font-size: 4rem;
-                letter-spacing: 4px;
             }
             @media screen and (min-width:2560px) {
                 font-size: 5rem;
-                letter-spacing: 5px;
             }
             text-shadow: 1px 1px 1rem rgba(0, 0, 0, 0.9);
         }
@@ -486,5 +475,15 @@ $subcategories: (
                 fill: #fff;
             }
         }
+    }
+}
+
+.filter {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    & .form-field {
+        margin: 0;
     }
 }

@@ -88,7 +88,7 @@ export default function () {
                             Shipping
                         </td>
                         <td class="right">
-                            ${cartData.baseAmount > 15 ? 'FREE' : '$5.00'}
+                            ${cartData.baseAmount > 25 ? 'FREE' : '$5.00'}
                         </td>
                     </tr>
                     <tr>
@@ -104,7 +104,7 @@ export default function () {
                             <strong>Total</strong>
                         </td>
                         <td class="right">
-                            $${(cartData.cartAmount + (cartData.baseAmount > 15 ? 0 : 5)).toFixed(2)}
+                            $${(cartData.cartAmount + (cartData.baseAmount > 25 ? 0 : 5)).toFixed(2)}
                         </td>
                     </tr>
                 `);

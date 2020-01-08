@@ -82,6 +82,7 @@ body {
     width: 100%;
     min-width: 100%;
     max-width: 100%;
+    min-height: 38px;
     background: #1b1c1d;
     @media screen and (max-width: 599px) {
         &-container__left {

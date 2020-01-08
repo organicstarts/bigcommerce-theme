@@ -47,8 +47,8 @@
                         {{/each}}
                     </div>
                 </div>
-            </div>
-            <div class="right">
+                </div>
+                <div class="right">
                 {{#if product.brand}}
                     <a href="{{product.brand.url}}" itemprop="url">
                         <div class="brand">
@@ -134,7 +134,7 @@
                                 <meta itemprop="ratingCount" content="{{product.num_reviews}}">
                                 <meta itemprop="reviewCount" content="{{product.num_reviews}}">
                             {{/if}}
-                            {{#if product.num_reviews '==' 0}}{{> os/components/products/ratings rating=0}}{{else}}{{> os/components/products/ratings rating=(avg (pluck reviews.list 'rating'))}}{{/if}} <small>{{#if product.num_reviews '==' 0}}No customer reviews yet{{else}}{{toFixed  (avg (pluck reviews.list 'rating')) 1}} out of 5.0 based on {{product.num_reviews}} {{#if product.num_reviews '==' 1}}review{{else}}reviews{{/if}}{{/if}}.</small>
+                            {{#if product.num_reviews '==' 0}}{{> os/components/products/ratings rating=0}}{{else}}{{> os/components/products/ratings rating=(avg (pluck reviews.list 'rating'))}}{{/if}} <small>{{#if product.num_reviews '==' 0}}No customer reviews yet{{else}}{{toFixed  (avg (pluck reviews.list 'rating')) 1}} of 5.0 based on {{product.num_reviews}} {{#if product.num_reviews '==' 1}}review{{else}}reviews{{/if}}{{/if}}.</small>
                         {{/if}}
                     </div>
                 {{/if}}
@@ -204,16 +204,18 @@
                             </div>
                         {{/if}}
                         {{#if product.price.without_tax.value '<' 25}}
-                            <div class="info item d-none">
-                                    <svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-.001 5.75c.69 0 1.251.56 1.251 1.25s-.561 1.25-1.251 1.25-1.249-.56-1.249-1.25.559-1.25 1.249-1.25zm2.001 12.25h-4v-1c.484-.179 1-.201 1-.735v-4.467c0-.534-.516-.618-1-.797v-1h3v6.265c0 .535.517.558 1 .735v.999z"/></svg> Free Shipping with orders over $25.
-                            </div>
+                            <!--
+                                <div class="info item">
+                                        <svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-.001 5.75c.69 0 1.251.56 1.251 1.25s-.561 1.25-1.251 1.25-1.249-.56-1.249-1.25.559-1.25 1.249-1.25zm2.001 12.25h-4v-1c.484-.179 1-.201 1-.735v-4.467c0-.534-.516-.618-1-.797v-1h3v6.265c0 .535.517.558 1 .735v.999z"/></svg> Free Shipping with orders over $25.
+                                </div>
+                            -->
                         {{/if}}
                         <div class="shipping item">
                             <svg width="24" height="24" viewBox="0 0 24 24"><path d="M11 6v8h7v-2h-5v-6h-2zm10.854 7.683l1.998.159c-.132.854-.351 1.676-.652 2.46l-1.8-.905c.2-.551.353-1.123.454-1.714zm-2.548 7.826l-1.413-1.443c-.486.356-1.006.668-1.555.933l.669 1.899c.821-.377 1.591-.844 2.299-1.389zm1.226-4.309c-.335.546-.719 1.057-1.149 1.528l1.404 1.433c.583-.627 1.099-1.316 1.539-2.058l-1.794-.903zm-20.532-5.2c0 6.627 5.375 12 12.004 12 1.081 0 2.124-.156 3.12-.424l-.665-1.894c-.787.2-1.607.318-2.455.318-5.516 0-10.003-4.486-10.003-10s4.487-10 10.003-10c2.235 0 4.293.744 5.959 1.989l-2.05 2.049 7.015 1.354-1.355-7.013-2.184 2.183c-2.036-1.598-4.595-2.562-7.385-2.562-6.629 0-12.004 5.373-12.004 12zm23.773-2.359h-2.076c.163.661.261 1.344.288 2.047l2.015.161c-.01-.755-.085-1.494-.227-2.208z"/></svg> <span>Ships for FREE {{#if product.price.without_tax.value '<' 25}}with orders over $25{{/if}}&nbsp;<span id="nextBusinessDay">on the next business day.</span><span id="arrival" class="small"></span></span>
                         </div>
                     </div>
                     {{#if product.can_purchase}}
-                        <form class="form" method="post" action="{{product.cart_url}}" enctype="multipart/form-data"
+                        <form class="atc-form" method="post" action="{{product.cart_url}}" enctype="multipart/form-data"
                         data-cart-item-add>
                             <input type="hidden" name="action" value="add">
                             <input type="hidden" name="product_id" value="{{product.id}}"/>
@@ -229,7 +231,7 @@
                                 </label>
                             </div>
                             {{#if product.can_purchase}}
-                                {{> components/products/add-to-cart}}
+                                {{> os/components/products/add-to-cart}}
                             {{/if}}
                             {{#if product.out_of_stock}}
                                 {{#if product.out_of_stock_message}}
@@ -250,8 +252,8 @@
             <div class="alert-osw">
                 <div class="wrap">
                     <div class="left">
-                        <h5>Wholesale Options Available</h5>
-                        <h6>Shop Direct and Save Up 40%</h6>
+                        <h3>Wholesale Options Available</h3>
+                        <h4>Shop Direct and Save Up 40%</h4>
                     </div>
                     <div class="right">
                         <a href="{{{value}}}" target="_blank">
@@ -264,63 +266,62 @@
         {{/or}}
     {{/each}}
 
+
     <div class="product-details">
-        <table class="table table-borderless border-0">
-            <tbody>
-                {{#each product.custom_fields}}
-                    {{#contains name "Icon:"}}
+        <div class="container">
+            <h3>Product Details</h3>
+            <table>
+                <tbody>
+                    {{#each product.custom_fields}}
+                        {{#contains name "Icon:"}}
+                            <tr>
+                                <th scope="row">
+                                    <i class="fas fa-{{#replace "Icon:" name}}{{/replace}} fs-2"></i>
+                                </th>
+                                <td>
+                                    <p><strong>{{{value}}}</strong></p>
+                                </td>
+                            </tr>
+                        {{/contains}}
+                    {{/each}}
+
+                    {{#if product.description}}
                         <tr>
-                            <th class="text-right px-0" scope="row">
-                                <i class="fas fa-{{#replace "Icon:" name}}{{/replace}} fs-2 mx-2"></i>
-                            </th>
-                            <td class="px-0 align-middle pb-2">
-                                <p><strong>{{{value}}}</strong></p>
+                            <td class="description" colspan="2">
+                                <article itemprop="description">
+                                    {{{product.description}}}
+                                    {{{snippet 'product_description'}}}
+                                </article>
                             </td>
                         </tr>
-                    {{/contains}}
-                {{/each}}
-                {{#if product.description}}
+                    {{/if}}
+
+                    {{#if product.warranty}}
+                        <tr>
+                            <td class="ingredients" colspan="2">
+                                <p>
+                                    <strong>Ingredients / Materials</strong><br>
+                                    {{{product.warranty}}}
+                                </p>
+                            </td>
+                        </tr>
+                    {{/if}}
+
                     <tr>
-                        <th class="text-right px-0" scope="row">
-                            <i class="fas fa-align-justify fs-2 mx-2"></i>
+                        <th scope="row">
+                            <i class="fas fa-info fs-2"></i>
                         </th>
-                        <td class="px-0 align-middle pb-2">
-                            <p><strong>Product Description</strong></p>
-                            <article itemprop="description">
-                                {{{product.description}}}
-                                {{{snippet 'product_description'}}}
-                            </article>
+                        <td>
+                            <p>
+                                <strong>Refer to product labels for most recent and additional information.</strong>
+                                {{#contains product.title "Formula"}}
+                                    <br><small>Consult with a healthcare professional before use.</small>
+                                {{/contains}}
+                            </p>
                         </td>
                     </tr>
-                {{/if}}
-                {{#if product.warranty}}
-                    <tr>
-                        <th class="text-right px-0" scope="row">
-                            <i class="fas fa-info fs-2 mx-2"></i>
-                        </th>
-                        <td class="px-0 align-middle pb-2">
-                            <p><strong>Ingredients / Materials</strong></p>
-                            <article class="text-uppercase small" itemprop="description">
-                                {{{product.warranty}}}
-                            </article>
-                        </td>
-                    </tr>
-                {{/if}}
-                <tr>
-                    <th class="text-right px-0" scope="row">
-                        <i class="fas fa-info fs-2 mx-2"></i>
-                    </th>
-                    <td class="px-0 pb-2">
-                        <p>
-                            <strong>Refer to product labels for most recent and additional information.</strong>
-                            {{#contains product.title "Formula"}}
-                                <br><small>Consult with a healthcare professional before use.</small>
-                            {{/contains}}
-                        </p>
-                        
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
