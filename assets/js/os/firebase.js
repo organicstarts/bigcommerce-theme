@@ -9,7 +9,7 @@ const swiperCards = (json, elem, inv) => {
         out += `
             <div class="swiper-slide"><div class="card--product">
                 <a class="card--product-image" href="${product.url}">
-                    <img class="lazyload" data-sizes="auto" src="${product.thumbnail}" alt="" title="" sizes="144px">
+                    <img class="lazyload" data-sizes="auto" src="${product.thumbnail}" alt="${product.alt || product.name}" ${product.alt ? `title="${product.name}" ` : ''}sizes="144px">
                 </a>
                 <div class="card--product-content">
                     <h6 data-test-info-type="brandName">
@@ -44,7 +44,7 @@ const swiperCards = (json, elem, inv) => {
                         </div>
                     </div>
                     ${
-                        (inv[product.id].inventory_level > 0) || (inv[product.id].inventory_tracking === 'none') ? (
+                        (inv[product.id] && ((inv[product.id].inventory_level > 0) || (inv[product.id].inventory_tracking === 'none'))) ? (
                             `<a href="/cart.php?action=add&product_id=${product.id}" class="card--product-btn atc instant-atc" data-product-id="${product.id}" onclick="window.addOneToCart(this);return false;" data-product-id="${product.id}" data-product-quantity="1">
                                 Add to Cart
                             </a>`

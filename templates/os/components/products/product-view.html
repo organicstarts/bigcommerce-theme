@@ -1,9 +1,22 @@
 {{#if (add (occurrences product.title "Infant") (occurrences product.title "Milk")) '>' 1}}
-    <div class="alert-x1">
-        <div class="wrap">
-            <svg class="icon"><use xlink:href="#warningCircle" /></svg> <strong>Due to regulatory issues, this formula is unavailable for sale in the United States.</strong>
-        </div>
-    </div>
+    {{#each product.custom_fields}}
+        {{#or (if name '==' 'Wholesale') (if name '==' 'wholesale')}}
+            <div class="alert-osw">
+                <div class="wrap">
+                    <div class="left">
+                        <h3 style="margin:0 0 0.5rem 0;">Wholesale Available</h3>
+                        <h4 style="margin:0;">Buy more and save up to 40%!</h4>
+                    </div>
+                    <div class="right">
+                        <a href="{{{value}}}" target="_blank" title="Browse Organic Start Wholesale">
+                            Browse <svg class="icon" role="presentation"><use xlink:href="#arrowRight" /></svg>
+                        </a>
+                    </div>
+                        
+                </div>
+            </div>
+        {{/or}}
+    {{/each}}
 {{/if}}
 <div class="productView" {{#if settings.data_tag_enabled}} data-event-type="product" data-entity-id="{{product.id}}" data-name="{{product.title}}" data-product-category="{{#each product.category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{product.brand.name}}" data-product-price="{{#if product.price.with_tax}}{{product.price.with_tax.value}}{{else}}{{product.price.without_tax.value}}{{/if}}" data-product-variant="single-product-option"{{/if}}>
     <div class="product-jumbotron">
@@ -53,61 +66,61 @@
                     <a href="{{product.brand.url}}" itemprop="url">
                         <div class="brand">
                             {{#if product.brand.name '==' 'BABO Botanicals'}}
-                                <img src="https://triad.imgix.net/os/i/brands/babo-botanicals.svg" alt="{{product.brand.name}}" title="{{product.brand.name}}">
+                                <img src="https://triad.imgix.net/os/i/brands/babo-botanicals.svg" alt="{{product.brand.name}}">
                             {{else if product.brand.name '==' 'Babo Botanicals'}}
-                                <img src="https://triad.imgix.net/os/i/brands/babo-botanicals.svg" alt="{{product.brand.name}}" title="{{product.brand.name}}">
+                                <img src="https://triad.imgix.net/os/i/brands/babo-botanicals.svg" alt="{{product.brand.name}}">
                             {{else if product.brand.name '==' 'Bambo Nature'}}
-                                <img src="https://triad.imgix.net/os/i/brands/bambo-nature.svg" alt="{{product.brand.name}}" title="{{product.brand.name}}">
+                                <img src="https://triad.imgix.net/os/i/brands/bambo-nature.svg" alt="{{product.brand.name}}">
                             {{else if product.brand.name '==' 'Boiron'}}
-                                <img src="https://triad.imgix.net/os/i/brands/boiron.png" alt="{{product.brand.name}}" title="{{product.brand.name}}">
+                                <img src="https://triad.imgix.net/os/i/brands/boiron.png" alt="{{product.brand.name}}">
                                 {{else if product.brand.name '==' 'Crinkle Cloth'}}
-                                <img src="https://triad.imgix.net/os/i/brands/crinkle-cloth.svg" alt="{{product.brand.name}}" title="{{product.brand.name}}">
+                                <img src="https://triad.imgix.net/os/i/brands/crinkle-cloth.svg" alt="{{product.brand.name}}">
                                 {{else if product.brand.name '==' 'Day One by Organic Start'}}
-                                <img src="https://triad.imgix.net/os/i/brands/day-one.svg" alt="{{product.brand.name}}" title="{{product.brand.name}}">
+                                <img src="https://triad.imgix.net/os/i/brands/day-one.svg" alt="{{product.brand.name}}">
                             {{else if product.brand.name '==' 'Earth Mama Organics'}}
-                                <img src="https://triad.imgix.net/os/i/brands/earth-mama.svg" alt="{{product.brand.name}}" title="{{product.brand.name}}">
+                                <img src="https://triad.imgix.net/os/i/brands/earth-mama.svg" alt="{{product.brand.name}}">
                             {{else if product.brand.name '==' 'erbaviva'}}
-                                <img src="https://triad.imgix.net/os/i/brands/erbaviva.png?w=320" alt="{{product.brand.name}}" title="{{product.brand.name}}">
+                                <img src="https://triad.imgix.net/os/i/brands/erbaviva.png?w=320" alt="{{product.brand.name}}">
                             {{else if product.brand.name '==' 'Green Goo by Sierra Sage'}}
-                                <img src="https://triad.imgix.net/os/i/brands/green-goo.svg" alt="{{product.brand.name}}" title="{{product.brand.name}}">
+                                <img src="https://triad.imgix.net/os/i/brands/green-goo.svg" alt="{{product.brand.name}}">
                             {{else if product.brand.name '==' 'HiPP'}}
-                                <img src="https://triad.imgix.net/os/i/brands/hipp.svg" alt="{{product.brand.name}}" title="{{product.brand.name}}">
+                                <img src="https://triad.imgix.net/os/i/brands/hipp.svg" alt="{{product.brand.name}}">
                             {{else if product.brand.name '==' 'Holle'}}
-                                <img src="https://triad.imgix.net/os/i/brands/holle.svg" alt="{{product.brand.name}}" title="{{product.brand.name}}">
+                                <img src="https://triad.imgix.net/os/i/brands/holle.svg" alt="{{product.brand.name}}">
                             {{else if product.brand.name '==' "Jack N' Jill"}}
-                                <img src="https://triad.imgix.net/os/i/brands/jack-n-jill.svg" alt="{{product.brand.name}}" title="{{product.brand.name}}">
+                                <img src="https://triad.imgix.net/os/i/brands/jack-n-jill.svg" alt="{{product.brand.name}}">
                             {{else if product.brand.name '==' 'Kabrita'}}
-                                <img src="https://triad.imgix.net/os/i/brands/kabrita.svg" alt="{{product.brand.name}}" title="{{product.brand.name}}">
+                                <img src="https://triad.imgix.net/os/i/brands/kabrita.svg" alt="{{product.brand.name}}">
                             {{else if product.brand.name '==' 'Lac Larde'}}
-                                <img src="https://triad.imgix.net/os/i/brands/lac-larde.svg" alt="{{product.brand.name}}" title="{{product.brand.name}}">
+                                <img src="https://triad.imgix.net/os/i/brands/lac-larde.svg" alt="{{product.brand.name}}">
                             {{else if product.brand.name '==' "Lafe's Natural BodyCare"}}
-                                <img src="https://triad.imgix.net/os/i/brands/lafes.svg" alt="{{product.brand.name}}" title="{{product.brand.name}}">
+                                <img src="https://triad.imgix.net/os/i/brands/lafes.svg" alt="{{product.brand.name}}">
                             {{else if product.brand.name '==' 'Lebenswert'}}
-                                <img src="https://triad.imgix.net/os/i/brands/lebenswert.svg" alt="{{product.brand.name}}" title="{{product.brand.name}}">
+                                <img src="https://triad.imgix.net/os/i/brands/lebenswert.svg" alt="{{product.brand.name}}">
                             {{else if product.brand.name '==' 'Lebenswert Bio'}}
-                                <img src="https://triad.imgix.net/os/i/brands/lebenswert.svg" alt="{{product.brand.name}}" title="{{product.brand.name}}">
+                                <img src="https://triad.imgix.net/os/i/brands/lebenswert.svg" alt="{{product.brand.name}}">
                             {{else if product.brand.name '==' 'Little Zi'}}
-                                <img src="https://triad.imgix.net/os/i/brands/little-zi.svg" alt="{{product.brand.name}}" title="{{product.brand.name}}">
+                                <img src="https://triad.imgix.net/os/i/brands/little-zi.svg" alt="{{product.brand.name}}">
                             {{else if product.brand.name '==' 'Loulouka'}}
-                                <img src="https://triad.imgix.net/os/i/brands/loulouka.svg" alt="{{product.brand.name}}" title="{{product.brand.name}}">
+                                <img src="https://triad.imgix.net/os/i/brands/loulouka.svg" alt="{{product.brand.name}}">
                             {{else if product.brand.name '==' 'Mambino Organics'}}
-                                <img src="https://triad.imgix.net/os/i/brands/mambino.svg" alt="{{product.brand.name}}" title="{{product.brand.name}}">
+                                <img src="https://triad.imgix.net/os/i/brands/mambino.svg" alt="{{product.brand.name}}">
                             {{else if product.brand.name '==' 'NANNYCare'}}
-                                <img src="https://triad.imgix.net/os/i/brands/nannycare.svg" alt="{{product.brand.name}}" title="{{product.brand.name}}">
+                                <img src="https://triad.imgix.net/os/i/brands/nannycare.svg" alt="{{product.brand.name}}">
                             {{else if product.brand.name '==' 'Natures Paradise Organics'}}
-                                <img src="https://triad.imgix.net/os/i/brands/natures-paradise.svg" alt="{{product.brand.name}}" title="{{product.brand.name}}">
+                                <img src="https://triad.imgix.net/os/i/brands/natures-paradise.svg" alt="{{product.brand.name}}">
                             {{else if product.brand.name '==' 'Organic Start'}}
-                                <img src="https://triad.imgix.net/os/i/logo.svg" alt="{{product.brand.name}}" title="{{product.brand.name}}">
+                                <img src="https://triad.imgix.net/os/i/logo.svg" alt="{{product.brand.name}}">
                             {{else if product.brand.name '==' 'Powder Nest'}}
-                                <img src="https://triad.imgix.net/pn/i/logo-green.svg" alt="{{product.brand.name}}" title="{{product.brand.name}}">
+                                <img src="https://triad.imgix.net/pn/i/logo-green.svg" alt="{{product.brand.name}}">
                             {{else if product.brand.name '==' 'RADIUS'}}
-                                <img src="https://triad.imgix.net/os/i/brands/radius.svg" alt="{{product.brand.name}}" title="{{product.brand.name}}">
+                                <img src="https://triad.imgix.net/os/i/brands/radius.svg" alt="{{product.brand.name}}">
                             {{else if product.brand.name '==' 'Rubbabu'}}
-                                <img src="https://triad.imgix.net/os/i/brands/rubbabu.svg" alt="{{product.brand.name}}" title="{{product.brand.name}}">
+                                <img src="https://triad.imgix.net/os/i/brands/rubbabu.svg" alt="{{product.brand.name}}">
                             {{else if product.brand.name '==' 'Topfer'}}
-                                <img src="https://triad.imgix.net/os/i/brands/topfer.svg" alt="{{product.brand.name}}" title="{{product.brand.name}}">
+                                <img src="https://triad.imgix.net/os/i/brands/topfer.svg" alt="{{product.brand.name}}">
                             {{else if product.brand.name '==' 'ZNYA'}}
-                                <img src="https://triad.imgix.net/os/i/brands/znya.svg" alt="{{product.brand.name}}" title="{{product.brand.name}}">
+                                <img src="https://triad.imgix.net/os/i/brands/znya.svg" alt="{{product.brand.name}}">
                             {{else}}
                                 <h2 class="m-0">
                                     <small>{{product.brand.name}}></small>
@@ -153,16 +166,23 @@
                 {{#if product.out_of_stock}}
                     <div class="product-features">
                         <div class="bad item">
-                            <svg width="24" height="24"><use xlink:href="#warningCircleInv" /></svg> This item is currently out of stock.
+                            <svg width="24" height="24" role="img" aria-label="Warning"><use xlink:href="#warningCircleInv" /></svg> This item is currently out of stock.
                         </div>
+                        {{#each product.custom_fields}}
+                            {{#or (if name '==' 'Wholesale') (if name '==' 'wholesale')}}
+                                <a href="{{{value}}}" target="_blank" class="info item">
+                                    Shop this product &amp; more from our European site. <svg width="24" height="24" style="margin: 0 0 0 0.5rem;" role="presentation"><use xlink:href="#arrowRight" /></svg>
+                                </a>
+                            {{/or}}
+                        {{/each}}
                     </div>
                 {{ else }}
                     {{#isEmpty product.bulk_discount_rates}}
                     {{else}}
                         <div class="product-bulk">
-                            <input type="checkbox" id="bulk-pricing">
-                            <label for="bulk-pricing">
-                                <svg id="tag" viewBox="0 0 24 24" fill-rule="evenodd" clip-rule="evenodd">
+                            <input type="checkbox" id="bulkPricing" aria-labelledby="bulkPricingLabel" focusable="false" aria-hidden="true" role="presentation">
+                            <label id="bulkPricingLabel" for="bulkPricing" role="button" tabindex="0" aria-pressed="false" aria-haspopup="true" aria-expanded="false">
+                                <svg id="tag" viewBox="0 0 24 24" fill-rule="evenodd" clip-rule="evenodd" role="presentation">
                                     <filter id="dropshadow" height="130%">
                                         <feGaussianBlur in="SourceAlpha" stdDeviation="16"/> <!-- stdDeviation is how much to blur -->
                                         <feOffset dx="1" dy="1" result="offsetblur"/> <!-- how much to offset -->
@@ -174,12 +194,13 @@
                                             <feMergeNode in="SourceGraphic"/> <!-- this contains the element that the filter is applied to -->
                                         </feMerge>
                                     </filter>
+                                    <title>Price Tag</title>
                                     <desc>Price Tag</desc>
                                     <path d="M2 9.453v-9.453h9.352l10.648 10.625-3.794 3.794 1.849 4.733-12.34 4.848-5.715-14.547zm1.761 1.748l4.519 11.503 10.48-4.118-1.326-3.395-4.809 4.809-8.864-8.799zm-.761-10.201v8.036l9.622 9.552 7.963-7.962-9.647-9.626h-7.938zm12.25 8.293c-.415-.415-.865-.617-1.378-.617-.578 0-1.227.241-2.171.803-.682.411-1.118.585-1.456.585-.361 0-1.083-.409-.961-1.219.052-.345.25-.696.572-1.019.652-.652 1.544-.848 2.276-.107l.744-.744c-.476-.475-1.096-.792-1.761-.792-.566 0-1.125.228-1.663.677l-.626-.626-.698.699.653.652c-.569.826-.842 2.021.076 2.937 1.011 1.011 2.188.541 3.413-.232.6-.379 1.083-.563 1.475-.563.589.001 1.18.498 1.078 1.258-.052.386-.26.764-.621 1.122-.451.451-.904.679-1.347.679-.418 0-.747-.192-1.049-.462l-.739.739c.463.458 1.082.753 1.735.753.544 0 1.087-.201 1.612-.597l.54.538.697-.697-.52-.521c.743-.896 1.157-2.209.119-3.247zm-9.25-7.292c1.104 0 2 .896 2 2s-.896 2-2 2-2-.896-2-2 .896-2 2-2zm0 1c.552 0 1 .448 1 1s-.448 1-1 1-1-.448-1-1 .448-1 1-1z"/>
                                 </svg>
                                 Bulk Discounts
                             </label>
-                            <ul>
+                            <ul aria-labelledby="bulkPricingLabel" aria-hidden="true">
                                 {{#each product.bulk_discount_rates}}
                                     <li>
                                         {{lang 'products.bulk_pricing.range' min=min max=max}}
@@ -200,7 +221,7 @@
                     <div class="product-features">
                         {{#if product.stock_level '<' 25}}
                             <div class="warning item">
-                                <svg width="24" height="24" viewBox="0 0 24 24"><path d="M15.91 13.34l2.636-4.026-.454-.406-3.673 3.099c-.675-.138-1.402.068-1.894.618-.736.823-.665 2.088.159 2.824.824.736 2.088.665 2.824-.159.492-.55.615-1.295.402-1.95zm-3.91-10.646v-2.694h4v2.694c-1.439-.243-2.592-.238-4 0zm8.851 2.064l1.407-1.407 1.414 1.414-1.321 1.321c-.462-.484-.964-.927-1.5-1.328zm-18.851 4.242h8v2h-8v-2zm-2 4h8v2h-8v-2zm3 4h7v2h-7v-2zm21-3c0 5.523-4.477 10-10 10-2.79 0-5.3-1.155-7.111-3h3.28c1.138.631 2.439 1 3.831 1 4.411 0 8-3.589 8-8s-3.589-8-8-8c-1.392 0-2.693.369-3.831 1h-3.28c1.811-1.845 4.321-3 7.111-3 5.523 0 10 4.477 10 10z"/></svg> Only {{product.stock_level}} remaining! This item may sell out soon!
+                                <svg width="24" height="24" viewBox="0 0 24 24" role="img" aria-label="Warning"><path d="M15.91 13.34l2.636-4.026-.454-.406-3.673 3.099c-.675-.138-1.402.068-1.894.618-.736.823-.665 2.088.159 2.824.824.736 2.088.665 2.824-.159.492-.55.615-1.295.402-1.95zm-3.91-10.646v-2.694h4v2.694c-1.439-.243-2.592-.238-4 0zm8.851 2.064l1.407-1.407 1.414 1.414-1.321 1.321c-.462-.484-.964-.927-1.5-1.328zm-18.851 4.242h8v2h-8v-2zm-2 4h8v2h-8v-2zm3 4h7v2h-7v-2zm21-3c0 5.523-4.477 10-10 10-2.79 0-5.3-1.155-7.111-3h3.28c1.138.631 2.439 1 3.831 1 4.411 0 8-3.589 8-8s-3.589-8-8-8c-1.392 0-2.693.369-3.831 1h-3.28c1.811-1.845 4.321-3 7.111-3 5.523 0 10 4.477 10 10z"/></svg> Only {{product.stock_level}} remaining! This item may sell out soon!
                             </div>
                         {{/if}}
                         {{#if product.price.without_tax.value '<' 25}}
@@ -211,7 +232,7 @@
                             -->
                         {{/if}}
                         <div class="shipping item">
-                            <svg width="24" height="24" viewBox="0 0 24 24"><path d="M11 6v8h7v-2h-5v-6h-2zm10.854 7.683l1.998.159c-.132.854-.351 1.676-.652 2.46l-1.8-.905c.2-.551.353-1.123.454-1.714zm-2.548 7.826l-1.413-1.443c-.486.356-1.006.668-1.555.933l.669 1.899c.821-.377 1.591-.844 2.299-1.389zm1.226-4.309c-.335.546-.719 1.057-1.149 1.528l1.404 1.433c.583-.627 1.099-1.316 1.539-2.058l-1.794-.903zm-20.532-5.2c0 6.627 5.375 12 12.004 12 1.081 0 2.124-.156 3.12-.424l-.665-1.894c-.787.2-1.607.318-2.455.318-5.516 0-10.003-4.486-10.003-10s4.487-10 10.003-10c2.235 0 4.293.744 5.959 1.989l-2.05 2.049 7.015 1.354-1.355-7.013-2.184 2.183c-2.036-1.598-4.595-2.562-7.385-2.562-6.629 0-12.004 5.373-12.004 12zm23.773-2.359h-2.076c.163.661.261 1.344.288 2.047l2.015.161c-.01-.755-.085-1.494-.227-2.208z"/></svg> <span>Ships for FREE {{#if product.price.without_tax.value '<' 25}}with orders over $25{{/if}}&nbsp;<span id="nextBusinessDay">on the next business day.</span><span id="arrival" class="small"></span></span>
+                            <svg width="24" height="24" viewBox="0 0 24 24" role="presentation"><path d="M11 6v8h7v-2h-5v-6h-2zm10.854 7.683l1.998.159c-.132.854-.351 1.676-.652 2.46l-1.8-.905c.2-.551.353-1.123.454-1.714zm-2.548 7.826l-1.413-1.443c-.486.356-1.006.668-1.555.933l.669 1.899c.821-.377 1.591-.844 2.299-1.389zm1.226-4.309c-.335.546-.719 1.057-1.149 1.528l1.404 1.433c.583-.627 1.099-1.316 1.539-2.058l-1.794-.903zm-20.532-5.2c0 6.627 5.375 12 12.004 12 1.081 0 2.124-.156 3.12-.424l-.665-1.894c-.787.2-1.607.318-2.455.318-5.516 0-10.003-4.486-10.003-10s4.487-10 10.003-10c2.235 0 4.293.744 5.959 1.989l-2.05 2.049 7.015 1.354-1.355-7.013-2.184 2.183c-2.036-1.598-4.595-2.562-7.385-2.562-6.629 0-12.004 5.373-12.004 12zm23.773-2.359h-2.076c.163.661.261 1.344.288 2.047l2.015.161c-.01-.755-.085-1.494-.227-2.208z"/></svg> <span>Ships for FREE {{#if product.price.without_tax.value '<' 35}}with orders over $35{{/if}}&nbsp;<span id="nextBusinessDay">on the next business day.</span><span id="arrival" class="small"></span></span>
                         </div>
                     </div>
                     {{#if product.can_purchase}}
@@ -246,26 +267,35 @@
             </div>
         </div>
     </div>
-
-    {{#each product.custom_fields}}
-        {{#or (if name '==' 'Wholesale') (if name '==' 'wholesale')}}
-            <div class="alert-osw">
-                <div class="wrap">
-                    <div class="left">
-                        <h3>Wholesale Options Available</h3>
-                        <h4>Shop Direct and Save Up 40%</h4>
-                    </div>
-                    <div class="right">
-                        <a href="{{{value}}}" target="_blank">
-                            Browse <svg class="icon"><use xlink:href="#arrowRight" /></svg>
-                        </a>
-                    </div>
-                        
-                </div>
+    
+    {{#if (add (occurrences product.title "Infant") (occurrences product.title "Milk")) '>' 1}}
+        <div class="alert-x1" style="margin-bottom:1rem;">
+            <div class="wrap">
+                <svg class="icon" role="img" aria-label="Important"><use xlink:href="#warningCircle" /></svg> <strong>Due to regulatory issues, this formula is unavailable.</strong>
             </div>
-        {{/or}}
-    {{/each}}
+        </div>
+    {{/if}}
 
+    {{#unless (add (occurrences product.title "Infant") (occurrences product.title "Milk")) '>' 1}}
+        {{#each product.custom_fields}}
+            {{#or (if name '==' 'Wholesale') (if name '==' 'wholesale')}}
+                <div class="alert-osw" style="margin-bottom:1rem;">
+                    <div class="wrap">
+                        <div class="left">
+                            <h3 style="margin:0 0 0.5rem 0;">Wholesale Available</h3>
+                            <h4 style="margin:0;">Buy more and save up to 40%!</h4>
+                        </div>
+                        <div class="right">
+                            <a href="{{{value}}}" target="_blank" title="Browse Organic Start Wholesale">
+                                Browse <svg class="icon" role="presentation"><use xlink:href="#arrowRight" /></svg>
+                            </a>
+                        </div>
+                            
+                    </div>
+                </div>
+            {{/or}}
+        {{/each}}
+    {{/unless}}
 
     <div class="product-details">
         <div class="container">
@@ -275,9 +305,9 @@
                     {{#each product.custom_fields}}
                         {{#contains name "Icon:"}}
                             <tr>
-                                <th scope="row">
-                                    <i class="fas fa-{{#replace "Icon:" name}}{{/replace}} fs-2"></i>
-                                </th>
+                                <td scope="row" role="presentation">
+                                    <i class="fas fa-{{#replace "Icon:" name}}{{/replace}} fs-2" role="presentation"></i>
+                                </td>
                                 <td>
                                     <p><strong>{{{value}}}</strong></p>
                                 </td>
@@ -308,9 +338,9 @@
                     {{/if}}
 
                     <tr>
-                        <th scope="row">
+                        <td scope="row">
                             <i class="fas fa-info fs-2"></i>
-                        </th>
+                        </td>
                         <td>
                             <p>
                                 <strong>Refer to product labels for most recent and additional information.</strong>

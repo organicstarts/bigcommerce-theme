@@ -4,11 +4,11 @@
             <li class="socialLinks-item">
                 {{#if display_name '===' 'google+'}}
                     <a class="icon icon--google" href="{{url}}" target="_blank">
-                        <svg><use xlink:href="#icon-google" /></svg>
+                        <svg role="img" aria-label="Add us on Google"><use xlink:href="#icon-google" /></svg>
                     </a>
                 {{else}}
                     <a class="icon icon--{{display_name}}" href="{{url}}" target="_blank">
-                        <svg><use xlink:href="#icon-{{display_name}}" /></svg>
+                        <svg role="img" aria-label="Connect with us on {{display_name}}"><use xlink:href="#icon-{{display_name}}" /></svg>
                     </a>
                 {{/if}}
             </li>

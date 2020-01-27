@@ -206,7 +206,7 @@
                                     background-position: center center;
                                 }
                                 &-top {
-                                    & nav {
+                                    & .menu {
                                         width: 100%;
                                     }
                                     & .dropdown-image {
@@ -216,7 +216,7 @@
                                     }
                                 }
                                 &-left {
-                                    & nav {
+                                    & .menu {
                                         width: 50%;
                                         flex: 1 0 auto;
                                     }
@@ -227,7 +227,7 @@
                                     }
                                 }
                                 &-right {
-                                    & nav {
+                                    & .menu {
                                         width: 50%;
                                         flex: 1 0 auto;
                                     }
@@ -240,7 +240,7 @@
                             }
                         }
 
-                        & nav {
+                        & .menu {
                             padding: 3rem;
                             display: flex;
                             justify-content: space-evenly;

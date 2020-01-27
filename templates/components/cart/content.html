@@ -79,7 +79,7 @@
                         {{# if can_modify}}
                             <button class="button button--icon" data-cart-update data-cart-itemid="{{id}}" data-action="dec">
                                 <span class="is-srOnly">{{lang 'products.quantity_decrease'}}</span>
-                                <i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-keyboard-arrow-down" /></svg></i>
+                                <i class="icon" role="presentation"><svg role="presentation"><use xlink:href="#icon-keyboard-arrow-down" /></svg></i>
                             </button>
                         {{/if}}
                         <input class="form-input form-input--incrementTotal cart-item-qty-input"
@@ -99,7 +99,7 @@
                         {{# if can_modify}}
                             <button class="button button--icon" data-cart-update data-cart-itemid="{{id}}" data-action="inc">
                                 <span class="is-srOnly">{{lang 'products.quantity_increase'}}</span>
-                                <i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-keyboard-arrow-up" /></svg></i>
+                                <i class="icon" role="presentation"><svg role="presentation"><use xlink:href="#icon-keyboard-arrow-up" /></svg></i>
                             </button>
                         {{/if}}
                     </div>
@@ -118,12 +118,12 @@
                     {{/or}}
                     {{# if can_modify}}
                         <a class="cart-remove icon" data-cart-itemid="{{id}}" href="#" data-confirm-delete="{{lang 'cart.confirm_delete'}}">
-                            <svg><use xlink:href="#icon-close"></use></svg>
+                            <svg role="img" aria-label="Remove from Cart"><use xlink:href="#icon-close"></use></svg>
                         </a>
                     {{else}}
                         {{#if type '==' 'GiftCertificate'}}
                             <a class="cart-remove icon" data-cart-itemid="{{id}}" href="#" data-confirm-delete="{{lang 'cart.confirm_delete'}}">
-                                <svg><use xlink:href="#icon-close"></use></svg>
+                                <svg role="img" aria-label="Remove from Cart"><use xlink:href="#icon-close"></use></svg>
                             </a>
                         {{/if}}
                     {{/if}}

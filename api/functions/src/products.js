@@ -11,6 +11,7 @@ const productParse = data => {
         brand_url: data.brand.custom_url.url || null,
         rating: data.reviews_rating_sum || 0,
         thumbnail: data.thumbnail.url_thumbnail || null,
+        alt: data.thumbnail.description || null,
         url: data.custom_url.url
     };
 };

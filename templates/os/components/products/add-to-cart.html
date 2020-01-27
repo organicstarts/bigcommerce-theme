@@ -1,17 +1,18 @@
 {{#if theme_settings.show_product_quantity_box}}
     <div class="form-field form-field--increments">
-        <label class="form-label form-label--alternate"
+        <label id="qtyLabel" class="form-label form-label--alternate"
                for="qty[]">{{lang 'products.quantity'}}</label>
             <div class="form-increment" data-quantity-change>
                 <button class="button button--icon" data-action="dec">
                     <span class="is-srOnly">{{lang 'products.quantity_decrease'}}</span>
-                    <i class="icon" aria-hidden="true">
-                        <svg>
+                    <i class="icon" role="presentation">
+                        <svg role="presentation">
                             <use xlink:href="#icon-keyboard-arrow-down"/>
                         </svg>
                     </i>
                 </button>
-                <input class="form-input form-input--incrementTotal"
+                <input aria-labelledby="qtyLabel"
+                        class="form-input form-input--incrementTotal"
                        id="qty[]"
                        name="qty[]"
                        type="tel"
@@ -23,8 +24,8 @@
                        aria-live="polite">
                 <button class="button button--icon" data-action="inc">
                     <span class="is-srOnly">{{lang 'products.quantity_increase'}}</span>
-                    <i class="icon" aria-hidden="true">
-                        <svg>
+                    <i class="icon" role="presentation">
+                        <svg role="presentation">
                             <use xlink:href="#icon-keyboard-arrow-up"/>
                         </svg>
                     </i>
@@ -35,7 +36,7 @@
 
 <div class="alertBox productAttributes-message" style="display:none">
     <div class="alertBox-column alertBox-icon">
-        <icon glyph="ic-success" class="icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg></icon>
+        <icon glyph="ic-success" class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="img" aria-label="Success"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg></icon>
     </div>
     <p class="alertBox-column alertBox-message"></p>
 </div>

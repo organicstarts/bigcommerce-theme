@@ -2,19 +2,19 @@
     {{#or show_accept_amex show_accept_discover show_accept_mastercard show_accept_paypal show_accept_visa}}
         <div class="footer-payment-icons">
             {{#if show_accept_amex}}
-                <svg class="footer-payment-icon"><use xlink:href="#icon-logo-american-express"></use></svg>
+                <svg class="footer-payment-icon" role="img" aria-label="American Express"><use xlink:href="#icon-logo-american-express"></use></svg>
             {{/if}}
             {{#if show_accept_discover}}
-                <svg class="footer-payment-icon"><use xlink:href="#icon-logo-discover"></use></svg>
+                <svg class="footer-payment-icon" role="img" aria-label="Discover"><use xlink:href="#icon-logo-discover"></use></svg>
             {{/if}}
             {{#if show_accept_mastercard}}
-                <svg class="footer-payment-icon"><use xlink:href="#icon-logo-mastercard"></use></svg>
+                <svg class="footer-payment-icon" role="img" aria-label="Mastercard"><use xlink:href="#icon-logo-mastercard"></use></svg>
             {{/if}}
             {{#if show_accept_paypal}}
-                <svg class="footer-payment-icon"><use xlink:href="#icon-logo-paypal"></use></svg>
+                <svg class="footer-payment-icon" role="img" aria-label="PayPal"><use xlink:href="#icon-logo-paypal"></use></svg>
             {{/if}}
             {{#if show_accept_visa}}
-                <svg class="footer-payment-icon"><use xlink:href="#icon-logo-visa"></use></svg>
+                <svg class="footer-payment-icon" role="img" aria-label="Visa"><use xlink:href="#icon-logo-visa"></use></svg>
             {{/if}}
         </div>
     {{/or}}

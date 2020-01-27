@@ -1,0 +1,88 @@
+.formula {
+    margin: 0;
+    padding: 0!important;
+    background-color: #fff;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(226,240,254,1) 0%, rgba(255,247,228,1) 90% );
+    &-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        text-align: center;
+        background-image: url('https://triad.imgix.net/os/i/home/goat-milk/goat-clipart.png?w=320&auto=format');
+        background-repeat: no-repeat;
+        background-size: 320px auto;
+        background-position: calc(100vw - (100vw / 2) + 25px) 100%;
+        @media (min-width: 500px) {
+            background-position: calc(100vw - (100vw / 2) + 50px) 100%;
+        }
+        @media (min-width: 768px) {
+            max-width: 800px;
+            background-position: calc(100vw - (100vw / 3)) 100%;
+        }
+        @media (min-width: 1024px) {
+            max-width: 1024px;
+            flex-direction: row;
+            text-align: left;
+            background-image: url('https://triad.imgix.net/os/i/home/goat-milk/goat-clipart.png?w=400&auto=format');
+            background-size: 400px auto;
+        }
+        @media (min-width: 1440px) {
+            max-width: 1440px;
+            background-image: url('https://triad.imgix.net/os/i/home/goat-milk/goat-clipart.png?w=500&auto=format');
+            background-size: 500px auto;
+            background-position: bottom right;
+        }
+        margin: 0 auto;
+        padding: 6rem 0;
+    }
+    &-picture {
+        & img {
+            padding: 1rem;
+            max-width: 320px;
+            @media (min-width: 425px) {
+                max-width: 380px;
+            }
+            @media (min-width: 768px) {
+                max-width: 384px;
+            }
+            @media (min-width: 1024px) {
+                max-width: 500px;
+            }
+            @media (min-width: 1440px) {
+                max-width: 720px;
+            }
+        }
+    }
+    &-header {
+        padding: 1rem;
+        & > h2 {
+            color: #37474F;
+            font-family: $header-font;
+            font-weight: 400;
+            @include FluidType(320px, 2560px, 32px, 64px, 0px, 0px);
+            margin: 0 0 1rem 0;
+        }
+        & > h3 {
+            color: #263238;
+            font-family: $subheader-font;
+            font-weight: 400;
+            @include FluidType(320px, 2560px, 24px, 40px, 0.25px, 0.75px);
+            margin: 0 0 2rem 0;
+        }
+        & > a {
+            padding: 1rem 2rem;
+            color: #000;
+            background: #fff;
+            border-radius: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 400;
+            box-shadow: 0 25px 99px 0 rgba(10,22,31,.05);
+            & > svg {
+                fill: #000;
+            }
+        }
+    }
+}

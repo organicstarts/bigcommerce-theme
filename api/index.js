@@ -15,10 +15,10 @@ const App = async () => {
     subcategories.map((category, i) => {
         if(category != null) {
             fs.writeFileSync(resolve('public/categories/' + i + '.json'), JSON.stringify(category));
-            console.log('Category ' +  + ' successfully.');
+            console.log('Category ' + `` + ' successfully.');
         }
     })
-    console.log(subcategories);
+    //console.log(subcategories);
 };
 
 App();

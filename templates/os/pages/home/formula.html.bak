@@ -1,0 +1,50 @@
+<section class="formula">
+    <div class="formula-header">
+        <h2>Toddler's Cow &amp; Goat Milk</h2>
+        <h3>Certified Organic without Compromise</h3>
+        <a href="/cow-milk/">Shop Cow Milk <svg class="icon" role="presentation"><use xlink:href="#arrowRight" /></svg></a>
+        <a href="/goat-milk/">Shop Goat Milk <svg class="icon" role="presentation"><use xlink:href="#arrowRight" /></svg></a>
+    </div>
+    <div class="formula-container">
+        <div class="formula-picture">
+            <picture>
+                <source
+                    media="(min-width: 1440px)"
+                    ix-path="os/i/home/goat-milk/jumbotron-products-v2.png"
+                    sizes="720px"
+                    src="https://triad.imgix.net/os/i/home/goat-milk/jumbotron-products-v2.png?w=720&px=8&blur=100&auto=format"
+                    data-src="https://triad.imgix.net/os/i/home/goat-milk/jumbotron-products-v2.png?w=720&auto=format"
+                />
+                <source
+                    media="(min-width: 1024px)"
+                    ix-path="os/i/home/goat-milk/jumbotron-products-v2.png"
+                    sizes="612px"
+                    src="https://triad.imgix.net/os/i/home/goat-milk/jumbotron-products-v2.png?w=612&px=8&blur=100&auto=format"
+                    data-src="https://triad.imgix.net/os/i/home/goat-milk/jumbotron-products-v2.png?w=612&auto=format"
+                />
+                <source
+                    media="(min-width: 768px)"
+                    ix-path="os/i/home/goat-milk/jumbotron-products-v2.png"
+                    sizes="500px"
+                    src="https://triad.imgix.net/os/i/home/goat-milk/jumbotron-products-v2.png?w=600&px=8&blur=100&auto=format"
+                    data-src="https://triad.imgix.net/os/i/home/goat-milk/jumbotron-products-v2.png?w=600&auto=format"
+                />
+                <source
+                    media="(min-width: 425px)"
+                    ix-path="os/i/home/goat-milk/jumbotron-products-v2.png"
+                    sizes="425px"
+                    src="https://triad.imgix.net/os/i/home/goat-milk/jumbotron-products-v2.png?w=425&px=8&blur=100&auto=format"
+                    data-src="https://triad.imgix.net/os/i/home/goat-milk/jumbotron-products-v2.png?w=425&auto=format"
+                />
+                <img 
+                    class="lazyload"
+                    ix-path="os/i/home/goat-milk/jumbotron-products-v2.png"
+                    sizes="320px"
+                    src="https://triad.imgix.net/os/i/home/goat-milk/jumbotron-products-v2.png?w=320&px=8&blur=100&auto=format"
+                    data-src="https://triad.imgix.net/os/i/home/goat-milk/jumbotron-products-v2.png?w=320&auto=format"
+                    alt="Kabrita and NannyCare Goat Milk"
+                />
+            </picture>
+        </div>
+    </div>
+</section>

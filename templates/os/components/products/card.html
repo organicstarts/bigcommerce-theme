@@ -24,24 +24,21 @@
         {{/or}}
     {{/if}}
 
-    <a class="card--product-image" href="{{url}}"{{#if settings.data_tag_enabled}} data-event-type="product-click"{{/if}}>
-        <img class="lazyload" data-sizes="auto" src="{{getImage image 'loading_size' (cdn theme_settings.default_image_product)}}" data-src="{{getImage image 'cardthumb_size' (cdn theme_settings.default_image_product)}}" alt="{{image.alt}}" title="{{image.alt}}">
-    </a>
-
-    <div class="card--product-content">
-        {{#if brand.name}}
-                <h6 data-test-info-type="brandName">
-                    <a href="{{url}}">
+    <a href="{{url}}"{{#if settings.data_tag_enabled}} data-event-type="product-click"{{/if}}>
+        <div class="card--product-image">
+            <img class="lazyload" data-sizes="auto" src="{{getImage image 'loading_size' (cdn theme_settings.default_image_product)}}" data-src="{{getImage image 'cardthumb_size' (cdn theme_settings.default_image_product)}}" alt="{{#if image.alt}}{{image.alt}}{{else}}{{name}}{{/if}}" {{#if image.alt}}title="{{name}}"{{/if}}>
+        </div>
+        <div class="card--product-content">
+            {{#if brand.name}}
+                    <h6 data-test-info-type="brandName">
                         {{brand.name}}
-                    </a>
-                </h6>
-        {{/if}}
-        <h5>
-            <a href="{{url}}">
+                    </h6>
+            {{/if}}
+            <h5>
                 {{name}}
-            </a>
-        </h5>
-    </div>
+            </h5>
+        </div>
+    </a>
     <div class="card--product-flex">
         <div class="card--product-rating" data-test-info-type="productRating">
             {{> os/components/products/ratings rating=rating}}

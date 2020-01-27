@@ -321,3 +321,15 @@ svg:not(:root) {
 .lh-2, .lh-2 p {
     line-height: 2rem!important;
 }
+
+.pagination-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    & li {
+        font-size: 1.25rem;
+        &.pagination-item--current {
+            font-size: 1.5rem;
+        }
+    }
+}

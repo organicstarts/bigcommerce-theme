@@ -20,31 +20,23 @@ product:
 {{/partial}}
 {{#partial "page"}}
 
-    <div class="pb-0" itemscope itemtype="http://schema.org/Product">
+    <div itemscope itemtype="http://schema.org/Product">
         {{> os/components/products/product-view avg_rating=0 reviews=product.reviews schema=true  }}
 
         {{> os/components/products/reviews reviews=product.reviews product=product urls=urls}}
         {{> os/components/products/write-review}}
     </div>
     {{#if product.related_products}}
-        <section class="my-5 my-lg-8 my-xl-10" id="SimilarProducts" data-spy="scroll">
-            <div class="container">
-                <h3 class="carousel-title">{{lang 'products.related_products'}}</h3>
-            </div>
-            {{#if settings.data_tag_enabled}}
-                {{> os/components/products/carousel products=product.related_products list="Related Products" wrap="false" align="center"}}
-            {{else}}
-                {{> os/components/products/carousel products=product.related_products wrap="false" align="center"}}
-            {{/if}}
-        </section>
+        <h3 class="carousel-title">{{lang 'products.related_products'}}</h3>
+        {{#if settings.data_tag_enabled}}
+            {{> os/components/products/carousel products=product.related_products list="Related Products" wrap="false" align="center"}}
+        {{else}}
+            {{> os/components/products/carousel products=product.related_products wrap="false" align="center"}}
+        {{/if}}
     {{/if}}
     {{#if product.similar_by_views}}
-        <section class="my-5 my-lg-8 my-xl-10" id="SimilarProducts" data-spy="scroll">
-            <div class="container">
-                <h3 class="carousel-title">{{lang 'products.similar_by_views'}}</h3>
-            </div>
-            {{> os/components/products/carousel products=product.similar_by_views columns=6 list="Customers Also Viewed" wrap="false" align="center"}}
-        </section>
+        <h3 class="carousel-title">{{lang 'products.similar_by_views'}}</h3>
+        {{> os/components/products/carousel products=product.similar_by_views columns=6 list="Customers Also Viewed" wrap="false" align="center"}}
     {{/if}}
 {{/partial}}
 {{> layout/base}}

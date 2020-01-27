@@ -1,29 +1,28 @@
-
-<ul>
+<ul role="menubar" aria-label="Main Menu">
     {{> os/components/common/navigation/baby-care}}
     {{> os/components/common/navigation/baby-food}}
     {{> os/components/common/navigation/clothes}}
     {{> os/components/common/navigation/diapers}}
     {{> os/components/common/navigation/mommy}}
     {{> os/components/common/navigation/toys}}
-    <li class="x y">
-        <a href="#" id="toggleSidebar" class="toggleSidebar">
-            <svg class="icon"><use xlink:href="#hamburger" /></svg>
+    <li role="none" class="x y">
+        <a role="menuitem" href="#" id="toggleSidebar" class="toggleSidebar" aria-controls="sidebar" aria-haspopup="true" aria-expanded="false" aria-label="Navigation Menu" tabindex="-1">
+            <svg class="icon" role="presentation"><use xlink:href="#hamburger" /></svg>
         </a>
     </li>
-    <li class="x" itemprop="name">
-        <a href="/account.php">
-            <svg class="icon"><use xlink:href="#user" /></svg>
+    <li role="none" class="x">
+        <a role="menuitem" href="/account.php" aria-label="My Account" tabindex="-1">
+            <svg class="icon" role="presentation"><use xlink:href="#user" /></svg>
         </a>
     </li>
-    <li class="x">
-        <a href="#" data-search="quickSearch" aria-controls="quickSearch" aria-expanded="false">
-            <svg class="icon"><use xlink:href="#search" /></svg>
+    <li role="none" class="x">
+        <a role="menuitem" href="#" data-search="quickSearch" aria-controls="quickSearch" aria-haspopup="true" aria-expanded="false" aria-label="Search" tabindex="-1">
+            <svg class="icon" role="presentation"><use xlink:href="#search" /></svg>
         </a>
     </li>
-    <li class="x d-" id="cartDrawer">
-        <a href="#" class="toggle-cart" onclick="return false;">
-            <svg class="icon"><use xlink:href="#shopping" /></svg>
+    <li role="none" class="x d-" id="cartDrawer">
+        <a role="menuitem" href="#" class="toggle-cart" onclick="return false;" aria-controls="cart" aria-haspopup="true" aria-expanded="false" aria-label="Shopping Cart" tabindex="-1">
+            <svg class="icon" role="presentation"><use xlink:href="#shopping" /></svg>
             <span id="cartPill" class="floating ui tiny red label invisible d-none">0</span>
         </a>
     </li>

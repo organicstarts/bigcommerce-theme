@@ -30,7 +30,7 @@
                             <p itemprop="reviewBody">{{nl2br text}}</p>
                             {{#if name}}
                                 <div class="verified">
-                                    <svg fill="#fff">
+                                    <svg fill="#fff" role="presentation">
                                         <use xlink:href="#check"></use>
                                     </svg>
                                     Verified Buyer
@@ -45,7 +45,7 @@
                 </li>
             {{/if}}
         </ul>
-        {{> os/components/common/paginator pagination.reviews}}
+        {{> components/common/paginator pagination.reviews}}
     </div>
 </section>
 {{{snippet 'reviews'}}}

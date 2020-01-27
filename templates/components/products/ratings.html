@@ -1,13 +1,13 @@
 {{#for 1 5}}
     {{#if ../this.rating '>=' $index}}
         <span class="icon icon--ratingFull">
-            <svg>
+            <svg role="presentation">
                 <use xlink:href="#icon-star" />
             </svg>
         </span>
     {{else}}
         <span class="icon icon--ratingEmpty">
-            <svg>
+            <svg role="presentation">
                 <use xlink:href="#icon-star" />
             </svg>
         </span>

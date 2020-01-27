@@ -110,13 +110,18 @@ category:
                     </div>
                 </div>
                 <div class="more-button">
-                    <a href="{{url}}" alt="{{name}}" title="{{name}}">View All {{name}} <svg class="icon"><use xlink:href="#arrowRight" /></svg></a>
+                    <a href="{{url}}" alt="{{name}}" title="{{name}}">View All {{name}} <svg class="icon" role="presentation"><use xlink:href="#arrowRight" /></svg></a>
                 </div>
             {{/each}}
         </div>
     {{else}}
-        {{#if category.subcategories}}
-            <div class="container mt-4">
+        <div class="category">
+            {{#if category.description}}
+                <div class="category-segment">
+                    {{{category.description}}}
+                </div>
+            {{/if}}
+            {{#if category.subcategories}}
                 <div class="category-carousel">
                     <div class="title ml-1 mb-1">Subcategories</div>
                     <div class="nav-carousel">
@@ -127,37 +132,12 @@ category:
                         </div>
                     </div>
                 </div>
-            </div>
-        {{/if}}
-
-        {{#if category.description}}
-            <div class="container my-4">
-                {{{category.description}}}
-                <div class="ui divider"></div>
-            </div>
-        {{/if}}
+            {{/if}}
+        </div>
 
         {{{snippet 'categories'}}}
         
         {{#if category.products}}
-            <div class="container mt-4">
-                <!--<div class="row">
-                    <aside class="col-12 col-lg-3" id="faceted-search-container">
-                        {{#if category.faceted_search_enabled}}
-                            {{> os/components/category/sidebar}}
-                        {{else if category.subcategories}}
-                            {{> os/components/category/sidebar}}
-                        {{else if category.shop_by_price}}
-                            {{#if theme_settings.shop_by_price_visibility}}
-                                {{> os/components/category/sidebar}}
-                            {{/if}}
-                        {{/if}}
-                    </aside>
-                    <main class="col-12 col-lg-9 page-content" id="product-listing-container">
-                        
-                    </main>
-                </div>-->
-            </div>
             <div class="filter">
                 {{> components/products/filter sort=pagination.category.sort}}
             </div>
@@ -176,9 +156,7 @@ category:
                     {{/if}}
                 {{/if}}
             </form>
-            <div class="container">
-                {{> os/components/common/paginator pagination.category}}
-            </div>
+            {{> components/common/paginator pagination.category}}
         {{else}}
             <div class="container">
                 <h2 class="h4 my-10">{{lang 'categories.no_products'}}</h2>

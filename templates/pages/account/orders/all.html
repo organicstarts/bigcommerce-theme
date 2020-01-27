@@ -29,7 +29,7 @@ customer:
                 <h4 class="mb-2">Order History <small>{{customer.orders.length}} recent orders</small></h4>
                 {{#if customer.orders.length}}
                     {{> os/components/account/orders-list orders=customer.orders}}
-                    {{> os/components/common/small-paginator pagination.orders}}
+                    {{> components/common/small-paginator pagination.orders}}
                     {{{snippet 'account'}}}
                 {{else}}
                     <div class="ui red segment p-2 p-lg-4">
