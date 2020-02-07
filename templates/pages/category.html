@@ -28,8 +28,19 @@ category:
 
 {{#partial "header"}} 
     <header>
-        <div class="header-title bg-{{category.id}}">
-            <div class="tint">
+        <div class="header-title bg-{{category.id}}" style="{{#if category.image}}background-image:url('{{getImage category.image 'zoom_size'}}');{{/if}}">
+            <div class="splash {{#or 
+                (if category.name '==' 'Baby Care') 
+                (if category.name '==' 'Storage & Accessories') 
+                (if category.name '==' 'Baby Food') 
+                (if category.name '==' 'Porridge') 
+                (if category.name '==' 'Clothes') 
+                (if category.name '==' 'Diapers') 
+                (if category.name '==' 'Toys') 
+                (if category.name '==' 'Mommy')
+                (if category.name '==' 'Fruit & Vegetable Purees') 
+                (if category.name '==' 'Snacks & Teas') 
+            }}tint{{else}}{{#if category.image}}tint{{/if}}{{/or}}">
                 {{#if category.name '==' 'Babo Botanicals'}}
                     <img src="https://triad.imgix.net/os/i/brands/babo-botanicals.svg" alt="{{category.name}}" title="{{category.name}}">
                 {{else if category.name '==' 'Bambo Nature'}}
@@ -79,14 +90,9 @@ category:
                 {{else if category.name '==' 'ZNYA'}}
                     <img src="https://triad.imgix.net/os/i/brands/znya.svg" alt="{{category.name}}" title="{{category.name}}">
                 {{else}}
+                    <h1 class="{{#if category.image}}tint{{/if}}">{{category.name}}</h1>
                     {{#if category.image}}
-                        <img src="{{getImage category.image 'zoom_size'}}" alt="{{category.name}}" title="{{category.name}}">
-                    {{else}}
-                        {{#or (if category.name '==' "Baby Care") (if category.name '==' "Baby Food") (if category.name '==' "Clothes") (if category.name '==' "Diapers") (if category.name '==' "Toys") (if category.name '==' "Mommy")}}
-                            <h1>{{category.name}}</h1>
-                        {{else}}
-                            <h1>{{category.name}}</h1>
-                        {{/or}}
+                        <img class="d-none" src="{{getImage category.image 'zoom_size'}}" alt="{{category.name}}" title="{{category.name}}">
                     {{/if}}
                 {{/if}}
             </div>

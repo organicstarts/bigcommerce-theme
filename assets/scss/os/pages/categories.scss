@@ -42,31 +42,12 @@ $subcategories: (
 .header-title {
     width: 100%;
     position: relative;
-    background-repeat: no-repeat;
-    background-size: cover!important;
-    background-position: center;
     background: #fff;
+    background-repeat: no-repeat!important;
+    background-size: cover!important;
+    background-position: center center!important;
     // background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
-    &.bg-21,
-    &.bg-33,
-    &.bg-34,
-    &.bg-48, 
-    &.bg-59,
-    &.bg-62,
-    &.bg-115,
-    &.bg-117,
-    &.bg-142,
-    &.bg-169 {
-        & .tint {
-            box-shadow: inset 0 0 99px rgba(0, 0, 0, 0.5);
-            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0,0,0,0.15), rgba(0, 0, 0, 0.3));  
-            & h1 {
-                color: #fff;
-                text-shadow: 1px 1px 1rem rgba(0, 0, 0, 0.9);
-            }
-        } 
-    }
-    & .tint {
+    & .splash {
         width: 100%;
         min-height: 250px;
         @media screen and (min-width:768px) {
@@ -75,6 +56,14 @@ $subcategories: (
         display: flex;
         align-items: center;
         justify-content: center;
+        &.tint {
+            box-shadow: inset 0 0 99px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0,0,0,0.15), rgba(0, 0, 0, 0.3));  
+            & h1 {
+                color: #fff;
+                text-shadow: 1px 1px 1rem rgba(0, 0, 0, 0.9);
+            }
+        }
         & h1 {
             color: #444;
             // color: #fff;
