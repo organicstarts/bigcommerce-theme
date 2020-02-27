@@ -20,7 +20,7 @@ product_results:
 <div class="container">
     
     {{#if forms.search.query}}
-        <h1 class="display-4">
+        <h1>
             {{lang 'search.results.count' count=result_count search_query=forms.search.query}}
 
             {{#unless product_results.faceted_search_enabled}}
@@ -39,8 +39,6 @@ product_results:
             {{lang 'common.search'}}
         </h1>
     {{/if}}
-
-    {{> os/components/common/breadcrumbs breadcrumbs=breadcrumbs}}
     
     {{{snippet 'search'}}}
     
@@ -66,85 +64,8 @@ product_results:
                     </ul>
                 </nav>
             </div>
-            <div class="col-12"><!--<div class="col-12 col-lg-9 col-xl-10">-->
-                {{#if forms.search.has_suggestions}}
-                    <h4 class="mb-2">{{lang 'forms.search.suggestions.title'}}</h4>
-                    <div class="ui segment p-2 p-lg-4">
-                        {{#if forms.search.suggested_query}}
-                            <div class="search-suggestion">
-                                {{lang 'forms.search.did_you_mean'}} <strong>{{forms.search.suggested_query.query}}</strong>
-                                <a href="{{forms.search.suggested_query.url}}" class="search-refine">{{lang 'forms.search.refine'}}</a>
-                            </div>
-    
-                            {{#if result_count '===' 0}}
-                                <div class="search-suggestion">
-                                    <p>
-                                        {{lang 'forms.search.your_search_for'}}
-                                        "<strong>{{forms.search.query}}</strong>"
-                                        {{lang 'forms.search.no_match'}}
-                                    </p>
-                                </div>
-                            {{/if}}
-                        {{/if}}
-    
-                        {{#if category_results.length}}
-                            <div class="search-suggestion">
-                                <h5 class="suggestion-title">{{lang 'forms.search.categories'}}</h5>
-                                <ul class="category-suggestion-list">
-    
-                                    {{#each category_results}}
-                                    <li class="category-suggestion">
-    
-                                        {{#each this}}
-                                            <a href="{{url}}">{{name}}</a>
-                                            {{#unless @last}} > {{/unless}}
-                                        {{/each}}
-    
-                                    </li>
-                                    {{/each}}
-                                </ul>
-                            </div>
-                        {{/if}}
-    
-                        {{#if brand_results.length}}
-                            <div class="search-suggestion">
-                                <h5 class="suggestion-title">{{lang 'forms.search.brand'}}</h5>
-                                {{#each brand_results}}
-                                    <a href="{{url}}">{{name}}</a>
-                                    {{#unless @last}}, {{/unless}}
-                                {{/each}}
-                            </div>
-                        {{/if}}
-    
-                        {{#if result_count '===' 0}}
-                            <div class="search-suggestion">
-                                <h5 class="suggestion-title">{{lang 'forms.search.suggestions.title'}}</h5>
-                                <ul>
-                                    <li>{{lang 'forms.search.suggestions.line1'}}</li>
-                                    <li>{{lang 'forms.search.suggestions.line2'}}</li>
-                                    <li>{{lang 'forms.search.suggestions.line3'}}</li>
-                                </ul>
-                            </div>
-                        {{/if}}
-                    </div>
-                {{/if}}
-        
-                {{#if content_results}}
-                    <div id="search-results-content" {{#if forms.search.section '!=' 'content'}}class="u-hiddenVisually"{{/if}}>
-                        {{> components/search/content-sort-box sort=pagination.content_results.sort}}
-                        <ul>
-                            {{#each content_results}}
-                                <strong><a href="{{url}}">{{{title}}}</a></strong>({{type}})
-                                <p>{{{content}}}</p>
-                            {{/each}}
-                        </ul>
-                        {{> components/common/paginator pagination.content_results reload=true}}
-                    </div>
-        
-                {{/if}}
         
                 {{> os/components/search/product-listing}}
-            </div>
         </div>
     {{else}}
         {{> os/components/search/advanced-search hidden='false'}}

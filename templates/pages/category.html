@@ -121,6 +121,29 @@ category:
             {{/each}}
         </div>
     {{else}}
+        {{#if category.name '==' 'HiPP'}}
+            <a class="wholesale-banner hipp" href="https://organicstartwholesale.com">
+                <div class="container">
+                    <h3>
+                        Infant formulas are in-stock!
+                    </h3>
+                    <h4>
+                        Click here to shop from our European store.
+                    </h4>
+                </div>
+            </a>
+        {{else if category.name '==' 'Holle'}}
+            <a class="wholesale-banner holle" href="https://organicstartwholesale.com">
+                <div class="container">
+                    <h3>
+                        Infant formulas are in-stock!
+                    </h3>
+                    <h4>
+                        Click here to shop from our European store.
+                    </h4>
+                </div>
+            </a>
+        {{/if}}
         <div class="category">
             {{#if category.description}}
                 <div class="category-segment">

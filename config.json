@@ -39,7 +39,7 @@
     "categorypage_products_per_page": 24,
     "shop_by_price_visibility": false,
     "brandpage_products_per_page": 24,
-    "searchpage_products_per_page": 24,
+    "searchpage_products_per_page": 22,
     "show_product_quick_view": false,
     "show_product_quantity_box": true,
     "show_powered_by": false,

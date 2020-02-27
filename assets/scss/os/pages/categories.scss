@@ -517,3 +517,117 @@ $subcategories: (
         margin: 0;
     }
 }
+
+.bg-125, .bg-86, .bg-49, .bg-20, .bg-19, .bg-18 {
+    background: #fff!important;
+    & .splash.tint {
+        box-shadow: none!important;
+        background: transparent!important;
+    }
+}
+
+
+
+.wholesale-banner {
+    display: block;
+    margin: 0;
+    &.hipp {
+        @include ResponsiveBackground(
+            "https://triad.imgix.net/os/i/hipp-wholesale-banner-bg.jpg?w=320&q=80",
+            "https://triad.imgix.net/os/i/hipp-wholesale-banner-bg.jpg?w=320&q=60&dpr=1.5",
+            "https://triad.imgix.net/os/i/hipp-wholesale-banner-bg.jpg?w=320&q=40&dpr=2",
+            "https://triad.imgix.net/os/i/hipp-wholesale-banner-bg.jpg?w=320&q=20&dpr=3",
+            "https://triad.imgix.net/os/i/hipp-wholesale-banner-bg.jpg?w=320&q=10&dpr=4",
+            "https://triad.imgix.net/os/i/hipp-wholesale-banner-bg.jpg?w=560&q=80",
+            "https://triad.imgix.net/os/i/hipp-wholesale-banner-bg.jpg?w=560&q=60&dpr=1.5",
+            "https://triad.imgix.net/os/i/hipp-wholesale-banner-bg.jpg?w=560&q=40&dpr=2",
+            "https://triad.imgix.net/os/i/hipp-wholesale-banner-bg.jpg?w=560&q=20&dpr=3",
+            "https://triad.imgix.net/os/i/hipp-wholesale-banner-bg.jpg?w=560&q=10&dpr=4",
+            "https://triad.imgix.net/os/i/hipp-wholesale-banner-bg.jpg?w=768&q=80",
+            "https://triad.imgix.net/os/i/hipp-wholesale-banner-bg.jpg?w=768&q=60&dpr=1.5",
+            "https://triad.imgix.net/os/i/hipp-wholesale-banner-bg.jpg?w=768&q=40&dpr=2",
+            "https://triad.imgix.net/os/i/hipp-wholesale-banner-bg.jpg?w=768&q=20&dpr=3",
+            "https://triad.imgix.net/os/i/hipp-wholesale-banner-bg.jpg?w=768&q=10&dpr=4",
+            "https://triad.imgix.net/os/i/hipp-wholesale-banner-bg.jpg?w=1024&q=80",
+            "https://triad.imgix.net/os/i/hipp-wholesale-banner-bg.jpg?w=1024&q=60&dpr=1.5",
+            "https://triad.imgix.net/os/i/hipp-wholesale-banner-bg.jpg?w=1024&q=40&dpr=2",
+            "https://triad.imgix.net/os/i/hipp-wholesale-banner-bg.jpg?w=1024&q=20&dpr=3",
+            "https://triad.imgix.net/os/i/hipp-wholesale-banner-bg.jpg?w=1024&q=10&dpr=4",
+            "https://triad.imgix.net/os/i/hipp-wholesale-banner-bg.jpg?w=1440&q=80",
+            "https://triad.imgix.net/os/i/hipp-wholesale-banner-bg.jpg?w=1440&q=60&dpr=1.5",
+            "https://triad.imgix.net/os/i/hipp-wholesale-banner-bg.jpg?w=1440&q=40&dpr=2",
+            "https://triad.imgix.net/os/i/hipp-wholesale-banner-bg.jpg?w=1440&q=20&dpr=3",
+            "https://triad.imgix.net/os/i/hipp-wholesale-banner-bg.jpg?w=1440&q=10&dpr=4",
+            "https://triad.imgix.net/os/i/hipp-wholesale-banner-bg.jpg?w=2560&q=80",
+            "https://triad.imgix.net/os/i/hipp-wholesale-banner-bg.jpg?w=2560&q=60&dpr=1.5",
+            "https://triad.imgix.net/os/i/hipp-wholesale-banner-bg.jpg?w=2560&q=40&dpr=2",
+            "https://triad.imgix.net/os/i/hipp-wholesale-banner-bg.jpg?w=2560&q=20&dpr=3",
+            "https://triad.imgix.net/os/i/hipp-wholesale-banner-bg.jpg?w=2560&q=10&dpr=4"
+        );
+    }
+    &.holle {
+        @include ResponsiveBackground(
+            "https://triad.imgix.net/os/i/holle-wholesale-banner-bg.jpg?w=320&q=80",
+            "https://triad.imgix.net/os/i/holle-wholesale-banner-bg.jpg?w=320&q=60&dpr=1.5",
+            "https://triad.imgix.net/os/i/holle-wholesale-banner-bg.jpg?w=320&q=40&dpr=2",
+            "https://triad.imgix.net/os/i/holle-wholesale-banner-bg.jpg?w=320&q=20&dpr=3",
+            "https://triad.imgix.net/os/i/holle-wholesale-banner-bg.jpg?w=320&q=10&dpr=4",
+            "https://triad.imgix.net/os/i/holle-wholesale-banner-bg.jpg?w=560&q=80",
+            "https://triad.imgix.net/os/i/holle-wholesale-banner-bg.jpg?w=560&q=60&dpr=1.5",
+            "https://triad.imgix.net/os/i/holle-wholesale-banner-bg.jpg?w=560&q=40&dpr=2",
+            "https://triad.imgix.net/os/i/holle-wholesale-banner-bg.jpg?w=560&q=20&dpr=3",
+            "https://triad.imgix.net/os/i/holle-wholesale-banner-bg.jpg?w=560&q=10&dpr=4",
+            "https://triad.imgix.net/os/i/holle-wholesale-banner-bg.jpg?w=768&q=80",
+            "https://triad.imgix.net/os/i/holle-wholesale-banner-bg.jpg?w=768&q=60&dpr=1.5",
+            "https://triad.imgix.net/os/i/holle-wholesale-banner-bg.jpg?w=768&q=40&dpr=2",
+            "https://triad.imgix.net/os/i/holle-wholesale-banner-bg.jpg?w=768&q=20&dpr=3",
+            "https://triad.imgix.net/os/i/holle-wholesale-banner-bg.jpg?w=768&q=10&dpr=4",
+            "https://triad.imgix.net/os/i/holle-wholesale-banner-bg.jpg?w=1024&q=80",
+            "https://triad.imgix.net/os/i/holle-wholesale-banner-bg.jpg?w=1024&q=60&dpr=1.5",
+            "https://triad.imgix.net/os/i/holle-wholesale-banner-bg.jpg?w=1024&q=40&dpr=2",
+            "https://triad.imgix.net/os/i/holle-wholesale-banner-bg.jpg?w=1024&q=20&dpr=3",
+            "https://triad.imgix.net/os/i/holle-wholesale-banner-bg.jpg?w=1024&q=10&dpr=4",
+            "https://triad.imgix.net/os/i/holle-wholesale-banner-bg.jpg?w=1440&q=80",
+            "https://triad.imgix.net/os/i/holle-wholesale-banner-bg.jpg?w=1440&q=60&dpr=1.5",
+            "https://triad.imgix.net/os/i/holle-wholesale-banner-bg.jpg?w=1440&q=40&dpr=2",
+            "https://triad.imgix.net/os/i/holle-wholesale-banner-bg.jpg?w=1440&q=20&dpr=3",
+            "https://triad.imgix.net/os/i/holle-wholesale-banner-bg.jpg?w=1440&q=10&dpr=4",
+            "https://triad.imgix.net/os/i/holle-wholesale-banner-bg.jpg?w=2560&q=80",
+            "https://triad.imgix.net/os/i/holle-wholesale-banner-bg.jpg?w=2560&q=60&dpr=1.5",
+            "https://triad.imgix.net/os/i/holle-wholesale-banner-bg.jpg?w=2560&q=40&dpr=2",
+            "https://triad.imgix.net/os/i/holle-wholesale-banner-bg.jpg?w=2560&q=20&dpr=3",
+            "https://triad.imgix.net/os/i/holle-wholesale-banner-bg.jpg?w=2560&q=10&dpr=4"
+        );
+    }
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    &:hover, &:focus, &:active {
+        color: #fff;
+    }
+    & .container {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 4rem 1rem;
+        background: rgba(0,0,0,.3);
+        text-align: center;
+        & h3, & h4 {
+            color: #fff;
+            text-shadow: 1px 1px 1rem #000;
+        }
+        & h3 {
+            display: block;
+            font-family: Fredoka One, cursive;
+            font-weight: 400;
+            margin: 0 0 1rem 0;
+        }
+        & h4 {
+            display: block;
+            margin: 0;
+        }
+    }
+}

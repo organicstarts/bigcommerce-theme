@@ -165,16 +165,22 @@
                 </h2>
                 {{#if product.out_of_stock}}
                     <div class="product-features">
-                        <div class="bad item">
-                            <svg width="24" height="24" role="img" aria-label="Warning"><use xlink:href="#warningCircleInv" /></svg> This item is currently out of stock.
-                        </div>
-                        {{#each product.custom_fields}}
-                            {{#or (if name '==' 'Wholesale') (if name '==' 'wholesale')}}
-                                <a href="{{{value}}}" target="_blank" class="info item">
-                                    Shop this product &amp; more from our European site. <svg width="24" height="24" style="margin: 0 0 0 0.5rem;" role="presentation"><use xlink:href="#arrowRight" /></svg>
-                                </a>
-                            {{/or}}
-                        {{/each}}
+                        {{#if (add (occurrences product.title "Infant") (occurrences product.title "Milk")) '>' 1}}
+                            {{#each product.custom_fields}}
+                                {{#or (if name '==' 'Wholesale') (if name '==' 'wholesale')}}
+                                    <div class="shipping item">
+                                        <svg width="24" height="24" role="img" aria-label="Check"><use xlink:href="#check" /></svg> This item is currently in-stock on our European store
+                                    </div>
+                                    <a href="{{{value}}}" target="_blank" class="info item" style="display:inline-flex;padding: 0.5rem 1rem;color:#fff;background: #2185d0;border-radius: 1rem;">
+                                        Click here to purchase this &amp; more from our European site. <svg width="24" height="24" style="fill:#fff;margin: 0 0 0 0.5rem;" role="presentation"><use xlink:href="#arrowRight" /></svg>
+                                    </a>
+                                {{/or}}
+                            {{/each}}
+                        {{else}}
+                            <div class="bad item">
+                                <svg width="24" height="24" role="img" aria-label="Warning"><use xlink:href="#warningCircleInv" /></svg> This item is currently out of stock.
+                            </div>
+                        {{/if}}
                     </div>
                 {{ else }}
                     {{#isEmpty product.bulk_discount_rates}}
@@ -269,11 +275,11 @@
     </div>
     
     {{#if (add (occurrences product.title "Infant") (occurrences product.title "Milk")) '>' 1}}
-        <div class="alert-x1" style="margin-bottom:1rem;">
+        <!-- <div class="alert-x1" style="margin-bottom:1rem;">
             <div class="wrap">
                 <svg class="icon" role="img" aria-label="Important"><use xlink:href="#warningCircle" /></svg> <strong>Due to regulatory issues, this formula is unavailable.</strong>
             </div>
-        </div>
+        </div> -->
     {{/if}}
 
     {{#unless (add (occurrences product.title "Infant") (occurrences product.title "Milk")) '>' 1}}
